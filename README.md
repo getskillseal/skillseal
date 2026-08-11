@@ -103,6 +103,18 @@ The three attacks that broke an earlier, naive design (overwriting the store pin
 | [MCP 2026 roadmap](https://modelcontextprotocol.io/development/roadmap): enterprise audit trails, Server Cards | The pinned manifest *is* a signed Server Card; the signed root *is* the audit trail. |
 | [Agent Skills](https://agentskills.io/home): portable, cross product skills | The same guarantee extends to `SKILL.md`, unchanged. |
 
+## Design notes: whole skill trees and a decentralized substrate
+
+Two explorations extend the same content-addressed model beyond the demo:
+
+- **Encoding whole agent-skill directories.** A [Hermes](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) skill is a directory (`SKILL.md` plus `scripts/`, `references/`, `assets/`), and its ecosystem trusts skills by comparing hashes against an unauthenticated origin, with no signing. [`skill-tree/skill-tree.mjs`](skill-tree/skill-tree.mjs) content-addresses the whole tree into a Merkle manifest whose address is the skill's identity, catches a change in *any* file, and gains a signed provenance from the registry root. Details: [docs/design/encoding-hermes-skills.md](docs/design/encoding-hermes-skills.md).
+
+  ```bash
+  node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill
+  node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill
+  ```
+- **A decentralized storage substrate (Filecoin and S3).** Because addresses are the proof, the storage layer is untrusted and swappable: local disk, an S3-compatible object store (MinIO, R2, or Storj — decentralized *and* S3-compatible), or Filecoin/IPFS for durable archival, with reads verified on arrival. Details: [docs/design/storage-substrate.md](docs/design/storage-substrate.md).
+
 ## Honest limitations
 
 - The guarantee protects the **read surface** an agent loads: tool and prompt and resource text, schemas, annotations, and server instructions. A server that behaves maliciously *at call time without changing any of that* is a separate problem (runtime behavior, not supply chain).
@@ -120,8 +132,10 @@ The three attacks that broke an earlier, naive design (overwriting the store pin
 | `lib/manifest.mjs` | Capture the full server read surface as a stable, hashable manifest. |
 | `lib/store.mjs` | Store client: content address, blobs, signed root verification, diff. |
 | `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the altered variant. |
-| `skill-lock/skill-lock.mjs` | Pin and verify Agent Skills by content address. |
+| `skill-lock/skill-lock.mjs` | Pin and verify a single-file Agent Skill by content address. |
+| `skill-tree/skill-tree.mjs` | Content-address a whole skill directory as a Merkle manifest. |
 | `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
+| `docs/design/` | Design notes: encoding skill trees, and the storage substrate. |
 | `client/` | The scripted acts and the naive agent stand-in. |
 | `scripts/trust-store.sh` | Start and stop the content addressed trust store. |
 | `docs/compatibility.md` | Copy paste configs for popular agents. |
