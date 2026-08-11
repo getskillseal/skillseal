@@ -20,6 +20,8 @@ Agents load a server's **tool descriptions**, and a skill's **`SKILL.md`**, dire
 
 Approval stops being a name and becomes a hash. A changed tool description is, by definition, a **different address the agent never approved**, so a change is rejected outright, not merely flagged after the fact.
 
+The content address and signed audit root are backed by the **secure, content-addressable [kappa registry](https://github.com/UOR-Foundation/kappa-registry) from The UOR Foundation**: an OCI style registry that verifies every blob against its own hash on write and signs a deterministic root over the namespace. It gives the guarantee a durable, standards-aligned home instead of an ad hoc key value store.
+
 ## What you'll see: `./demo.sh`, four acts
 
 | Act | What runs | Result |
