@@ -28,7 +28,7 @@ Approval stops being a name and becomes a hash. A changed tool description is, b
 | --- | --- | --- |
 | **1. The attack, unprotected** | A real MCP client connects directly to a vendor server. The vendor ships an update: same name, same endpoint, altered description. | The agent reads the altered text and leaks a planted secret into a tool call. **No signal.** |
 | **2. The same attack, through the gateway** | Identical attack, connection routed through the verifying gateway. | Change caught, **diff printed**, altered description never enters context. Nothing leaks. |
-| **3. Signed, verifiable fleet state** | Fetch the trust store's **ed25519 signed namespace root**, verify it locally, change one character to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
+| **3. Signed, verifiable fleet state** | Fetch the **ed25519 signed namespace root** and verify it against the **pinned** store key; present a foreign key to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
 | **4. Skills are the new MCP** | Approve a skill, then an attacker rewrites its `SKILL.md`. | Same content addressed guarantee: the altered skill is refused at activation, with a diff. |
 
 Each act writes machine checkable proof to `./evidence/` so a skeptic can validate without trusting the terminal.
@@ -69,17 +69,29 @@ Clean up with `./demo.sh clean`.
 ```
    agent  <==MCP==>  verifying gateway  <==MCP==>  vendor MCP server
                           |
-                          v
-              content addressed trust store
-              (verify on write blobs + ed25519 signed root)
+                          |   root of trust (this disk): approved manifest
+                          +-- ./pins/  <-- the check reads THIS, not the store
+                          |
+                          +-- content addressed store (audit + distribution)
+                              (verify on write blobs + ed25519 signed root)
 ```
 
-The gateway is a normal MCP server to the agent and a normal MCP client to the upstream server, the same position as any [MCP gateway](https://aaif.io/projects/). On approval it records the upstream tool manifest at its content address and pins it. On every later connection it re-derives the address and compares:
+The gateway is a normal MCP server to the agent and a normal MCP client to the upstream server, the same position as any [MCP gateway](https://aaif.io/projects/). Three properties make the guarantee hold rather than merely appear to:
 
-- **match**: forward the tools unchanged;
-- **drift**: refuse, print a unified diff of exactly what changed, and hand the agent nothing but a `pin_verification_failed` notice.
+1. **The root of trust is local.** On approval the full manifest is written to `./pins/` on the verifier's own disk. Enforcement compares the upstream against *that local record*, never against a value fetched back from the shared store. So an attacker who can write to the store cannot change what "approved" means.
+2. **The whole read surface is pinned, not just descriptions.** The manifest covers everything an MCP server can place into a model's context: server `instructions`, and for every tool, prompt, and resource its name, title, description, schema, and annotations. A change in any of them is a new address.
+3. **The audit key is pinned.** The store's ed25519 key is captured out of band at first approval; the signed root is later verified against that pinned key, so a substituted or attacker run store is rejected, not trusted on sight.
 
-The trust store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foundation/kappa-registry), an OCI style `/v2/` registry used off the shelf: it **verifies content on write** (a blob whose bytes don't match its address is rejected with `DIGEST_INVALID`) and signs a deterministic **namespace root** over every pin. `skill-lock` applies the identical approve and verify flow to `SKILL.md` files.
+On every connection the gateway re-derives the address and compares to the local approval:
+
+- **match**: forward the upstream unchanged (tools, prompts, and resources);
+- **change**: refuse, print a unified diff of exactly what changed, and hand the agent nothing but a `pin_verification_failed` notice.
+
+The store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foundation/kappa-registry), an OCI style `/v2/` registry used off the shelf for audit and distribution: it **verifies content on write** (a blob whose bytes don't match its address is rejected with `DIGEST_INVALID`) and signs a deterministic **namespace root** over every pin. `skill-lock` applies the identical local approve and verify flow to `SKILL.md` files.
+
+### Adversarial gate
+
+The three attacks that broke an earlier, naive design (overwriting the store pin, injecting outside the tool description, and forging the signed root with an attacker key) now run on every build in [`client/adversarial.mjs`](client/adversarial.mjs) and must all stay **defended**. A regression flips one and fails CI.
 
 ## Alignment with AAIF
 
@@ -93,9 +105,10 @@ The trust store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foun
 
 ## Honest limitations
 
-- The trust store's authorization is currently permissive. The guarantees here come from **content addressing and signatures**, not access control. Anyone who can reach the store can write blobs, but they cannot make a blob claim an address it doesn't hash to, and they cannot forge the signed root.
-- This protects the **manifest** an agent reads. A server that behaves maliciously *without changing its advertised tools or skills* is a different problem (runtime behavior, not supply chain).
-- Single node trust store; pins and signing key are local to it. Horizontal deployment and external identity are out of scope for the demo.
+- The guarantee protects the **read surface** an agent loads: tool and prompt and resource text, schemas, annotations, and server instructions. A server that behaves maliciously *at call time without changing any of that* is a separate problem (runtime behavior, not supply chain).
+- The store's key is pinned **trust on first use**: the first approval records it. If the very first approval already talks to an impostor store, that impostor is what gets pinned. Distributing the expected key ahead of time closes this; it is out of scope for the demo.
+- The store's authorization is permissive, but it is no longer load bearing: enforcement trusts the local `./pins/` record, so store write access does not grant an attacker control over approvals (see the adversarial gate). The store still holds blobs and the audit root.
+- Single node store; horizontal deployment and external identity are out of scope for the demo.
 - The "agent" in Acts 1 and 2 is a deliberately naive, model free stand-in that follows instructions found in tool descriptions, exactly the behavior that makes the attack real, so the demo is deterministic and safe to run in CI.
 
 ## Repository map
@@ -103,10 +116,12 @@ The trust store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foun
 | Path | Responsibility |
 | --- | --- |
 | `gateway/gateway.mjs` | The verifying MCP gateway (approve and enforce). |
-| `lib/store.mjs` | Trust store client: content address, pins, signed root verification, diff. |
-| `lib/manifest.mjs` | Turn tool descriptions into a stable, hashable manifest. |
+| `lib/pins.mjs` | The local root of trust: approved manifests and the pinned store key. |
+| `lib/manifest.mjs` | Capture the full server read surface as a stable, hashable manifest. |
+| `lib/store.mjs` | Store client: content address, blobs, signed root verification, diff. |
 | `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the altered variant. |
 | `skill-lock/skill-lock.mjs` | Pin and verify Agent Skills by content address. |
+| `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
 | `client/` | The scripted acts and the naive agent stand-in. |
 | `scripts/trust-store.sh` | Start and stop the content addressed trust store. |
 | `docs/compatibility.md` | Copy paste configs for popular agents. |

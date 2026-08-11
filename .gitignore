@@ -5,4 +5,5 @@ trust-store/store.log
 trust-store/store.pid
 trust-store/kappa-registry/
 skill-lock/.work/
+pins/
 *.log

@@ -12,7 +12,7 @@ hr() { printf '%s\n' "==========================================================
 
 clean() {
   bash scripts/trust-store.sh stop || true
-  rm -rf evidence trust-store/data trust-store/store.log skill-lock/.work
+  rm -rf evidence trust-store/data trust-store/store.log skill-lock/.work pins
   echo "cleaned."
 }
 
@@ -42,6 +42,9 @@ node client/run-skills.mjs
 hr; echo "ACT 3 -- signed, verifiable fleet state"; hr
 node client/audit.mjs
 
+hr; echo "ADVERSARIAL GATE -- attacks that must stay defended"; hr
+node client/adversarial.mjs
+
 hr
 echo "ALL ACTS PASSED."
 echo "Evidence written to ./evidence/ -- inspect it yourself:"
@@ -49,4 +52,5 @@ echo "  evidence/act1.json            attack succeeds unprotected"
 echo "  evidence/act2.json            gateway BLOCKED verdict + drift diff"
 echo "  evidence/act4.json            skill drift blocked"
 echo "  evidence/act3-signed-root.json  ed25519-signed fleet state"
+echo "  (adversarial gate: 3/3 attacks defended)"
 hr

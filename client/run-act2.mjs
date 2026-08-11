@@ -58,7 +58,7 @@ async function main() {
 
   console.log("\n----------------------------------------------------------------");
   console.log(`gateway verdict : ${report.verdict}`);
-  console.log(`pinned address  : ${report.pinnedAddress}`);
+  console.log(`approved address: ${report.approvedAddress}`);
   console.log(`current address : ${report.currentAddress}`);
   console.log(`tools reaching agent: ${tools.map((t) => t.name).join(", ") || "(none)"}`);
   console.log("----------------------------------------------------------------");
