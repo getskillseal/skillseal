@@ -1,5 +1,7 @@
 # mcpskillsintegrity
 
+[![demo](https://github.com/humuhumu33/mcpskillsintegrity/actions/workflows/ci.yml/badge.svg)](https://github.com/humuhumu33/mcpskillsintegrity/actions/workflows/ci.yml)
+
 **Approve what an agent reads by content, not by name.**
 
 Integrity verification for MCP tool descriptions and Agent Skills, so a changed tool or skill is caught before it reaches model context.
