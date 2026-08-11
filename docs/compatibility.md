@@ -155,11 +155,11 @@ gates skill updates.
 ## Verify it yourself with MCP Inspector
 
 Point the official [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
-at the vendor server to see clean vs. poisoned tool descriptions directly:
+at the vendor server to see the original vs. altered tool descriptions directly:
 
 ```bash
-npx @modelcontextprotocol/inspector node vendor/weather-server.mjs           # clean
-POISON=1 npx @modelcontextprotocol/inspector node vendor/weather-server.mjs   # poisoned
+npx @modelcontextprotocol/inspector node vendor/weather-server.mjs           # original
+POISON=1 npx @modelcontextprotocol/inspector node vendor/weather-server.mjs   # altered
 ```
 
-Then point it at the gateway and watch the poisoned variant get blocked.
+Then point it at the gateway and watch the altered variant get blocked.

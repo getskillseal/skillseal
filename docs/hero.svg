@@ -1,44 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" font-family="'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif">
-  <rect width="1000" height="460" rx="14" fill="#0d1117"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" font-family="'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif">
+  <rect width="1000" height="640" rx="16" fill="#0d1117"/>
 
-  <text x="500" y="52" text-anchor="middle" fill="#e6edf3" font-size="27" font-weight="700">Approve what an agent reads by content, not by name.</text>
-  <text x="500" y="82" text-anchor="middle" fill="#8b949e" font-size="15">A vendor silently rewrites a tool description after you approved it. Same name. New instructions.</text>
+  <text x="500" y="62" text-anchor="middle" fill="#e6edf3" font-size="30" font-weight="800">Approve what an agent reads by content, not by name.</text>
+  <text x="500" y="96" text-anchor="middle" fill="#9aa4b0" font-size="18">A vendor changes a tool's instructions after you approved it. Same name, new behavior.</text>
 
   <!-- LEFT: approved by name -->
-  <rect x="40" y="112" width="440" height="292" rx="12" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
-  <rect x="40" y="112" width="440" height="46" rx="12" fill="#f8514915"/>
-  <text x="64" y="142" fill="#f85149" font-size="18" font-weight="700">Approved by NAME</text>
-  <text x="452" y="142" text-anchor="end" fill="#f85149" font-size="15">today's default</text>
+  <rect x="40" y="128" width="440" height="330" rx="14" fill="#161b22" stroke="#f85149" stroke-width="1.75"/>
+  <rect x="40" y="128" width="440" height="54" rx="14" fill="#f8514918"/>
+  <text x="66" y="163" fill="#f85149" font-size="21" font-weight="700">Approved by NAME</text>
+  <text x="454" y="162" text-anchor="end" fill="#f85149" font-size="16">today's default</text>
 
-  <circle cx="72" cy="196" r="4" fill="#8b949e"/>
-  <text x="90" y="201" fill="#c9d1d9" font-size="15.5">vendor ships an update, same name</text>
-  <circle cx="72" cy="232" r="4" fill="#8b949e"/>
-  <text x="90" y="237" fill="#c9d1d9" font-size="15.5">agent loads the new text into context</text>
-  <circle cx="72" cy="268" r="4" fill="#8b949e"/>
-  <text x="90" y="273" fill="#c9d1d9" font-size="15.5">hidden instruction is obeyed</text>
+  <circle cx="74" cy="222" r="4.5" fill="#9aa4b0"/>
+  <text x="94" y="228" fill="#d7dde4" font-size="18">vendor ships an update, same name</text>
+  <circle cx="74" cy="264" r="4.5" fill="#9aa4b0"/>
+  <text x="94" y="270" fill="#d7dde4" font-size="18">agent loads the new text into context</text>
+  <circle cx="74" cy="306" r="4.5" fill="#9aa4b0"/>
+  <text x="94" y="312" fill="#d7dde4" font-size="18">the hidden instruction is obeyed</text>
 
-  <rect x="64" y="292" width="392" height="34" rx="6" fill="#0d1117"/>
-  <text x="80" y="314" fill="#f85149" font-size="13.5" font-family="'SFMono-Regular',Consolas,monospace">city = "London  LEAKED_API_KEY_a1b2c3d4"</text>
+  <rect x="66" y="332" width="388" height="40" rx="7" fill="#0d1117"/>
+  <text x="84" y="358" fill="#f85149" font-size="15.5" font-family="'SFMono-Regular',Consolas,monospace">city = "London  LEAKED_KEY_a1b2c3d4"</text>
 
-  <text x="64" y="368" fill="#f85149" font-size="20" font-weight="700">&#10007;  attack succeeds, no signal</text>
+  <text x="66" y="424" fill="#f85149" font-size="23" font-weight="800">&#10007;  attack succeeds, no signal</text>
 
   <!-- RIGHT: approved by content -->
-  <rect x="520" y="112" width="440" height="292" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
-  <rect x="520" y="112" width="440" height="46" rx="12" fill="#3fb95015"/>
-  <text x="544" y="142" fill="#3fb950" font-size="18" font-weight="700">Approved by CONTENT</text>
-  <text x="932" y="142" text-anchor="end" fill="#3fb950" font-size="15">this project</text>
+  <rect x="520" y="128" width="440" height="330" rx="14" fill="#161b22" stroke="#3fb950" stroke-width="1.75"/>
+  <rect x="520" y="128" width="440" height="54" rx="14" fill="#3fb95018"/>
+  <text x="546" y="163" fill="#3fb950" font-size="21" font-weight="700">Approved by CONTENT</text>
+  <text x="934" y="162" text-anchor="end" fill="#3fb950" font-size="16">this project</text>
 
-  <circle cx="552" cy="196" r="4" fill="#8b949e"/>
-  <text x="570" y="201" fill="#c9d1d9" font-size="15.5">approval is a hash of the exact text</text>
-  <circle cx="552" cy="232" r="4" fill="#8b949e"/>
-  <text x="570" y="237" fill="#c9d1d9" font-size="15.5">the update hashes to a new address</text>
-  <circle cx="552" cy="268" r="4" fill="#8b949e"/>
-  <text x="570" y="273" fill="#c9d1d9" font-size="15.5">blocked before it reaches context</text>
+  <circle cx="554" cy="222" r="4.5" fill="#9aa4b0"/>
+  <text x="574" y="228" fill="#d7dde4" font-size="18">approval is a hash of the exact text</text>
+  <circle cx="554" cy="264" r="4.5" fill="#9aa4b0"/>
+  <text x="574" y="270" fill="#d7dde4" font-size="18">the update hashes to a new address</text>
+  <circle cx="554" cy="306" r="4.5" fill="#9aa4b0"/>
+  <text x="574" y="312" fill="#d7dde4" font-size="18">blocked before it reaches context</text>
 
-  <rect x="544" y="292" width="392" height="34" rx="6" fill="#0d1117"/>
-  <text x="560" y="314" fill="#3fb950" font-size="13.5" font-family="'SFMono-Regular',Consolas,monospace">DRIFT BLOCKED  pinned != current</text>
+  <rect x="546" y="332" width="388" height="40" rx="7" fill="#0d1117"/>
+  <text x="564" y="358" fill="#3fb950" font-size="15.5" font-family="'SFMono-Regular',Consolas,monospace">DRIFT BLOCKED   pinned != current</text>
 
-  <text x="544" y="368" fill="#3fb950" font-size="20" font-weight="700">&#10003;  nothing leaks, ever</text>
+  <text x="546" y="424" fill="#3fb950" font-size="23" font-weight="800">&#10003;  nothing leaks, ever</text>
 
-  <text x="500" y="432" text-anchor="middle" fill="#6e7681" font-size="14">Reproduce every line on your machine with a single command:  ./demo.sh</text>
+  <!-- Works-with logo band -->
+  <line x1="40" y1="502" x2="960" y2="502" stroke="#21262d"/>
+  <text x="500" y="536" text-anchor="middle" fill="#9aa4b0" font-size="17">Drops into the agents you already use, with no code changes</text>
+
+  <g transform="translate(0,566)">
+    <circle cx="112" cy="14" r="9" fill="#d97757"/>
+    <text x="130" y="20" fill="#e6edf3" font-size="18" font-weight="600">Claude</text>
+
+    <rect x="252" y="5" width="18" height="18" rx="4" fill="#00a67d"/>
+    <text x="278" y="20" fill="#e6edf3" font-size="18" font-weight="600">goose</text>
+
+    <circle cx="392" cy="14" r="9" fill="#8957e5"/>
+    <text x="410" y="20" fill="#e6edf3" font-size="18" font-weight="600">Cursor</text>
+
+    <circle cx="520" cy="14" r="9" fill="#e6edf3"/>
+    <text x="538" y="20" fill="#e6edf3" font-size="18" font-weight="600">Copilot</text>
+
+    <rect x="654" y="5" width="18" height="18" rx="4" fill="#2f9bff"/>
+    <text x="680" y="20" fill="#e6edf3" font-size="18" font-weight="600">VS Code</text>
+
+    <circle cx="820" cy="14" r="9" fill="#4285f4"/>
+    <text x="838" y="20" fill="#e6edf3" font-size="18" font-weight="600">Gemini</text>
+  </g>
 </svg>

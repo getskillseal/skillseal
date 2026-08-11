@@ -2,9 +2,9 @@
 
 **Approve what an agent reads by content, not by name.**
 
-Integrity verification for MCP tool descriptions and Agent Skills, so a silently rewritten tool or skill is caught before it reaches model context.
+Integrity verification for MCP tool descriptions and Agent Skills, so a changed tool or skill is caught before it reaches model context.
 
-![Without the gateway a poisoned tool description reaches the agent and leaks a canary; with the verifying gateway the same attack is blocked before it enters context.](docs/hero.svg)
+![Without content verification an altered tool description reaches the agent and leaks a planted secret; with it, the same change is blocked before it reaches context.](docs/hero.svg)
 
 Every line in that picture is reproduced by `./demo.sh` on your machine.
 
@@ -12,22 +12,22 @@ Every line in that picture is reproduced by `./demo.sh` on your machine.
 
 ## The problem
 
-Agents load a server's **tool descriptions**, and a skill's **`SKILL.md`**, directly into model context, and they fetch them **by name** every time. That text is mutable: whoever can update the server or the file rewrites what the agent does, after you approved it. This is the documented [MCP tool poisoning "rug pull" attack](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), and it applies just as cleanly to [Agent Skills](https://agentskills.io/home). Model Context Protocol is now a [Linux Foundation and AAIF project](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) at ecosystem scale, so this is the supply chain gap sitting under three [AAIF working groups](https://aaif.io/): Security and Privacy, Identity and Trust, and Observability and Traceability.
+Agents load a server's **tool descriptions**, and a skill's **`SKILL.md`**, directly into model context, and they fetch them **by name** every time. That text is mutable: whoever can update the server or the file changes what the agent does, after you approved it. This is the documented [MCP tool poisoning attack](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), and it applies just as cleanly to [Agent Skills](https://agentskills.io/home). Model Context Protocol is now a [Linux Foundation and AAIF project](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) at ecosystem scale, so this is the supply chain gap sitting under three [AAIF working groups](https://aaif.io/): Security and Privacy, Identity and Trust, and Observability and Traceability.
 
 ## The solution
 
 > A verifying gateway pins each approved server's tool manifest, and each approved skill's `SKILL.md`, to its content address. Any drift is blocked and diffed before it reaches model context, and the fleet's trusted state is one signed, auditable root.
 
-Approval stops being a name and becomes a hash. A changed tool description is, by definition, a **different address the agent never approved**, so tampering isn't something you detect after the fact. It is something the agent can no longer express.
+Approval stops being a name and becomes a hash. A changed tool description is, by definition, a **different address the agent never approved**, so a change is rejected outright, not merely flagged after the fact.
 
 ## What you'll see: `./demo.sh`, four acts
 
 | Act | What runs | Result |
 | --- | --- | --- |
-| **1. The rug pull, unprotected** | A real MCP client connects directly to a vendor server. The vendor ships an update: same name, same endpoint, poisoned description. | The agent reads the poison and leaks a canary into a tool call. **No signal.** |
-| **2. The same attack, through the gateway** | Identical attack, connection routed through the verifying gateway. | Drift caught, **diff printed**, poisoned description never enters context. Nothing leaks. |
-| **3. Signed, verifiable fleet state** | Fetch the trust store's **ed25519 signed namespace root**, verify it locally, flip one nibble to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
-| **4. Skills are the new MCP** | Approve a skill, then an attacker rewrites its `SKILL.md`. | Same content addressed guarantee: the poisoned skill is refused at activation, with a diff. |
+| **1. The attack, unprotected** | A real MCP client connects directly to a vendor server. The vendor ships an update: same name, same endpoint, altered description. | The agent reads the altered text and leaks a planted secret into a tool call. **No signal.** |
+| **2. The same attack, through the gateway** | Identical attack, connection routed through the verifying gateway. | Change caught, **diff printed**, altered description never enters context. Nothing leaks. |
+| **3. Signed, verifiable fleet state** | Fetch the trust store's **ed25519 signed namespace root**, verify it locally, change one character to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
+| **4. Skills are the new MCP** | Approve a skill, then an attacker rewrites its `SKILL.md`. | Same content addressed guarantee: the altered skill is refused at activation, with a diff. |
 
 Each act writes machine checkable proof to `./evidence/` so a skeptic can validate without trusting the terminal.
 
@@ -83,7 +83,7 @@ The trust store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foun
 
 | AAIF working group or roadmap item | What this demo shows |
 | --- | --- |
-| [Security and Privacy](https://aaif.io/): security by design, adversarial testing | The tool poisoning attack is reproduced, then made unexpressible. |
+| [Security and Privacy](https://aaif.io/): security by design, adversarial testing | The tool poisoning attack is reproduced, then blocked by construction. |
 | [Identity and Trust](https://aaif.io/): delegation you can rely on | Approval is bound to content, not a mutable name. |
 | [Observability and Traceability](https://aaif.io/): audit capabilities | A signed namespace root is a one request, verifiable audit of fleet state. |
 | [MCP 2026 roadmap](https://modelcontextprotocol.io/development/roadmap): enterprise audit trails, Server Cards | The pinned manifest *is* a signed Server Card; the signed root *is* the audit trail. |
@@ -103,7 +103,7 @@ The trust store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foun
 | `gateway/gateway.mjs` | The verifying MCP gateway (approve and enforce). |
 | `lib/store.mjs` | Trust store client: content address, pins, signed root verification, diff. |
 | `lib/manifest.mjs` | Turn tool descriptions into a stable, hashable manifest. |
-| `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the rug pull. |
+| `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the altered variant. |
 | `skill-lock/skill-lock.mjs` | Pin and verify Agent Skills by content address. |
 | `client/` | The scripted acts and the naive agent stand-in. |
 | `scripts/trust-store.sh` | Start and stop the content addressed trust store. |
