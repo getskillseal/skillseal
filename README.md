@@ -1,6 +1,6 @@
-# mcpskillsintegrity
+# mcp-skills-integrity
 
-[![demo](https://github.com/humuhumu33/mcpskillsintegrity/actions/workflows/ci.yml/badge.svg)](https://github.com/humuhumu33/mcpskillsintegrity/actions/workflows/ci.yml)
+[![demo](https://github.com/humuhumu33/mcp-skills-integrity/actions/workflows/ci.yml/badge.svg)](https://github.com/humuhumu33/mcp-skills-integrity/actions/workflows/ci.yml)
 
 **Approve what an agent reads by content, not by name.**
 
@@ -55,8 +55,8 @@ The gateway speaks plain MCP over stdio, and `skill-lock` is a one line pre-acti
 ## Quickstart
 
 ```bash
-git clone https://github.com/humuhumu33/mcpskillsintegrity
-cd mcpskillsintegrity
+git clone https://github.com/humuhumu33/mcp-skills-integrity
+cd mcp-skills-integrity
 ./demo.sh
 ```
 
