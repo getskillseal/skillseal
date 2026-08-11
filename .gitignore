@@ -1,0 +1,8 @@
+node_modules/
+evidence/
+trust-store/data/
+trust-store/store.log
+trust-store/store.pid
+trust-store/kappa-registry/
+skill-lock/.work/
+*.log

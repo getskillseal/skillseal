@@ -1,0 +1,43 @@
+name: demo
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      # The trust store builds from source when Docker isn't used. Cache the
+      # kappa-registry release build so CI stays fast after the first run.
+      - name: Cache trust store build
+        uses: actions/cache@v4
+        with:
+          path: |
+            trust-store/kappa-registry/target
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: trust-store-${{ runner.os }}-v1
+
+      - name: Run the full demo
+        run: ./demo.sh
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence
+          path: evidence/
