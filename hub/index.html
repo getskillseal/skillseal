@@ -49,7 +49,7 @@
   nav.top .links svg{width:15px;height:15px;opacity:.85}
 
   /* ── hero: fills the viewport on any device, content centered ── */
-  header.hero{position:relative;min-height:calc(100svh - 48px);min-height:calc(100dvh - 48px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.2vh 1.25rem 1.6rem;overflow:hidden}
+  header.hero{position:relative;min-height:calc(100svh - 48px);min-height:calc(100dvh - 48px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.2vh 1.25rem 1.8rem;overflow:hidden}
   .hero-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.7rem,2.4vh,1.6rem);width:100%}
   header.hero:before{content:"";position:absolute;inset:-20% 0 auto 50%;transform:translateX(-50%);
     width:min(1000px,120vw);height:60vh;border-radius:50%;pointer-events:none;z-index:1;
@@ -62,7 +62,7 @@
     mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
   header.hero>*{position:relative;z-index:2}
   header.hero>#bg{z-index:0}
-  .mascot{margin:0;font-size:clamp(3.7rem,10vh,6.4rem);line-height:1;filter:drop-shadow(0 10px 36px rgba(29,155,240,.4))}
+  .mascot{margin:0;font-size:clamp(4.1rem,11.5vh,7.2rem);line-height:1;filter:drop-shadow(0 10px 38px rgba(29,155,240,.42))}
   .eyebrow{margin:0;font-size:clamp(.7rem,1.6vh,.82rem);font-weight:600;letter-spacing:.24em;
     text-transform:uppercase;color:var(--seal);font-family:"JetBrains Mono",monospace}
   h1{margin:0;font-size:clamp(2.1rem,6.2vw,4.4rem);font-weight:800;letter-spacing:-.045em;line-height:1.02}
@@ -73,16 +73,16 @@
 
   h1 em{font-style:italic;color:var(--seal)}
   .lead{max-width:640px;margin:0 auto;font-size:1.12rem;line-height:1.6;color:var(--dim)}
-  .cta{display:flex;justify-content:center;gap:.8rem;margin:0;flex-wrap:wrap}
+  .cta{display:flex;justify-content:center;gap:.7rem;margin:.5rem 0 0;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line-2);border-radius:8px;
-    padding:.8rem 1.5rem;font-family:"JetBrains Mono",monospace;font-size:.92rem;font-weight:500;color:var(--ink);background:transparent}
+    padding:.62rem 1.25rem;font-family:"JetBrains Mono",monospace;font-size:.85rem;font-weight:500;color:var(--ink);background:transparent}
   .btn:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.03)}
   .btn.primary{background:var(--seal);border-color:var(--seal);color:#04111d;font-weight:700}
   .btn.primary:hover{background:#3aabf5;border-color:#3aabf5}
   .btn b{color:inherit}
 
   /* ── quick start ─────────────────────────────────────────── */
-  .qs{padding:.5rem 1.5rem 2.6rem}
+  .qs{padding:3rem 1.5rem 2.4rem}
   .qs-inner{max-width:940px;margin:0 auto}
   .qs-h{font-family:"JetBrains Mono",monospace;font-size:.82rem;letter-spacing:.2em;color:var(--gold);margin:0 0 .8rem}
   .qs-box{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0a0a12}
@@ -124,7 +124,7 @@
   .pill .c{font-family:"JetBrains Mono",monospace;font-size:.76rem;opacity:.72}
 
   /* ── body ─────────────────────────────────────────────────── */
-  .layout{display:grid;grid-template-columns:260px 1fr;gap:1.6rem;max-width:1180px;margin:0 auto;padding:1.75rem 1.5rem 4rem}
+  .layout{display:grid;grid-template-columns:260px 1fr;gap:1.6rem;max-width:1180px;margin:0 auto;padding:2.4rem 1.5rem 4rem}
   .side .label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:.2rem 0 .7rem}
   .catbtn{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;background:none;border:1px solid transparent;
     border-radius:8px;padding:.5rem .6rem;color:var(--dim);font-size:.92rem}
@@ -133,13 +133,13 @@
   .catbtn .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
   .catbtn.on .c{color:var(--gold)}
 
-  .mainhead{margin-bottom:1.4rem}
-  .mrow{display:flex;align-items:center;margin-bottom:1rem}
-  .mainhead .search{max-width:none;margin:0}
-  .mtitle{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+  .mainhead{margin-bottom:1.5rem}
+  .mrow{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .mrow .search{flex:1 1 240px;max-width:none;margin:0}
+  .mtitle{flex:0 0 auto;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:baseline;gap:.6rem;white-space:nowrap}
   .countbadge{font-size:.82rem;font-weight:500;color:var(--dim);background:var(--panel);
     border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem}
-  .sortwrap{margin-left:auto;position:relative}
+  .sortwrap{flex:0 0 auto;position:relative}
   .sortbtn{background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--ink);
     font-size:.9rem;padding:.55rem .9rem;display:flex;align-items:center;gap:.5rem}
   .sortbtn:hover{border-color:var(--line-2)}
@@ -318,6 +318,11 @@
     <div class="mainhead">
       <div class="mrow">
         <div class="mtitle">Sealed Skills <span class="countbadge mono" id="skillCount">0</span></div>
+        <div class="search">
+          <span class="ico">⌕</span>
+          <input id="q" placeholder='Search skills... (press "/" to focus)' autocomplete="off" />
+          <button class="clear" id="clear" hidden>✕</button>
+        </div>
         <div class="sortwrap">
           <button class="sortbtn" id="sortBtn">Most used <span class="chev">▾</span></button>
           <div class="sortmenu" id="sortMenu" hidden>
@@ -326,11 +331,6 @@
             <button data-sort="cat">By category</button>
           </div>
         </div>
-      </div>
-      <div class="search">
-        <span class="ico">⌕</span>
-        <input id="q" placeholder='Search skills... (press "/" to focus)' autocomplete="off" />
-        <button class="clear" id="clear" hidden>✕</button>
       </div>
     </div>
     <div class="grid" id="grid"></div>
