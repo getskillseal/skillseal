@@ -1,9 +1,11 @@
 {
   "name": "skillseal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Install an agent skill from one line that proves what it is: the contents' fingerprint, the publisher's key, and their signature. Checks every byte before anything is written, and installs as a plain Agent Skills folder that any agent already reads.",
   "type": "module",
-  "bin": { "skillseal": "cli.mjs" },
+  "bin": {
+    "skillseal": "cli.mjs"
+  },
   "main": "install.mjs",
   "exports": {
     ".": "./install.mjs",
@@ -11,15 +13,36 @@
     "./agents": "./agents.mjs"
   },
   "files": [
-    "cli.mjs", "token.mjs", "bech32.mjs", "fetch.mjs", "install.mjs",
-    "manifest.mjs", "identity.mjs", "identity-log.mjs", "agents.mjs", "publishers.mjs", "lock.mjs", "store.mjs", "README.md"
+    "cli.mjs",
+    "token.mjs",
+    "bech32.mjs",
+    "fetch.mjs",
+    "install.mjs",
+    "manifest.mjs",
+    "identity.mjs",
+    "identity-log.mjs",
+    "agents.mjs",
+    "publishers.mjs",
+    "lock.mjs",
+    "store.mjs",
+    "README.md"
   ],
   "keywords": [
-    "agent-skills", "skills", "mcp", "integrity", "provenance",
-    "content-addressed", "ipfs", "filecoin", "ed25519", "supply-chain"
+    "agent-skills",
+    "skills",
+    "mcp",
+    "integrity",
+    "provenance",
+    "content-addressed",
+    "ipfs",
+    "filecoin",
+    "ed25519",
+    "supply-chain"
   ],
   "license": "MIT",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/getskillseal/skillseal.git",

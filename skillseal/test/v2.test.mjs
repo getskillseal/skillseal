@@ -96,6 +96,14 @@ async function main() {
   assert.ok(res.steps.some((s) => /files match their entries/.test(s)));
   ok("v2 pointer resolves, verifies, and installs a real folder");
 
+  // a relative --to must not read as a path escape (regression: Windows safeJoin)
+  const relBase = mkdtempSync(join(tmpdir(), "sk-rel-")), cwd0 = process.cwd();
+  process.chdir(relBase);
+  await install(token, { to: "./sub/here", locations: [store.base] });
+  process.chdir(cwd0);
+  assert.ok(existsSync(join(relBase, "sub", "here", "csv-stats", "SKILL.md")));
+  ok("installs correctly to a relative target directory");
+
   // Corrupt one file in the store; the read must be refused.
   const evil = Buffer.from(files[1].bytes); evil[0] ^= 0xff;
   store.set(files[1].address, evil);

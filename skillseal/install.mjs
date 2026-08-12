@@ -46,8 +46,9 @@ function signatureValid(message, signatureHex, publicKeyHex) {
 
 // A file list entry must stay inside the skill folder.
 function safeJoin(root, relPath) {
-  const full = resolve(root, relPath);
-  if (full !== root && !full.startsWith(root + sep)) throw new Error(`unsafe path in skill: ${relPath}`);
+  const base = resolve(root);                 // resolve first: a relative target must not read as an escape
+  const full = resolve(base, relPath);
+  if (full !== base && !full.startsWith(base + sep)) throw new Error(`unsafe path in skill: ${relPath}`);
   return full;
 }
 
