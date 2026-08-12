@@ -8,7 +8,7 @@
 // SKILL.md reference. The address on the page is computed here, so the docs and
 // the thing an agent fetches cannot drift apart.
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync, rmSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync, rmSync, cpSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildTree } from "../../demo/lib/skilltree.mjs";
@@ -99,12 +99,16 @@ ${body}
 function copyHub() {
   const dest = join(HERE, "static", "hub");
   mkdirSync(dest, { recursive: true });
-  for (const page of ["index.html", "seal.html", "catalog.json"]) {
+  for (const page of ["index.html", "seal.html", "ipfs.html", "catalog.json"]) {
     const src = join(REPO_ROOT, "web", "hub", page);
     if (!existsSync(src)) continue;
     writeFileSync(join(dest, page), readFileSync(src));
-    console.log(`copied hub/${page} -> website/static/hub/${page}`);
+    console.log(`copied hub/${page} -> static/hub/${page}`);
   }
+  // the content-addressed blob store, so a pasted v2 pointer resolves straight
+  // from Pages with no setup (the address is still hashed on arrival).
+  const blobs = join(REPO_ROOT, "web", "hub", "blobs");
+  if (existsSync(blobs)) { cpSync(blobs, join(dest, "blobs"), { recursive: true }); console.log("copied hub/blobs -> static/hub/blobs"); }
 }
 
 function main() {

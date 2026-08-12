@@ -28,7 +28,11 @@ import { anchorOf, isDemoIdentity, verifyBinding, TRUST } from "./identity.mjs";
 // Default content stores for resolving a v2 pointer, which carries no location
 // of its own. Any store that lays files out by their address works; none is
 // trusted, because whatever it returns is hashed against the address first.
-const DEFAULT_STORES = (process.env.SKILLSEAL_STORES || "")
+// A default public mirror so a pasted pointer resolves with no setup. It is not
+// trusted: whatever it returns is hashed against the address first, so it can
+// only fail to answer, never answer with something else. Override or add your
+// own with SKILLSEAL_STORES or --from.
+const DEFAULT_STORES = (process.env.SKILLSEAL_STORES || "https://getskillseal.github.io/skillseal/hub")
   .split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
 
 function signatureValid(message, signatureHex, publicKeyHex) {

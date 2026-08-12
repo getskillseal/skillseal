@@ -143,6 +143,30 @@ async function main() {
   assert.ok(isDemoIdentity(keysFromSeed("skillseal-demo-publisher-seed").publicHex));
   ok("the shared demo identity is recognized");
 
+  // ── identity log: offline auditable key succession (kappa AKD, minimal) ──
+  const { appendLog, verifyLog } = await import("../identity-log.mjs");
+  const rawHex = (kp) => kp.publicKey.export({ type: "spki", format: "der" }).subarray(-32).toString("hex");
+  const k1 = generateKeyPairSync("ed25519"), k1h = rawHex(k1);
+  let log = appendLog([], { key: k1h, ts: 1, handle: "alice.example", signWith: k1.privateKey });
+  let head = verifyLog(log);
+  assert.equal(head.anchor, anchorOf(k1h)); assert.equal(head.handle, "alice.example");
+  ok("a genesis identity log verifies offline (self signed)");
+
+  const k2 = generateKeyPairSync("ed25519"), k2h = rawHex(k2);
+  log = appendLog(log, { key: k2h, ts: 2, signWith: k1.privateKey }); // old key authorizes new
+  head = verifyLog(log);
+  assert.equal(head.anchor, anchorOf(k2h)); assert.equal(head.history.length, 2);
+  ok("a rotation authorized by the previous key extends the chain");
+
+  const attacker = generateKeyPairSync("ed25519");
+  const forgedLog = appendLog(log, { key: rawHex(attacker), ts: 3, signWith: attacker.privateKey }); // self signed, not by k2
+  assert.throws(() => verifyLog(forgedLog), /not signed by the previous key/);
+  ok("an unauthorized key change (self signed) is rejected");
+
+  const tamperedLog = JSON.parse(JSON.stringify(log)); tamperedLog[0].ts = 999;
+  assert.throws(() => verifyLog(tamperedLog), /chain|signed/);
+  ok("tampering with any log entry breaks verification");
+
   store.close();
   for (const d of [skillDir, outDir, outDir2, outDir3]) rmSync(d, { recursive: true, force: true });
 
