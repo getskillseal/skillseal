@@ -30,8 +30,9 @@ The content address and signed audit root are backed by the **secure, content-ad
 | **2. The same attack, through the gateway** | Identical attack, connection routed through the verifying gateway. | Change caught, **diff printed**, altered description never enters context. Nothing leaks. |
 | **3. Signed, verifiable fleet state** | Fetch the **ed25519 signed namespace root** and verify it against the **pinned** store key; present a foreign key to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
 | **4. Skills are the new MCP** | Approve a skill, then an attacker rewrites its `SKILL.md`. | Same content addressed guarantee: the altered skill is refused at activation, with a diff. |
+| **5. Self-verifying skills on Filecoin storage** *(optional)* | Store a whole skill's blobs in S3-compatible Filecoin storage ([Akave](https://docs.akave.xyz/) or [Filebase](https://filebase.com/); MinIO stand-in by default), fetch them back by address, then corrupt one object in the bucket. | Every object re-verifies (and carries a Filecoin/IPFS CID when the provider returns one); the corrupted one is rejected on read. The store is untrusted; the skill is self-verifying because the address is the proof. |
 
-Each act writes machine checkable proof to `./evidence/` so a skeptic can validate without trusting the terminal.
+Each act writes machine checkable proof to `./evidence/` so a skeptic can validate without trusting the terminal. Act 5 runs against a local MinIO stand-in when Docker (or a local MinIO) is available, and against real Filecoin storage by setting a few environment variables (see [`.env.filecoin.example`](.env.filecoin.example)); it is skipped when no object store is reachable.
 
 ## Drops into the agents you already use
 
@@ -113,7 +114,7 @@ Two explorations extend the same content-addressed model beyond the demo:
   node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill
   node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill
   ```
-- **A decentralized storage substrate (Filecoin and S3).** Because addresses are the proof, the storage layer is untrusted and swappable: local disk, an S3-compatible object store (MinIO, R2, or Storj — decentralized *and* S3-compatible), or Filecoin/IPFS for durable archival, with reads verified on arrival. Details: [docs/design/storage-substrate.md](docs/design/storage-substrate.md).
+- **Self-verifying skills on Filecoin storage.** Because addresses are the proof, the storage layer is untrusted and swappable. Filecoin now has S3-compatible front doors — [Akave O3](https://docs.akave.xyz/) (Filecoin's S3 layer) and [Filebase](https://filebase.com/) (IPFS + Filecoin) — so the *same* client stores a skill on Filecoin by changing only the endpoint and credentials. **Act 5 makes this executable** ([`lib/s3.mjs`](lib/s3.mjs) + [`client/run-s3.mjs`](client/run-s3.mjs)): a skill's blobs are stored, re-verified by address, carry a Filecoin/IPFS CID as provenance, and a corrupted object is rejected on read. Design: [docs/design/storage-substrate.md](docs/design/storage-substrate.md).
 
 ## Honest limitations
 
@@ -134,6 +135,9 @@ Two explorations extend the same content-addressed model beyond the demo:
 | `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the altered variant. |
 | `skill-lock/skill-lock.mjs` | Pin and verify a single-file Agent Skill by content address. |
 | `skill-tree/skill-tree.mjs` | Content-address a whole skill directory as a Merkle manifest. |
+| `lib/s3.mjs` | Dependency-free S3 client (SigV4) for any S3-compatible endpoint. |
+| `client/run-s3.mjs` | Act 5: serve a skill from S3 and re-verify by address. |
+| `scripts/s3-store.sh` | Start/stop a MinIO object store (Docker or local binary). |
 | `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
 | `docs/design/` | Design notes: encoding skill trees, and the storage substrate. |
 | `client/` | The scripted acts and the naive agent stand-in. |

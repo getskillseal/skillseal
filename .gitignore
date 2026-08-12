@@ -4,6 +4,9 @@ trust-store/data/
 trust-store/store.log
 trust-store/store.pid
 trust-store/kappa-registry/
+trust-store/s3data/
+trust-store/bin/
+trust-store/minio.pid
 skill-lock/.work/
 pins/
 *.log

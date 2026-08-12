@@ -12,7 +12,9 @@ hr() { printf '%s\n' "==========================================================
 
 clean() {
   bash scripts/trust-store.sh stop || true
-  rm -rf evidence trust-store/data trust-store/store.log skill-lock/.work pins
+  bash scripts/s3-store.sh stop || true
+  rm -rf evidence trust-store/data trust-store/store.log skill-lock/.work pins \
+         trust-store/s3data trust-store/minio.log trust-store/minio.pid
   echo "cleaned."
 }
 
@@ -42,6 +44,15 @@ node client/run-skills.mjs
 hr; echo "ACT 3 -- signed, verifiable fleet state"; hr
 node client/audit.mjs
 
+hr; echo "ACT 5 -- S3-compatible / decentralized storage substrate"; hr
+if bash scripts/s3-store.sh start; then
+  export S3_ENDPOINT="${S3_ENDPOINT:-http://127.0.0.1:9000}"
+  node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill >/dev/null
+  node client/run-s3.mjs
+else
+  echo "ACT 5: skipped (no Docker and MinIO unavailable). Storage substrate is optional."
+fi
+
 hr; echo "ADVERSARIAL GATE -- attacks that must stay defended"; hr
 node client/adversarial.mjs
 
@@ -52,5 +63,6 @@ echo "  evidence/act1.json            attack succeeds unprotected"
 echo "  evidence/act2.json            gateway BLOCKED verdict + drift diff"
 echo "  evidence/act4.json            skill drift blocked"
 echo "  evidence/act3-signed-root.json  ed25519-signed fleet state"
+echo "  evidence/act5.json              skill blobs served from S3, re-verified"
 echo "  (adversarial gate: 3/3 attacks defended)"
 hr

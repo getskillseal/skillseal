@@ -23,47 +23,9 @@
 //   node skill-tree/skill-tree.mjs encode <skill-dir> [pin-name]
 //   node skill-tree/skill-tree.mjs verify <skill-dir> [pin-name]
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
-import { join, relative, basename, sep } from "node:path";
-import {
-  putBlob, getBlob, setPin, contentAddress, canonicalJson, NAMESPACE,
-} from "../lib/store.mjs";
+import { putBlob, getBlob, setPin, contentAddress, NAMESPACE } from "../lib/store.mjs";
 import { savePin, loadPin } from "../lib/pins.mjs";
-
-function walk(dir, base = dir, acc = []) {
-  for (const entry of readdirSync(dir).sort()) {
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) walk(full, base, acc);
-    else acc.push({ path: relative(base, full).split(sep).join("/"), full, size: st.size });
-  }
-  return acc;
-}
-
-function skillName(dir) {
-  const md = readFileSync(join(dir, "SKILL.md"), "utf8");
-  const name = /^name:\s*(.+)$/m.exec(md)?.[1]?.trim();
-  const version = /^version:\s*(.+)$/m.exec(md)?.[1]?.trim() || "0";
-  return { name: name || basename(dir), version };
-}
-
-// Build the Merkle manifest for a skill directory. Returns {manifest, bytes,
-// address, files:[{path,address,size,bytes}]}.
-function buildTree(dir) {
-  const { name, version } = skillName(dir);
-  const files = walk(dir).map((f) => {
-    const bytes = readFileSync(f.full);
-    return { path: f.path, address: contentAddress(bytes), size: f.size, bytes };
-  });
-  const manifest = {
-    kind: "hermes-skill",
-    name,
-    version,
-    files: files.map((f) => ({ path: f.path, address: f.address, size: f.size })),
-  };
-  const bytes = Buffer.from(canonicalJson(manifest), "utf8");
-  return { manifest, bytes, address: contentAddress(bytes), files };
-}
+import { buildTree } from "../lib/skilltree.mjs";
 
 async function encode(dir, pinArg) {
   const tree = buildTree(dir);

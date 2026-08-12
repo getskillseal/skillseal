@@ -4,6 +4,8 @@ The [kappa registry](https://github.com/UOR-Foundation/kappa-registry) is conten
 
 So "where the bytes live" becomes a deployment choice, not a trust decision.
 
+This is executable in the repo. **Act 5** ([`client/run-s3.mjs`](../../client/run-s3.mjs), [`lib/s3.mjs`](../../lib/s3.mjs)) mirrors a whole skill's blobs to MinIO over the real S3 API, fetches them back by address, re-verifies each, then corrupts one object in the bucket and shows the read rejected. `lib/s3.mjs` is a dependency-free SigV4 client, so the same code runs unchanged against AWS S3, Cloudflare R2, or Storj.
+
 ## The key insight: the substrate does not have to be trusted
 
 For every blob, `read(address)` fetches bytes from somewhere and checks `hash(bytes) == address` before use. A malicious or faulty backend can withhold or corrupt data (an availability problem) but cannot substitute different data under the same address (an integrity problem). Integrity is settled by the address; the substrate is judged only on durability and latency. This is what lets a registry stand on commodity object storage or a decentralized network without inheriting their trust assumptions.
@@ -33,14 +35,22 @@ S3 key:   blobs/sha256/ab/27/ab27cf7f3afa...069450f06
 
 The registry's own tags/roots stay authoritative; S3 is a bit bucket. Existing S3-native consumers can read the same objects directly and verify them independently.
 
-## Filecoin / IPFS mapping
+## Filecoin, through the same S3 API
 
-Two integration shapes, usable together:
+Filecoin now has S3-compatible front doors, so the mapping above *is* the Filecoin mapping. No new client, no new code path:
 
-1. **Hot path (IPFS).** Store each blob as an IPFS block and keep a `address -> CID` note (or use `blake3` raw-leaf blocks so the mapping is mechanical). Retrieval is any public gateway; the registry re-verifies against the kappa, so an untrusted gateway is fine.
-2. **Cold path (Filecoin deals).** Pack blobs into a CAR and make storage deals through a pinning/deal service (for example Lighthouse, web3.storage, or Storj's Filecoin tier). The deal gives verifiable, incentivized durability; the registry keeps `address -> {CID, deal}` provenance as graph edges, so "where is this skill archived and under what deal" is a query, not a spreadsheet.
+| Provider | Endpoint | Backing | Notes |
+| --- | --- | --- | --- |
+| [Akave O3](https://docs.akave.xyz/) | per-credential (Akave console), region `akave-network` | Filecoin: hot cache + cold deals | Filecoin's own S3 layer, onchain verifiability |
+| [Filebase](https://filebase.com/) | `https://s3.filebase.com` | IPFS pinned + Filecoin | returns the object's IPFS CID in metadata |
+| [Storj](https://storj.io/) | `https://gateway.storjshare.io` | decentralized (erasure-coded) | S3-native, not Filecoin, but distributed |
 
-Filecoin's proofs answer *"is this still stored"*; the kappa answers *"is this the right bytes."* They compose: durable **and** correct.
+Because a kappa is the S3 key, storing a skill on Filecoin is a change of endpoint and credentials, nothing else (see [`.env.filecoin.example`](../../.env.filecoin.example)). Where the provider returns an IPFS/Filecoin CID, the registry records `address -> CID` as provenance: **the kappa proves the bytes are right; the CID names where Filecoin holds them.** Two integration depths, usable together:
+
+1. **Hot path (IPFS/Akave/Filebase).** Objects are pinned and served over the S3 API; retrieval is a gateway; the registry re-verifies against the kappa, so an untrusted gateway is fine.
+2. **Cold path (Filecoin deals).** The provider (Akave, or Filebase/Lighthouse/web3.storage) makes storage deals for durable, incentivized retention; the deal and CID are provenance edges, so "where is this skill archived and under what deal" is a query, not a spreadsheet.
+
+Filecoin's proofs answer *"is this still stored"*; the kappa answers *"is this the right bytes."* They compose: durable **and** correct. Act 5 exercises exactly this flow, defaulting to a local MinIO stand-in and switching to Filecoin by environment.
 
 ## What changes in the registry
 
