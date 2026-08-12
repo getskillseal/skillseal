@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resolving on IPFS — SkillSeal</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn6atPC90ZXh0Pjwvc3ZnPg==">
+<style>
+  :root{
+    --bg:#0c0c0e;--panel:#161618;--ink:#f4f4f5;--dim:#8a8a92;--faint:#5c5c63;
+    --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.11);
+    --seal:#1d9bf0;--green:#5bd97e;--red:#c0362c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);height:100%}
+  body{font-family:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    display:flex;align-items:center;justify-content:center;padding:1.5rem;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace}
+  a{color:var(--seal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .card{width:100%;max-width:640px;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:1.6rem 1.7rem}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--seal);margin:0 0 .5rem}
+  h1{font-size:1.15rem;margin:.1rem 0 .3rem}
+  .cid{word-break:break-all;font-size:.82rem;color:var(--dim);background:#0f0f11;
+    border:1px solid var(--line);border-radius:8px;padding:.55rem .7rem;margin:.7rem 0}
+  .status{display:flex;align-items:center;gap:.6rem;font-size:.92rem;margin:.9rem 0 .2rem;color:var(--dim)}
+  .spin{width:15px;height:15px;border:2px solid var(--line-2);border-top-color:var(--seal);
+    border-radius:50%;animation:sp .8s linear infinite;flex:0 0 auto}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .ok{background:var(--green)}.bad{background:var(--red)}.wait{background:var(--faint)}
+  ul.gws{list-style:none;padding:0;margin:.6rem 0 0;border-top:1px solid var(--line)}
+  ul.gws li{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;
+    border-bottom:1px solid var(--line);font-size:.85rem}
+  ul.gws li .host{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  ul.gws li .tag{font-size:.72rem;color:var(--faint)}
+  .row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
+  button,.btn{font-family:inherit;cursor:pointer;border:1px solid var(--line-2);
+    background:#1c1c1f;color:var(--ink);border-radius:8px;padding:.5rem .9rem;font-size:.85rem}
+  .btn.primary{background:var(--seal);color:#04111d;font-weight:700;border-color:transparent}
+  .note{font-size:.8rem;color:var(--faint);margin-top:1rem;line-height:1.5}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="eyebrow">🦭 SkillSeal · IPFS</p>
+  <h1 id="headline">Finding a live gateway…</h1>
+  <div class="cid mono" id="cidBox">—</div>
+
+  <div class="status" id="status"><span class="spin"></span><span id="statusText">Racing gateways for this content address…</span></div>
+
+  <ul class="gws" id="gwList"></ul>
+
+  <div class="row" id="actions">
+    <button class="btn primary" id="copyBtn">Copy CID</button>
+    <a class="btn" id="backBtn" href="./index.html">← Back to skills</a>
+  </div>
+
+  <p class="note" id="note">
+    The address is the proof, so these bytes can come from <em>any</em> gateway or mirror —
+    if one is down, another still serves the exact same content, verified byte-for-byte.
+  </p>
+</div>
+
+<script>
+// SkillSeal IPFS resolver: never strand the user on a single flaky gateway.
+// Races a set of public gateways, redirects to the first that actually serves
+// the content, and degrades to a clean chooser if the network blocks them all.
+(function(){
+  const params = new URLSearchParams(location.search);
+  const cid = (params.get("cid") || "").trim();
+  const $ = id => document.getElementById(id);
+
+  // Basic CIDv0/CIDv1 sanity — refuse obvious garbage before hitting the network.
+  const looksLikeCid = /^(Qm[1-9A-HJ-NP-Za-km-z]{44}|b[a-z2-7]{20,})$/.test(cid);
+  $("cidBox").textContent = cid || "(no CID supplied)";
+  $("copyBtn").onclick = async () => {
+    try { await navigator.clipboard.writeText(cid); $("copyBtn").textContent = "Copied ✓";
+      setTimeout(()=>$("copyBtn").textContent="Copy CID",1400); } catch {}
+  };
+
+  if (!cid || !looksLikeCid) {
+    $("headline").textContent = "That doesn't look like a valid IPFS address";
+    $("status").classList.add("hide");
+    $("note").textContent = "No resolvable content address was provided.";
+    return;
+  }
+
+  // Prefer gateways that (a) tend to stay up and (b) send permissive CORS so we
+  // can read a real status; ipfs.io is kept last precisely because it resets.
+  const GATEWAYS = [
+    { host: "dweb.link",              url: c => `https://dweb.link/ipfs/${c}` },
+    { host: "w3s.link",               url: c => `https://w3s.link/ipfs/${c}` },
+    { host: "trustless-gateway.link", url: c => `https://trustless-gateway.link/ipfs/${c}` },
+    { host: "4everland.io",           url: c => `https://4everland.io/ipfs/${c}` },
+    { host: "cloudflare-ipfs.com",    url: c => `https://cloudflare-ipfs.com/ipfs/${c}` },
+    { host: "gateway.pinata.cloud",   url: c => `https://gateway.pinata.cloud/ipfs/${c}` },
+    { host: "nftstorage.link",        url: c => `https://nftstorage.link/ipfs/${c}` },
+    { host: "ipfs.io",                url: c => `https://ipfs.io/ipfs/${c}` },
+  ];
+
+  // Render the gateway list so the user always has working manual fallbacks,
+  // even if scripted probing is blocked by the browser.
+  const li = {};
+  const list = $("gwList");
+  for (const g of GATEWAYS) {
+    const el = document.createElement("li");
+    el.innerHTML = `<span class="dot wait"></span>`
+      + `<a class="host" href="${g.url(cid)}" target="_blank" rel="noopener">${g.host}</a>`
+      + `<span class="tag" data-tag>checking…</span>`;
+    list.appendChild(el);
+    li[g.host] = el;
+  }
+
+  const PROBE_MS = 5000;    // per phase (cors, then no-cors) patience
+  const DEADLINE = 12000;   // overall: worst-case single gateway is 2*PROBE_MS
+  let done = false;
+  let reachable = null;     // a gateway that answered but couldn't confirm content
+
+  function mark(host, cls, tag){
+    const el = li[host]; if(!el) return;
+    el.querySelector(".dot").className = "dot " + cls;
+    el.querySelector("[data-tag]").textContent = tag;
+  }
+
+  // Confirmed-live (a real 200/206) → send the user straight there, any time.
+  function redirect(url){
+    if (done) return; done = true;
+    $("headline").textContent = "Gateway found — opening…";
+    $("statusText").textContent = "Redirecting to the live copy.";
+    location.replace(url);
+  }
+
+  function giveUp(){
+    if (done) return; done = true;
+    const st = $("status");
+    if (reachable){
+      // A gateway is up but wouldn't confirm the bytes over CORS — offer it as a
+      // one-click primary action rather than auto-redirecting into a maybe-404.
+      $("headline").textContent = "Open this address";
+      st.innerHTML = '<span class="dot ok"></span><span>A gateway is reachable. Open it, or pick another below.</span>';
+      const b = document.createElement("a");
+      b.className = "btn primary"; b.href = reachable.url; b.target = "_blank"; b.rel = "noopener";
+      b.textContent = "Open via " + reachable.host + " →";
+      $("actions").prepend(b);
+    } else {
+      $("headline").textContent = "Pick a gateway";
+      st.innerHTML = '<span class="dot bad"></span>'
+        + '<span>No gateway answered right now. The links above still work — try any of them.</span>';
+      $("note").textContent = "Your network may be blocking public IPFS gateways (a connection reset). "
+        + "The content is addressed by its hash, so any gateway that has it serves the identical bytes.";
+    }
+  }
+
+  // Probe a gateway. A CORS-readable OK/redirect (or an opaque success under
+  // no-cors) means "reachable with content" → we can safely send the user there.
+  // Returns "live" (confirmed 200/206), "reachable" (up, content unconfirmed), or null.
+  async function probe(g){
+    const url = g.url(cid);
+    const ctrl = new AbortController();
+    const t = setTimeout(()=>ctrl.abort(), PROBE_MS);
+    try {
+      // Small ranged GET keeps the probe cheap; cors lets us read the status.
+      const res = await fetch(url, { method:"GET", mode:"cors",
+        headers:{ Range:"bytes=0-0" }, signal:ctrl.signal, redirect:"follow" });
+      clearTimeout(t);
+      if (res.ok || res.status===206 || res.status===200){ mark(g.host,"ok","live"); return "live"; }
+      // Reachable but no content here (404/410/504) — let another gateway win.
+      mark(g.host,"bad", "no content ("+res.status+")");
+      return null;
+    } catch(e) {
+      clearTimeout(t);
+      // CORS block ≠ unreachable. Confirm reachability with an opaque no-cors hit;
+      // if that resolves, the gateway is up and likely holds the CID.
+      try {
+        const ctrl2 = new AbortController();
+        const t2 = setTimeout(()=>ctrl2.abort(), PROBE_MS);
+        await fetch(url, { method:"GET", mode:"no-cors", signal:ctrl2.signal });
+        clearTimeout(t2);
+        mark(g.host,"ok","reachable"); return "reachable";
+      } catch(_) {
+        mark(g.host,"bad","unreachable"); return null;
+      }
+    }
+  }
+
+  // Race them all: a confirmed-live gateway redirects instantly; the first merely
+  // reachable one is remembered as a graceful fallback if nothing is confirmed.
+  setTimeout(()=>{ if(!done) giveUp(); }, DEADLINE);
+  (async ()=>{
+    await Promise.allSettled(GATEWAYS.map(async g=>{
+      const r = await probe(g);
+      if (r === "live") redirect(g.url(cid));            // short-circuits via `done`
+      else if (r === "reachable" && !reachable) reachable = { host:g.host, url:g.url(cid) };
+    }));
+    if (!done) giveUp();
+  })();
+})();
+</script>
+</body>
+</html>
