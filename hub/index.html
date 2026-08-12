@@ -91,8 +91,10 @@
   @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .card .top{display:flex;align-items:center;gap:.5rem}
   .card .name{font-weight:600;font-size:1rem;letter-spacing:-.01em}
-  .card .src{margin-left:auto;font-size:.72rem;color:var(--gold);background:rgba(255,215,0,.08);
-    border:1px solid var(--line-gold);border-radius:20px;padding:.15rem .55rem}
+  .card .src{margin-left:auto;font-size:.72rem;border-radius:20px;padding:.15rem .6rem;border:1px solid;white-space:nowrap}
+  .src.builtin{color:var(--green);border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08)}
+  .src.official{color:var(--amber);border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
+  .src.community{color:var(--blue);border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.08)}
   .card .desc{margin:.5rem 0 .75rem;color:var(--dim);font-size:.9rem;line-height:1.45}
 
   /* verified seal: one glance says "provably the bytes you approved".
@@ -114,11 +116,39 @@
   .tip .row .v{color:#b9b5ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
   .cmdrow{display:flex;gap:.4rem;margin-top:.75rem}
-  .cmd{flex:1;background:#08080f;border:1px solid var(--line);border-radius:6px;padding:.45rem .55rem;
-    font-size:.72rem;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .copy{background:none;border:1px solid var(--line);border-radius:6px;color:var(--dim);font-size:.72rem;padding:.45rem .6rem}
-  .copy:hover{border-color:var(--line-gold);color:var(--gold)}
+  .cmd{flex:1;background:#08080f;border:1px solid var(--line);border-radius:6px;padding:.5rem .6rem;
+    font-size:.74rem;color:var(--gold);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy{background:rgba(255,215,0,.1);border:1px solid var(--line-gold);border-radius:6px;color:var(--gold);
+    font-size:.74rem;font-weight:500;padding:.5rem .7rem;white-space:nowrap}
+  .copy:hover{background:rgba(255,215,0,.18)}
   .empty{color:var(--dim);text-align:center;padding:3rem 0;font-size:.92rem}
+
+  /* ── expandable detail ───────────────────────────────────── */
+  .card{cursor:pointer;border-left:2px solid transparent}
+  .card.open{border-left-color:var(--green);background:#0d0d18}
+  .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.15rem}
+  .chip{font-size:.72rem;border-radius:6px;padding:.2rem .55rem;border:1px solid}
+  .chip.cat{color:var(--gold);border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.07)}
+  .chip.plat{color:var(--blue);border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.07)}
+  .detail{display:none;margin-top:.9rem;border-top:1px solid var(--line);padding-top:.85rem;cursor:default}
+  .card.open .detail{display:block;animation:cardIn .25s ease both}
+  .lbl{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#6f6b64;margin-bottom:.35rem}
+  .ov{font-size:.88rem;line-height:1.55;color:#e7e3db;margin:0 0 .9rem}
+  .ov code{font-family:"JetBrains Mono",monospace;font-size:.82em;color:var(--gold)}
+  .prereq{border:1px solid var(--line);border-radius:8px;padding:.65rem .75rem;margin-bottom:.85rem}
+  .prereq .r{display:flex;align-items:center;gap:.75rem;font-size:.74rem}
+  .prereq .r .k{color:#6f6b64;letter-spacing:.1em;text-transform:uppercase;flex:0 0 32px}
+  .prereq code{font-family:"JetBrains Mono",monospace;color:var(--gold);background:rgba(255,215,0,.08);
+    border:1px solid rgba(255,215,0,.2);border-radius:5px;padding:.15rem .45rem;font-size:.74rem}
+  .tagrow{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem}
+  .tagrow span{font-size:.72rem;color:#b9b5ad;border:1px solid var(--line);border-radius:6px;padding:.22rem .55rem}
+  .facts{display:grid;grid-template-columns:auto 1fr;gap:.45rem .9rem;margin-bottom:.9rem;align-items:baseline}
+  .facts dt{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#6f6b64}
+  .facts dd{margin:0;font-size:.82rem;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .facts dd.mono{font-weight:400;font-size:.72rem;color:#b9b5ad}
+  .docs{display:block;text-align:center;margin-top:.75rem;padding:.7rem;border-radius:8px;
+    background:rgba(29,155,240,.09);border:1px solid rgba(29,155,240,.32);color:#5eb4f7;font-size:.86rem;font-weight:500}
+  .docs:hover{background:rgba(29,155,240,.16);color:#8ccbfa}
 
   @media(max-width:900px){
     nav.top{gap:1rem;padding:.75rem 1rem}
@@ -179,16 +209,53 @@
 const ICON={all:"📋",data:"📊",document:"📄",devops:"⚙️",web:"🌐",security:"🛡️",productivity:"✅"};
 const LABEL={all:"All Skills",data:"Data",document:"Document",devops:"DevOps",web:"Web",security:"Security",productivity:"Productivity"};
 const SRCLABEL={all:"All",builtin:"Built-in",official:"Optional",community:"Community"};
+const REPO="https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
 const EMBEDDED=[
- {name:"csv-stats",source:"official",category:"data",desc:"Summarize a CSV file: row count, columns, and numeric means.",address:"sha256:4e8cb35109ab6ae6069b6c984ebd52c659712905c83eaf7a0f662b1251e63d50",cid:"bafybeic6…q7m"},
- {name:"pdf-fill",source:"official",category:"document",desc:"Fill a PDF form from a JSON record and return the completed file.",address:"sha256:ab27cf7f3afa2c71ee18fe21057cdfa80dbaf499521ca62859423a9669450f06",cid:"bafybeidf…8kp"},
- {name:"release-notes",source:"builtin",category:"devops",desc:"Draft categorized release notes from a list of merged pull requests.",address:"sha256:84a63c3deed30805c00c9267c9133ee6057d1233a979421d383be71742d23c50",cid:"bafybeih9…2ab"},
- {name:"sql-explain",source:"community",category:"data",desc:"Explain a SQL query plan in plain language and flag slow scans.",address:"sha256:11aa22bb33cc44dd55ee66ff77008899aabbccddeeff00112233445566778899",cid:"bafybeig2…mn4"},
- {name:"dockerfile-lint",source:"community",category:"devops",desc:"Review a Dockerfile for security and size pitfalls; suggest fixes.",address:"sha256:99887766554433221100ffeeddccbbaa99887766554433221100ffeeddccbbaa",cid:"bafybeia7…zx1"},
- {name:"web-scrape",source:"community",category:"web",desc:"Extract structured data from a page given a field map; respects robots.",address:"sha256:0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0",cid:"bafybeib3…qw9"},
- {name:"threat-model",source:"community",category:"security",desc:"Produce a STRIDE threat model for a described system and rank risks.",address:"sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",cid:"bafybeif0…lk2"},
- {name:"chart-builder",source:"community",category:"data",desc:"Turn a table into a clean, accessible chart spec, light and dark.",address:"sha256:1234abcd5678ef901234abcd5678ef901234abcd5678ef901234abcd5678ef90",cid:"bafybeic1…rt6"},
- {name:"email-triage",source:"community",category:"productivity",desc:"Classify and summarize an inbox export into actions and FYIs.",address:"sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",cid:"bafybeid8…yu3"},
+ {name:"csv-stats",source:"official",category:"data",desc:"Summarize a CSV file: row count, columns, and numeric means.",
+  overview:"Run <code>scripts/stats.py</code> over a CSV and return a JSON summary: row count, column names, and the mean of every numeric column. Standard library only, deterministic output.",
+  prereq:{kind:"cmd",value:"python3"},tags:["csv","analysis","data"],platforms:["macOS","Linux"],version:"1.0.0",author:"example",license:"MIT",
+  address:"sha256:4e8cb35109ab6ae6069b6c984ebd52c659712905c83eaf7a0f662b1251e63d50",cid:"bafybeic6…q7m",
+  docs:REPO+"/skills-samples/data/csv-stats/SKILL.md"},
+ {name:"pdf-fill",source:"official",category:"document",desc:"Fill a PDF form from a JSON record and return the completed file.",
+  overview:"Read the field map in <code>references/fields.md</code>, then run <code>scripts/fill.py</code> to write a completed copy. Flatten only when asked; flattened PDFs are no longer editable.",
+  prereq:{kind:"cmd",value:"python3"},tags:["pdf","forms","automation"],platforms:["macOS","Linux"],version:"1.0.0",author:"example",license:"MIT",
+  address:"sha256:ab27cf7f3afa2c71ee18fe21057cdfa80dbaf499521ca62859423a9669450f06",cid:"bafybeidf…8kp",
+  docs:REPO+"/skills-samples/document/pdf-fill/SKILL.md"},
+ {name:"release-notes",source:"builtin",category:"devops",desc:"Draft categorized release notes from a list of merged pull requests.",
+  overview:"Group merged pull requests into Features, Fixes, and Maintenance; write one past-tense bullet per change in user-facing language, breaking changes first.",
+  tags:["git","changelog","release"],platforms:["Any"],version:"1.0.1",author:"Hermes Agent",license:"MIT",
+  address:"sha256:84a63c3deed30805c00c9267c9133ee6057d1233a979421d383be71742d23c50",cid:"bafybeih9…2ab",
+  docs:REPO+"/skills/release-notes/SKILL.md"},
+ {name:"sql-explain",source:"community",category:"data",desc:"Explain a SQL query plan in plain language and flag slow scans.",
+  overview:"Parse an <code>EXPLAIN</code> plan, describe each step in plain language, and call out full table scans, missing indexes, and expensive joins.",
+  prereq:{kind:"cmd",value:"psql"},tags:["sql","perf","database"],platforms:["Any"],version:"0.4.2",author:"community",license:"Apache-2.0",
+  address:"sha256:11aa22bb33cc44dd55ee66ff77008899aabbccddeeff00112233445566778899",cid:"bafybeig2…mn4",
+  docs:REPO+"/docs/design/encoding-hermes-skills.md"},
+ {name:"dockerfile-lint",source:"community",category:"devops",desc:"Review a Dockerfile for security and size pitfalls; suggest fixes.",
+  overview:"Check for root users, unpinned base images, secrets in layers, and cache-busting ordering; return a prioritized list of fixes with the rewritten lines.",
+  prereq:{kind:"cmd",value:"docker"},tags:["docker","security","ci"],platforms:["Any"],version:"2.1.0",author:"community",license:"MIT",
+  address:"sha256:99887766554433221100ffeeddccbbaa99887766554433221100ffeeddccbbaa",cid:"bafybeia7…zx1",
+  docs:REPO+"/docs/design/encoding-hermes-skills.md"},
+ {name:"web-scrape",source:"community",category:"web",desc:"Extract structured data from a page given a field map; respects robots.",
+  overview:"Fetch a page, honour <code>robots.txt</code>, and extract fields by CSS selector into JSON. Rate limited by default and never follows offsite redirects.",
+  tags:["http","parsing","web"],platforms:["Any"],version:"1.3.0",author:"community",license:"MIT",
+  address:"sha256:0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0",cid:"bafybeib3…qw9",
+  docs:REPO+"/docs/design/encoding-hermes-skills.md"},
+ {name:"threat-model",source:"community",category:"security",desc:"Produce a STRIDE threat model for a described system and rank risks.",
+  overview:"Walk the system's trust boundaries, enumerate STRIDE threats per component, then rank by likelihood and blast radius with a mitigation for each.",
+  tags:["security","review","stride"],platforms:["Any"],version:"1.1.0",author:"community",license:"MIT",
+  address:"sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",cid:"bafybeif0…lk2",
+  docs:REPO+"/docs/design/agent-uses-skill.md"},
+ {name:"chart-builder",source:"community",category:"data",desc:"Turn a table into a clean, accessible chart spec, light and dark.",
+  overview:"Pick the chart form from the data shape, then emit a spec with accessible colours that reads correctly in both light and dark themes.",
+  tags:["viz","charts","accessibility"],platforms:["Any"],version:"0.9.0",author:"community",license:"MIT",
+  address:"sha256:1234abcd5678ef901234abcd5678ef901234abcd5678ef901234abcd5678ef90",cid:"bafybeic1…rt6",
+  docs:REPO+"/docs/design/encoding-hermes-skills.md"},
+ {name:"email-triage",source:"community",category:"productivity",desc:"Classify and summarize an inbox export into actions and FYIs.",
+  overview:"Sort an inbox export into Actions, Waiting, and FYI; summarize each thread in one line and surface anything with a deadline first.",
+  tags:["email","summarize","inbox"],platforms:["Any"],version:"1.0.0",author:"community",license:"MIT",
+  address:"sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",cid:"bafybeid8…yu3",
+  docs:REPO+"/docs/design/encoding-hermes-skills.md"},
 ];
 // Scalloped seal, drawn here rather than borrowed: 12 bumps from alternating
 // radii, rounded joins, and a white check. Blue reads as "verified" instantly.
@@ -212,21 +279,47 @@ function render(){
   document.getElementById("empty").hidden=list.length>0;
   for(const s of list){
     const el=document.createElement("article");el.className="card";
+    const plats=(s.platforms||[]).map(p=>`<span class="chip plat">${p}</span>`).join("");
+    const tags=(s.tags||[]).map(t=>`<span>${t}</span>`).join("");
+    const pre=s.prereq
+      ? `<div class="prereq"><div class="lbl">Prerequisites</div>
+           <div class="r"><span class="k">${s.prereq.kind||"cmd"}</span><code>${s.prereq.value}</code></div></div>` : "";
     el.innerHTML=`<div class="top"><span>${ICON[s.category]||"📦"}</span><span class="name">${s.name}</span>
         <span class="seal" tabindex="0" role="img" aria-label="Verified: content address and publisher signature checked">${seal(16)}
           <span class="tip">
             <span class="h">${seal(14)} Verified skill</span>
             <span class="p">These exact bytes are what the publisher signed. Your agent rechecks them before it runs.</span>
-            <span class="row mono"><span class="k">&kappa;</span><span class="v">${cut(s.address,30)}</span></span>
-            <span class="row mono"><span class="k">cid</span><span class="v">${s.cid}</span></span>
           </span>
         </span>
-        <span class="src">${SRCLABEL[s.source]||s.source}</span></div>
+        <span class="src ${s.source}">${SRCLABEL[s.source]||s.source}</span></div>
       <p class="desc">${s.desc}</p>
-      <div class="cmdrow"><span class="cmd mono">hermes skills install ${cut(s.address,22)}</span><button class="copy">Copy</button></div>`;
+      <div class="chips"><span class="chip cat">${LABEL[s.category]||s.category}</span>${plats}</div>
+      <div class="detail">
+        <div class="lbl">Overview</div>
+        <p class="ov">${s.overview||s.desc}</p>
+        ${pre}
+        ${tags?`<div class="tagrow">${tags}</div>`:""}
+        <dl class="facts">
+          <dt>Author</dt><dd>${s.author||"community"}</dd>
+          <dt>Version</dt><dd>${s.version||"1.0.0"}</dd>
+          <dt>License</dt><dd>${s.license||"MIT"}</dd>
+          <dt>&kappa;</dt><dd class="mono" title="${s.address}">${cut(s.address,34)}</dd>
+          <dt>Filecoin</dt><dd class="mono" title="${s.cid}">${s.cid}</dd>
+        </dl>
+        <div class="cmdrow"><span class="cmd mono">hermes skills install ${s.name}</span><button class="copy">Copy</button></div>
+        ${s.docs?`<a class="docs" href="${s.docs}" target="_blank" rel="noopener">View full documentation →</a>`:""}
+      </div>`;
     el.querySelector(".copy").onclick=e=>{
+      e.stopPropagation();
       navigator.clipboard?.writeText(`hermes skills install ${s.address}`);
       e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);
+    };
+    el.querySelector(".seal").onclick=e=>e.stopPropagation();
+    el.querySelector(".detail").onclick=e=>e.stopPropagation();
+    el.onclick=()=>{
+      const wasOpen=el.classList.contains("open");
+      grid.querySelectorAll(".card.open").forEach(c=>c.classList.remove("open"));
+      if(!wasOpen)el.classList.add("open");
     };
     grid.appendChild(el);
   }

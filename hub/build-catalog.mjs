@@ -16,14 +16,31 @@ import { buildTree } from "../lib/skilltree.mjs";
 
 const ROOT = process.argv[2] || "skills-samples";
 
+const REPO = process.env.HUB_REPO_URL
+  || "https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
+
 function frontmatter(dir) {
   const md = readFileSync(join(dir, "SKILL.md"), "utf8");
-  const get = (k) => (new RegExp(`^${k}:\\s*(.+)$`, "m").exec(md)?.[1] || "").trim();
-  const tagLine = /tags:\s*\[(.*?)\]/s.exec(md)?.[1] || "";
+  const get = (k) => (new RegExp(`^\\s*${k}:\\s*(.+)$`, "m").exec(md)?.[1] || "").trim();
+  const list = (k) => (new RegExp(`${k}:\\s*\\[(.*?)\\]`, "s").exec(md)?.[1] || "")
+    .split(",").map((t) => t.trim()).filter(Boolean);
+
+  // First paragraph under the first heading becomes the overview; the
+  // "When to Use" section is the most useful summary when present.
+  const body = md.replace(/^---[\s\S]*?---\s*/, "");
+  const when = /##\s*When to Use\s*\n+([\s\S]*?)(?:\n##|$)/i.exec(body)?.[1];
+  const overview = (when || body.replace(/^#[^\n]*\n+/, "").split(/\n\s*\n/)[0] || "")
+    .trim().replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\s+/g, " ");
+
   return {
     description: get("description"),
     author: get("author") || "community",
-    tags: tagLine.split(",").map((t) => t.trim()).filter(Boolean),
+    version: get("version") || "1.0.0",
+    license: get("license") || "MIT",
+    tags: list("tags"),
+    platforms: list("platforms"),
+    prereqCmds: list("requires_toolsets"),
+    overview,
   };
 }
 
@@ -56,14 +73,21 @@ async function main() {
     if (s3Cid) { try { cid = await s3Cid(tree.address); } catch { cid = null; } }
     skills.push({
       name: tree.manifest.name,
+      source: "official",
       author: fm.author,
       category: f.category,
       desc: fm.description,
+      overview: fm.overview,
       tags: fm.tags,
+      platforms: fm.platforms,
+      prereq: fm.prereqCmds[0] ? { kind: "cmd", value: fm.prereqCmds[0] } : null,
+      version: fm.version,
+      license: fm.license,
       address: tree.address,
       cid: cid || "(not pinned yet)",
       files: tree.manifest.files.length,
-      installs: 0,
+      // The equivalent of a hub docs page: the skill's own SKILL.md.
+      docs: `${REPO}/${ROOT}/${f.category}/${f.name}/SKILL.md`,
     });
   }
 
