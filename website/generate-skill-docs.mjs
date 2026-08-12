@@ -94,15 +94,17 @@ ${body}
 `;
 }
 
-// The hub page has one source of truth, hub/index.html. Copy it into the site
-// on every build so a fresh clone serves it at /hub/ without a manual step.
+// The hub pages have one source of truth under hub/. Copy them into the site on
+// every build so a fresh clone serves them at /hub/ without a manual step.
 function copyHub() {
-  const src = join(REPO_ROOT, "hub", "index.html");
-  if (!existsSync(src)) return;
   const dest = join(HERE, "static", "hub");
   mkdirSync(dest, { recursive: true });
-  writeFileSync(join(dest, "index.html"), readFileSync(src));
-  console.log("copied hub/index.html -> website/static/hub/index.html");
+  for (const page of ["index.html", "seal.html"]) {
+    const src = join(REPO_ROOT, "hub", page);
+    if (!existsSync(src)) continue;
+    writeFileSync(join(dest, page), readFileSync(src));
+    console.log(`copied hub/${page} -> website/static/hub/${page}`);
+  }
 }
 
 function main() {

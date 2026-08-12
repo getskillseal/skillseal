@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seal a skill — SkillSeal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0e;--panel:#161618;--panel-2:#1c1c1f;--nav:#151517;--ink:#f4f4f5;
+    --dim:#8a8a92;--faint:#5c5c63;--line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.11);--seal:#1d9bf0}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  a{color:inherit;text-decoration:none} button{font-family:inherit;cursor:pointer}
+  nav.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:1.9rem;padding:.85rem 1.6rem;
+    background:var(--nav);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.05rem}
+  .brand .mark{font-size:1.35rem}
+  nav .links{display:flex;gap:1.6rem;color:#d7d3ca;font-size:.98rem}
+  nav .links a.on{color:var(--seal);font-weight:500}
+  .wrap{max-width:820px;margin:0 auto;padding:3rem 1.5rem 5rem;text-align:center}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--seal)}
+  h1{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;letter-spacing:-.03em;margin:.6rem 0 0}
+  .lead{color:var(--dim);font-size:1.1rem;line-height:1.6;max-width:620px;margin:1rem auto 0}
+  .steps{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1.3rem 0 0;font-size:.82rem;color:var(--faint)}
+  .steps span{border:1px solid var(--line);border-radius:20px;padding:.25rem .75rem}
+  .drop{margin:2.2rem 0 0;border:1.5px dashed var(--line-2);border-radius:16px;background:var(--panel);
+    padding:2.6rem 1.5rem;transition:border-color .15s,background .15s}
+  .drop.hot{border-color:var(--seal);background:rgba(29,155,240,.06)}
+  .drop .big{font-size:2.6rem}
+  .drop p{margin:.6rem 0 0;color:var(--dim)}
+  .drop .or{color:var(--faint);font-size:.85rem;margin:.9rem 0 .3rem}
+  .pick{display:inline-flex;gap:.5rem;align-items:center;background:var(--seal);color:#04111d;font-weight:700;
+    border:0;border-radius:9px;padding:.6rem 1.1rem;font-size:.95rem}
+  .pick:hover{background:#3aabf5}
+  textarea{width:100%;margin-top:1rem;min-height:120px;background:#08080f;border:1px solid var(--line);border-radius:10px;
+    color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:.82rem;padding:.8rem;resize:vertical;outline:0}
+  textarea:focus{border-color:var(--line-2)}
+  .out{margin-top:1.6rem;text-align:left;display:none}
+  .out.show{display:block;animation:in .3s ease both}
+  @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem}
+  .row{display:flex;gap:.6rem;align-items:center;margin-top:.5rem}
+  .k{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);flex:0 0 96px}
+  .v{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#c9c9d0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .v.blue{color:var(--seal)}
+  .cmdbox{margin-top:1rem;display:flex;gap:.6rem;align-items:center;background:#08080f;border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem}
+  .cmdbox code{flex:1;font-family:"JetBrains Mono",monospace;font-size:.86rem;color:#e8edf4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy{background:var(--seal);color:#04111d;font-weight:700;border:0;border-radius:8px;padding:.5rem .9rem;font-size:.82rem}
+  .note{margin-top:.9rem;font-size:.84rem;color:var(--dim);line-height:1.55}
+  .note b{color:var(--ink)}
+  .err{color:#ff8a80;font-size:.9rem;margin-top:1rem}
+  .foot{margin-top:2rem;font-size:.85rem;color:var(--faint)}
+  .seal-svg{vertical-align:middle}
+</style>
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="./index.html"><span class="mark">🦭</span>SkillSeal</a>
+  <div class="links"><a href="./index.html">Sealed Skills</a><a class="on" href="./seal.html">Seal a skill</a></div>
+</nav>
+
+<div class="wrap">
+  <p class="eyebrow">Seal a skill</p>
+  <h1>Turn a skill into a line anyone can trust.</h1>
+  <p class="lead">Drop a <code>SKILL.md</code> (or paste it). Your browser hashes it, signs it with a
+    key it makes on the spot, and hands you one line to share. No account, no upload, nothing leaves this tab.</p>
+  <div class="steps"><span>1 · hashed here</span><span>2 · signed here</span><span>3 · sealed into one line</span></div>
+
+  <div class="drop" id="drop">
+    <div class="big">🦭</div>
+    <p>Drop your <b>SKILL.md</b> here</p>
+    <div class="or">or</div>
+    <button class="pick" id="pick">Choose a file</button>
+    <input type="file" id="file" accept=".md,text/markdown,text/plain" hidden>
+    <textarea id="paste" placeholder="…or paste the contents of your SKILL.md"></textarea>
+  </div>
+
+  <div class="err" id="err"></div>
+
+  <div class="out" id="out">
+    <div class="card">
+      <div class="row"><span class="k">Skill</span><span class="v" id="oName">—</span></div>
+      <div class="row"><span class="k">Fingerprint</span><span class="v" id="oFp">—</span></div>
+      <div class="row"><span class="k">Publisher</span><span class="v blue" id="oKey">—</span></div>
+      <div class="cmdbox"><code id="oCmd">—</code><button class="copy" id="oCopy">Copy</button></div>
+      <p class="note"><b>That's it.</b> This skill travels inside the token, so anyone can install it with the line
+        above — from anywhere, verified to the byte, into any agent. To seal a skill with extra files
+        (<code>scripts/</code>, <code>references/</code>), use <code class="mono">skillseal publish</code> and upload once.</p>
+    </div>
+  </div>
+
+  <p class="foot">Made without a server. The private key never leaves your browser and is not stored.</p>
+</div>
+
+<script type="module">
+// ── bech32m (BIP-350), Uint8Array flavour ────────────────────────────────
+const CHARSET="qpzry9x8gf2tvdw0s3jn54khce6mua7l", BECH32M=0x2bc830a3;
+function polymod(v){const G=[0x3b6a57b2,0x26508e6d,0x1ea119fa,0x3d4233dd,0x2a1462b3];let c=1;
+  for(const x of v){const t=c>>25;c=((c&0x1ffffff)<<5)^x;for(let i=0;i<5;i++)if((t>>i)&1)c^=G[i];}return c>>>0;}
+function hrpExpand(h){const o=[];for(const ch of h)o.push(ch.charCodeAt(0)>>5);o.push(0);
+  for(const ch of h)o.push(ch.charCodeAt(0)&31);return o;}
+function convert(data,from,to,pad){let acc=0,bits=0;const out=[],max=(1<<to)-1;
+  for(const val of data){acc=(acc<<from)|val;bits+=from;while(bits>=to){bits-=to;out.push((acc>>bits)&max);}}
+  if(pad&&bits>0)out.push((acc<<(to-bits))&max);return out;}
+function bech32m(hrp,bytes){const data=convert([...bytes],8,5,true);
+  const chk=polymod([...hrpExpand(hrp),...data,0,0,0,0,0,0])^BECH32M;const cs=[];
+  for(let i=0;i<6;i++)cs.push((chk>>(5*(5-i)))&31);
+  return hrp+"1"+[...data,...cs].map(d=>CHARSET[d]).join("");}
+
+// ── token (mirrors skillseal/token.mjs) ──────────────────────────────────
+const enc=new TextEncoder();
+const hex=(u8)=>[...u8].map(b=>b.toString(16).padStart(2,"0")).join("");
+function buildToken({fpHex,keyU8,sigU8,name,inline}){
+  const F_NAME=1,F_INLINE=4,F_SIGNED=8; let flags=0;
+  if(name)flags|=F_NAME; if(inline)flags|=F_INLINE; if(sigU8)flags|=F_SIGNED;
+  const parts=[Uint8Array.of(1,flags), hexToU8(fpHex.replace(/^sha256:/,"")), keyU8];
+  if(sigU8)parts.push(sigU8);
+  if(name){const n=enc.encode(name);parts.push(Uint8Array.of(n.length),n);}
+  if(inline){const l=new Uint8Array(2);new DataView(l.buffer).setUint16(0,inline.length);parts.push(l,inline);}
+  return bech32m("sk",concat(parts));
+}
+const hexToU8=(h)=>{const o=new Uint8Array(h.length/2);for(let i=0;i<o.length;i++)o[i]=parseInt(h.substr(i*2,2),16);return o;};
+function concat(arrs){let n=0;for(const a of arrs)n+=a.length;const o=new Uint8Array(n);let k=0;for(const a of arrs){o.set(a,k);k+=a.length;}return o;}
+
+async function sha256hex(u8){const d=await crypto.subtle.digest("SHA-256",u8);return hex(new Uint8Array(d));}
+
+// A demo publisher key, generated in the browser, per session.
+let keyPair=null;
+async function ensureKey(){
+  if(keyPair)return keyPair;
+  keyPair=await crypto.subtle.generateKey({name:"Ed25519"},true,["sign","verify"]);
+  return keyPair;
+}
+
+async function seal(name,bytes){
+  const fpHex="sha256:"+await sha256hex(bytes);
+  const kp=await ensureKey();
+  const rawPub=new Uint8Array(await crypto.subtle.exportKey("raw",kp.publicKey));
+  const sig=new Uint8Array(await crypto.subtle.sign({name:"Ed25519"},kp.privateKey,enc.encode(fpHex)));
+  const token=buildToken({fpHex,keyU8:rawPub,sigU8:sig,name,inline:bytes});
+  return {fpHex,pubHex:hex(rawPub),token};
+}
+
+// ── UI ────────────────────────────────────────────────────────────────────
+const $=id=>document.getElementById(id);
+function nameFrom(text){return (/^\s*name:\s*(.+)$/m.exec(text)?.[1]||"").trim()||"skill";}
+function err(m){$("err").textContent=m||"";}
+
+async function handle(text){
+  err("");
+  if(!/[\S]/.test(text)){err("That file looks empty.");return;}
+  if(!("subtle" in crypto)||!crypto.subtle.generateKey){err("This browser can't sign here; use the CLI instead.");return;}
+  const bytes=enc.encode(text);
+  if(bytes.length>1400){err("This SKILL.md is large; inline sealing is for small skills. Use `skillseal publish` for bigger ones.");return;}
+  let res;
+  try{res=await seal(nameFrom(text),bytes);}
+  catch(e){err("Your browser does not support in-page Ed25519 signing yet. Use the CLI: skillseal publish. ("+e.message+")");return;}
+  $("oName").textContent=nameFrom(text);
+  $("oFp").textContent=res.fpHex;
+  $("oKey").textContent=res.pubHex;
+  const line="npx skillseal add "+res.token;
+  $("oCmd").textContent="npx skillseal add "+res.token.slice(0,40)+"…";
+  $("oCmd").dataset.full=line;
+  $("out").classList.add("show");
+  $("out").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+const drop=$("drop");
+["dragenter","dragover"].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add("hot");}));
+["dragleave","drop"].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove("hot");}));
+drop.addEventListener("drop",async ev=>{const f=ev.dataTransfer.files[0];if(f)handle(await f.text());});
+$("pick").onclick=()=>$("file").click();
+$("file").onchange=async e=>{const f=e.target.files[0];if(f)handle(await f.text());};
+let t;$("paste").addEventListener("input",e=>{clearTimeout(t);t=setTimeout(()=>handle(e.target.value),350);});
+$("oCopy").onclick=e=>{navigator.clipboard?.writeText($("oCmd").dataset.full||"");
+  e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);};
+</script>
+</body>
+</html>
