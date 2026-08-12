@@ -587,8 +587,15 @@ function render(){
     el.querySelector(".detail").onclick=e=>e.stopPropagation();
     el.onclick=()=>{
       const wasOpen=el.classList.contains("open");
+      // Collapse everything first, so all cards sit at their row height and the
+      // row grouping below is read from a clean layout.
       grid.querySelectorAll(".card.open").forEach(c=>c.classList.remove("open"));
-      if(!wasOpen)el.classList.add("open");
+      if(!wasOpen){
+        // Open the whole row: any card sharing this one's top edge. That way a
+        // card is never left tall and empty beside its expanded neighbour.
+        const top=el.offsetTop;
+        grid.querySelectorAll(".card").forEach(c=>{ if(Math.abs(c.offsetTop-top)<4) c.classList.add("open"); });
+      }
     };
     grid.appendChild(el);
   }
