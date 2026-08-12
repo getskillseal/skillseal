@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:b5c5cf52546afc09078e975a57c5b07091eef68de5fefe0bc3ef92f931753b5e","path":"SKILL.md","size":6900},{"address":"sha256:70005b31156bb3c063e3152bd4ed7226bda3763b04d8b7650558d81841b0a840","path":"scripts/maps_client.py","size":47975}],"kind":"hermes-skill","name":"maps","version":"1.2.0"}

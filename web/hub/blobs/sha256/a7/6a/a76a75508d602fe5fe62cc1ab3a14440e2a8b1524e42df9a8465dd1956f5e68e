@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:fc89908a229724da5f9d86a7d0bcf76b8b358c7320ab511ec3eddfad3bb4246b","path":"SKILL.md","size":7136},{"address":"sha256:a9999e08527be1832f301ad7149df3e3454bcc186b50d07249c048d1774b8cde","path":"scripts/hyperliquid_client.py","size":61850}],"kind":"hermes-skill","name":"hyperliquid","version":"0.1.0"}

@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:f20aa27852bf1e1de41d083acd1b496e1fc8f63e23137153b00b19e5e0d1c9c6","path":"SKILL.md","size":7357},{"address":"sha256:50c8c8198febe6a61f6860b321945e5a21989a8e6a81fb4c8196ecbb55c5e7a5","path":"scripts/proxy.mjs","size":2809}],"kind":"hermes-skill","name":"gitnexus-explorer","version":"1.0.0"}

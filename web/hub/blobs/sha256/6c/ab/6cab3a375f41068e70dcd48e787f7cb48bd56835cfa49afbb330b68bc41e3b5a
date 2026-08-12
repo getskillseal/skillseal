@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:9f5551a99ca788e0c2c19be9a9dac164e16a7dded15e546f9288b929abdcb255","path":"SKILL.md","size":8518},{"address":"sha256:6d99105ef17cdacc9864de4cbcd16a2675596561f34600083a922f7d3ec5ac4c","path":"scripts/duckduckgo.sh","size":621}],"kind":"hermes-skill","name":"duckduckgo-search","version":"1.3.0"}

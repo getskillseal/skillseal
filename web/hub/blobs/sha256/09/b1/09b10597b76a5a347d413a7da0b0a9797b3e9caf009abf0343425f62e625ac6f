@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:f094c6dc1435a4ba5fa205b52925a65d24ea8e265fc64feccfcc10b699a8ec27","path":"SKILL.md","size":7903},{"address":"sha256:32c4ce15a54708cb147f54c0b5e1e41569f6ff70477f2b8b5dce3ba6b4d7a8d8","path":"references/training.md","size":4935}],"kind":"hermes-skill","name":"llava","version":"1.0.0"}

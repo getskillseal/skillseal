@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:13c266e3a98979c10d96b7221a16cfbeeec55b3a58d0ec3e501ec8a844881194","path":"SKILL.md","size":8582},{"address":"sha256:842af54a53133bc99f32af319040a3695974b68283b63673289cc2eaa92ca533","path":"scripts/evm_client.py","size":57393}],"kind":"hermes-skill","name":"evm","version":"1.0.0"}

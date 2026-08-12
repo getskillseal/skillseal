@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:e43da354c68b90a9836028313dde7500bc8f76f787d3c4531d6b49c98277a2d8","path":"SKILL.md","size":7586},{"address":"sha256:13f41c18e83e564975272e5c1dc82cec4c9038be47292dc9490fa96ca436383b","path":"scripts/parse_deploy_output.py","size":4403}],"kind":"hermes-skill","name":"cloudflare-temporary-deploy","version":"1.0.0"}

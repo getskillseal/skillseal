@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:d851adc3c4c036eb7324099bc7ea4833a1bd4c21ecddb4d63175fe1307494186","path":"SKILL.md","size":4639},{"address":"sha256:980612886da31cdf5c6ad2d5a5936b69c077e025f7cd45ef5e1986ba50916d91","path":"scripts/domain_intel.py","size":16107}],"kind":"hermes-skill","name":"domain-intel","version":"1.0.0"}

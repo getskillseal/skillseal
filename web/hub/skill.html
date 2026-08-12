@@ -91,8 +91,10 @@
   const sha = async u => hex(new Uint8Array(await crypto.subtle.digest("SHA-256", u)));
 
   const GATEWAYS = ["https://dweb.link/ipfs","https://w3s.link/ipfs","https://gateway.pinata.cloud/ipfs","https://ipfs.io/ipfs"];
-  const STORE = "./blobs/sha256";                     // the Pages content store, same origin
-  const storePath = h => `${STORE}/${h.slice(0,2)}/${h.slice(2,4)}/${h}`;
+  // Untrusted content mirrors laid out by hash. Whatever they return is hashed
+  // against the address before it is shown, so a mirror can only fail to answer.
+  const STORES = ["./blobs/sha256"];
+  const storePaths = h => STORES.map(s => `${s}/${h.slice(0,2)}/${h.slice(2,4)}/${h}`);
 
   async function timedFetch(url, ms=7000){
     const c=new AbortController(), t=setTimeout(()=>c.abort(), ms);
@@ -100,8 +102,8 @@
   }
   // Fetch bytes that hash to `want` (sha256 hex), from the store or any gateway.
   async function fetchVerified(want, cids=[]){
-    const r=await timedFetch(storePath(want));
-    if(r&&r.ok){ const b=new Uint8Array(await r.arrayBuffer()); if(await sha(b)===want) return b; }
+    for(const u of storePaths(want)){ const r=await timedFetch(u);
+      if(r&&r.ok){ const b=new Uint8Array(await r.arrayBuffer()); if(await sha(b)===want) return b; } }
     for(const c of cids) for(const g of GATEWAYS){ const rr=await timedFetch(`${g}/${c}`);
       if(rr&&rr.ok){ const b=new Uint8Array(await rr.arrayBuffer()); if(await sha(b)===want) return b; } }
     return null;

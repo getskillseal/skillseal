@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:c3560785da747cc5a48bf992cccc753bf6969e1b353df549d303bff0da42fbdb","path":"SKILL.md","size":6615},{"address":"sha256:3da08c36912f72d4f575179411f6dda015e7a20818550743e403124abd7ef622","path":"scripts/solana_client.py","size":26737}],"kind":"hermes-skill","name":"solana","version":"0.2.0"}

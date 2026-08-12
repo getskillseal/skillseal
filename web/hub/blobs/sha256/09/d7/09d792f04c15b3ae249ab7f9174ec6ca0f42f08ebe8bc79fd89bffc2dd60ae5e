@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:caa1be9cba41c1afb88fe730ab1a4e04728295ea5b29ac2ee9f003a4ffbe3a77","path":"LICENSE","size":1087},{"address":"sha256:027cbccba83fd80034287b04be389f27c8930408167f6022b2be4433c7de535d","path":"SKILL.md","size":35110}],"kind":"hermes-skill","name":"humanizer","version":"2.5.1"}

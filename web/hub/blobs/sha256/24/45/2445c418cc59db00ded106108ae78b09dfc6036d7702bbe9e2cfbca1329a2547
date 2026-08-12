@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:8c0fa0cd5acc4e9b540d99463623146c68bfae84e36f005ddc0e05bc4c04c228","path":"SKILL.md","size":16084},{"address":"sha256:612e00d5716fc9f789f952590782236f0992dba232887f6f274cae90f410a3d7","path":"scripts/openclaw_to_hermes.py","size":154206}],"kind":"hermes-skill","name":"openclaw-migration","version":"1.0.0"}

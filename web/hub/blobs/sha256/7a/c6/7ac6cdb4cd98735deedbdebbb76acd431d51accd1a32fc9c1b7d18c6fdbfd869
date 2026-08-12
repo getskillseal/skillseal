@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:583c5b2edd4abedff89327fc3f36e65abb39acf979eced19de7f8312fe1894b8","path":"SKILL.md","size":3326},{"address":"sha256:9aee4f0d05693b4c728217e4d5ca56f04648a25402d084f7f185bcb588113c62","path":"scripts/canvas_api.py","size":5384}],"kind":"hermes-skill","name":"canvas","version":"1.0.0"}

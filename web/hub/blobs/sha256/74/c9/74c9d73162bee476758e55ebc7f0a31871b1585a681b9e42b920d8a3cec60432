@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:67e63a0c798bc3e5ffc280139f4ddbc6581ba8b0d8cbc51afe0a7cc4863f3f3f","path":"SKILL.md","size":13214},{"address":"sha256:4684d2faf5a1593a1c022abeba7420b7a2237bfcbcd60178579eea4d93f85143","path":"scripts/telephony.py","size":47753}],"kind":"hermes-skill","name":"telephony","version":"1.0.0"}

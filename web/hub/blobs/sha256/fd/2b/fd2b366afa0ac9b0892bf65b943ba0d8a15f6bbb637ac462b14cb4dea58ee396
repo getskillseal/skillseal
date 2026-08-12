@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:c280bb8cb7be9fd129e6556eddcf61a7596a748c16e51ab080f12587706498d8","path":"SKILL.md","size":5043},{"address":"sha256:013515a1b3da50a86e3d034f729cc7f4b4bcef607751e89ff580a93b396506e1","path":"references/index_types.md","size":6461}],"kind":"hermes-skill","name":"faiss","version":"1.0.0"}

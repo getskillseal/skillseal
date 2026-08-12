@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:9e3c72936b78ad1401fbe5b75d3c258d76987b1f179fbc7d871b0ce1a7b8dc41","path":"SKILL.md","size":8909},{"address":"sha256:8b955328cd03915fea5d33c7d68f9556eafaf142d5b72713fee756d5d742a5d4","path":"references/deployment.md","size":3738}],"kind":"hermes-skill","name":"pinecone","version":"1.0.1"}

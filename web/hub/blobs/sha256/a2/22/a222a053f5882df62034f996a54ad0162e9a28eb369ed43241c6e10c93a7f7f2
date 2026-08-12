@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:e2be5117785e94228ea1ee4d4e185644664b43756540a729dc63ca813afc7cee","path":"SKILL.md","size":10357},{"address":"sha256:905681243e4dabf3c5d747aacb33b7ea8c982aaebb9f7cc8c812c264309f3a6a","path":"scripts/search_arxiv.py","size":4386}],"kind":"hermes-skill","name":"arxiv","version":"1.0.0"}

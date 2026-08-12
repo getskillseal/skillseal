@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:f19ef2f7d65c4fd65afb76a6c81aba6c957b870558c288d448126bcda7cf6435","path":"SKILL.md","size":14243},{"address":"sha256:11db2b0c224f4b44953e55e7fe85858f0d3f013dde465b0317b1bdd79f38e5cd","path":"references/github-api-cheatsheet.md","size":6253}],"kind":"hermes-skill","name":"github-repo-management","version":"1.1.0"}

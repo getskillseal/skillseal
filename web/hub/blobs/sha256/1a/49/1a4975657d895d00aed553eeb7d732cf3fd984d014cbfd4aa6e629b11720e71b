@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:c49a78a0887f941fe4ddeac70298a1976d71621495b54afd287788af62a902c5","path":"SKILL.md","size":9062},{"address":"sha256:fbdc6e0398ec67607f435556b0d47a9f4e3efa5a1814bdc3f952aca60fba0001","path":"scripts/recalc.py","size":2812}],"kind":"hermes-skill","name":"excel-author","version":"1.0.0"}

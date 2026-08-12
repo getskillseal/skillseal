@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:bacb8c7262eb3bdbd025197d75d8585e58c21c0ac33d49e2e9e7984d8ecc83ac","path":"SKILL.md","size":2842},{"address":"sha256:a7e95f73d83317531bd4eba4992b0df623c0c4c5677eb446e0a051a92d4a087c","path":"scripts/stocks_client.py","size":25788}],"kind":"hermes-skill","name":"stocks","version":"0.1.0"}

@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:4fbdb7d8d40702ca815a03f3cd78c31c2862ec38c8af3bbbc8268c8a9a8e9c0f","path":"SKILL.md","size":6939},{"address":"sha256:b69239cb0a9ae07b3fd16ccf05ec00e820ed060e6afcb127951c883b086d2e39","path":"scripts/searxng.sh","size":524}],"kind":"hermes-skill","name":"searxng-search","version":"1.0.1"}

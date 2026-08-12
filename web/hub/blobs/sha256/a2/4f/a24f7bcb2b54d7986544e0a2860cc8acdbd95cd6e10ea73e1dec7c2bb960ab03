@@ -1,0 +1,1 @@
+{"files":[{"address":"sha256:0a0d0d350cf6e0c5e600a52152cdfb1cd87dfee396819159c7425a3368b7b340","path":"SKILL.md","size":9726},{"address":"sha256:f8770cbacd18e021075d8bfc7558295b8633777c305212e55049cd75ac94e08c","path":"references/cli-docs.md","size":2204}],"kind":"hermes-skill","name":"antigravity-cli","version":"0.2.0"}
