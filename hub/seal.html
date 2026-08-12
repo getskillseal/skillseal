@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn6atPC90ZXh0Pjwvc3ZnPg==">
 <title>Seal a skill — SkillSeal</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -75,7 +76,7 @@
 <nav class="top">
   <a class="brand" href="./index.html"><span class="mark">🦭</span>SkillSeal</a>
   <div class="links">
-    <a href="./index.html#skills">Skills</a>
+    <a href="./index.html#skills">Sealed Skills</a>
     <a class="on" href="./seal.html">Seal a skill</a>
     <a href="./seal.html#verify">Verify a skill</a>
     <a href="/skillseal/docs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h9a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/><path d="M20 4h-4a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h5z"/></svg>Docs</a>
@@ -325,7 +326,10 @@ function setMode(mode){
 $("tabSeal").onclick=()=>setMode("seal");
 $("tabVerify").onclick=()=>setMode("verify");
 addEventListener("resize",moveInd); addEventListener("load",moveInd);
-setMode(location.hash==="#verify"?"verify":"seal");
+// A token can arrive in the URL (e.g. from a Sealed Skills card) for instant verification.
+const preToken=new URLSearchParams(location.search).get("token");
+setMode((preToken||location.hash==="#verify")?"verify":"seal");
+if(preToken){ $("vIn").value=preToken; doVerify(preToken); }
 </script>
 </body>
 </html>
