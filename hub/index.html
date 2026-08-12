@@ -289,7 +289,6 @@
     <input id="q" placeholder='Search skills... (press "/" to focus)' autocomplete="off" />
     <button class="clear" id="clear" hidden>✕</button>
   </div>
-  <div class="pills" id="pills"></div>
 </div>
 
 <div class="layout" id="skills">
@@ -343,7 +342,6 @@ const catLabel=(cat)=>{const g=GROUPS.find(x=>x.match.includes(cat));
 const cardIcon=(cat)=>RAWICON[cat]||groupMeta(groupOf(cat)).icon;
 const PLATFORM={macos:"macOS",linux:"Linux",windows:"windows",any:"any"};
 // Registry names for the row of pills under the search box.
-const SRCLABEL={all:"All",builtin:"Built-in",official:"Optional",community:"Community"};
 const REPO="https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
 // Generated skill pages, same route shape as the upstream hub docs.
 const DOCS="/mcp-skills-integrity/docs/user-guide/skills/bundled";
@@ -402,7 +400,7 @@ const seal=(size)=>`<svg viewBox="0 0 24 24" width="${size}" height="${size}" ar
   <path d="M7.6 12.3l2.9 2.9 5.9-6.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
-let CATALOG=[],state={cat:"all",src:"all",q:"",sort:"used"},timer;
+let CATALOG=[],state={cat:"all",q:"",sort:"used"},timer;
 const cut=(s,n)=>s.length>n?s.slice(0,n)+"…":s;
 const num=n=>n.toLocaleString();
 
@@ -432,7 +430,6 @@ function render(){
   const q=state.q.toLowerCase();
   const list=CATALOG.filter(s=>
     (state.cat==="all"||groupOf(s.category)===state.cat)&&
-    (state.src==="all"||s.source===state.src)&&
     (!q||(s.name+" "+s.desc).toLowerCase().includes(q)));
   if(state.sort==="az") list.sort((a,b)=>a.name.localeCompare(b.name));
   else if(state.sort==="cat") list.sort((a,b)=>(a.category+a.name).localeCompare(b.category+b.name));
@@ -447,12 +444,10 @@ function render(){
     const pre=s.prereq
       ? `<div class="prereq"><div class="lbl">Prerequisites</div>
            <div class="r"><span class="k">${s.prereq.kind||"cmd"}</span><code>${s.prereq.value}</code></div></div>` : "";
-    const srcPill=SRCLABEL[s.source]||s.source;
     const platPills=(s.platforms||[]).slice(0,3).map(p=>`<span class="spill">${PLATFORM[String(p).toLowerCase()]||p}</span>`).join("");
     el.innerHTML=`${facet(s.name)}
       <div class="statusrow">
         <span class="spill verified">${seal(12)} Verified</span>
-        <span class="spill src">${srcPill}</span>
         ${platPills}
       </div>
       <div class="top"><span class="cico">${cardIcon(s.category)}</span><span class="name">${s.name}</span>
@@ -502,24 +497,9 @@ function render(){
 }
 
 function chrome(){
-  const byCat={},bySrc={};
-  CATALOG.forEach(s=>{byCat[s.category]=(byCat[s.category]||0)+1;bySrc[s.source]=(bySrc[s.source]||0)+1;});
+  const byCat={};
+  CATALOG.forEach(s=>{byCat[s.category]=(byCat[s.category]||0)+1;});
   document.getElementById("total").textContent=num(CATALOG.length);
-
-  const pills=document.getElementById("pills");pills.innerHTML="";
-  const ORDER=["builtin","official"]; // All, Built-in, Optional, then registries
-  const srcs=Object.entries(bySrc).sort((a,b)=>{
-    const ai=ORDER.indexOf(a[0]),bi=ORDER.indexOf(b[0]);
-    if(ai!==-1||bi!==-1)return (ai===-1?99:ai)-(bi===-1?99:bi);
-    return a[0].localeCompare(b[0]);
-  });
-  [["all",CATALOG.length],...srcs].forEach(([s,n])=>{
-    const b=document.createElement("button");
-    b.className="pill"+(s===state.src?" on":"");
-    b.innerHTML=`${SRCLABEL[s]||s}<span class="c">${num(n)}</span>`;
-    b.onclick=()=>{state.src=s;chrome();render();};
-    pills.appendChild(b);
-  });
 
   // Sidebar: the groups that actually have skills, biggest first, with All on top.
   const byGroup={};
