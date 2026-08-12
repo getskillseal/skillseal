@@ -159,7 +159,7 @@
   .sortmenu button.on{color:var(--accent)}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1rem}
-  .card{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);
+  .card{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--panel);border:1px solid var(--line);
     border-radius:18px;padding:1.15rem 1.25rem;animation:cardIn .35s ease both}
   .card:hover{border-color:var(--line-2);background:var(--panel-2)}
   @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -217,7 +217,7 @@
   .chip.cat{color:var(--gold);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
   .chip.plat{color:var(--blue);border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.07)}
   .detail{display:none;margin-top:.9rem;border-top:1px solid var(--line);padding-top:.85rem;cursor:default}
-  .card.open .detail{display:block;animation:cardIn .25s ease both}
+  .card.open .detail{display:flex;flex-direction:column;flex:1 1 auto;animation:cardIn .25s ease both}
   .lbl{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#6f6b64;margin-bottom:.35rem}
   .ov{font-size:.88rem;line-height:1.55;color:#e7e3db;margin:0 0 .9rem}
   .ov code{font-family:"JetBrains Mono",monospace;font-size:.82em;color:var(--gold)}
@@ -228,7 +228,9 @@
     border:1px solid rgba(255,255,255,.2);border-radius:5px;padding:.15rem .45rem;font-size:.74rem}
   .tagrow{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem}
   .tagrow span{font-size:.72rem;color:#b9b5ad;border:1px solid var(--line);border-radius:6px;padding:.22rem .55rem}
-  .facts{display:grid;grid-template-columns:auto 1fr;gap:.45rem .9rem;margin-bottom:.9rem;align-items:baseline}
+  /* margin-top:auto anchors the fact rows (and the command below them) to the
+     bottom of the card, so they line up across every card in a row */
+  .facts{display:grid;grid-template-columns:auto 1fr;gap:.45rem .9rem;margin:auto 0 .9rem;align-items:baseline}
   .facts dt{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#6f6b64}
   .facts dd{margin:0;font-size:.82rem;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .facts dd.mono{font-weight:400;font-size:.72rem;color:#b9b5ad}
