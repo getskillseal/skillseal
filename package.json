@@ -1,18 +1,18 @@
 {
-  "name": "pin-the-protocol",
+  "name": "skillseal-repo",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A verifying gateway that pins what an agent reads — MCP tool descriptions and Agent Skills — to a content address, so silent tampering becomes unexpressible.",
+  "description": "SkillSeal — install agent skills you can trust. One line proves the fingerprint, the publisher key, and the signature before anything is written.",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "act1": "node client/run-act1.mjs",
-    "act2": "node client/run-act2.mjs",
-    "act3": "node client/audit.mjs",
-    "approve": "node client/approve.mjs",
-    "skills": "node skill-lock/skill-lock.mjs"
+    "act1": "node demo/client/run-act1.mjs",
+    "act2": "node demo/client/run-act2.mjs",
+    "act3": "node demo/client/audit.mjs",
+    "approve": "node demo/client/approve.mjs",
+    "skills": "node demo/skill-lock/skill-lock.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.12.1",

@@ -13,7 +13,7 @@ import { createPrivateKey, createPublicKey, sign as edSign } from "node:crypto";
 import { buildTree } from "../lib/skilltree.mjs";
 import { s3Put, s3PutKey, attestKey, s3Config } from "../lib/s3.mjs";
 
-const SKILL = process.argv[2] || "skills-samples/data/csv-stats";
+const SKILL = process.argv[2] || "../examples/data/csv-stats";
 
 // Deterministic publisher key for the demo (reproducible runs). A real publisher
 // loads a persistent key; the private key never leaves this process.

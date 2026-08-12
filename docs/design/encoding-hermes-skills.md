@@ -1,6 +1,6 @@
 # Encoding agent skills in a content-addressed registry
 
-This note shows how to give a whole [Hermes Agent](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) skill (or any [Agent Skills](https://agentskills.io/home) directory) a single verifiable identity and a signed provenance, using the [kappa registry](https://github.com/UOR-Foundation/kappa-registry). A working encoder is in [`skill-tree/skill-tree.mjs`](../../skill-tree/skill-tree.mjs).
+This note shows how to give a whole [Hermes Agent](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) skill (or any [Agent Skills](https://agentskills.io/home) directory) a single verifiable identity and a signed provenance, using the [kappa registry](https://github.com/UOR-Foundation/kappa-registry). A working encoder is in [`demo/skill-tree/skill-tree.mjs`](../../demo/skill-tree/skill-tree.mjs).
 
 ## What a skill actually is
 
@@ -65,9 +65,9 @@ Four steps, all standard registry operations:
 ## Try it
 
 ```bash
-node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill
-node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill   # all files match
+node demo/skill-tree/skill-tree.mjs encode examples/document/pdf-fill
+node demo/skill-tree/skill-tree.mjs verify examples/document/pdf-fill   # all files match
 # edit any file under the skill, then:
-node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill   # names the changed file, refuses
-node skill-tree/skill-tree.mjs audit  skills-samples/document/pdf-fill   # re-fetch from the store and re-verify
+node demo/skill-tree/skill-tree.mjs verify examples/document/pdf-fill   # names the changed file, refuses
+node demo/skill-tree/skill-tree.mjs audit  examples/document/pdf-fill   # re-fetch from the store and re-verify
 ```

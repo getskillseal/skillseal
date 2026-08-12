@@ -4,7 +4,7 @@ The [kappa registry](https://github.com/UOR-Foundation/kappa-registry) is conten
 
 So "where the bytes live" becomes a deployment choice, not a trust decision.
 
-This is executable in the repo. **Act 5** ([`client/run-s3.mjs`](../../client/run-s3.mjs), [`lib/s3.mjs`](../../lib/s3.mjs)) mirrors a whole skill's blobs to MinIO over the real S3 API, fetches them back by address, re-verifies each, then corrupts one object in the bucket and shows the read rejected. `lib/s3.mjs` is a dependency-free SigV4 client, so the same code runs unchanged against AWS S3, Cloudflare R2, or Storj.
+This is executable in the repo. **Act 5** ([`demo/client/run-s3.mjs`](../../demo/client/run-s3.mjs), [`demo/lib/s3.mjs`](../../demo/lib/s3.mjs)) mirrors a whole skill's blobs to MinIO over the real S3 API, fetches them back by address, re-verifies each, then corrupts one object in the bucket and shows the read rejected. `demo/lib/s3.mjs` is a dependency-free SigV4 client, so the same code runs unchanged against AWS S3, Cloudflare R2, or Storj.
 
 ## The key insight: the substrate does not have to be trusted
 
@@ -45,7 +45,7 @@ Filecoin now has S3-compatible front doors, so the mapping above *is* the Fileco
 | [Filebase](https://filebase.com/) | `https://s3.filebase.com` | IPFS pinned + Filecoin | returns the object's IPFS CID in metadata |
 | [Storj](https://storj.io/) | `https://gateway.storjshare.io` | decentralized (erasure-coded) | S3-native, not Filecoin, but distributed |
 
-Because a kappa is the S3 key, storing a skill on Filecoin is a change of endpoint and credentials, nothing else (see [`.env.filecoin.example`](../../.env.filecoin.example)). Where the provider returns an IPFS/Filecoin CID, the registry records `address -> CID` as provenance: **the kappa proves the bytes are right; the CID names where Filecoin holds them.** Two integration depths, usable together:
+Because a kappa is the S3 key, storing a skill on Filecoin is a change of endpoint and credentials, nothing else (see [`demo/.env.filecoin.example`](../../demo/.env.filecoin.example)). Where the provider returns an IPFS/Filecoin CID, the registry records `address -> CID` as provenance: **the kappa proves the bytes are right; the CID names where Filecoin holds them.** Two integration depths, usable together:
 
 1. **Hot path (IPFS/Akave/Filebase).** Objects are pinned and served over the S3 API; retrieval is a gateway; the registry re-verifies against the kappa, so an untrusted gateway is fine.
 2. **Cold path (Filecoin deals).** The provider (Akave, or Filebase/Lighthouse/web3.storage) makes storage deals for durable, incentivized retention; the deal and CID are provenance edges, so "where is this skill archived and under what deal" is a query, not a spreadsheet.

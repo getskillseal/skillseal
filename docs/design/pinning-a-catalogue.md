@@ -10,7 +10,7 @@ publisher's key — and from those can verify the entire hub.
 Run against a checkout of the upstream agent repository:
 
 ```bash
-node harness/pin-hub.mjs \
+node demo/harness/pin-hub.mjs \
   --root /path/hermes-agent/skills:builtin \
   --root /path/hermes-agent/optional-skills:official \
   --publish
@@ -35,10 +35,10 @@ skills collapse to the same address.
 
 ## The signed registry root
 
-`harness/out/registry.json` is a canonical, sorted statement over the whole
+`demo/harness/out/registry.json` is a canonical, sorted statement over the whole
 catalogue: for each skill its name, category, source, address, and file count.
 Its own content address is the **registry root**, and
-`harness/out/registry-root.json` carries that root plus an ed25519 signature
+`demo/harness/out/registry-root.json` carries that root plus an ed25519 signature
 over it.
 
 This is the piece the upstream trust model lacks. There, a skill is trusted by
@@ -49,7 +49,7 @@ catalogue at once.
 ## Verifying as a subscriber
 
 ```bash
-node harness/verify-hub.mjs --sample 6
+node demo/harness/verify-hub.mjs --sample 6
 ```
 
 Measured output, holding only the root address and the publisher key:

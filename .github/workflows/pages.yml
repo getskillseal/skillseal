@@ -7,8 +7,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "hub/**"
-      - "website/**"
+      - "web/hub/**"
+      - "web/site/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -30,24 +30,24 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: web/site/package-lock.json
       - name: Install
-        working-directory: website
+        working-directory: web/site
         run: npm ci --no-audit --no-fund
       # generate-skill-docs copies hub/index.html, hub/seal.html and
       # hub/catalog.json into the site, then Docusaurus builds it.
       - name: Build site
-        working-directory: website
+        working-directory: web/site
         run: npm run build
       - name: Confirm the hub shipped
         run: |
-          test -f website/build/hub/index.html
-          test -f website/build/hub/seal.html
-          test -f website/build/hub/catalog.json
+          test -f web/site/build/hub/index.html
+          test -f web/site/build/hub/seal.html
+          test -f web/site/build/hub/catalog.json
           echo "hub, seal, and catalogue are in the build"
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: website/build
+          path: web/site/build
 
   deploy:
     needs: build

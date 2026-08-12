@@ -13,9 +13,9 @@ without code changes:
 Approve once, from this repo, before wiring an agent up:
 
 ```bash
-./demo.sh                       # or, minimally:
-scripts/trust-store.sh start
-node client/approve.mjs weather.v1
+./demo/demo.sh                       # or, minimally:
+demo/scripts/trust-store.sh start
+node demo/client/approve.mjs weather.v1
 ```
 
 ---
@@ -26,7 +26,7 @@ The pattern is always the same — replace `<server cmd>` with the command the
 agent runs today, and give the pin a name:
 
 ```
-node /abs/path/pin-the-protocol/gateway/gateway.mjs --pin <name> -- <server cmd>
+node /abs/path/pin-the-protocol/demo/gateway/gateway.mjs --pin <name> -- <server cmd>
 ```
 
 ### Claude Code / Claude Desktop — `mcpServers`
@@ -37,7 +37,7 @@ node /abs/path/pin-the-protocol/gateway/gateway.mjs --pin <name> -- <server cmd>
   "mcpServers": {
     "weather": {
       "command": "node",
-      "args": ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+      "args": ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
                "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"],
       "env": { "TRUST_STORE_URL": "http://127.0.0.1:8080" }
     }
@@ -53,7 +53,7 @@ extensions:
   weather:
     type: stdio
     cmd: node
-    args: ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+    args: ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
            "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"]
 ```
 
@@ -65,7 +65,7 @@ extensions:
   "mcpServers": {
     "weather": {
       "command": "node",
-      "args": ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+      "args": ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
                "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"]
     }
   }
@@ -81,7 +81,7 @@ extensions:
     "servers": {
       "weather": {
         "command": "node",
-        "args": ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+        "args": ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
                  "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"]
       }
     }
@@ -97,7 +97,7 @@ extensions:
   "mcpServers": {
     "weather": {
       "command": "node",
-      "args": ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+      "args": ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
                "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"]
     }
   }
@@ -113,7 +113,7 @@ extensions:
     "weather": {
       "type": "stdio",
       "command": "node",
-      "args": ["/abs/path/pin-the-protocol/gateway/gateway.mjs", "--pin", "weather.v1",
+      "args": ["/abs/path/pin-the-protocol/demo/gateway/gateway.mjs", "--pin", "weather.v1",
                "--", "node", "/abs/path/pin-the-protocol/vendor/weather-server.mjs"]
     }
   }
@@ -137,10 +137,10 @@ agent-agnostic because it checks the `SKILL.md` bytes, not the agent:
 
 ```bash
 # one-time, per skill:
-node skill-lock/skill-lock.mjs approve ~/.claude/skills/release-notes
+node demo/skill-lock/skill-lock.mjs approve ~/.claude/skills/release-notes
 
 # before activation (hook, wrapper, or CI gate):
-node skill-lock/skill-lock.mjs verify ~/.claude/skills/release-notes || {
+node demo/skill-lock/skill-lock.mjs verify ~/.claude/skills/release-notes || {
   echo "skill changed since approval — refusing to activate"; exit 1;
 }
 ```

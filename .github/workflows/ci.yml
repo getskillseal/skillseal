@@ -33,10 +33,10 @@ jobs:
           key: trust-store-${{ runner.os }}-v1
 
       - name: Run the full demo
-        run: ./demo.sh
+        run: ./demo/demo.sh
 
       - name: Run the agent demo (fetch + verify + use a skill from storage)
-        run: ./agent-demo.sh
+        run: ./demo/agent-demo.sh
 
       - name: Token layer (offline checks)
         run: |
@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: evidence
-          path: evidence/
+          path: demo/evidence/
 
   docs:
     runs-on: ubuntu-latest
@@ -68,20 +68,20 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: web/site/package-lock.json
 
       - name: Install docs dependencies
-        working-directory: website
+        working-directory: web/site
         run: npm ci --no-audit --no-fund
 
       # Generates a page per skill, then builds. Fails the job if a skill page
       # or the site itself does not build.
       - name: Build the documentation site
-        working-directory: website
+        working-directory: web/site
         run: npm run build
 
       - name: Check the generated skill routes exist
-        working-directory: website
+        working-directory: web/site
         run: |
           set -euo pipefail
           for f in build/index.html \

@@ -74,7 +74,7 @@ folder, so Claude Code, Claude Desktop, goose, Cursor, Codex, OpenCode,
 OpenHands, Letta, Amp, Gemini CLI, and Copilot all read it with no plugin and no
 integration. Browse a hub of sealed skills, each with its own line, at the
 [website](https://getskillseal.github.io/skillseal/hub/) or in
-[`hub/index.html`](hub/index.html).
+[`web/hub/index.html`](web/hub/index.html).
 
 ## How it fits together
 
@@ -90,9 +90,9 @@ Three ideas carry the whole guarantee.
   work by changing only the endpoint. The address is the proof, so a corrupted
   object is caught on read no matter where it came from.
 * **The root of trust is content addressed.** Fingerprints and the signed audit
-  root are backed by the [kappa registry](https://github.com/UOR-Foundation/kappa-registry)
-  from the UOR Foundation, a registry that verifies every blob against its own
-  hash on write and signs a deterministic root over the namespace.
+  root are backed by a content addressed registry that verifies every blob
+  against its own hash on write and signs a deterministic root over the
+  namespace.
 
 ```
    you  ──paste a line──▶  skillseal  ──fetch by address──▶  any store
@@ -117,7 +117,7 @@ earlier naive design run on every build and must all stay defended. Full notes:
 ```bash
 git clone https://github.com/getskillseal/skillseal
 cd skillseal
-./demo.sh
+./demo/demo.sh
 ```
 
 The demo runs a real MCP client against a real server, ships a poisoned update,
@@ -129,7 +129,7 @@ on read. Every act writes machine checkable proof to `./evidence/`, so a skeptic
 can validate without trusting the terminal.
 
 Requirements: **Node 20 or newer**, and a **Rust toolchain** or **Docker** to
-build the trust store on first run. Clean up with `./demo.sh clean`.
+build the trust store on first run. Clean up with `./demo/demo.sh clean`.
 
 ## Documentation
 
@@ -148,24 +148,37 @@ build the trust store on first run. Clean up with `./demo.sh clean`.
 git clone https://github.com/getskillseal/skillseal
 cd skillseal
 npm install
-./demo.sh                 # the four acts, with proof in ./evidence/
-node hub/build-catalog.mjs   # rebuild the hub from encoded skills
-cd website && npm start      # the docs site, generated from every SKILL.md
+./demo/demo.sh                 # the four acts, with proof in ./evidence/
+node web/hub/build-catalog.mjs   # rebuild the hub from encoded skills
+cd web/site && npm start      # the docs site, generated from every SKILL.md
 ```
 
 The CLI lives in [`skillseal/`](skillseal/) as a self contained package. The
-website and hub are static, and ship to GitHub Pages on every push to `main`.
+web pages and docs site are static, and ship to GitHub Pages on every push to
+`main`.
+
+## Repository layout
+
+```
+skillseal/   the CLI and library — the product (npm: skillseal)
+examples/    sample skills, each a folder with a SKILL.md
+web/
+  hub/       the Sealed Skills browser (static)
+  site/      the docs site (static)
+docs/        design notes and assets
+demo/        a runnable security demo: a verifying gateway,
+             an agent that fetches and runs a sealed skill, and
+             the storage layer, with proof written to demo/evidence/
+```
 
 ## Built on
 
-The content address and signed audit root come from the
-[kappa registry](https://github.com/UOR-Foundation/kappa-registry) by the UOR
-Foundation. The design lines up with three
-[Agentic AI Foundation](https://aaif.io/) working groups: Security and Privacy,
-Identity and Trust, and Observability and Traceability. Thanks to
-[Agent Skills](https://agentskills.io/home) and
-[goose](https://github.com/block/goose) for the folder format this reads and
-writes.
+SkillSeal is a natural evolution of [Agent Skills](https://agentskills.io/home):
+the same portable folder with a `SKILL.md`, plus a seal that proves it. It reads
+and writes the format every agent already understands, so it is backward
+compatible by construction. The content address and signed audit root are backed
+by a content addressed registry. Thanks to Agent Skills and
+[goose](https://github.com/block/goose) for the folder format.
 
 ## License
 

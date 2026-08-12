@@ -22,7 +22,7 @@ import { createPrivateKey, createPublicKey, sign as edSign } from "node:crypto";
 import { contentAddress, canonicalJson, NAMESPACE } from "../lib/store.mjs";
 import { buildTree } from "../lib/skilltree.mjs";
 import { savePin } from "../lib/pins.mjs";
-import { createToken } from "../skillseal/token.mjs";
+import { createToken } from "../../skillseal/token.mjs";
 
 const OUT = "harness/out";
 

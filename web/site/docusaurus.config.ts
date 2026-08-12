@@ -30,7 +30,7 @@ const config: Config = {
           breadcrumbs: true,
           showLastUpdateTime: false,
           editUrl:
-            "https://github.com/getskillseal/skillseal/tree/main/website/",
+            "https://github.com/getskillseal/skillseal/tree/main/web/site/",
         },
         blog: false,
         theme: { customCss: "./src/css/custom.css" },

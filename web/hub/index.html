@@ -470,7 +470,7 @@ const EMBEDDED=[
   overview:"Group merged pull requests into Features, Fixes, and Maintenance; write one past-tense bullet per change in user-facing language, breaking changes first.",
   tags:["git","changelog","release"],platforms:["Any"],version:"1.0.1",author:"Hermes Agent",license:"MIT",
   address:"sha256:84a63c3deed30805c00c9267c9133ee6057d1233a979421d383be71742d23c50",cid:"bafybeih9…2ab",
-  docs:REPO+"/skills/release-notes/SKILL.md"},
+  docs:REPO+"/examples/release-notes/SKILL.md"},
  {name:"sql-explain",source:"community",category:"data",desc:"Explain a SQL query plan in plain language and flag slow scans.",
   overview:"Parse an <code>EXPLAIN</code> plan, describe each step in plain language, and call out full table scans, missing indexes, and expensive joins.",
   prereq:{kind:"cmd",value:"psql"},tags:["sql","perf","database"],platforms:["Any"],version:"0.4.2",author:"community",license:"Apache-2.0",
@@ -577,7 +577,7 @@ function render(){
           <dt>Version</dt><dd>${s.version||"1.0.0"}</dd>
           <dt>License</dt><dd>${s.license||"MIT"}</dd>
           <dt>&kappa;</dt><dd class="mono">${s.token?`<a class="addr" href="./seal.html?token=${encodeURIComponent(s.token)}#verify" title="Verify this address">${cut(s.address,34)}</a>`:`<span title="${s.address}">${cut(s.address,34)}</span>`}</dd>
-          <dt>Filecoin</dt><dd class="mono">${s.cid?`<a class="addr" href="https://ipfs.io/ipfs/${s.cid}" target="_blank" rel="noopener" title="Open on IPFS: ${s.cid}">${s.cid}</a>`:"—"}</dd>
+          <dt>Filecoin</dt><dd class="mono">${s.cid?`<a class="addr" href="./ipfs.html?cid=${encodeURIComponent(s.cid)}" target="_blank" rel="noopener" title="Resolve ${s.cid} across IPFS gateways">${s.cid}</a>`:"—"}</dd>
         </dl>
         <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillseal add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
         ${s.token ? `<div class="lbl" style="margin-top:.5rem">One line. Works in any agent. Checks itself before it installs.</div>` : ""}

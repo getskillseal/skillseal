@@ -47,7 +47,7 @@ node client/audit.mjs
 hr; echo "ACT 5 -- S3-compatible / decentralized storage substrate"; hr
 if bash scripts/s3-store.sh start; then
   export S3_ENDPOINT="${S3_ENDPOINT:-http://127.0.0.1:9000}"
-  node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill >/dev/null
+  node skill-tree/skill-tree.mjs encode ../examples/document/pdf-fill >/dev/null
   node client/run-s3.mjs
 else
   echo "ACT 5: skipped (no Docker and MinIO unavailable). Storage substrate is optional."

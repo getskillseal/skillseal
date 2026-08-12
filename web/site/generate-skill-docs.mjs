@@ -11,11 +11,11 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync, rmSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildTree } from "../lib/skilltree.mjs";
+import { buildTree } from "../../demo/lib/skilltree.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = join(HERE, "..");
-const SKILLS_ROOT = process.env.SKILLS_ROOT || join(REPO_ROOT, "skills-samples");
+const REPO_ROOT = join(HERE, "..", "..");
+const SKILLS_ROOT = process.env.SKILLS_ROOT || join(REPO_ROOT, "examples");
 const OUT = join(HERE, "docs", "user-guide", "skills", "bundled");
 
 const fm = (md, k) => (new RegExp(`^\\s*${k}:\\s*(.+)$`, "m").exec(md)?.[1] || "").trim();
@@ -100,7 +100,7 @@ function copyHub() {
   const dest = join(HERE, "static", "hub");
   mkdirSync(dest, { recursive: true });
   for (const page of ["index.html", "seal.html", "catalog.json"]) {
-    const src = join(REPO_ROOT, "hub", page);
+    const src = join(REPO_ROOT, "web", "hub", page);
     if (!existsSync(src)) continue;
     writeFileSync(join(dest, page), readFileSync(src));
     console.log(`copied hub/${page} -> website/static/hub/${page}`);

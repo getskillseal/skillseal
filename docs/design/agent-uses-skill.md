@@ -37,7 +37,7 @@ is exactly the tested behaviour:
 ## Run it (MinIO stand-in)
 
 ```bash
-./agent-demo.sh
+./demo/agent-demo.sh
 ```
 
 It starts an object store, publishes the sample `csv-stats` skill, then a
@@ -49,14 +49,14 @@ result — then a tampered copy is refused.
 The agent code does not change; point it at a Filecoin-backed S3 endpoint:
 
 ```bash
-set -a; . ./.env.filecoin.example; set +a     # fill in Akave or Filebase creds
-node agent/publish-skill.mjs skills-samples/data/csv-stats   # prints a skill card
-node agent/skill-agent.mjs --address <sha256:...> --key <publisherKey>
+set -a; . ./demo/.env.filecoin.example; set +a     # fill in Akave or Filebase creds
+node demo/agent/publish-skill.mjs examples/data/csv-stats   # prints a skill card
+node demo/agent/skill-agent.mjs --address <sha256:...> --key <publisherKey>
 ```
 
 ## Use it from a real agent (MCP)
 
-`agent/skill-mcp.mjs` exposes one MCP tool, `use_skill`, that runs the same
+`demo/agent/skill-mcp.mjs` exposes one MCP tool, `use_skill`, that runs the same
 verify-then-execute path and returns the result (or refuses). Any MCP-capable
 agent can call it. Add it to the agent's MCP config:
 
@@ -66,7 +66,7 @@ agent can call it. Add it to the agent's MCP config:
   "mcpServers": {
     "skill-from-storage": {
       "command": "node",
-      "args": ["/abs/path/agent/skill-mcp.mjs"],
+      "args": ["/abs/path/demo/agent/skill-mcp.mjs"],
       "env": {
         "S3_PROVIDER": "filebase",
         "S3_ENDPOINT": "https://s3.filebase.com",

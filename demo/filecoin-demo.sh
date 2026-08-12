@@ -49,7 +49,7 @@ esac
 command -v python3 >/dev/null || { echo "need python3 to run the sample skill"; exit 1; }
 mkdir -p evidence
 
-SKILL="skills-samples/data/csv-stats"
+SKILL="../examples/data/csv-stats"
 
 hr; echo "1. PUBLISH to $S3_PROVIDER ($S3_ENDPOINT)"; hr
 CARD=$(node agent/publish-skill.mjs "$SKILL")

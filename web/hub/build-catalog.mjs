@@ -11,10 +11,12 @@
 // sample set otherwise.
 
 import { readdirSync, statSync, writeFileSync, existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
-import { buildTree } from "../lib/skilltree.mjs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { buildTree } from "../../demo/lib/skilltree.mjs";
 
-const ROOT = process.argv[2] || "skills-samples";
+const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = process.argv[2] || join(HERE, "..", "..", "examples");
 
 // Docs live on the same platform the upstream hub uses (Docusaurus), at the
 // same route shape: /docs/user-guide/skills/bundled/{category}/{category}-{name}
@@ -64,7 +66,7 @@ function findSkills(root) {
 async function main() {
   const found = findSkills(ROOT);
   let s3Cid = null;
-  try { ({ s3Cid } = await import("../lib/s3.mjs")); } catch { /* store optional */ }
+  try { ({ s3Cid } = await import("../../demo/lib/s3.mjs")); } catch { /* store optional */ }
 
   const skills = [];
   for (const f of found) {
@@ -91,8 +93,8 @@ async function main() {
     });
   }
 
-  writeFileSync("hub/catalog.json", JSON.stringify({ generated: true, skills }, null, 2));
-  console.log(`wrote hub/catalog.json with ${skills.length} skill(s):`);
+  writeFileSync(join(HERE, "catalog.json"), JSON.stringify({ generated: true, skills }, null, 2));
+  console.log(`wrote web/hub/catalog.json with ${skills.length} skill(s):`);
   for (const s of skills) console.log(`  ${s.name.padEnd(16)} ${s.address.slice(0, 26)}...  ${s.files} files`);
 }
 
