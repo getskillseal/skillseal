@@ -1,32 +1,67 @@
-/* Same palette as the Skills Hub page: gold on near-black. */
+/* SkillSeal docs — the Featherless skin: near black canvas, one blue accent
+   reserved for trust, sharp display type, quiet hairlines. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
-  --ifm-color-primary: #ffd700;
-  --ifm-color-primary-dark: #e6c200;
-  --ifm-color-primary-darker: #d9b800;
-  --ifm-color-primary-darkest: #b39700;
-  --ifm-color-primary-light: #ffdb1a;
-  --ifm-color-primary-lighter: #ffdd26;
-  --ifm-color-primary-lightest: #ffe44d;
-  --ifm-font-family-base: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ifm-color-primary: #1d9bf0;
+  --ifm-color-primary-dark: #0f8de6;
+  --ifm-color-primary-darker: #0e85d9;
+  --ifm-color-primary-darkest: #0b6db3;
+  --ifm-color-primary-light: #3aabf5;
+  --ifm-color-primary-lighter: #52b6f7;
+  --ifm-color-primary-lightest: #86cbfa;
+  --ifm-font-family-base: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ifm-font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-  --ifm-code-font-size: 90%;
+  --ifm-code-font-size: 88%;
+  --ifm-heading-font-weight: 700;
+  --ifm-line-height-base: 1.7;
 }
 
 [data-theme="dark"] {
-  --ifm-background-color: #07070d;
-  --ifm-background-surface-color: #0c0c16;
-  --ifm-navbar-background-color: #0a0a11;
-  --ifm-footer-background-color: #0a0a11;
-  --ifm-font-color-base: #fafaf6;
-  --ifm-heading-color: #fafaf6;
-  --ifm-toc-border-color: rgba(255, 255, 255, 0.06);
-  --ifm-table-border-color: rgba(255, 255, 255, 0.08);
-  --ifm-hr-border-color: rgba(255, 255, 255, 0.06);
+  --ifm-background-color: #0c0c0e;
+  --ifm-background-surface-color: #141416;
+  --ifm-navbar-background-color: #0d0d0f;
+  --ifm-footer-background-color: #0d0d0f;
+  --ifm-font-color-base: #e9e9ec;
+  --ifm-heading-color: #f5f5f7;
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.07);
+  --ifm-table-border-color: rgba(255, 255, 255, 0.09);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.07);
+  --ifm-blockquote-border-color: rgba(29, 155, 240, 0.5);
+  --ifm-color-content-secondary: #8a8a92;
 }
 
-[data-theme="dark"] .navbar { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-[data-theme="dark"] .menu__link--active { color: var(--ifm-color-primary); }
-[data-theme="dark"] table code { color: var(--ifm-color-primary); }
+/* sharp, tight headings */
+h1, h2, h3 { letter-spacing: -0.03em; }
+.markdown h1:first-child { font-size: 2.5rem; }
+h2 { margin-top: 2.4rem; }
 
-h1, h2, h3 { letter-spacing: -0.02em; }
-article table { display: table; width: 100%; }
+/* quiet chrome */
+[data-theme="dark"] .navbar { border-bottom: 1px solid rgba(255, 255, 255, 0.07); box-shadow: none; }
+[data-theme="dark"] .menu__link--active { color: var(--ifm-color-primary); }
+[data-theme="dark"] .menu__link:hover { color: #fff; }
+.navbar__title, .navbar__brand { font-weight: 700; letter-spacing: -0.02em; }
+
+/* code + tokens: mono, restrained */
+[data-theme="dark"] code {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+[data-theme="dark"] table code { color: var(--ifm-color-primary); }
+[data-theme="dark"] pre {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+/* tables read as clean spec, not a grid */
+article table { display: table; width: 100%; border-collapse: collapse; }
+[data-theme="dark"] th { color: #f5f5f7; font-weight: 600; }
+
+/* bold lead-in bullets carry the weight, Agent Skills style */
+.markdown ul li { margin: 0.35rem 0; }
+.markdown strong { color: #f5f5f7; }
+
+/* links: blue only, underline on hover */
+[data-theme="dark"] .markdown a { text-decoration: none; }
+[data-theme="dark"] .markdown a:hover { text-decoration: underline; }

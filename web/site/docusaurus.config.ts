@@ -56,7 +56,7 @@ const config: Config = {
     footer: {
       style: "dark",
       copyright:
-        "Built on the UOR Foundation content-addressed registry · MIT License · 2026",
+        "A natural evolution of the open Agent Skills format · MIT License · 2026",
     },
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
   } satisfies Preset.ThemeConfig,
