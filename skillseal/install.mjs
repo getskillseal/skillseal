@@ -23,6 +23,7 @@ import { verifyManifest, resolveManifest } from "./manifest.mjs";
 import { fetchByFingerprint, fingerprintOf } from "./fetch.mjs";
 import { targets, ensure } from "./agents.mjs";
 import { checkPublisher, rememberPublisher } from "./publishers.mjs";
+import { anchorOf, isDemoIdentity, verifyBinding, TRUST } from "./identity.mjs";
 
 // Default content stores for resolving a v2 pointer, which carries no location
 // of its own. Any store that lays files out by their address works; none is
@@ -62,6 +63,8 @@ async function planFromPointer(token, opts, steps) {
   return {
     name: resolved.name,
     publisherKey: resolved.publisherKey,
+    signed: true,
+    identity: resolved.identity || null,
     entries: resolved.files,
     // a file may name its own IPFS spot; the manifest's own hints and the stores follow.
     locations: [...resolved.locations, ...stores],
@@ -77,9 +80,12 @@ async function planFromLegacy(token, opts, steps) {
       throw new Error("the publisher's signature does not match this skill");
     }
     steps.push(`signed by ${token.publisherKey.slice(0, 16)}…`);
+  } else if (opts.allowUnsigned) {
+    steps.push("unsigned publisher, accepted with --allow-unsigned");
   } else {
-    steps.push("no signature on this token (unsigned publisher)");
+    throw new Error("this token is unsigned, so its publisher is unproven. Re-run with --allow-unsigned to install anyway.");
   }
+  const signed = !!token.signature;
 
   if (token.inline) {
     if (fingerprintOf(token.inline) !== token.fingerprint) throw new Error("inline contents do not match the token");
@@ -87,6 +93,7 @@ async function planFromLegacy(token, opts, steps) {
     return {
       name: token.name,
       publisherKey: token.publisherKey,
+      signed, identity: null,
       entries: [{ path: "SKILL.md", address: token.fingerprint }],
       locations: [],
       inlineFiles: [{ path: "SKILL.md", bytes: token.inline }],
@@ -103,6 +110,7 @@ async function planFromLegacy(token, opts, steps) {
   return {
     name: token.name || list.name,
     publisherKey: token.publisherKey,
+    signed, identity: null,
     entries: list.files,
     locations,
     inlineFiles: null,
@@ -129,6 +137,20 @@ export async function install(tokenString, opts = {}) {
   }
   if (seen.status === "known") steps.push("same publisher as last time");
   if (seen.status === "changed") steps.push("publisher key changed and was accepted explicitly");
+
+  // Publisher identity: a key is an anchor. Report who, and how strongly.
+  const anchor = anchorOf(plan.publisherKey);
+  const warnings = [];
+  let trust = plan.signed ? TRUST.CONFIG : TRUST.UNSIGNED;
+  steps.push(`publisher ${anchor.slice(0, 27)}…`);
+  if (isDemoIdentity(plan.publisherKey)) {
+    warnings.push("sealed by the shared demo identity — it proves the bytes belong together, not who made them (set PUBLISHER_SEED to seal under your own key)");
+  }
+  if (plan.identity && plan.identity.handle) {
+    const bind = await verifyBinding(anchor, plan.identity, { fetch: opts.fetch });
+    if (bind.ok) { trust = TRUST.CRYPTOGRAPHIC; steps.push(`identity verified: ${bind.handle} controls this key`); }
+    else { steps.push(`identity claim "${plan.identity.handle}" not verified (${bind.detail}); treated as unverified`); }
+  }
 
   // Resolve the files: either they travelled inline, or fetch each by address.
   let files, entries;
@@ -185,7 +207,7 @@ export async function install(tokenString, opts = {}) {
   rmSync(staging, { recursive: true, force: true });
   rememberPublisher(plan.name, plan.publisherKey);
 
-  return { name, token, steps, files: files.length, entries, installed };
+  return { name, token, steps, files: files.length, entries, installed, anchor, trust, warnings, identity: plan.identity || null };
 }
 
 // Check an already installed skill still matches what it was installed from.

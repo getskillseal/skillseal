@@ -14,13 +14,14 @@
 
 import { readFileSync, readdirSync, statSync, existsSync, writeFileSync } from "node:fs";
 import { join, relative, sep, basename } from "node:path";
-import { createPrivateKey, createPublicKey, sign as edSign } from "node:crypto";
+import { sign as edSign } from "node:crypto";
 import { install } from "./install.mjs";
 import { readToken, createToken, createPointer, toUri } from "./token.mjs";
 import { buildManifest, publisherHint } from "./manifest.mjs";
 import { fingerprintOf } from "./fetch.mjs";
 import { detect } from "./agents.mjs";
 import { allPublishers } from "./publishers.mjs";
+import { anchorOf, keysFromSeed, isDemoIdentity, DEMO_SEED } from "./identity.mjs";
 import { readLock, addToLock, verifyInstalled, LOCKFILE } from "./lock.mjs";
 
 const c = { dim: "\x1b[2m", b: "\x1b[1m", g: "\x1b[32m", r: "\x1b[31m", y: "\x1b[33m", off: "\x1b[0m" };
@@ -47,6 +48,7 @@ async function cmdAdd(args) {
       locations: flag(args, "--from") ? [flag(args, "--from")] : [],
       to: flag(args, "--to"),
       acceptNewKey: has(args, "--accept-new-key"),
+      allowUnsigned: has(args, "--allow-unsigned"),
       force: has(args, "--force"),
       all: has(args, "--all"),
     });
@@ -61,6 +63,9 @@ async function cmdAdd(args) {
     if (first) addToLock(result.name, token, first.dest, result.entries);
   }
   for (const s of result.steps) ok(s);
+  const tcolor = result.trust === "cryptographic" ? c.g : c.y;
+  console.log(`\n  identity: ${tcolor}${result.trust}${c.off} ${c.dim}(${result.trust === "cryptographic" ? "a domain proved control of this key" : result.trust === "config" ? "trusted on first use — same key as last time, but not tied to a name" : "no signature — publisher unproven"})${c.off}`);
+  for (const w of result.warnings || []) console.log(`  ${c.y}⚠ ${w}${c.off}`);
   console.log("");
   for (const t of result.installed) {
     if (t.skipped) info(`${t.label}: ${t.skipped} (use --force to replace)`);
@@ -95,6 +100,7 @@ function cmdInspect(args) {
   console.log(`\n${c.b}${t.name || "(unnamed skill)"}${c.off}\n`);
   info(`fingerprint  ${t.fingerprint}`);
   info(`publisher    ${t.publisherKey}`);
+  info(`anchor       ${anchorOf(t.publisherKey)}`);
   info(`signature    ${t.signature ? "present" : c.y + "none" + c.off}`);
   info(`locations    ${t.locations.length ? t.locations.join(", ") : "none listed"}`);
   info(`contents     ${t.inline ? `travels with the token (${t.inline.length} bytes)` : "fetched on install"}`);
@@ -115,18 +121,10 @@ function walk(dir, base = dir, out = []) {
   return out;
 }
 
-function keysFromSeed(seedText) {
-  const seed = Buffer.from(String(seedText).slice(0, 32).padEnd(32, "!"));
-  const pkcs8 = Buffer.concat([Buffer.from("302e020100300506032b657004220420", "hex"), seed]);
-  const privateKey = createPrivateKey({ key: pkcs8, format: "der", type: "pkcs8" });
-  const publicKey = createPublicKey(privateKey);
-  return { privateKey, publicHex: publicKey.export({ type: "spki", format: "der" }).subarray(-32).toString("hex") };
-}
-
 async function cmdPublish(args) {
   const dir = args.find((a) => !a.startsWith("-") && a !== "publish");
   if (!dir || !existsSync(join(dir, "SKILL.md"))) {
-    console.error("usage: skillseal publish <skill-dir> [--from <url>] [--upload] [--inline]");
+    console.error("usage: skillseal publish <skill-dir> [--from <url>] [--upload] [--bind <handle>] [--inline] [--v1]");
     process.exit(2);
   }
   const files = walk(dir).map((f) => {
@@ -137,7 +135,13 @@ async function cmdPublish(args) {
   const name = flag(args, "--name", nameFromMd || basename(dir));
 
   const inlineOnly = has(args, "--inline") && files.length === 1;
-  const { privateKey, publicHex } = keysFromSeed(process.env.PUBLISHER_SEED || "skillseal-demo-publisher-seed");
+  const seed = process.env.PUBLISHER_SEED || DEMO_SEED;
+  const { privateKey, publicHex } = keysFromSeed(seed);
+  const identity = flag(args, "--bind") ? { handle: flag(args, "--bind"), method: "well-known" } : null;
+  if (seed === DEMO_SEED) {
+    info(`${c.y}⚠ sealing under the shared demo identity — proves integrity, not who.${c.off}`);
+    info(`${c.y}  set PUBLISHER_SEED to seal under your own key.${c.off}`);
+  }
 
   // With --upload, put every file in the configured store first and note the
   // IPFS address it comes back with. Those go into the file list, so anyone can
@@ -186,7 +190,7 @@ async function cmdPublish(args) {
 
   // ── the v2 pointer (default): the line is one address of a signed manifest ──
   const { manifestBytes, address } = buildManifest({
-    name, publisherKey: publicHex, privateKey,
+    name, publisherKey: publicHex, privateKey, identity,
     files: files.map((f) => ({ address: f.address, cid: f.cid, path: f.path, size: f.size })),
     locations: fromLocations,
   });
@@ -200,13 +204,17 @@ async function cmdPublish(args) {
   info(`wrote ${join(dir, ".skill-manifest.json")} — upload it and every file under its own address`);
   const hint = has(args, "--no-hint") ? null : publisherHint(publicHex);
   const token = createPointer({ manifestAddress: address, hint });
-  return printPublished({ name, idLabel: "manifest", id: address, publicHex, token, hint });
+  return printPublished({ name, idLabel: "manifest", id: address, publicHex, token, hint, identity });
 }
 
-function printPublished({ name, idLabel, id, publicHex, token, hint }) {
+function printPublished({ name, idLabel, id, publicHex, token, hint, identity }) {
   console.log(`\n${c.b}${name}${c.off}\n`);
   info(`${idLabel.padEnd(11)}  ${id}`);
   info(`publisher    ${publicHex}${hint ? `  ${c.dim}(hint ${hint})${c.off}` : ""}`);
+  info(`anchor       ${anchorOf(publicHex)}`);
+  if (identity && identity.handle) {
+    info(`identity     ${identity.handle}  ${c.dim}(serve /.well-known/skillseal.json listing this anchor to make it verifiable)${c.off}`);
+  }
   info(`length       ${token.length} chars`);
   console.log(`\n${c.b}Anyone can install it with:${c.off}\n`);
   console.log(`  npx skillseal add ${token}\n`);
@@ -271,7 +279,13 @@ the address of a signed manifest) or the full v1 form. ${c.b}add${c.off} accepts
 ${c.b}publish${c.off} emits v2 by default; --v1 for the full form, --no-hint to drop the
 publisher hint. A v2 pointer resolves through --from <store> or SKILLSEAL_STORES.
 
-Options: --agent <id>  --all  --from <url>  --to <dir>  --name <n>  --force  --accept-new-key
+Identity: a publisher key is an anchor, sha256(algo, key). ${c.b}publish --bind <handle>${c.off}
+claims a domain; serving /.well-known/skillseal.json listing the anchor makes it
+verifiable, and ${c.b}add${c.off} reports the trust level (cryptographic / config / unsigned).
+Unsigned tokens are refused unless you pass --allow-unsigned.
+
+Options: --agent <id>  --all  --from <url>  --to <dir>  --name <n>  --bind <handle>
+         --force  --accept-new-key  --allow-unsigned
 `);
   process.exit(cmd ? 2 : 0);
 }

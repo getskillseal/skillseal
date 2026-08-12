@@ -136,6 +136,7 @@ build the trust store on first run. Clean up with `./demo/demo.sh clean`.
 | I want to | Start here |
 | --- | --- |
 | Understand the install line | [docs/design/install-tokens.md](docs/design/install-tokens.md) |
+| Know who sealed a skill | [docs/design/publisher-identity.md](docs/design/publisher-identity.md) |
 | Wire it into my agent | [docs/compatibility.md](docs/compatibility.md) |
 | Encode a whole skill directory | [docs/design/encoding-hermes-skills.md](docs/design/encoding-hermes-skills.md) |
 | Store skills on Filecoin | [docs/design/storage-substrate.md](docs/design/storage-substrate.md) |

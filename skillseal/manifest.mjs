@@ -24,11 +24,12 @@ const addressOf = (bytes) => "sha256:" + sha256hex(bytes);
 // the same signature input, and the same address. `JSON.stringify` emits keys
 // in insertion order and `JSON.parse` preserves it, so a verifier re-serializing
 // the parsed core reproduces these exact bytes.
-function coreObject({ name, publisherKey, files, locations = [] }) {
+function coreObject({ name, publisherKey, identity = null, files, locations = [] }) {
   return {
     v: 2,
     name,
     publisherKey,
+    ...(identity && identity.handle ? { identity: { handle: identity.handle, method: identity.method || "well-known" } } : {}),
     files: files.map((f) => ({
       address: f.address,
       ...(f.cid ? { cid: f.cid } : {}),
@@ -56,8 +57,8 @@ export const publisherHint = (publicKeyHex) => sha256hex(Buffer.from(publicKeyHe
 
 // Build and sign a manifest. Returns the bytes to store and the address to put
 // in the token.
-export function buildManifest({ name, publisherKey, privateKey, files, locations = [] }) {
-  const core = coreObject({ name, publisherKey, files, locations });
+export function buildManifest({ name, publisherKey, privateKey, files, locations = [], identity = null }) {
+  const core = coreObject({ name, publisherKey, identity, files, locations });
   const coreBytes = coreBytesOf(core);
   const sig = edSign(null, coreBytes, privateKey).toString("hex");
   const manifestBytes = Buffer.from(JSON.stringify({ core, sig }), "utf8");
@@ -87,6 +88,7 @@ export function verifyManifest(manifestBytes, expectedAddress) {
   return {
     name: core.name,
     publisherKey: core.publisherKey,
+    identity: core.identity || null,
     files: core.files,
     locations: Array.isArray(core.locations) ? core.locations : [],
   };

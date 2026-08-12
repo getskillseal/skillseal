@@ -107,9 +107,41 @@ async function main() {
   const inline = Buffer.from("---\nname: hello\n---\n# Hello\n");
   const v1 = createToken({ fingerprint: "sha256:" + sha256hex(inline), publisherKey: publicHex, signature: null, name: "hello", inline });
   const outDir3 = mkdtempSync(join(tmpdir(), "sk-out3-"));
-  await install(v1, { to: outDir3 });
+  await install(v1, { to: outDir3, allowUnsigned: true });
   assert.ok(existsSync(join(outDir3, "hello", "SKILL.md")));
   ok("v1 inline token still installs (backward compatible)");
+
+  // ── identity: anchor, unsigned refusal, publisher binding ────────────────
+  const { anchorOf, verifyBinding, isDemoIdentity, keysFromSeed } = await import("../identity.mjs");
+  assert.equal(anchorOf(publicHex), anchorOf(publicHex));
+  assert.ok(anchorOf(publicHex).startsWith("anchor:"));
+  ok("a publisher key derives a stable anchor");
+
+  const un = Buffer.from("---\nname: unsigned\n---\n# u\n");
+  const unTok = createToken({ fingerprint: "sha256:" + sha256hex(un), publisherKey: publicHex, signature: null, name: "unsigned", inline: un });
+  await assert.rejects(install(unTok, { to: mkdtempSync(join(tmpdir(), "u-")) }), /unsigned/);
+  const unRes = await install(unTok, { to: mkdtempSync(join(tmpdir(), "u2-")), allowUnsigned: true });
+  assert.equal(unRes.trust, "unsigned");
+  ok("an unsigned token is refused by default, installs only with allowUnsigned");
+
+  const bk = generateKeyPairSync("ed25519");
+  const bHex = bk.publicKey.export({ type: "spki", format: "der" }).subarray(-32).toString("hex");
+  const bAnchor = anchorOf(bHex);
+  const stubFetch = async (url) => ({ ok: /alice\.example/.test(url), status: 200, json: async () => ({ anchors: [bAnchor] }) });
+  const bind = await verifyBinding(bAnchor, { handle: "alice.example" }, { fetch: stubFetch });
+  assert.ok(bind.ok && bind.trust === "cryptographic");
+  ok("a domain that lists the anchor verifies the binding (cryptographic)");
+
+  const bm = buildManifest({ name: "csv-stats", publisherKey: bHex, privateKey: bk.privateKey, files, identity: { handle: "alice.example" } });
+  for (const f of files) store.put(f.address, f.bytes); // restore (an earlier test corrupted one)
+  store.put(bm.address, bm.manifestBytes);
+  const bTok = createPointer({ manifestAddress: bm.address });
+  const bRes = await install(bTok, { to: mkdtempSync(join(tmpdir(), "b-")), locations: [store.base], fetch: stubFetch, acceptNewKey: true });
+  assert.equal(bRes.trust, "cryptographic");
+  ok("install verifies the publisher binding end to end (cryptographic)");
+
+  assert.ok(isDemoIdentity(keysFromSeed("skillseal-demo-publisher-seed").publicHex));
+  ok("the shared demo identity is recognized");
 
   store.close();
   for (const d of [skillDir, outDir, outDir2, outDir3]) rmSync(d, { recursive: true, force: true });
