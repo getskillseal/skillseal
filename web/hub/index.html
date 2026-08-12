@@ -601,7 +601,7 @@ function render(){
         ${s.token
           ? `<div class="vrow"><button class="vbytes" data-token="${encodeURIComponent(s.token)}">Verify every byte</button><span class="vbytes-out lbl"></span></div>`
           : `<div class="lbl warn" style="margin-top:.5rem">⚠ Unverified install path — this is not a sealed skill.</div>`}
-        ${s.docs?`<a class="docs" href="${s.docs}" target="_blank" rel="noopener">View full documentation →</a>`:""}
+        ${s.address?`<a class="docs" href="./skill.html?${s.cid?`cid=${encodeURIComponent(s.cid)}&`:""}addr=${encodeURIComponent(s.address)}">View full documentation →</a>`:""}
       </div>`;
     el.querySelector(".copy").onclick=e=>{
       e.stopPropagation();
@@ -785,11 +785,16 @@ document.getElementById("qsCopy").onclick=(e)=>{
   // full byte tier: fetch every file through public gateways and hash it. Best
   // effort — if the network blocks gateways, it says so and points at the CLI.
   const GATEWAYS=["https://dweb.link/ipfs","https://w3s.link/ipfs","https://ipfs.io/ipfs"];
-  async function fetchByAddr(address,cids){ const want=address.replace(/^sha256:/,"");
-    for(const cid of cids) for(const g of GATEWAYS){ try{
+  async function tryUrl(url,want){ try{
       const ctrl=new AbortController(), to=setTimeout(()=>ctrl.abort(),6000);
-      const r=await fetch(`${g}/${cid}`,{signal:ctrl.signal}); clearTimeout(to);
-      if(r.ok){ const b=new Uint8Array(await r.arrayBuffer()); if(await sha256hex(b)===want) return b; } }catch(_){}} return null; }
+      const r=await fetch(url,{signal:ctrl.signal}); clearTimeout(to);
+      if(r.ok){ const b=new Uint8Array(await r.arrayBuffer()); if(await sha256hex(b)===want) return b; } }catch(_){} return null; }
+  async function fetchByAddr(address,cids){ const want=address.replace(/^sha256:/,"");
+    // the same-origin content store first (every file is mirrored there), then gateways
+    const store=`./blobs/sha256/${want.slice(0,2)}/${want.slice(2,4)}/${want}`;
+    let b=await tryUrl(store,want); if(b) return b;
+    for(const cid of cids) for(const g of GATEWAYS){ b=await tryUrl(`${g}/${cid}`,want); if(b) return b; }
+    return null; }
   async function verifyBytes(btn){
     const out=btn.parentElement.querySelector(".vbytes-out");
     let t; try{ t=readToken(decodeURIComponent(btn.dataset.token||"")); }catch(e){ out.textContent="malformed token"; return; }
@@ -802,7 +807,7 @@ document.getElementById("qsCopy").onclick=(e)=>{
     let okc=0;
     for(const f of files){ const b=await fetchByAddr(f.address, f.cid?[f.cid,...cids]:cids);
       if(b){ okc++; } else { out.innerHTML='<span style="color:#ff8a80">✗ '+f.path+' unreachable or altered</span>'; btn.disabled=false; return; } }
-    out.innerHTML='<span style="color:var(--seal)">✓ all '+okc+' files match their hashes, byte for byte</span>'; btn.disabled=false;
+    out.innerHTML='<span style="color:var(--seal)">✓ '+(okc===1?'the file matches its hash':('all '+okc+' files match their hashes'))+', byte for byte</span>'; btn.disabled=false;
   }
 })();
 </script>
