@@ -652,7 +652,7 @@ sortMenu.querySelectorAll("button").forEach(b=>b.onclick=()=>{
 const QS={
   one:{note:"# Any agent. Self verified skills. Your seal of approval. 🦭",
        cmd:(t)=>`npx skillseal add ${t}`,
-       foot:"The line is the address of a signed manifest, so the fingerprint, publisher key, and signature ride inside it."},
+       foot:"This is the self verifying address of a signed skill manifest, with the fingerprint, publisher key, and signature sealed inside it."},
   npm:{note:"# Prefer it on your PATH? Install it once.",
        cmd:()=>"npm i -g skillseal",
        foot:"Then <code>skillseal add sk1…</code> anywhere. <code>skillseal where</code> shows which agents it found."},
