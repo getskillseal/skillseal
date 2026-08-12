@@ -4,21 +4,31 @@
 // the agent can see it:
 //
 //   1. the token's own checksum        catches a damaged paste, offline
-//   2. the publisher's signature       says who vouches for these contents
+//   2a. v2: the manifest matches its address, then its signature
+//   2b. v1: the publisher's signature over the fingerprint
 //   3. the file list matches its id    the index has not been swapped
 //   4. every file matches its entry    no file has been altered
 //   5. only then, move it into place   in one step, so a failure leaves nothing
 //
+// Both token shapes converge on the same plan — a name, a publisher key, and a
+// list of files each named by its own address — and share the tail below.
 // Nothing is executed during any of this. Installing a skill never runs it.
 
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, renameSync, existsSync, readFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname, resolve, sep } from "node:path";
 import { verify as edVerify, createPublicKey } from "node:crypto";
 import { readToken } from "./token.mjs";
+import { verifyManifest, resolveManifest } from "./manifest.mjs";
 import { fetchByFingerprint, fingerprintOf } from "./fetch.mjs";
 import { targets, ensure } from "./agents.mjs";
 import { checkPublisher, rememberPublisher } from "./publishers.mjs";
+
+// Default content stores for resolving a v2 pointer, which carries no location
+// of its own. Any store that lays files out by their address works; none is
+// trusted, because whatever it returns is hashed against the address first.
+const DEFAULT_STORES = (process.env.SKILLSEAL_STORES || "")
+  .split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
 
 function signatureValid(message, signatureHex, publicKeyHex) {
   const spki = Buffer.concat([
@@ -36,11 +46,32 @@ function safeJoin(root, relPath) {
   return full;
 }
 
-export async function install(tokenString, opts = {}) {
-  const steps = [];
-  const token = readToken(tokenString);           // 1. checksum verified here
-  steps.push("token checksum is valid");
+// v2: resolve the pointer to a verified manifest, then a plan.
+async function planFromPointer(token, opts, steps) {
+  const stores = [...(opts.locations || []), ...DEFAULT_STORES];
+  if (!stores.length) {
+    throw new Error(
+      "a pointer token needs a content store to resolve its manifest; " +
+      "pass --from <store-url> or set SKILLSEAL_STORES",
+    );
+  }
+  const resolved = await resolveManifest(token.manifestAddress, stores);
+  if (!resolved) throw new Error("could not fetch the manifest from any store (try --from <store-url>)");
+  steps.push("manifest matches the address in the token");
+  steps.push(`signed by ${resolved.publisherKey.slice(0, 16)}…`);
+  return {
+    name: resolved.name,
+    publisherKey: resolved.publisherKey,
+    entries: resolved.files,
+    // a file may name its own IPFS spot; the manifest's own hints and the stores follow.
+    locations: [...resolved.locations, ...stores],
+    inlineFiles: null,
+  };
+}
 
+// v1: the full token carries everything; check its signature, then read its
+// list (or its inline body).
+async function planFromLegacy(token, opts, steps) {
   if (token.signature) {
     if (!signatureValid(token.fingerprint, token.signature, token.publisherKey)) {
       throw new Error("the publisher's signature does not match this skill");
@@ -50,48 +81,75 @@ export async function install(tokenString, opts = {}) {
     steps.push("no signature on this token (unsigned publisher)");
   }
 
+  if (token.inline) {
+    if (fingerprintOf(token.inline) !== token.fingerprint) throw new Error("inline contents do not match the token");
+    steps.push("contents came with the token, no download needed");
+    return {
+      name: token.name,
+      publisherKey: token.publisherKey,
+      entries: [{ path: "SKILL.md", address: token.fingerprint }],
+      locations: [],
+      inlineFiles: [{ path: "SKILL.md", bytes: token.inline }],
+    };
+  }
+
+  const locations = [...token.locations, ...(opts.locations || [])];
+  if (!locations.length) throw new Error("this token lists nowhere to fetch from; pass --from <url>");
+  const listBytes = await fetchByFingerprint(token.fingerprint, locations);
+  if (!listBytes) throw new Error("could not fetch this skill from any of the listed places");
+  if (fingerprintOf(listBytes) !== token.fingerprint) throw new Error("the file list does not match the token");
+  steps.push("file list matches the token");
+  const list = JSON.parse(listBytes.toString());
+  return {
+    name: token.name || list.name,
+    publisherKey: token.publisherKey,
+    entries: list.files,
+    locations,
+    inlineFiles: null,
+  };
+}
+
+export async function install(tokenString, opts = {}) {
+  const steps = [];
+  const token = readToken(tokenString);           // 1. checksum verified here
+  steps.push("token checksum is valid");
+
+  const plan = token.version === 2
+    ? await planFromPointer(token, opts, steps)
+    : await planFromLegacy(token, opts, steps);
+
   // A publisher you have installed from before must still be the same one.
-  const seen = checkPublisher(token.name, token.publisherKey);
+  const seen = checkPublisher(plan.name, plan.publisherKey);
   if (seen.status === "changed" && !opts.acceptNewKey) {
     throw new Error(
-      `"${token.name}" was published before by a different key ` +
-      `(${seen.previousKey.slice(0, 16)}… , now ${token.publisherKey.slice(0, 16)}…). ` +
+      `"${plan.name}" was published before by a different key ` +
+      `(${seen.previousKey.slice(0, 16)}… , now ${plan.publisherKey.slice(0, 16)}…). ` +
       `If you expected this, re-run with --accept-new-key.`,
     );
   }
   if (seen.status === "known") steps.push("same publisher as last time");
   if (seen.status === "changed") steps.push("publisher key changed and was accepted explicitly");
 
-  // A very small skill can travel inside the token itself, needing no network.
-  let files;
-  if (token.inline) {
-    if (fingerprintOf(token.inline) !== token.fingerprint) throw new Error("inline contents do not match the token");
-    files = [{ path: "SKILL.md", bytes: token.inline }];
-    steps.push("contents came with the token, no download needed");
+  // Resolve the files: either they travelled inline, or fetch each by address.
+  let files, entries;
+  if (plan.inlineFiles) {
+    files = plan.inlineFiles;
+    entries = plan.entries;
   } else {
-    const locations = [...token.locations, ...(opts.locations || [])];
-    if (!locations.length) throw new Error("this token lists nowhere to fetch from; pass --from <url>");
-
-    const listBytes = await fetchByFingerprint(token.fingerprint, locations);
-    if (!listBytes) throw new Error("could not fetch this skill from any of the listed places");
-    if (fingerprintOf(listBytes) !== token.fingerprint) throw new Error("the file list does not match the token");
-    steps.push("file list matches the token");
-
-    const list = JSON.parse(listBytes.toString());
     files = [];
-    for (const entry of list.files) {
-      // A file may also name its own spot on IPFS, giving another way to get it.
-      const where = entry.cid ? [`ipfs://${entry.cid}`, ...locations] : locations;
+    entries = [];
+    for (const entry of plan.entries) {
+      const where = entry.cid ? [`ipfs://${entry.cid}`, ...plan.locations] : plan.locations;
       const bytes = await fetchByFingerprint(entry.address, where);
       if (!bytes) throw new Error(`missing file: ${entry.path}`);
       if (fingerprintOf(bytes) !== entry.address) throw new Error(`altered file: ${entry.path}`);
       files.push({ path: entry.path, bytes });
+      entries.push({ path: entry.path, address: entry.address });
     }
     steps.push(`all ${files.length} files match their entries`);
-    token.name = token.name || list.name;
   }
 
-  const name = opts.name || token.name || token.fingerprint.slice(7, 19);
+  const name = opts.name || plan.name || (token.manifestAddress || token.fingerprint).slice(7, 19);
 
   // Build the folder somewhere temporary, then move it into place in one step.
   const staging = mkdtempSync(join(tmpdir(), "skillseal-"));
@@ -125,16 +183,26 @@ export async function install(tokenString, opts = {}) {
     installed.push({ ...target, dest });
   }
   rmSync(staging, { recursive: true, force: true });
-  rememberPublisher(token.name, token.publisherKey);
+  rememberPublisher(plan.name, plan.publisherKey);
 
-  return { name, token, steps, files: files.length, installed };
+  return { name, token, steps, files: files.length, entries, installed };
 }
 
-// Check an already installed skill still matches its token.
-export function checkInstalled(dir, token) {
-  const t = readToken(token);
+// Check an already installed skill still matches what it was installed from.
+// If the verified file list is supplied (from the lockfile), re-hash each file
+// on disk against it — works offline for both token shapes.
+export function checkInstalled(dir, token, expectedFiles = null) {
   const skill = join(dir, "SKILL.md");
   if (!existsSync(skill)) return { ok: false, reason: "no SKILL.md" };
+  if (expectedFiles && expectedFiles.length) {
+    for (const { path, address } of expectedFiles) {
+      const full = join(dir, path);
+      if (!existsSync(full)) return { ok: false, reason: `missing ${path}` };
+      if (fingerprintOf(readFileSync(full)) !== address) return { ok: false, reason: `${path} changed since install` };
+    }
+    return { ok: true };
+  }
+  const t = readToken(token);
   if (t.inline) return { ok: fingerprintOf(readFileSync(skill)) === t.fingerprint, reason: "contents" };
   return { ok: true, reason: "listed files not re-checked without the file list" };
 }

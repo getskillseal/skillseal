@@ -16,9 +16,11 @@ import { readFileSync, readdirSync, statSync, existsSync, writeFileSync } from "
 import { join, relative, sep, basename } from "node:path";
 import { createPrivateKey, createPublicKey, sign as edSign } from "node:crypto";
 import { install } from "./install.mjs";
-import { readToken, createToken, toUri } from "./token.mjs";
+import { readToken, createToken, createPointer, toUri } from "./token.mjs";
+import { buildManifest, publisherHint } from "./manifest.mjs";
 import { fingerprintOf } from "./fetch.mjs";
 import { detect } from "./agents.mjs";
+import { allPublishers } from "./publishers.mjs";
 import { readLock, addToLock, verifyInstalled, LOCKFILE } from "./lock.mjs";
 
 const c = { dim: "\x1b[2m", b: "\x1b[1m", g: "\x1b[32m", r: "\x1b[31m", y: "\x1b[33m", off: "\x1b[0m" };
@@ -56,7 +58,7 @@ async function cmdAdd(args) {
 
   if (!has(args, "--no-lock")) {
     const first = result.installed.find((t) => !t.skipped);
-    if (first) addToLock(result.name, token, first.dest);
+    if (first) addToLock(result.name, token, first.dest, result.entries);
   }
   for (const s of result.steps) ok(s);
   console.log("");
@@ -75,6 +77,21 @@ function cmdInspect(args) {
   try { t = readToken(tokenStr); }
   catch (e) { console.error(`  ${c.r}✗${c.off} ${e.message}`); process.exit(1); }
 
+  if (t.version === 2) {
+    console.log(`\n${c.b}pointer token (v2)${c.off}\n`);
+    info(`manifest     ${t.manifestAddress}`);
+    if (t.publisherHint) {
+      // Recognize the publisher offline: does the 4-byte hint match a key we pinned?
+      const match = Object.entries(allPublishers()).find(([, key]) => publisherHint(key) === t.publisherHint);
+      info(`publisher    hint ${t.publisherHint}${match ? ` — ${c.g}a key you have pinned: ${match[0]}${c.off}` : c.dim + " (not among your pinned publishers)" + c.off}`);
+    } else {
+      info(`publisher    in the manifest`);
+    }
+    console.log(`\n  ${c.dim}On install: fetch the manifest by this address, check its hash,${c.off}`);
+    console.log(`  ${c.dim}then its signature, then every file. Nothing was fetched now.${c.off}\n`);
+    return;
+  }
+
   console.log(`\n${c.b}${t.name || "(unnamed skill)"}${c.off}\n`);
   info(`fingerprint  ${t.fingerprint}`);
   info(`publisher    ${t.publisherKey}`);
@@ -86,7 +103,7 @@ function cmdInspect(args) {
 
 // ── publish ──────────────────────────────────────────────────────────────
 // The generated file list is not part of the skill, so it never counts itself.
-const GENERATED = new Set([".skill-files.json"]);
+const GENERATED = new Set([".skill-files.json", ".skill-manifest.json"]);
 
 function walk(dir, base = dir, out = []) {
   for (const e of readdirSync(dir).sort()) {
@@ -136,46 +153,61 @@ async function cmdPublish(args) {
     info(`uploaded ${files.length} file(s)${withCid ? `, ${withCid} with an IPFS address` : ""}`);
   }
 
-  let fingerprint, listBytes = null;
+  const fromLocations = args.filter((a, i) => args[i - 1] === "--from");
+
+  // ── a one-file skill can travel inside the token itself (always the full form) ──
   if (inlineOnly) {
-    fingerprint = files[0].address;
-  } else {
-    // Keys in a fixed order so the same skill always yields the same fingerprint.
-    listBytes = Buffer.from(JSON.stringify({
-      files: files.map((f) => ({
-        address: f.address, ...(f.cid ? { cid: f.cid } : {}), path: f.path, size: f.size,
-      })),
+    const fingerprint = files[0].address;
+    const signature = edSign(null, Buffer.from(fingerprint), privateKey).toString("hex");
+    const token = createToken({ fingerprint, publisherKey: publicHex, signature, name, locations: fromLocations, inline: files[0].bytes });
+    return printPublished({ name, idLabel: "fingerprint", id: fingerprint, publicHex, token });
+  }
+
+  // ── the full v1 token: fingerprint + key + signature + file list, all inline ──
+  if (has(args, "--v1")) {
+    const listBytes = Buffer.from(JSON.stringify({
+      files: files.map((f) => ({ address: f.address, ...(f.cid ? { cid: f.cid } : {}), path: f.path, size: f.size })),
       kind: "agent-skill",
       name,
     }), "utf8");
-    fingerprint = fingerprintOf(listBytes);
-
+    const fingerprint = fingerprintOf(listBytes);
     if (has(args, "--upload")) {
       const store = await import("./store.mjs");
       await store.put(fingerprint, listBytes);
       const listCid = await store.ipfsAddress(fingerprint).catch(() => null);
-      if (listCid) {
-        extraLocations.push(`ipfs://${listCid}`);
-        info(`file list on IPFS: ${listCid}`);
-      }
+      if (listCid) { extraLocations.push(`ipfs://${listCid}`); info(`file list on IPFS: ${listCid}`); }
     }
-  }
-
-  const signature = edSign(null, Buffer.from(fingerprint), privateKey).toString("hex");
-  const locations = [...args.filter((a, i) => args[i - 1] === "--from"), ...extraLocations];
-
-  const token = createToken({
-    fingerprint, publisherKey: publicHex, signature, name, locations,
-    inline: inlineOnly ? files[0].bytes : null,
-  });
-
-  if (listBytes) {
+    const signature = edSign(null, Buffer.from(fingerprint), privateKey).toString("hex");
+    const token = createToken({ fingerprint, publisherKey: publicHex, signature, name, locations: [...fromLocations, ...extraLocations] });
     writeFileSync(join(dir, ".skill-files.json"), listBytes);
     info(`wrote ${join(dir, ".skill-files.json")} — upload it and every file under its own fingerprint`);
+    return printPublished({ name, idLabel: "fingerprint", id: fingerprint, publicHex, token });
   }
+
+  // ── the v2 pointer (default): the line is one address of a signed manifest ──
+  const { manifestBytes, address } = buildManifest({
+    name, publisherKey: publicHex, privateKey,
+    files: files.map((f) => ({ address: f.address, cid: f.cid, path: f.path, size: f.size })),
+    locations: fromLocations,
+  });
+  if (has(args, "--upload")) {
+    const store = await import("./store.mjs");
+    await store.put(address, manifestBytes);
+    const manCid = await store.ipfsAddress(address).catch(() => null);
+    info(`manifest uploaded${manCid ? ` (ipfs ${manCid})` : ""}`);
+  }
+  writeFileSync(join(dir, ".skill-manifest.json"), manifestBytes);
+  info(`wrote ${join(dir, ".skill-manifest.json")} — upload it and every file under its own address`);
+  const hint = has(args, "--no-hint") ? null : publisherHint(publicHex);
+  const token = createPointer({ manifestAddress: address, hint });
+  return printPublished({ name, idLabel: "manifest", id: address, publicHex, token, hint });
+}
+
+function printPublished({ name, idLabel, id, publicHex, token, hint }) {
   console.log(`\n${c.b}${name}${c.off}\n`);
-  info(`fingerprint  ${fingerprint}`);
-  info(`publisher    ${publicHex}`);
+  info(`${idLabel.padEnd(11)}  ${id}`);
+  info(`publisher    ${publicHex}${hint ? `  ${c.dim}(hint ${hint})${c.off}` : ""}`);
+  info(`length       ${token.length} chars`);
   console.log(`\n${c.b}Anyone can install it with:${c.off}\n`);
   console.log(`  npx skillseal add ${token}\n`);
   console.log(`${c.dim}link form:${c.off} ${toUri(token)}\n`);
@@ -193,8 +225,8 @@ ${c.b}🦭 Checking ${names.length} pinned skill(s)${c.off}
 `);
   let bad = 0;
   for (const name of names) {
-    const { token, installedTo } = lock.skills[name];
-    const r = verifyInstalled(installedTo, token);
+    const { token, installedTo, files } = lock.skills[name];
+    const r = verifyInstalled(installedTo, token, files || null);
     if (r.ok) ok(`${name}`);
     else { bad++; console.log(`  ${c.r}✗${c.off} ${name} — ${r.reason}`); }
   }
@@ -233,6 +265,11 @@ ${c.b}🦭 skillseal${c.off} — install an agent skill from a token that proves
   ${c.b}skillseal publish${c.off} <dir>     turn a skill folder into a token
   ${c.b}skillseal verify${c.off}            re-check every skill in skills.lock
   ${c.b}skillseal where${c.off}             show the agents found here
+
+A token comes in two shapes, same guarantee: a short v2 pointer (~60 chars,
+the address of a signed manifest) or the full v1 form. ${c.b}add${c.off} accepts either.
+${c.b}publish${c.off} emits v2 by default; --v1 for the full form, --no-hint to drop the
+publisher hint. A v2 pointer resolves through --from <store> or SKILLSEAL_STORES.
 
 Options: --agent <id>  --all  --from <url>  --to <dir>  --name <n>  --force  --accept-new-key
 `);

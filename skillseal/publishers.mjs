@@ -38,4 +38,13 @@ export function rememberPublisher(name, publisherKey) {
   save(db);
 }
 
+// Every publisher pinned so far, as { name: key }. Used to recognize a v2
+// token's 4-byte publisher hint offline.
+export function allPublishers() {
+  const db = load();
+  const out = {};
+  for (const [name, rec] of Object.entries(db)) out[name] = rec.key;
+  return out;
+}
+
 export const publishersFile = FILE;

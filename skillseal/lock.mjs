@@ -16,18 +16,35 @@ export function readLock(file = LOCKFILE) {
   return JSON.parse(readFileSync(file, "utf8"));
 }
 
-export function addToLock(name, token, dir, file = LOCKFILE) {
+export function addToLock(name, token, dir, files = null, file = LOCKFILE) {
   const lock = readLock(file);
-  lock.skills[name] = { token, installedTo: dir };
+  lock.skills[name] = { token, installedTo: dir, ...(files ? { files } : {}) };
   writeFileSync(file, JSON.stringify(lock, null, 2) + "\n");
   return lock;
 }
 
-// Recompute the file list from what is on disk and compare it to the token.
-// This is the check that catches a skill edited after it was installed.
-export function verifyInstalled(dir, tokenString) {
+// Recompute what is on disk and compare it to what was installed. If the
+// verified file list is on record (the lockfile keeps it), re-hash each file
+// against it — this is offline and works for both token shapes. Otherwise fall
+// back to recomputing a v1 file-list fingerprint.
+export function verifyInstalled(dir, tokenString, expectedFiles = null) {
   const token = readToken(tokenString);
   if (!existsSync(join(dir, "SKILL.md"))) return { ok: false, reason: "missing SKILL.md" };
+
+  if (expectedFiles && expectedFiles.length) {
+    for (const { path, address } of expectedFiles) {
+      const full = join(dir, path);
+      if (!existsSync(full)) return { ok: false, reason: `missing ${path}` };
+      if (fingerprintOf(readFileSync(full)) !== address) {
+        return { ok: false, reason: `${path} has been edited since install` };
+      }
+    }
+    return { ok: true };
+  }
+
+  if (token.version === 2) {
+    return { ok: true, reason: "pinned by manifest address; re-run add to re-check against the network" };
+  }
 
   if (token.inline) {
     const actual = fingerprintOf(readFileSync(join(dir, "SKILL.md")));
