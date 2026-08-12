@@ -19,12 +19,15 @@
     --faint:#5c5c63;
     --line:rgba(255,255,255,.07);
     --line-2:rgba(255,255,255,.11);
-    --accent:#eeea86;               /* pale yellow, primary CTA only */
-    --seal:#1d9bf0;                 /* our one saturated accent */
+    --orange:#c0362c;               /* Golden Gate International Orange — a garnish */
+    --orange-soft:rgba(192,54,44,.14);
+    --accent:var(--seal);           /* blue = trust; our one accent */
+    --seal:#1d9bf0;                 /* the verification mark */
     --green:#5bd97e;
+    --fog:#9aa7b4;                  /* bay-fog cool grey for quiet text */
     /* aliases so existing rules keep working under the new palette */
-    --gold:var(--accent);
-    --line-gold:rgba(238,234,134,.25);
+    --gold:#dcd8cf;  /* incidental warm neutral, NOT the orange */
+    --line-gold:rgba(255,255,255,.16);
     --amber:#eeea86; --blue:#60a5fa; --purple:#a78bfa;
   }
   *{box-sizing:border-box}
@@ -49,7 +52,7 @@
   header.hero{position:relative;text-align:center;padding:3.6rem 1.5rem 2.6rem;overflow:hidden}
   header.hero:before{content:"";position:absolute;inset:-40% 0 auto 50%;transform:translateX(-50%);
     width:900px;height:520px;border-radius:50%;pointer-events:none;
-    background:radial-gradient(ellipse at center,rgba(255,215,0,.075),transparent 62%)}
+    background:radial-gradient(ellipse at center,rgba(29,155,240,.12),transparent 62%)}
   header.hero>*{position:relative}
   .eyebrow{margin:0 0 .85rem;font-size:.78rem;font-weight:500;letter-spacing:.34em;
     text-transform:uppercase;color:var(--gold);font-family:"JetBrains Mono",monospace}
@@ -59,14 +62,14 @@
   .meta{margin:1.15rem 0 0;font-size:.86rem;color:#6f6b64;display:inline-flex;align-items:center;gap:.4rem}
   .meta svg{vertical-align:middle}
 
-  h1 em{font-style:italic;color:var(--gold)}
+  h1 em{font-style:italic;color:var(--seal)}
   .lead{max-width:720px;margin:1.2rem auto 0;font-size:1.12rem;line-height:1.6;color:var(--dim)}
   .cta{display:flex;justify-content:center;gap:.7rem;margin-top:1.7rem;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:9px;
     padding:.7rem 1.25rem;font-size:.95rem;font-weight:500;color:var(--ink);background:#11111c}
   .btn:hover{border-color:rgba(255,255,255,.18)}
-  .btn.primary{background:var(--gold);border-color:var(--gold);color:#14120a;font-weight:700}
-  .btn.primary:hover{background:#ffdf33}
+  .btn.primary{background:var(--seal);border-color:var(--seal);color:#04111d;font-weight:700}
+  .btn.primary:hover{background:#3aabf5;border-color:#3aabf5}
   .btn b{color:inherit}
 
   /* ── quick start ─────────────────────────────────────────── */
@@ -99,7 +102,7 @@
   .search .ico{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold);opacity:.75;font-size:.95rem}
   .search input{width:100%;background:#08080f;border:1px solid var(--line);border-radius:10px;
     padding:.78rem 2.6rem;color:var(--ink);font-size:.98rem;font-family:inherit;outline:0}
-  .search input:focus{border-color:var(--line-gold);box-shadow:0 0 0 3px rgba(255,215,0,.07)}
+  .search input:focus{border-color:var(--line-gold);box-shadow:0 0 0 3px rgba(255,255,255,.07)}
   .search input::placeholder{color:#78746d}
   .clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--dim);padding:.3rem .45rem}
   .clear:hover{color:var(--ink)}
@@ -108,7 +111,7 @@
   .pill{display:inline-flex;align-items:center;gap:.5rem;background:#10101a;border:1px solid var(--line);
     border-radius:20px;padding:.4rem .9rem;color:#c8c4bc;font-size:.88rem}
   .pill:hover{border-color:rgba(255,255,255,.14)}
-  .pill.on{background:rgba(255,215,0,.1);border-color:var(--line-gold);color:var(--gold);font-weight:500}
+  .pill.on{background:rgba(255,255,255,.1);border-color:var(--line-gold);color:var(--gold);font-weight:500}
   .pill .c{font-family:"JetBrains Mono",monospace;font-size:.76rem;opacity:.72}
 
   /* ── body ─────────────────────────────────────────────────── */
@@ -117,12 +120,13 @@
   .catbtn{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;background:none;border:1px solid transparent;
     border-radius:8px;padding:.5rem .6rem;color:var(--dim);font-size:.92rem}
   .catbtn:hover{background:var(--panel);color:var(--ink)}
-  .catbtn.on{background:rgba(255,215,0,.08);border-color:var(--line-gold);color:var(--ink)}
+  .catbtn.on{background:rgba(255,255,255,.08);border-color:var(--line-gold);color:var(--ink)}
   .catbtn .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
   .catbtn.on .c{color:var(--gold)}
 
   .mainhead{display:flex;align-items:center;margin-bottom:1.15rem}
-  .mtitle{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:.6rem}
+  .mtitle{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+  .dock-sub{font-size:.85rem;font-weight:400;color:var(--faint);letter-spacing:0}
   .countbadge{font-size:.82rem;font-weight:500;color:var(--dim);background:var(--panel);
     border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem}
   .sortwrap{margin-left:auto;position:relative}
@@ -177,15 +181,15 @@
   .tip .h svg{width:14px;height:14px}
   .tip .p{display:block;font-size:.76rem;color:var(--dim);margin:0 0 .55rem}
   .tip .row{display:flex;gap:.45rem;font-size:.68rem;margin-top:.2rem}
-  .tip .row .k{color:rgba(255,215,0,.6);flex:0 0 26px}
+  .tip .row .k{color:rgba(255,255,255,.6);flex:0 0 26px}
   .tip .row .v{color:#b9b5ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
   .cmdrow{display:flex;gap:.4rem;margin-top:.75rem}
   .cmd{flex:1;background:#08080f;border:1px solid var(--line);border-radius:6px;padding:.5rem .6rem;
     font-size:.74rem;color:var(--gold);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .copy{background:rgba(255,215,0,.1);border:1px solid var(--line-gold);border-radius:6px;color:var(--gold);
+  .copy{background:rgba(255,255,255,.1);border:1px solid var(--line-gold);border-radius:6px;color:var(--gold);
     font-size:.74rem;font-weight:500;padding:.5rem .7rem;white-space:nowrap}
-  .copy:hover{background:rgba(255,215,0,.18)}
+  .copy:hover{background:rgba(255,255,255,.18)}
   .empty{color:var(--dim);text-align:center;padding:3rem 0;font-size:.92rem}
 
   /* ── expandable detail ───────────────────────────────────── */
@@ -193,7 +197,7 @@
   .card.open{border-left-color:var(--green);background:#0d0d18}
   .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.15rem}
   .chip{font-size:.72rem;border-radius:6px;padding:.2rem .55rem;border:1px solid}
-  .chip.cat{color:var(--gold);border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.07)}
+  .chip.cat{color:var(--gold);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
   .chip.plat{color:var(--blue);border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.07)}
   .detail{display:none;margin-top:.9rem;border-top:1px solid var(--line);padding-top:.85rem;cursor:default}
   .card.open .detail{display:block;animation:cardIn .25s ease both}
@@ -203,8 +207,8 @@
   .prereq{border:1px solid var(--line);border-radius:8px;padding:.65rem .75rem;margin-bottom:.85rem}
   .prereq .r{display:flex;align-items:center;gap:.75rem;font-size:.74rem}
   .prereq .r .k{color:#6f6b64;letter-spacing:.1em;text-transform:uppercase;flex:0 0 32px}
-  .prereq code{font-family:"JetBrains Mono",monospace;color:var(--gold);background:rgba(255,215,0,.08);
-    border:1px solid rgba(255,215,0,.2);border-radius:5px;padding:.15rem .45rem;font-size:.74rem}
+  .prereq code{font-family:"JetBrains Mono",monospace;color:var(--gold);background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);border-radius:5px;padding:.15rem .45rem;font-size:.74rem}
   .tagrow{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem}
   .tagrow span{font-size:.72rem;color:#b9b5ad;border:1px solid var(--line);border-radius:6px;padding:.22rem .55rem}
   .facts{display:grid;grid-template-columns:auto 1fr;gap:.45rem .9rem;margin-bottom:.9rem;align-items:baseline}
@@ -262,7 +266,7 @@
         <span class="qs-badge">🦭 no account needed</span>
       </div>
       <div class="qs-body">
-        <p class="qs-note" id="qsNote"># Works in any agent. Checks itself. You're welcome. 🦭</p>
+        <p class="qs-note" id="qsNote"># Any agent. Checked to the byte. You're welcome. 🦭</p>
         <div class="qs-cmd">
           <span class="qs-dollar">$</span>
           <code id="qsCode">npx skillseal add sk1qy9c607fvn6ngfp9cvcyulx6q…</code>
@@ -291,7 +295,7 @@
   </nav>
   <main>
     <div class="mainhead">
-      <div class="mtitle">Skills <span class="countbadge mono" id="skillCount">0</span></div>
+      <div class="mtitle">Sealed Skills <span class="countbadge mono" id="skillCount">0</span> <span class="dock-sub">🦭 verified, and hauled out where any agent can grab them</span></div>
       <div class="sortwrap">
         <button class="sortbtn" id="sortBtn">Most used <span class="chev">▾</span></button>
         <div class="sortmenu" id="sortMenu" hidden>
@@ -556,7 +560,7 @@ sortMenu.querySelectorAll("button").forEach(b=>b.onclick=()=>{
 
 // Quick start tabs. Each one is a real, working way to install the same skill.
 const QS={
-  one:{note:"# Works in any agent. Checks itself. You're welcome. 🦭",
+  one:{note:"# Any agent. Checked to the byte. You're welcome. 🦭",
        cmd:(t)=>`npx skillseal add ${t}`,
        foot:"Nothing to install first. The line carries the skill's fingerprint, its publisher's key and their signature."},
   npm:{note:"# Prefer it on your PATH? Install it once.",
