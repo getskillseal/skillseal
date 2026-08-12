@@ -80,7 +80,9 @@ export async function install(tokenString, opts = {}) {
     const list = JSON.parse(listBytes.toString());
     files = [];
     for (const entry of list.files) {
-      const bytes = await fetchByFingerprint(entry.address, locations);
+      // A file may also name its own spot on IPFS, giving another way to get it.
+      const where = entry.cid ? [`ipfs://${entry.cid}`, ...locations] : locations;
+      const bytes = await fetchByFingerprint(entry.address, where);
       if (!bytes) throw new Error(`missing file: ${entry.path}`);
       if (fingerprintOf(bytes) !== entry.address) throw new Error(`altered file: ${entry.path}`);
       files.push({ path: entry.path, bytes });

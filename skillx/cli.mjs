@@ -103,10 +103,10 @@ function keysFromSeed(seedText) {
   return { privateKey, publicHex: publicKey.export({ type: "spki", format: "der" }).subarray(-32).toString("hex") };
 }
 
-function cmdPublish(args) {
+async function cmdPublish(args) {
   const dir = args.find((a) => !a.startsWith("-") && a !== "publish");
   if (!dir || !existsSync(join(dir, "SKILL.md"))) {
-    console.error("usage: skillx publish <skill-dir> [--from <url>] [--inline]");
+    console.error("usage: skillx publish <skill-dir> [--from <url>] [--upload] [--inline]");
     process.exit(2);
   }
   const files = walk(dir).map((f) => {
@@ -119,21 +119,47 @@ function cmdPublish(args) {
   const inlineOnly = has(args, "--inline") && files.length === 1;
   const { privateKey, publicHex } = keysFromSeed(process.env.PUBLISHER_SEED || "skillx-demo-publisher-seed");
 
+  // With --upload, put every file in the configured store first and note the
+  // IPFS address it comes back with. Those go into the file list, so anyone can
+  // later fetch the same bytes through any public gateway.
+  const extraLocations = [];
+  if (has(args, "--upload")) {
+    const s3 = await import("../lib/s3.mjs");
+    for (const f of files) {
+      await s3.s3Put(f.address, f.bytes);
+      f.cid = await s3.s3Cid(f.address).catch(() => null);
+    }
+    const withCid = files.filter((f) => f.cid).length;
+    info(`uploaded ${files.length} file(s)${withCid ? `, ${withCid} with an IPFS address` : ""}`);
+  }
+
   let fingerprint, listBytes = null;
   if (inlineOnly) {
     fingerprint = files[0].address;
   } else {
     // Keys in a fixed order so the same skill always yields the same fingerprint.
     listBytes = Buffer.from(JSON.stringify({
-      files: files.map((f) => ({ address: f.address, path: f.path, size: f.size })),
+      files: files.map((f) => ({
+        address: f.address, ...(f.cid ? { cid: f.cid } : {}), path: f.path, size: f.size,
+      })),
       kind: "agent-skill",
       name,
     }), "utf8");
     fingerprint = fingerprintOf(listBytes);
+
+    if (has(args, "--upload")) {
+      const s3 = await import("../lib/s3.mjs");
+      await s3.s3Put(fingerprint, listBytes);
+      const listCid = await s3.s3Cid(fingerprint).catch(() => null);
+      if (listCid) {
+        extraLocations.push(`ipfs://${listCid}`);
+        info(`file list on IPFS: ${listCid}`);
+      }
+    }
   }
 
   const signature = edSign(null, Buffer.from(fingerprint), privateKey).toString("hex");
-  const locations = args.filter((a, i) => args[i - 1] === "--from");
+  const locations = [...args.filter((a, i) => args[i - 1] === "--from"), ...extraLocations];
 
   const token = createToken({
     fingerprint, publisherKey: publicHex, signature, name, locations,

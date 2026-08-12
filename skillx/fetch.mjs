@@ -9,20 +9,34 @@ import { createHash } from "node:crypto";
 
 export const fingerprintOf = (bytes) => "sha256:" + createHash("sha256").update(bytes).digest("hex");
 
-// A location is a base URL, or a template containing {fp} for hosts that lay
-// their files out differently.
-export function urlFor(location, fingerprint) {
+// Public gateways used to turn an ipfs:// location into ordinary URLs. They
+// need no account and are safe to use here because nothing they return is
+// believed without being hashed first.
+export const GATEWAYS = (process.env.SKILLX_GATEWAYS ||
+  "https://ipfs.io/ipfs,https://dweb.link/ipfs,https://ipfs.filebase.io/ipfs,https://cloudflare-ipfs.com/ipfs"
+).split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
+
+// A location is one of:
+//   ipfs://<cid>        fetched through any public gateway
+//   https://host/{fp}   a template, for hosts with their own layout
+//   https://host/base   a bucket or web root laid out by fingerprint
+// Returns every URL worth trying for this location.
+export function urlsFor(location, fingerprint) {
+  if (location.startsWith("ipfs://")) {
+    const cid = location.slice("ipfs://".length);
+    return GATEWAYS.map((g) => `${g}/${cid}`);
+  }
   const hex = fingerprint.replace(/^sha256:/, "");
-  if (location.includes("{fp}")) return location.replace("{fp}", hex);
+  if (location.includes("{fp}")) return [location.replace("{fp}", hex)];
   const base = location.replace(/\/$/, "");
-  return `${base}/blobs/sha256/${hex.slice(0, 2)}/${hex.slice(2, 4)}/${hex}`;
+  return [`${base}/blobs/sha256/${hex.slice(0, 2)}/${hex.slice(2, 4)}/${hex}`];
 }
 
-async function tryOne(location, fingerprint, timeoutMs) {
+async function tryUrl(url, fingerprint, timeoutMs) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(urlFor(location, fingerprint), { signal: controller.signal });
+    const res = await fetch(url, { signal: controller.signal });
     if (!res.ok) return null;
     const bytes = Buffer.from(await res.arrayBuffer());
     return fingerprintOf(bytes) === fingerprint ? bytes : null; // wrong bytes are simply not an answer
@@ -33,16 +47,13 @@ async function tryOne(location, fingerprint, timeoutMs) {
   }
 }
 
-// Public gateways, tried when a token's own locations come up empty. Safe to
-// use precisely because nothing they return is believed without checking.
-export const PUBLIC_GATEWAYS = (process.env.SKILLX_GATEWAYS || "")
-  .split(",").map((s) => s.trim()).filter(Boolean);
-
-// Ask every location at once and keep the first correct answer.
+// Ask everywhere at once and keep the first correct answer. One slow or
+// hostile source cannot hold up the others.
 export async function fetchByFingerprint(fingerprint, locations, { timeoutMs = 15000 } = {}) {
-  if (!locations.length) return null;
-  const attempts = locations.map((loc) =>
-    tryOne(loc, fingerprint, timeoutMs).then((b) => (b ? b : Promise.reject(new Error("no")))),
+  const urls = locations.flatMap((loc) => urlsFor(loc, fingerprint));
+  if (!urls.length) return null;
+  const attempts = urls.map((u) =>
+    tryUrl(u, fingerprint, timeoutMs).then((b) => (b ? b : Promise.reject(new Error("no")))),
   );
   try {
     return await Promise.any(attempts);

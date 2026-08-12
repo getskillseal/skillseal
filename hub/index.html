@@ -78,12 +78,12 @@
   /* ── body ─────────────────────────────────────────────────── */
   .layout{display:grid;grid-template-columns:260px 1fr;gap:1.6rem;max-width:1180px;margin:0 auto;padding:1.75rem 1.5rem 4rem}
   .side .label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:.2rem 0 .7rem}
-  .cat{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;background:none;border:1px solid transparent;
+  .catbtn{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;background:none;border:1px solid transparent;
     border-radius:8px;padding:.5rem .6rem;color:var(--dim);font-size:.92rem}
-  .cat:hover{background:var(--panel);color:var(--ink)}
-  .cat.on{background:rgba(255,215,0,.08);border-color:var(--line-gold);color:var(--ink)}
-  .cat .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
-  .cat.on .c{color:var(--gold)}
+  .catbtn:hover{background:var(--panel);color:var(--ink)}
+  .catbtn.on{background:rgba(255,215,0,.08);border-color:var(--line-gold);color:var(--ink)}
+  .catbtn .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
+  .catbtn.on .c{color:var(--gold)}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.75rem}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem;animation:cardIn .35s ease both}
@@ -91,15 +91,11 @@
   @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .card .top{display:flex;align-items:center;gap:.5rem}
   .card .name{font-weight:600;font-size:1rem;letter-spacing:-.01em}
-  .card .src{margin-left:auto;font-size:.72rem;border-radius:20px;padding:.15rem .6rem;border:1px solid;white-space:nowrap}
-  .src.builtin{color:var(--green);border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08)}
-  .src.official{color:var(--amber);border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
-  .src.community{color:var(--blue);border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.08)}
   .card .desc{margin:.5rem 0 .75rem;color:var(--dim);font-size:.9rem;line-height:1.45}
 
   /* verified seal: one glance says "provably the bytes you approved".
      The proof itself is one hover away, so the card face stays quiet. */
-  .seal{position:relative;display:inline-flex;flex:0 0 auto;line-height:0;cursor:help}
+  .seal{position:relative;display:inline-flex;flex:0 0 auto;line-height:0;cursor:help;margin-left:auto}
   .seal svg{width:16px;height:16px;display:block}
   .seal .tip{position:absolute;left:50%;top:calc(100% + 9px);transform:translateX(-50%) translateY(-3px);
     width:298px;background:#12121c;border:1px solid rgba(255,255,255,.1);border-radius:9px;
@@ -124,7 +120,7 @@
   .empty{color:var(--dim);text-align:center;padding:3rem 0;font-size:.92rem}
 
   /* ── expandable detail ───────────────────────────────────── */
-  .card{cursor:pointer;border-left:2px solid transparent}
+  .card{cursor:pointer;border-left:2px solid rgba(74,222,128,.55)}
   .card.open{border-left-color:var(--green);background:#0d0d18}
   .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.15rem}
   .chip{font-size:.72rem;border-radius:6px;padding:.2rem .55rem;border:1px solid}
@@ -206,8 +202,34 @@
 </div>
 
 <script>
-const ICON={all:"📋",data:"📊",document:"📄",devops:"⚙️",web:"🌐",security:"🛡️",productivity:"✅"};
-const LABEL={all:"All Skills",data:"Data",document:"Document",devops:"DevOps",web:"Web",security:"Security",productivity:"Productivity"};
+// Many small folder names roll up into the handful of groups people browse by.
+const GROUPS=[
+ {id:"all",           label:"All Skills",          icon:"📋", match:[]},
+ {id:"ai-agents",     label:"AI Agents",           icon:"🤖", match:["autonomous-ai-agents","agents"]},
+ {id:"productivity",  label:"Productivity",        icon:"✅", match:["productivity","note-taking"]},
+ {id:"software-dev",  label:"Software Dev",        icon:"💻", match:["software-development","web-development","github","migration","dogfood"]},
+ {id:"business",      label:"Business & Finance",  icon:"🌐", match:["finance","payments"]},
+ {id:"security",      label:"Security",            icon:"🔒", match:["security"]},
+ {id:"creative",      label:"Creative",            icon:"🎨", match:["creative"]},
+ {id:"research",      label:"Research",            icon:"🔍", match:["research"]},
+ {id:"blockchain",    label:"Blockchain",          icon:"⛓️", match:["blockchain"]},
+ {id:"data-science",  label:"Data Science",        icon:"📊", match:["data-science","mlops"]},
+ {id:"media",         label:"Media",               icon:"🎵", match:["media"]},
+ {id:"social-media",  label:"Social Media",        icon:"📱", match:["social-media"]},
+ {id:"mcp",           label:"MCP",                 icon:"🎙️", match:["mcp"]},
+ {id:"devops",        label:"DevOps",              icon:"⚙️", match:["devops"]},
+ {id:"health",        label:"Health",              icon:"❤️", match:["health"]},
+ {id:"other",         label:"Other",               icon:"📦", match:[]},
+];
+const groupOf=(cat)=>GROUPS.find(g=>g.match.includes(cat))?.id||"other";
+const groupMeta=(id)=>GROUPS.find(g=>g.id===id)||GROUPS[GROUPS.length-1];
+// On a card, show the skill own folder name; fall back to its group.
+const RAWICON={apple:"🍎",email:"✉️",gaming:"🎮","smart-home":"🏠",communication:"💬","note-taking":"📝",github:"🐙",payments:"💳"};
+const catLabel=(cat)=>{const g=GROUPS.find(x=>x.match.includes(cat));
+  return g?g.label:cat.split("-").map(w=>w[0].toUpperCase()+w.slice(1)).join(" ");};
+const cardIcon=(cat)=>RAWICON[cat]||groupMeta(groupOf(cat)).icon;
+const PLATFORM={macos:"macOS",linux:"Linux",windows:"windows",any:"any"};
+// Registry names for the row of pills under the search box.
 const SRCLABEL={all:"All",builtin:"Built-in",official:"Optional",community:"Community"};
 const REPO="https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
 // Generated skill pages, same route shape as the upstream hub docs.
@@ -274,28 +296,28 @@ const num=n=>n.toLocaleString();
 function render(){
   const q=state.q.toLowerCase();
   const list=CATALOG.filter(s=>
-    (state.cat==="all"||s.category===state.cat)&&
+    (state.cat==="all"||groupOf(s.category)===state.cat)&&
     (state.src==="all"||s.source===state.src)&&
     (!q||(s.name+" "+s.desc).toLowerCase().includes(q)));
   const grid=document.getElementById("grid");grid.innerHTML="";
   document.getElementById("empty").hidden=list.length>0;
   for(const s of list){
     const el=document.createElement("article");el.className="card";
-    const plats=(s.platforms||[]).map(p=>`<span class="chip plat">${p}</span>`).join("");
+    const g=groupMeta(groupOf(s.category));
+    const plats=(s.platforms||[]).map(p=>`<span class="chip plat">${PLATFORM[String(p).toLowerCase()]||p}</span>`).join("");
     const tags=(s.tags||[]).map(t=>`<span>${t}</span>`).join("");
     const pre=s.prereq
       ? `<div class="prereq"><div class="lbl">Prerequisites</div>
            <div class="r"><span class="k">${s.prereq.kind||"cmd"}</span><code>${s.prereq.value}</code></div></div>` : "";
-    el.innerHTML=`<div class="top"><span>${ICON[s.category]||"📦"}</span><span class="name">${s.name}</span>
-        <span class="seal" tabindex="0" role="img" aria-label="Verified: content address and publisher signature checked">${seal(16)}
+    el.innerHTML=`<div class="top"><span>${cardIcon(s.category)}</span><span class="name">${s.name}</span>
+        <span class="seal" tabindex="0" role="img" aria-label="Verified: contents match the publisher's signature">${seal(17)}
           <span class="tip">
             <span class="h">${seal(14)} Verified skill</span>
             <span class="p">These exact bytes are what the publisher signed. Your agent rechecks them before it runs.</span>
           </span>
-        </span>
-        <span class="src ${s.source}">${SRCLABEL[s.source]||s.source}</span></div>
+        </span></div>
       <p class="desc">${s.desc}</p>
-      <div class="chips"><span class="chip cat">${LABEL[s.category]||s.category}</span>${plats}</div>
+      <div class="chips"><span class="chip cat">${catLabel(s.category)}</span>${plats}</div>
       <div class="detail">
         <div class="lbl">Overview</div>
         <p class="ov">${s.overview||s.desc}</p>
@@ -354,12 +376,17 @@ function chrome(){
     pills.appendChild(b);
   });
 
+  // Sidebar: the groups that actually have skills, biggest first, with All on top.
+  const byGroup={};
+  CATALOG.forEach(s=>{const gid=groupOf(s.category);byGroup[gid]=(byGroup[gid]||0)+1;});
+  const ordered=Object.entries(byGroup).sort((a,b)=>b[1]-a[1]);
   const cats=document.getElementById("cats");cats.innerHTML="";
-  [["all",CATALOG.length],...Object.entries(byCat).sort()].forEach(([c,n])=>{
+  [["all",CATALOG.length],...ordered].forEach(([gid,n])=>{
+    const g=groupMeta(gid);
     const b=document.createElement("button");
-    b.className="cat"+(c===state.cat?" on":"");
-    b.innerHTML=`<span>${ICON[c]||"📦"}</span><span>${LABEL[c]||c}</span><span class="c">${num(n)}</span>`;
-    b.onclick=()=>{state.cat=c;chrome();render();};
+    b.className="catbtn"+(gid===state.cat?" on":"");
+    b.innerHTML=`<span>${g.icon}</span><span>${g.label}</span><span class="c">${num(n)}</span>`;
+    b.onclick=()=>{state.cat=gid;chrome();render();};
     cats.appendChild(b);
   });
 }
