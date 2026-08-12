@@ -52,19 +52,34 @@
   .err{color:#ff8a80;font-size:.9rem;margin-top:1rem}
   .foot{margin-top:2rem;font-size:.85rem;color:var(--faint)}
   .seal-svg{vertical-align:middle}
+  .tabs{display:inline-flex;gap:.3rem;margin:1.6rem 0 0;padding:.25rem;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .tab{background:none;border:0;border-radius:9px;padding:.5rem 1.1rem;font-size:.92rem;font-weight:500;color:var(--dim)}
+  .tab.on{background:var(--seal);color:#04111d;font-weight:700}
+  .check{display:flex;gap:.6rem;align-items:flex-start;margin-top:.7rem;text-align:left;font-size:.92rem;color:#d5d5da}
+  .check .mk{flex:0 0 auto;margin-top:.05rem}
+  .check.bad{color:#ff8a80} .check.warn{color:#f0c674}
+  .check .sub{display:block;color:var(--faint);font-family:"JetBrains Mono",monospace;font-size:.76rem;margin-top:.15rem;word-break:break-all;white-space:normal}
 </style>
 </head>
 <body>
 <nav class="top">
   <a class="brand" href="./index.html"><span class="mark">🦭</span>SkillSeal</a>
-  <div class="links"><a href="./index.html">Sealed Skills</a><a class="on" href="./seal.html">Seal a skill</a></div>
+  <div class="links"><a href="./index.html">Sealed Skills</a><a class="on" href="./seal.html">Seal a skill</a><a href="./seal.html#verify">Verify a skill</a></div>
 </nav>
 
 <div class="wrap">
-  <p class="eyebrow">Seal a skill</p>
-  <h1>Turn a skill into a line anyone can trust.</h1>
-  <p class="lead">Drop a <code>SKILL.md</code> (or paste it). Your browser hashes it, signs it with a
+  <p class="eyebrow" id="eyebrow">Seal a skill</p>
+  <h1 id="title">Turn a skill into a line anyone can trust.</h1>
+  <p class="lead" id="lead">Drop a <code>SKILL.md</code> (or paste it). Your browser hashes it, signs it with a
     key it makes on the spot, and hands you one line to share. No account, no upload, nothing leaves this tab.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab on" id="tabSeal" role="tab">Seal a skill</button>
+    <button class="tab" id="tabVerify" role="tab">Verify a skill</button>
+  </div>
+
+  <!-- ── seal ─────────────────────────────────────────────────────────── -->
+  <div id="sealPane">
   <div class="steps"><span>1 · hashed here</span><span>2 · signed here</span><span>3 · sealed into one line</span></div>
 
   <div class="drop" id="drop">
@@ -89,8 +104,18 @@
         (<code>scripts/</code>, <code>references/</code>), use <code class="mono">skillseal publish</code> and upload once.</p>
     </div>
   </div>
+  </div><!-- /sealPane -->
 
-  <p class="foot">Made without a server. The private key never leaves your browser and is not stored.</p>
+  <!-- ── verify ───────────────────────────────────────────────────────── -->
+  <div id="verifyPane" hidden>
+    <textarea id="vIn" placeholder="Paste a skillseal line, e.g. sk1qgq6pf8mykk…"></textarea>
+    <div class="err" id="vErr"></div>
+    <div class="out" id="vOut">
+      <div class="card" id="vCard"></div>
+    </div>
+  </div>
+
+  <p class="foot" id="foot">Made without a server. The private key never leaves your browser and is not stored.</p>
 </div>
 
 <script type="module">
@@ -175,6 +200,101 @@ $("file").onchange=async e=>{const f=e.target.files[0];if(f)handle(await f.text(
 let t;$("paste").addEventListener("input",e=>{clearTimeout(t);t=setTimeout(()=>handle(e.target.value),350);});
 $("oCopy").onclick=e=>{navigator.clipboard?.writeText($("oCmd").dataset.full||"");
   e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);};
+
+// ── verify (the browser face of `skillseal inspect`) ─────────────────────
+function bech32Decode(str){
+  const s=str.trim().toLowerCase();
+  const pos=s.lastIndexOf("1");
+  if(pos<1||pos+7>s.length) throw new Error("this does not look like a skillseal line");
+  const hrp=s.slice(0,pos), data=[];
+  for(const ch of s.slice(pos+1)){const d=CHARSET.indexOf(ch); if(d===-1) throw new Error(`invalid character "${ch}"`); data.push(d);}
+  if(polymod([...hrpExpand(hrp),...data])!==BECH32M) throw new Error("checksum failed — the line is damaged or mistyped");
+  return {hrp,bytes:Uint8Array.from(convert(data.slice(0,-6),5,8,false))};
+}
+function readTokenJS(str){
+  const {hrp,bytes}=bech32Decode(str.replace(/^skill:\/\//,""));
+  if(hrp!=="sk") throw new Error(`not a skillseal line (prefix "${hrp}")`);
+  let o=0; const take=n=>{const b=bytes.slice(o,o+n);o+=n;return b;};
+  const version=take(1)[0];
+  if(version===2){
+    const flags=take(1)[0];
+    const out={version:2,manifestAddress:"sha256:"+hex(take(32)),publisherHint:null};
+    if(flags&1) out.publisherHint=hex(take(4));
+    return out;
+  }
+  if(version!==1) throw new Error(`unsupported version ${version}`);
+  const flags=take(1)[0];
+  const out={version:1,fingerprint:"sha256:"+hex(take(32)),publisherKey:hex(take(32)),signature:null,name:null,locations:[],inline:null};
+  if(flags&8) out.signature=hex(take(64));
+  if(flags&1){const n=take(1)[0];out.name=new TextDecoder().decode(take(n));}
+  if(flags&2){const c=take(1)[0];for(let i=0;i<c;i++){const l=take(1)[0];out.locations.push(new TextDecoder().decode(take(l)));}}
+  if(flags&4){const lb=take(2);out.inline=take((lb[0]<<8)|lb[1]);}
+  return out;
+}
+async function verifyV1(t){
+  const checks=[{ok:true,txt:"Checksum valid",sub:"caught offline, before any network"}];
+  if(t.name) checks.push({ok:true,txt:"Skill",sub:t.name});
+  checks.push({ok:true,txt:"Fingerprint",sub:t.fingerprint});
+  checks.push({ok:true,txt:"Publisher key",sub:t.publisherKey});
+  if(t.signature){
+    let valid=null;
+    try{const pub=await crypto.subtle.importKey("raw",hexToU8(t.publisherKey),{name:"Ed25519"},false,["verify"]);
+      valid=await crypto.subtle.verify({name:"Ed25519"},pub,hexToU8(t.signature),enc.encode(t.fingerprint));}
+    catch(e){valid="unsupported";}
+    if(valid===true) checks.push({ok:true,txt:"Signature valid",sub:"the publisher vouches for these exact bytes"});
+    else if(valid==="unsupported") checks.push({warn:true,txt:"Signature present, not checked here",sub:"this browser cannot verify Ed25519; the CLI does"});
+    else checks.push({bad:true,txt:"Signature does NOT match — refuse this line"});
+  } else checks.push({warn:true,txt:"Unsigned",sub:"no publisher signature on this line"});
+  if(t.inline){
+    const match=("sha256:"+await sha256hex(t.inline))===t.fingerprint;
+    checks.push(match?{ok:true,txt:"Inline contents match the fingerprint",sub:`${t.inline.length} bytes travel with the line`}
+      :{bad:true,txt:"Inline contents do NOT match the fingerprint"});
+  } else checks.push({info:true,txt:"Contents fetched on install",sub:t.locations.length?t.locations.join("  "):"from any store that has them, each byte hashed on arrival"});
+  return checks;
+}
+async function verifyV2(t){
+  const checks=[
+    {ok:true,txt:"Checksum valid",sub:"caught offline, before any network"},
+    {ok:true,txt:"Pointer, v2",sub:"the address of a signed manifest"},
+    {ok:true,txt:"Manifest address",sub:t.manifestAddress},
+  ];
+  if(t.publisherHint) checks.push({info:true,txt:"Publisher hint",sub:t.publisherHint+" — recognizes a key you have pinned before"});
+  checks.push({info:true,txt:"On install",sub:"fetch the manifest by this address, check its hash, then its signature, then every file"});
+  return checks;
+}
+function renderChecks(checks){
+  const mk=(c)=> c.bad?"✗": c.warn?"!": c.info?"·":"✓";
+  return checks.map(c=>`<div class="check ${c.bad?'bad':c.warn?'warn':''}"><span class="mk">${mk(c)}</span><div><b>${c.txt}</b>${c.sub?`<span class="sub">${c.sub}</span>`:""}</div></div>`).join("");
+}
+const vErr=$("vErr");
+async function doVerify(str){
+  vErr.textContent="";
+  if(!str.trim()){ $("vOut").classList.remove("show"); return; }
+  let t;
+  try{ t=readTokenJS(str); }
+  catch(e){ $("vOut").classList.remove("show"); vErr.textContent=e.message; return; }
+  $("vCard").innerHTML=renderChecks(t.version===2 ? await verifyV2(t) : await verifyV1(t));
+  $("vOut").classList.add("show");
+}
+let vt; $("vIn").addEventListener("input",e=>{clearTimeout(vt);vt=setTimeout(()=>doVerify(e.target.value),250);});
+
+// ── tabs + deep link ─────────────────────────────────────────────────────
+function setMode(mode){
+  const verify=mode==="verify";
+  $("sealPane").hidden=verify; $("verifyPane").hidden=!verify;
+  $("tabSeal").classList.toggle("on",!verify); $("tabVerify").classList.toggle("on",verify);
+  $("eyebrow").textContent=verify?"Verify a skill":"Seal a skill";
+  $("title").textContent=verify?"Check a line before you trust it.":"Turn a skill into a line anyone can trust.";
+  $("lead").innerHTML=verify
+    ? "Paste a skillseal line. Your browser decodes it and checks it — the checksum offline, the publisher's signature, the seal — without installing anything."
+    : "Drop a <code>SKILL.md</code> (or paste it). Your browser hashes it, signs it with a key it makes on the spot, and hands you one line to share. No account, no upload, nothing leaves this tab.";
+  document.querySelectorAll("nav .links a").forEach(a=>a.classList.toggle("on", a.getAttribute("href")===(verify?"./seal.html#verify":"./seal.html")));
+  history.replaceState(null,"",verify?"#verify":"./seal.html");
+  if(verify) $("vIn").focus();
+}
+$("tabSeal").onclick=()=>setMode("seal");
+$("tabVerify").onclick=()=>setMode("verify");
+if(location.hash==="#verify") setMode("verify");
 </script>
 </body>
 </html>

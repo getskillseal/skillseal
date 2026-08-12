@@ -31,12 +31,13 @@
 ## Install
 
 ```bash
-npx skillseal add sk1qyxcff3u8hhdxzq9cqxfye7fzvlwvptazge6j72zr5urhe…
+npx skillseal add sk1qgq6pf8mykkwrqu2ttpynx43f57magyphegd66zrhcpfjz5mlufgaku50584ge6xhzw
 ```
 
-That is the whole thing. The line is not a lookup. It carries the skill's
-fingerprint, its publisher's key, and their signature, so the install checks
-itself before it touches disk:
+That is the whole thing, about 60 characters. The line is the address of a
+signed manifest, so it carries the skill's fingerprint, its publisher's key,
+and their signature without spelling them out, and the install checks itself
+before it touches disk:
 
 ```
 ✓ token checksum is valid          caught offline, before any download
