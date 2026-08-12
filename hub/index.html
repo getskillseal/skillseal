@@ -37,16 +37,16 @@
   button{font-family:inherit;cursor:pointer}
   a{color:inherit;text-decoration:none}
 
-  /* ── top nav ─────────────────────────────────────────────── */
-  nav.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:1.9rem;
-    padding:.85rem 1.6rem;background:var(--nav);border-bottom:1px solid var(--line)}
-  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.05rem}
-  .brand .mark{font-size:1.35rem;line-height:1;filter:saturate(1.1)}
-  nav.top .links{display:flex;align-items:center;gap:1.6rem;font-size:.98rem;color:#d7d3ca}
+  /* ── top nav (brand left, everything else right, OpenClaw layout) ── */
+  nav.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;
+    padding:.9rem 1.9rem;background:var(--nav);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.1rem}
+  .brand .mark{font-size:1.4rem;line-height:1}
+  nav.top .links{margin-left:auto;display:flex;align-items:center;gap:1.9rem;font-size:.92rem;color:#c7c7cd}
+  nav.top .links a{display:inline-flex;align-items:center;gap:.4rem}
   nav.top .links a:hover{color:#fff}
-  nav.top .links a.on{color:var(--gold);font-weight:500}
-  nav.top .right{margin-left:auto;display:flex;align-items:center;gap:1.5rem;font-size:.98rem;color:#d7d3ca}
-  .ext:after{content:"↗";font-size:.72em;margin-left:.28em;opacity:.65;vertical-align:super}
+  nav.top .links a.on{color:var(--seal);font-weight:600}
+  nav.top .links svg{width:15px;height:15px;opacity:.85}
 
   /* ── hero (centered, mascot up top — OpenClaw rhythm) ─────── */
   header.hero{position:relative;text-align:center;padding:3rem 1.5rem 2.8rem;overflow:hidden}
@@ -65,10 +65,10 @@
 
   h1 em{font-style:italic;color:var(--seal)}
   .lead{max-width:720px;margin:1.2rem auto 0;font-size:1.12rem;line-height:1.6;color:var(--dim)}
-  .cta{display:flex;justify-content:center;gap:.7rem;margin-top:1.7rem;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:9px;
-    padding:.7rem 1.25rem;font-size:.95rem;font-weight:500;color:var(--ink);background:#11111c}
-  .btn:hover{border-color:rgba(255,255,255,.18)}
+  .cta{display:flex;justify-content:center;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line-2);border-radius:8px;
+    padding:.8rem 1.5rem;font-family:"JetBrains Mono",monospace;font-size:.92rem;font-weight:500;color:var(--ink);background:transparent}
+  .btn:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.03)}
   .btn.primary{background:var(--seal);border-color:var(--seal);color:#04111d;font-weight:700}
   .btn.primary:hover{background:#3aabf5;border-color:#3aabf5}
   .btn b{color:inherit}
@@ -236,10 +236,8 @@
     <a href="#skills" class="on">Skills</a>
     <a href="./seal.html">Seal a skill</a>
     <a href="#quickstart">Quick start</a>
-    <a class="ext" href="/mcp-skills-integrity/docs">Docs</a>
-  </div>
-  <div class="right">
-    <a class="ext" href="https://github.com/humuhumu33/mcp-skills-integrity">GitHub</a>
+    <a href="/mcp-skills-integrity/docs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h9a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/><path d="M20 4h-4a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h5z"/></svg>Docs</a>
+    <a href="https://github.com/humuhumu33/mcp-skills-integrity"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>GitHub</a>
   </div>
 </nav>
 
@@ -247,9 +245,8 @@
   <div class="mascot">🦭</div>
   <p class="eyebrow">Open source · Decentralized · Self-verifying</p>
   <h1>Skills you can <em>trust</em>.</h1>
-  <p class="lead">Paste one line. It fetches the skill from anywhere, checks every byte
-    against the publisher's seal, and installs it where your agent already looks.<br>
-    No account, no registry, nothing to trust.</p>
+  <p class="lead">Fetches a skill, checks every byte, and installs it in seconds.
+    From one line you paste into Claude, Cursor, goose, or any agent you already use.</p>
   <div class="cta">
     <a class="btn primary" href="./seal.html">Seal a skill now</a>
     <a class="btn" href="#skills">Explore <b id="total">0</b> sealed skills</a>
