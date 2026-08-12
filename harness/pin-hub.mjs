@@ -142,7 +142,7 @@ async function main() {
       address: tree.address,
       cid: listCid || "(not pinned yet)",
       ipfs: listCid,
-      docs: `/mcp-skills-integrity/docs/user-guide/skills/bundled/${s.category}/${s.category}-${s.name}`,
+      docs: `/skillseal/docs/user-guide/skills/bundled/${s.category}/${s.category}-${s.name}`,
     });
   }
 

@@ -9,10 +9,10 @@ const config: Config = {
   tagline: "Content addressed agent skills, verified before they run",
   favicon: "img/favicon.svg",
 
-  url: "https://humuhumu33.github.io",
-  baseUrl: "/mcp-skills-integrity/",
-  organizationName: "humuhumu33",
-  projectName: "mcp-skills-integrity",
+  url: "https://getskillseal.github.io",
+  baseUrl: "/skillseal/",
+  organizationName: "getskillseal",
+  projectName: "skillseal",
   trailingSlash: false,
 
   onBrokenLinks: "warn",
@@ -30,7 +30,7 @@ const config: Config = {
           breadcrumbs: true,
           showLastUpdateTime: false,
           editUrl:
-            "https://github.com/humuhumu33/mcp-skills-integrity/tree/main/website/",
+            "https://github.com/getskillseal/skillseal/tree/main/website/",
         },
         blog: false,
         theme: { customCss: "./src/css/custom.css" },
@@ -45,9 +45,9 @@ const config: Config = {
       items: [
         { type: "docSidebar", sidebarId: "docs", position: "left", label: "Docs" },
         // The hub is a self-contained static page under static/hub.
-        { href: "/mcp-skills-integrity/hub/", label: "Skills", position: "left" },
+        { href: "/skillseal/hub/", label: "Skills", position: "left" },
         {
-          href: "https://github.com/humuhumu33/mcp-skills-integrity",
+          href: "https://github.com/getskillseal/skillseal",
           label: "GitHub",
           position: "right",
         },

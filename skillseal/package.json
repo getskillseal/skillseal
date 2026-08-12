@@ -22,8 +22,8 @@
   "engines": { "node": ">=20" },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/humuhumu33/mcp-skills-integrity.git",
+    "url": "git+https://github.com/getskillseal/skillseal.git",
     "directory": "skillseal"
   },
-  "homepage": "https://github.com/humuhumu33/mcp-skills-integrity#readme"
+  "homepage": "https://github.com/getskillseal/skillseal#readme"
 }

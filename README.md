@@ -88,8 +88,8 @@ The gateway speaks plain MCP over stdio, and `skill-lock` is a one line pre-acti
 ## Quickstart
 
 ```bash
-git clone https://github.com/humuhumu33/mcp-skills-integrity
-cd mcp-skills-integrity
+git clone https://github.com/getskillseal/skillseal
+cd skillseal
 ./demo.sh
 ```
 

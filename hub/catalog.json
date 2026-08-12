@@ -20,7 +20,7 @@
       "license": "MIT",
       "address": "sha256:0d917df675f90f6f45f2d2ddcb81ed8afd10c4346b3749acc1d8a85e44611dc7",
       "cid": "Qmb3kjEMquJuCA3Y6qvKT7NYG2JAk8zbimF3BvQDsRQN27",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/apple/apple-apple-notes",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/apple/apple-apple-notes",
       "token": "sk1qy9smyta7e6ljrm0ghed9hwts8kc4lgscs6xkd6f4nqa32z7g3s3m37uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usakuy9r4gm2zfztk0q9a09jhlzl26fdwqwzzfl7kv65z2ls2jn54cgxx543m42qzkd3qda6f9kslv08usl9lcsy4g26mxjxa8esxjg0pdshqurvv5kkumm5v4esyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6c3ndd4y2nt3w4982s6pxdvnvutkfd2rwnjeguey5stt8paxy6tdgce5yaj3g3e4y52wxgmsq7zkdk"
     },
     {
@@ -43,7 +43,7 @@
       "license": "MIT",
       "address": "sha256:19a178d481f6e15c3a518fdcffcb44000f2c3abfbaf71ac7875fe606cc4b3172",
       "cid": "QmeEcTvRREG8sbZPYHi5BX6RKWYdJKpXdf7JmndhY8ASBF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/apple/apple-apple-reminders",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/apple/apple-apple-reminders",
       "token": "sk1qy93ngtc6jqldc2u8fgclh8ledzqqrev82lm4ac6c7r4lesxe39nzukuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3g9ggpavffn46qa9yjt8jl2xn82xktsf6q5yt77kzd8jc283algxsg0rrznm6kh5rlvddm236vwsvu2kwlxvu526wsmy3q3gr09wectpashqurvv5khyetdd9hxgetjwvpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kk23tr23m9y5j9guu8xcj62pv5s6f4gfvrv5jt2avkgjjtwpvxge3hffkkuergtyuyz56zgcdapu8l"
     },
     {
@@ -67,7 +67,7 @@
       "license": "MIT",
       "address": "sha256:2c304417fdddfed57f80e6898513586d8f92eda991a2f893a32ec21aca6eebb6",
       "cid": "QmSyzzFHhofCzJhZCtA49MRK9P4mygUoTEBRTTKpq2RMdj",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/apple/apple-findmy",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/apple/apple-findmy",
       "token": "sk1qy9jcvzyzl7amlk407qwdzv9zdvxmrujak5erghcjw3jass6efhwhdkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3gaexudlgchj3ut3sl56gv22lx55jvlz0medmvpa8ztj672plxkfndll3mejvw5sq603d8rajv4xw5t5z9wluclg5pcuj94ee7d4ggzqenxjmnyd4usyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65me0fayvjrgdanyx7j2dpdyxazpxsu565jt89grgmteva2k74z9gff9g4ztwpcny5jdv34q9aelgv"
     },
     {
@@ -90,7 +90,7 @@
       "license": "MIT",
       "address": "sha256:52ede2ceaa68f4fab546b10a5f7ec70f4d637fe8a351787cc581fd13200288c2",
       "cid": "QmbiKQ9eW349pXr1AFzvTMRguVRbnBfgmaGD8AdTPgqon2",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/apple/apple-imessage",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/apple/apple-imessage",
       "token": "sk1qy949m0ze64x3a86k4rtzzjl0mrs7ntr0l52x5tc0nzcrlgnyqpg3skuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u33ws2fe03l95pyltjt3j75v2fneydhz8y83x60xe552rvy7psk3nn7gfpds5reyjnq40y7uqjs362c4qa2tnzku8hce45vga8e3qpqgpp5k6etnwdskwegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdvf55k5fev4tnxdpewpv8yv2pgea8v4zd2fnh24jjvfhyyen8d4s5w3pcg9j9g5r8w9hkuvs2qprcg"
     },
     {
@@ -117,7 +117,7 @@
       "license": "MIT",
       "address": "sha256:90d83952c2e1f645e2d24e854bb6b81670cd6d62449b2bc10945afd91b96deec",
       "cid": "QmYwBYA2xfFLeJ13gCFTN7dHpNek99MzM9wbXDRLg7bQxv",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-claude-code",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-claude-code",
       "token": "sk1qy9epkpe2tpwraj9utfyap2tk6upvuxdd43yfxetcyy5tt7erwtdamxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usnvd2lfaaz9kdx6xkwtllfgmr7afkzkwdn2gtl88947muzfc4t8g5meqqlx6c27eftjnhd0mwflnrm52402w5lvujtg479xfzlhppgqpd3kcct4v3jj6cm0v3jsyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6kthgfv5zvncveryce22xyekws6x238rwezgwp8x26ee89xh5nfewa39s3zjf3nnwcj30pmq3zqtwl"
     },
     {
@@ -142,7 +142,7 @@
       "license": "MIT",
       "address": "sha256:ed81aae8772e3bfb3271eec595082d5aa9d45ff7abac5f3a5da14d7205b19171",
       "cid": "Qmb39e44K1UCUc4fE2X72AfAEwTdveYzEoXrm18FAB17Er",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-codex",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-codex",
       "token": "sk1qy97mqd2apmjuwlmxfc7a3v4pqk442w5tlm6htzl8fw6zntjqkcezuwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uny2uwma22xtvu9f4nw5h0ykkxxu50dfxvfyuqppy2jv33raxxzfgtnmnqr5a6855s4tqaa5j8jw954n6wphrqu64ywn4d5cyg9fmfqvq43k7er90qpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kkyveev56rgje324p42ce5veznykphxfqkvs29wa2xgan9t9ay2m6cwfknzwzxg9przd69wgtdwqz2"
     },
     {
@@ -167,7 +167,7 @@
       "license": "MIT",
       "address": "sha256:2304474d9a6bb244c3166dd96caa21741ddd071789530a7b3edc97d79d67803a",
       "cid": "QmNqKqdfTtDz5cQ5U3xpmL4x5B6icZ9cVydTnRumMnw4sV",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-computer-use",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-computer-use",
       "token": "sk1qy9jxpz8fkdxhvjycvtxmktv4gshg8waqutcj5c20vlde97hn4ncqwkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uswmdh0zqfpylkzfu42gv8tazulzkzp93f6h5w9ztvtduswkmfrhxxa8ncjvmkncscader0lshmzw2qwuzejmdw3r9rvg0s8lf9dlac9p33k7mtsw46x2u3dw4ek2q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2ww99hzerx236yg734vdgn24fn0pcx6np50q65ydnfvddrjc6k09j9gmjjw4k56mnhx3e4vly7gkq"
     },
     {
@@ -200,7 +200,7 @@
       "license": "MIT",
       "address": "sha256:543f7e3462245c7d7654599494d4d411898443aedd21965dd5ded210d7bf43f4",
       "cid": "QmW91QN9ZVBgwxzLPXpoPXR9xfUCMQEBxyez55L8U6saq2",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-hermes-agent",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-hermes-agent",
       "token": "sk1qy94g0m7x33zghrawe29n9y56n2przvygwhd6gvkth2aa5ss67l58axuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unlqxgkrt2ud86g8xnmznqdx6at7ltpq0ratk38t26rg6snnacdyzac4394dhk2dg3a2c0tvymp47uah42cyqay2f29wa268s2reylqyp35x2undv4ej6ct8v4h8gq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2h8yc4zn3etftyyemh0payc5zcwph4qkzj89uxv42rf4g52snc09jh5df4fsu92dnnv9cnytuv6jy"
     },
     {
@@ -225,7 +225,7 @@
       "license": "MIT",
       "address": "sha256:cb7db6a03515cee7a3bdf6cbd45ca046f7cf1ef4be0ac4163714afd4d7e5c962",
       "cid": "QmQ7hXLvYh9P8oWKauF1iNX42kVmvgxw56a8nkoqqf2u6F",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-merge-reconciler",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-merge-reconciler",
       "token": "sk1qy9ukldk5q63tnh85w7ldj75tjsyda70rm6tuzkyzcm3ft756ljujckuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usn78qfulmyxz3qq28rk3rkd2dlsutma7lsfn45nlatqhvwfsdhlhcqslnqfc8gaqzeclvkjrdx0nwj0hclrak275kngt88f2gdnmwszzpkk2un8v5khyetrdahxx6tvv4eqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65fhdpvycajedqu4qwr02a9kza2xx955ukp5xf44vmtkvau8wdfkvyuxu6m0w9ckvvn4xerq3rktpg"
     },
     {
@@ -250,7 +250,7 @@
       "license": "MIT",
       "address": "sha256:9e7cb9f0c5f4de38a89f5e62862a82723c621acc26cba682294d710a068ad718",
       "cid": "QmdYBi1dN5hKzPw3xo6RicSsxUV1XhkghxLow1NfWJS8bA",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode",
       "token": "sk1qy9eul9e7rzlfh3c4z04uc5x92p8y0rzrtxzdjaxsg556ug2q69dwxxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un23wnt80vrnncdz8s25n34ax0t98ey8qqna4t6uzrtzyaqphkm8zma98y8hfhrwmeg2hqjwfyf8fyuckudnykacjgcrpfn8dfe93qq8pphhqetwvdhkgegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv3v5y6f3v38r26zt0fg8wvmcdum9y6tr2dehs42kx9vxs6m8dpuycmmhx98xv4622vuxysgr0n83r"
     },
     {
@@ -277,7 +277,7 @@
       "license": "MIT",
       "address": "sha256:ec87a7d9a2864c4fef800ef108e4b0807cee5e102151834ae6767ec44f62d113",
       "cid": "QmXDu5EbLo1wNvqoEgXnBNxZBBPfytz3xPNLocsfpiPvLG",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-architecture-diagram",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-architecture-diagram",
       "token": "sk1qy97epa8mx3gvnz0a7qqauggujcgql8wtcgzz5vrftn8vlkyfa3dzy7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us6ggrpnxmx3jw0p7zffq3hrxly9cds3dfmqpsm78t9r6f0kgh8hy2qgllprcl5r58n4r97m3y6zuytcau76qdpfkvpjt3nhu9jpnas8z3shycmgd96x2cm5w4ex2ttyd9skwunpd5pzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4s3r4x4zkynr0x9m5uan3dazkwkrwgf88skjzgfgxv7t50gehs5zwf3hkxumxwp54qajvguu3gyeg"
     },
     {
@@ -307,7 +307,7 @@
       "license": "MIT",
       "address": "sha256:5593dbce16a605f305c9d9b7f70e3dcdf246c9f23362f5433295656c7fd388c8",
       "cid": "QmVZdwwywBmDAQicVe4v1aez3ZWkXtV6fC8RNiBMkGakTN",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-ascii-art",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-ascii-art",
       "token": "sk1qy94ty7mect2vp0nqhyandlhpc7umujxe8erxch4gvef2etv0lfc3jxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3at3pkarucac67xucacqfc92kge3fhe50z2dd54grs4q3lck3dcqn96yrm6e34dd5wz5ypvlsxx2t5nu80ntf5tt9032r2vvhkddmc0p9shxcmfdykkzun5qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4t95erhwauhwsndg3q4z6tr2ejnga33v9jh5v662a44sazkxenyxwzjfe55ynttgaskk4zwqyvv7d"
     },
     {
@@ -331,7 +331,7 @@
       "license": "MIT",
       "address": "sha256:9a078aa972895a42a657eb5945770d5b7275defe9d0f41ac6d6b8a9637e41982",
       "cid": "Qmdu1ZF4DpXvTBAYxVWU4dHaEU5xFVz8BvLbtaGJrDdY7r",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-ascii-video",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-ascii-video",
       "token": "sk1qy9e5pu249egjkjz5et7kk29wux4kun4mmlf6r6p43kkhz5kxljpnqkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uns4kfd2cafrfzu79q6fs2uwd8s0fvttsasdxmyal4tsq3y5m08fgnruu2py0gkp6q5qtp80gevqpn6wh4nvf58yhv8wukngzhrq40qxpdshxcmfdykhv6tyv4hsyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6er4x9dyvdzywpv8v4zzg9vhs4jh256xgjrpg42n27zx2earssnkf338gc28ffeygezexaequl48jh"
     },
     {
@@ -355,7 +355,7 @@
       "license": "MIT",
       "address": "sha256:e0877f2a2369bd9afa34fe158e3a34556222562dcc1f3256ffcf2d6ae893556a",
       "cid": "QmbAWSVmfAXKPCj8UqZ5yDypG29XTQxPKu77tuBBEDnpRN",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-baoyu-infographic",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-baoyu-infographic",
       "token": "sk1qy97ppml9g3kn0v6lg60u9vw8g692c3z2ckuc8ej2mlu7tt2azf426kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujs3srs36pn835h8rc32p3csmxgjs26gjy3ek6dt7xz3ks7c8n76uxxdwd62vj0nyqjxnskptgdchvevfe7rshzpm5vwkr25709jzsgpz93xzmmew5kkjmnxdanhyctsdp5kxq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtzg9t4x4ndveq4sj6sgd4rs4t3tg6hj3rewprnyw2c23ghs5ztw5mnwar4gfpy23rwwpfyukwr6ph"
     },
     {
@@ -385,7 +385,7 @@
       "license": "MIT",
       "address": "sha256:2a27ec29f11ddbdd73846916f3aad593d3af85b55417e719379be68bc94647bc",
       "cid": "QmWk9HKxxKFaAgoF1BxsDjpYQb5pZCbyvKLFQ21n5xLY4f",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-claude-design",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-claude-design",
       "token": "sk1qy9j5flv98c3mk7awwzxj9hn4t2e85a0sk64g9l8rymehe5te9ry00xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us8j55gwkeur0sv03fpseyxqxqj3r6njym4wsu6t3ya4n46vr49jd4z96l79fm5jles0j89v30t5nnpcsysdgvj96tf05j0p8hu23rgqp43kcct4v3jj6er9wd5kwmszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2a4njjzt0puyk3npg9nk7333gfu8x3r2wpv4zc34wpdyxcnewe95c3j3xgckudtcf3vnges6ae6ly"
     },
     {
@@ -404,7 +404,7 @@
       "license": "MIT",
       "address": "sha256:0248b4f51dbf879ca0c266d1f7bee7ba7e65a3c492e61d1ccb2a5c3cad77b8fd",
       "cid": "QmRydyUiodRuR53UQ5dGynijmAtwoqRR1Ur8amSaR1YHTz",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-comfyui",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-comfyui",
       "token": "sk1qy9syj9575wmlpuu5rpxd50hhmnm5ln950zf9esarn9j5hpu44mm3lwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujuudhv2dqc45xp6cj9gp22l6utkzfkk5hj4gee9uw7u4ew523z32qzeyctjemmyvwdsnnqk9kjsgt3a396qzjdclh68zkfa6h7hs3syqa3k7mtx096kjq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2j09j8j4tfdaj9ya2jx5e425f4v3rhjmnfdfk5zarhdac4y53324ersctd2ds4yv2efp285nx8wj4"
     },
     {
@@ -433,7 +433,7 @@
       "license": "MIT",
       "address": "sha256:e3c24d610a8fdc8c2f1e9eb96ea27fb20964efd3d10840882599380a409bf952",
       "cid": "QmdMYZf3VKFLNtjxxdxe4MThpS8WW4M7MonaJrtzetSCKo",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-design-md",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-design-md",
       "token": "sk1qy978sjdvy9glhyv9u0fawtw5flmyztyalfazzzq3qjejwq2gzdlj5kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujfuh6526dz6ayxnqz3dml4lu6jdevkcvtre6t32jsgh3rn2wnf278k8zmuf8y9a38fj5c0rku55mcc08xnep6clea6qe3yvn69jguspp9jx2umfvahz6mtyqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4jy6k26vce4vj6xf388g6nc0pj8sef5f42xsuzn8pt4wdzdxaxk7mnpffe8g7n9w3f5xjm0p6ntlz"
     },
     {
@@ -459,7 +459,7 @@
       "license": "MIT",
       "address": "sha256:e02a7a36f68bad90c49784a368ec4824ab8671ecd7985e192f1fd45e48413dd3",
       "cid": "QmRXuT9ztGpmSg7DajkhP24Um7taZjPnFcd1ju6v2Saeps",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-excalidraw",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-excalidraw",
       "token": "sk1qy97q2n6xmmghtvscjtcfgmga3yzf2uxw8kd0xz7ryh3l4z7fpqnm57uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ungmpvff0c4cr3294ngpyzw6uckl99n9rgajekun7s6qgw4hsjan3eehv635mmydyftzkzn9ux4kunhwypx579yu34fs9s6s3xrmz4czpfjhscmpd35kgunpwupzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4ykr42suh5az8wpk4xeehg3sk56mg2qerg4tdxa6xzkn22phyvcmyx9482dnkxffkzetswv4y4sre"
     },
     {
@@ -486,7 +486,7 @@
       "license": "MIT",
       "address": "sha256:09d792f04c15b3ae249ab7f9174ec6ca0f42f08ebe8bc79fd89bffc2dd60ae5e",
       "cid": "QmSKwPzkoYHZvNLA5xZU3c3mSrTya4bJGVyMGPcCoXfsMg",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-humanizer",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-humanizer",
       "token": "sk1qy9sn4uj7pxptvawyjdt07ghfmrv5r6z7z8taz78nlvfhl7zm4s2uhkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usm7mwkenyd3a7ve0jt5q8gys8r2c43wvreepaqq5avhq28qft7hzq9e5570m7qs0rne3qlc94cq3edvqv88350c929enpfxlphk9dcpp9582mtpde5h5etjqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4f5ka6s0f4k7k2gtfmyunzpx4u954fnvvek65mj23ukzdrzffr4v72dgagxxsm0tpn8xnt8tgxjch"
     },
     {
@@ -510,7 +510,7 @@
       "license": "MIT",
       "address": "sha256:673832622de73c36b7eaadfe391124b9b7a73f3324fdf283a329db2a4a0dae8b",
       "cid": "QmcDEpJ6QnwMYYdi6DB1wGKZRTJvER373Kn3kZ1bmVH6fd",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-manim-video",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-manim-video",
       "token": "sk1qy9kwwpjvgk7w0pkkl42ml3ezyjtnda88uejfl0jsw3jnke2fgx6az7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujs65qy7ysnj7nnj9fksx23mrje05jej7lzdyg02kvdgyl4r5dhf48lrwsue2895ac3tcekdxrhz0pnqqj5hrf0klvax5mkfsndkuwgxpdkkzmnfd5khv6tyv4hsyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6c6yg4cy5dj3dem56k2ev35nv3zzx9m5wj662f2y5aj92genwv6tdcekkk33vfk4vjpkvejqv8qrut"
     },
     {
@@ -539,7 +539,7 @@
       "license": "MIT",
       "address": "sha256:8c5ff9fc3ebc40f8f9394e3060b66274f517ad539b8f9468f505c608b0770308",
       "cid": "QmRnnRag7UbGMjL9rpk2hFHFzMG9g9JwZ7RMt4DkV4xLEB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-p5js",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-p5js",
       "token": "sk1qy9cchlelsltcs8clyu5uvrqke38fagh44fehru5dr6st3sgkpmsxzxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304untw0cy0xp7yh8dqchu4scj74zhc2rldaapzrw2kdhrz6eqmhk0zntk83dg8wnzgugyhz22sqyf5fslkagtf4q6qd2hqe3drn0t3kjqyq3cr26nnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4fxumjjv9nnw4tzgaxk5npewfcxkvnggeyyv7jdguukww22wadrw5jdws6yg66kx3uyc32zq4l8m5"
     },
     {
@@ -566,7 +566,7 @@
       "license": "MIT",
       "address": "sha256:441bb2a21848b4506c7892b676e0e3f77b2472efdb0f257014513ed8b63462f1",
       "cid": "QmTPUVszg1HWVLLxt5oGrN65kMoShbNo3cC71SSQzGBWdP",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-popular-web-designs",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-popular-web-designs",
       "token": "sk1qy95gxaj5gvy3dzsd3uf9dnkur3lw7eywthakre9wq29z0kckc6x9uwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3ntjwzp2mfswfkl8u3fkd6j6d6vvpl245wh36uzdz6ft6nyupqx8epcsluv08rtn2jat7l8ud5eeh7vhn8j75y3xuyxurpl3kxmnrs0zdcx7ur4d3shytthv43z6er9wd5kwmnnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d429q42kwdaxwv2g2atycnrcws6k73mjfcmr266ddafkscjwduekxsehx9f4x5t6gap9wezsuf7qzz"
     },
     {
@@ -594,7 +594,7 @@
       "license": "MIT",
       "address": "sha256:4e8c15a9a0f335b46d8300449fbe4ec98e72a436a1cc96f2b45840ba8d0f8cc9",
       "cid": "QmP6gQrn4hfVWaZmnZZCn1iYZX2uNXjtJc9FCEVV8EcAjP",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-pretext",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-pretext",
       "token": "sk1qy95arq44xs0xdd5dkpsq3ylhe8vnrnj5sm2rnyk7269ss96358cejwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3faazed7qh2zk5lt388zg0vfpy9chgzmeegksuhhee2n0yah0jlga8edewjvenpxy6lrr0nt5cl5rpfsw33mww6m7kfz96s9xf8mps8qac8yet5v4u8gq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2sxen4zunwx35xv4jhv9dx6mj6tfpkuvtft9d9svn4fevx5az2vvu5vs692etrs3trg949q36myqt"
     },
     {
@@ -624,7 +624,7 @@
       "license": "MIT",
       "address": "sha256:e99bf5dbd51d75f9bcace174b57070f492622593709de2fc38fe25bf7276e899",
       "cid": "QmPWvRJzrQCYe2VSWBAvNSYQWWPAHMyVyQYRuXD8e4s6Nu",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-sketch",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-sketch",
       "token": "sk1qy97nxl4m0236a0ehjkwza94wpc0fynzykfhp80zlsu0ufdlwfmw3xwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3608kruvhqt6qngmqshuu63feaekxcymqvm8dag2jm575q5qhfmskzmqp3xep9yaeaajwmaz55gy6amgpa2kjrnmvqlpvvu7sqkqqg2qeekket5vd5qyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65zhwefy57nj29p4jefj2ef4wsjpwe89xk232at4qs2gf4u4v723t9f82kzy8pjnguekfe6sjaf769"
     },
     {
@@ -650,7 +650,7 @@
       "license": "MIT",
       "address": "sha256:35230a0119fbbca843148a830f6a085f83316ac5a674402f4005ef6b2c531b13",
       "cid": "QmaoXTczJKvTmueCAGe6P4tFSkxZSyZ9K2CLCjPPhV7fXw",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-songwriting-and-ai-music",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-songwriting-and-ai-music",
       "token": "sk1qy9n2gc2qyvlh09ggv2g4qc0dgy9lqe3dtz6vazq9aqqtmmt93f3ky7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un86f2ewwd733y7hvczs8qdnes42tw5j6ykaxvdcp7jy0udzyuuzwukx5kqfkscj24rjyz9zfvkeujtuzj5hxatewydqmp9tztp6ejsvrpek7mn8waexjarfdenj6ctwvskkz6fdd46hx6trqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4sk7kz5vday5jmk23kh2e2rg9rk2djsx36yv5mt0pd9x726899nys6vgd49q5rg2cmkvkrha3yx4n"
     },
     {
@@ -680,7 +680,7 @@
       "license": "MIT",
       "address": "sha256:20d4d55e3781565d35cdc8d87e64521f1e2c4c0cb9d946178e401154595d82d1",
       "cid": "QmY6FgAtHghWNpzyK4g5sHvKvuyigW1X1aZrWo6gxk3ehb",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-touchdesigner-mcp",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-touchdesigner-mcp",
       "token": "sk1qy9jp4x4tcmcz4jaxhxu3kr7v3fp783vfsxtnk2xz78yqy25t9wc95wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usfcdmdevll2tzefra6f2rdxk8qy0cp7ufkt6adxgxkpf0mmuqt2srgt0drm7g8spsxjm39uqpz2538mzwtyd70akmkksrsxeevxy6spz96x7atrdpjx2umfvahx2u3dd43hqq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2exerxwst5fpnks46wwpa8jje5vu6hxjrkfdm827tfvatnzkp3v9d8y4m0xenhs6env45xyy9xulp"
     },
     {
@@ -704,7 +704,7 @@
       "license": "MIT",
       "address": "sha256:0ef0b7f0cad70cf77c06a34639dc399366ac7fb74846fc3bf5718876fdb3d8b6",
       "cid": "QmPTX3pbBqusPZ47iMdRjRa95eKWYL26evDNFSgiwTN6Pe",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-sdlc-review",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-sdlc-review",
       "token": "sk1qy9sau9h7r9dwr8h0sr2x33emsuexe4v07m5s3hu806hrzrklkea3dkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujpclj976cqejeadhmfpp3xdv9m95g3f8h2aqf6g326zjrt4jqeyt58ycm2ks9k5w4l9r3v4cls2a3lg5jc9tjmq55lqvjxmsgmmwtcrpdekgmrr94ex2anfv4msyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65z5tqehqcjzw96hx5z6xsmkjnty2f49ycfex4j5k46efservetkg38yv5m8d9m4gn3k2pjs54qjn9"
     },
     {
@@ -729,7 +729,7 @@
       "license": "MIT",
       "address": "sha256:eff42a428928f99ab1f4b63412341c36144047518a2859864593ab2e72b77d97",
       "cid": "QmammWkb7McFCzVkbwRjikfuPMEz9dmjqCih8nyChG2MJM",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/email/email-email-inbox-triage",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/email/email-email-inbox-triage",
       "token": "sk1qy97lap2g2yj37v6k86tvdqjxswrv9zqgagc52zeseze82eww2mhm97uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3g9xfat7xezlg4ecpjctnwuktcxlrmhz96sdzv3dk396kuauvsz8vs375t3jtmtuyaqdavfdnfa507ty5p3pehj0lkqqkjpnkzafvqzzfjk6ctfdskkjmnzdauz6arjd9skwegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv9kk64mtvgm56c6xgda9v6mzwafx56ttve64qn290gukgmt2w9pkj6pcdeu5x6z8xfx55ng92lulu"
     },
     {
@@ -754,7 +754,7 @@
       "license": "MIT",
       "address": "sha256:bdcc5598e03c24c0574390ff0e2bb2076bce957cb1cfbe703d59cbedfde3e6f2",
       "cid": "QmcFLydcerTr16Vn5xanFe1U3Aooe1KNzoreC3UfomTCGo",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/email/email-himalaya",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/email/email-himalaya",
       "token": "sk1qy9mmnz4nrsrcfxq2apeplcw9weqw67wj47trna7wq74njldlh37dukuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujp7wwj9w5as8ftrku7pyqrv9aggal2waf0qevqtfnntv0tue6e0nnkcd2taflgfl0xfp5s5v6s3a99awgxtsvzxuts23q79m0kj57qqpp5xjmtpd3shjcgzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdvdryc7tyvdjhy4rjxym9vm340psku3n9x92nxst0dajnzj6w0fhhye2rxd2kvmmd23p5wmc8xg0zs"
     },
     {
@@ -780,7 +780,7 @@
       "license": "MIT",
       "address": "sha256:053fd5f1205dde2d8b735b9a2e468983e24505617b8f815197fff223226356d7",
       "cid": "QmepNrbbEZT9QU42K2cm7EEaCyjZ3Cju5EyWA3DPyPRrQT",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-codebase-inspection",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-codebase-inspection",
       "token": "sk1qy9s20747ys9mh3d3de4hx3wg6yc8cj9q4shhrup2xtllu3ryf34d47uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304und3th462t55a92dq5546yhp4fqgl4ks09smry58nrcskvwrf326axwajmcl3kd223j624thx038439jxrhg92tp99klyrlgfzza0jstzd3k7er9vfshxefdd9h8xur9vd6xjmmwqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4jhqnnjvf3y2kj589g42dpjfvexxmfhg4zkzsmedfdrxsm2w565272hgye5g5re2pf8y525afd95z"
     },
     {
@@ -806,7 +806,7 @@
       "license": "MIT",
       "address": "sha256:14cff26033943709642ad50fc254459726bfba5061b4998a1ac6f0b2402f943a",
       "cid": "QmaJHtZ7HiJDWTh8yZvP4XUzfzHV6PctrdB3wweHHntwRg",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-auth",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-auth",
       "token": "sk1qy93fnljvqeegdcfvs4d2r7z23zewf4lhfgxrdye3gdvdu9jgqhegwkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unk06msg9mrml5c3dlau82dzzqsk7wl4y2dy750uzp56kftq24lfax8ud39h66xjq430apfpmh7nujvnxxvqe84de3zv7x9n3el9yasxpdnkjargw43z6ct4w35qyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6c22fp695d6gd99yg465dqu8jknk2q69s4t6veays43k2p3hgunyggehwam9fpyxuarh2fns5dh70p"
     },
     {
@@ -831,7 +831,7 @@
       "license": "MIT",
       "address": "sha256:31d217cd3648f557fab51b56a97cc2a02b0b3371d37cd45042a5ba40aa35d43b",
       "cid": "QmWqDWpNKRHd5rd8rdvvZnFtsuh6MCiR6joFZS3LTzaywx",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-code-review",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-code-review",
       "token": "sk1qy9nr5she5my3a2hl263k44f0np2q2ctxdcaxlx52pp2twjq4g6agw7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us62h54phv08d78q3q8rv4jwujrhgdw5s7fyydq6kzlg4wk0vnkdy7e6uj2xu9ucqjs007jfgyms4dw7f4snllk2k4hvnjcdyqdkgjgtzfnkjargw43z6cm0v3jj6un9we5k2aczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2ac5g4msfe94yjryx4exgwrjv3m8vknwge68xatgxex5x62jxe4x73j62ve5c4r6v9uhw7qgxreqs"
     },
     {
@@ -856,7 +856,7 @@
       "license": "MIT",
       "address": "sha256:3841116dea94ffd5e70a6bc48098b94a64d63699470898ac3046ecfd84b07d71",
       "cid": "QmURJL6qZA7qNynxhGQrd5jyN2ca7WKh8batWNQQvTYiTc",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-issue-to-pr",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-issue-to-pr",
       "token": "sk1qy9nssg3dh4ffl74uu9xh3yqnzu55exkx6v5wzyc4scydm8asjc86uwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3c44plpupnvvsx5mr9tm2yr2tuj5wwmcyzm0r0akh37n9zeu7asutm3avhtjg3e32kfrds25zpm40uavlxvk8vqleqx4sa27dh9e3qdzfnkjargw43z66tnwd6k2tt5dukhquszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td24fy5npkw9dyzdm3feuku7rggaghyep4dfu5uvnrvym4wjmg8p3xzazhfeg4zaj5t954gccpye5dm"
     },
     {
@@ -881,7 +881,7 @@
       "license": "MIT",
       "address": "sha256:eacff919d0c7990c8589a1b4f3500fea762dfdeb32400424cffef7d538939cec",
       "cid": "QmdYT4rtLBRZ1es9gGEHKiqJhFuH7KBnx66yUMGpC36q8a",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-issues",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-issues",
       "token": "sk1qy974nler8gv0xgvsky6rd8n2q875a3dlh4nysqyyn8laa748zfeemxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3jmc3kkmgrjm0zqglmqsa6s624da9zmwdqvuecz06kdwp3je29ay5qagefcckxfgk0u9xn4854kme5uls4yhm4kk0xr4kwu3zyzz3grp4nkjargw43z66tnwd6k2uczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv3v4gdrjw3xyy5j6x9jhxwt8gaz5sjmfw99xs3n4fqm5ksnw0qmrv724f4rhqsenxecnscghvyx0a"
     },
     {
@@ -907,7 +907,7 @@
       "license": "MIT",
       "address": "sha256:72165c9dd1114da8db51c62f2f7b59749c3e8e482559a9ae8ce5460a61deebd3",
       "cid": "QmZnuHDokULAQUg2cueVZZ18ySTPgbkHM3oGonTUEEzpJe",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-pr-workflow",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-pr-workflow",
       "token": "sk1qy9hy9junhg3zndgmdguvte00dvhf8p73eyz2kdf46xw23s2v80wh57uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usae95truxfyv5l6tu5wxvlj70ve70efj0mmhung6hghht60grc7lg57fmchv8xfry5pk5ldnae6xg9jy9cpuxxt7rx63ew7hzk73qq9zfnkjargw43z6urj94mk7untvekx7aczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdtfh82jzyda442nzp292kwvnrw4j4vkj6xyu8j5652pnky66gf5ek73m0de2923290fcy5egwzngvl"
     },
     {
@@ -933,7 +933,7 @@
       "license": "MIT",
       "address": "sha256:a06ebb68d728cf74b66ce02ac1f73697a56452ed8e0a1b576f66f549eb5d97d3",
       "cid": "QmTmoXnb4UiSkNwyxCX8MjTpQ969PEKbQrJ8RRRZHoGXAG",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/github/github-github-repo-management",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/github/github-github-repo-management",
       "token": "sk1qy96qm4mdrtj3nm5kekwq2kp7umf0fty2tkcuzsm2ahkda2fadwe057uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unrzqrhu5r22mgtjc08swwy9axf6g74yk5c8ppx2spclrmp00k2aq2wzlfz72hl0zz6g5k4jegm40maz0ulq7n22jh4rhm3g3grhn2cxzenkjargw43z6un9wphj6mtpdeskwetdv4h8gq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm25d4h4smnzx32kj5mtfemhj7zrtquy66j5wpgnjd3e2pz5kcj3wf9rs5jj2fdysm68tpq5wcxu9ce"
     },
     {
@@ -958,7 +958,7 @@
       "license": "MIT",
       "address": "sha256:89ba31bb062c287ac4e54564d24f96d13e0478c6862ea1431a29b6723e144f3d",
       "cid": "QmTFJfrqYmgsZfYM81SpMmq3wnViLxWPYdu4cQ8GesvRvU",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/media/media-gif-search",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/media/media-gif-search",
       "token": "sk1qy9cnw33hvrzc2r6cnj52exjf7tdz0sy0rrgvt4pgvdzndnj8c2y70wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unv6hyrgse0cg7t9u7f28qjpffmzdztks36rxpuxfeydp5yx9zm675ccl55cn0f9zqe6vm5cx93v9ejsseq03gh44etew2fvhy0xefqppfnkje3dwdjkzunrdqpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4g3j2vee8zktdvae45ejef5urz5msf4khzvmhdetxjnrc2ag9jer4x334zwz8v4ehv5nk259pxu7a"
     },
     {
@@ -983,7 +983,7 @@
       "license": "MIT",
       "address": "sha256:e9c9cf8b9b6fa615f387ae480114ecdf64aeb8091a2dcbcda41316f96edcaa68",
       "cid": "QmeM2xozzn8SAaFtkjXwHmNYEPvkJ6RPJNCTvSwq6rhwyX",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/media/media-songsee",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/media/media-songsee",
       "token": "sk1qy97njw03wdklfs47wr6ujqpznkd7e9whqy35twtekjpx9hedmw256xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unercq53pr3hgkmfsnw7557thf38q34z2lhjy7v2ds9epq7cx8dytuk6kywjxt6ya0hcd9tl0thd3ppvluk65h5e7022jx3qs95h5pcgqaek7mn8wdjk2q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmt9f5e8smm60fhrs56pv9r8g6m2tpm5sm2wt9z4qantfgm9y5z2fep4gajnwacnvungwau4sgfrnvf"
     },
     {
@@ -1007,7 +1007,7 @@
       "license": "MIT",
       "address": "sha256:1ef9ea21232e099247b31286bc5599e7c6a5d1142c9a9f73dbc0ad24b62ba74c",
       "cid": "QmeqAbjJRy9aF3zMpXkq8wV28HJQviDA5rNmvSJ3ugbD4g",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/media/media-youtube-content",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/media/media-youtube-content",
       "token": "sk1qy93a702yy3juzvjg7e39p4u2kv703496y2zex5lw0duptfykc46wnxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujtkjspgat6avsh56umwjnju0mtgqksfergr3q6hj70hczvan82yg64gu0edvkyxatcuj02a4rn6yn20u9rsurl7rl0dvp9d3dwe7wcppauk7at5w43x2ttrdah8getwwspzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kk2u2pvf4y55ne89s5vvm6f4c9s6m38pm4vv3cfp99zanfg3qn2ujwd4m9xj3nw4nky3p5vuc5ntrj"
     },
     {
@@ -1036,7 +1036,7 @@
       "license": "MIT",
       "address": "sha256:3fd2352abbcf6689f049a556fe2d56d77fecfe3dc39bb6d8b7bbefd7c561857a",
       "cid": "QmaXGiyJzeJCinkDmHN6uMZyEMTu8H7YfZddx9yyFTeL83",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-evaluating-llms-harness",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-evaluating-llms-harness",
       "token": "sk1qy9nl53492au7e5f7py624h794tdwllvlc7u8xakmzmmhm7hc4sc27kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uscmqrcdsdaxsx73ys9fksv75expgy9zdpdejka6pcsx5mdpglmea0ymjfrrwsc342h4jmd7umj65jyt73sed7p0v3xzuap0ffpyghcpzajhvctvw4shg6twvukkcmrdwvkksctjdejhxuczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv9vyw6teffax2jjrd9hxk3rdfp8rva2dtfu52n25w5uysd6evedxgerc89uhj3j5v4xrsvcqa8h58"
     },
     {
@@ -1067,7 +1067,7 @@
       "license": "MIT",
       "address": "sha256:dea9596b81578892c9df5d83a5d285fbfbbabea2a0ff439c8812e15b9b706b8c",
       "cid": "QmRWAcTDgfEJdkDZzYvGkbxkmNmT25b7VFbHGHqtc3aqgM",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-weights-and-biases",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-weights-and-biases",
       "token": "sk1qy9aa22edwq40zyje804mqa962zlh7a6h632pl6rnjyp9c2mndcxhrxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3trv4r2esjmjmf3ekggul5qad4c59gx4d0447juek7qugwym4zcc29hrwly69v0ncgeahp4ft3utveus787gyvhvhxhq6pq9dfmfhcpzfmk26t8dp68xttpdejz6cnfv9ek2uczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2ft5zc65g3nkv322v345gkn6t9myw6mz0p4k6nnd2ser2c3h2erxyjz8fpchgcenv9ckwng6j2f66"
     },
     {
@@ -1093,7 +1093,7 @@
       "license": "MIT",
       "address": "sha256:865dd055d38828b8324c6d6129c9e418807e87502018cfb3323fd0c7185e2323",
       "cid": "QmakNZjk8s8xS2xsPDVUhQrgfA1D6Fvu7PrMLmy7ZZviK3",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-huggingface-hub",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-huggingface-hub",
       "token": "sk1qy9cvhws2hfcs29cxfxx6cffe8jp3qr7sagzqxx0kverl5x8rp0zxg7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unn7w3n6zxyyr66cjs86ne69lcpls7x2semfys2n3uqdcjtjs6lhmcfttjq3j9jzn8xw0ulycz7zwysw7h0agkpkrtfm2uuh5sz25ksfpa582em8d9hxwenpvdjj66r4vgpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kkz66wtf4xkwrn8pu9xvncwdgyg4j4dpghyemxgyc5gdjxwe6nw5rjf4xx67fhtfd8v62txvrrnvq6"
     },
     {
@@ -1124,7 +1124,7 @@
       "license": "MIT",
       "address": "sha256:b1698946a5b88bce621297ffc507a603b3cc75792cc5dd5f49550cb6c6272115",
       "cid": "QmVCjVKv6BWw8yxkDWk9wNaVDBhQBvdf7R3MWTMEetHVXZ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-llama-cpp",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-llama-cpp",
       "token": "sk1qy9mz6vfg6jm3z7wvgff0l79q7nq8v7vw4uje3watay42r9kccnjz9wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujrkeggya4t5fpwlw5qf7ng2p7hm83mr03p8lc2qqvz5m2y88dnyvth08r0e9d509xuuqth5cgus7flnkyg0uacln6dnaxupk05j0ssdp9kxcctdvykkxursqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4tyx6jkfdmrvsjhwuu8j7rtg3tkkwthfes4v3zzdpg5yanyvcm4yv6d2a2y63t9w3y9vkz6rwquzr"
     },
     {
@@ -1152,7 +1152,7 @@
       "license": "MIT",
       "address": "sha256:66dd4e9126f2c106be0ffec6ba464290a38a3e05ae728c9d2230a0128126420e",
       "cid": "Qmdh21xiwzhEndFtBFppxJcCc5TnB1GR78rwFBuuP2gsxK",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-serving-llms-vllm",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-serving-llms-vllm",
       "token": "sk1qy9kdh2wjyn09sgxhc8la346gepfpgu28cz6uu5vn53rpgqjsynyyrkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3exneu8delv94eprs0l6uxv99stqxjdsek7ccr3utcv8wt7sy8m0tyy2mk9kl0sv86jw2dc3zql8u26zvh5h8sh9lxtamqkyn3tqjcyz9ek2unkd9hxwttvd3khxttkd3kx6q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtydqerz7rfwaaxs3twv3r8gsjxwpc8sjnrgd3n24rwggc5w53h8pe8w3jzw464qvn8wduyksvp2jp"
     },
     {
@@ -1176,7 +1176,7 @@
       "license": "MIT",
       "address": "sha256:8d3fc964f5342425c3304e7cda04d911da461a8484eabe93dd57ed62f5611484",
       "cid": "QmPrFePwPGcgJ1QEcTddm7TBzkvYnjVSAZpDdRWNHuY7PY",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/note-taking/note-taking-obsidian",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/note-taking/note-taking-obsidian",
       "token": "sk1qy9c607fvn6ngfp9cvcyulx6qnv3rkjxr2zgf647j0w40mtz74s3fpxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3jsrzdy84yj39jxthvdde84v5uyjd3fdrwxfv9xltzhzwugr56espdrrsk5f4gdw0cfmalq473mxfmm64he8t7d50t2etnla7kh0sc8pphkyumfv35kzmszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2peyve2swagywcm8fgc4z3tr23jxgmfh23p856mkt9hx54jng9d8q3ry2ft5ujr4tym4qkguvlkcp"
     },
     {
@@ -1200,7 +1200,7 @@
       "license": "MIT",
       "address": "sha256:fcc9e4784ef5b5b2128ca6ecc54429e0723c73123a3677fc35949e66a822b917",
       "cid": "QmZHS2XztxZHB34fjCkLMPU5reEGMwUKcr5BD5fLEN4Yfi",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-airtable",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-airtable",
       "token": "sk1qy9lej0y0p80tddjz2x2dmx9gs57qu3uwvfr5dnhls6ef8nx4q3tj97uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usdl0057negpnt3etec37kk8j92y2rpnxvhsgnuym23vxttkdakfcv24wfxtuw509qr6fxu5sx9h8wf52vm7dkj5uq47h9jxy9rhdns2ppskjun5v93xcegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdtfy9xvjc0f68skjgggengen2gd45cn2s256hye29gaxhw42tvder2sjyx4nyc32wx3vkv6geau0s5"
     },
     {
@@ -1225,7 +1225,7 @@
       "license": "MIT",
       "address": "sha256:c56d15a718ad8c622563695b114555bd8240bb1bb6cafbf165113fff3180fb90",
       "cid": "QmUUu1TJHEL9YnQ2tiw4NGBcWNdgvnKsrdVCPpsNNA4owW",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-document-to-action-items",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-document-to-action-items",
       "token": "sk1qy9u2mg45uv2mrrzy43kjkc3g42mmqjqhvdmdjhm79j3z0llxxq0hyxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujv63z0tq3800yyygzvjhegue6p04yj60z5sz749cdu9pgfylm2zlasf0gdfwa747twxdgsdvnv64m3cec5pnnpe4ztw95yaesl6uhg9rpjx7cm4d4jkuapdw3hj6ctrw35k7m3dd96x2mtnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4242af3239ys32v89vku5fjw35hwdzwgapxx46wv3nhvmjtwdexg4jr2pc8xnjwgy6x7a6he9h06x"
     },
     {
@@ -1252,7 +1252,7 @@
       "license": "MIT",
       "address": "sha256:cc4fa423375ff1e299e6c31e49a664ee04650924f4e88b2417f12cdca6792411",
       "cid": "QmTMPCZuokPFrwvEDUyiLRrEaF7eK9fnfEMS3fKfm7ZwBF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-docx",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-docx",
       "token": "sk1qy9ucnayyvm4lu0zn8nvx8jf5ejwupr9pyj0f6ytystlztxu5eujgywuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unfy5lqk94u3fqfwwcvcf5ftwnhqeatvh9c4rmw7mj6z6x87n4nsrp0t6005c7f3lcffvlahydqup0t32m885hz35ammn4mtqzylmrsxq3jx7cmcqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d42y65zrtf6k766sgee8waj9g32hj62v2fey2c2xxaj5kwtxdeny2n2nxdnykendxad8wsjxlju80r"
     },
     {
@@ -1281,7 +1281,7 @@
       "license": "MIT",
       "address": "sha256:7146cbeeb96c209830b72393fe8fada548082210d1dd3e0a0f45627381ac4db8",
       "cid": "QmU6iBsckyLNNmf1uf6kbM2WmUpuSRFKrnXce2dJC93Bbv",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-google-workspace",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-google-workspace",
       "token": "sk1qy9hz3kta6ukcgycxzmj8yl737k62jqgyggdrhf7pg852cnnsxkymwxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujavy2kaqh3ggefk642e6azyuadyn22jxakttc9uj4qaveah7vs2kakn2r9qj3w992g8c54cl9lqj3gmmvldpl88n4gzu2qc630smacfzpnk7mm8d3jj6am0wf4hxurpvdjsyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64fkd9p8xcmt09xyunndvcch2e3kdd3y6vjhd42hqa2n2frykunwtp3k2vnyffpnjv6zvfmqh5hhyg"
     },
     {
@@ -1313,7 +1313,7 @@
       "license": "MIT",
       "address": "sha256:539bb79810df9799982b43c6a7cb90617b55287e4de4104053d93f8f9f5ba8d7",
       "cid": "QmcbL5mDYHccCcxb5cTxNzb8eGADzSUzgviosW6G1SFjau",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-maps",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-maps",
       "token": "sk1qy948xahnqgdl9uenq458348ewgxz7649plymeqsgpfaj0u0nad6347uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3tq300wm44k3u2yztz3u45efcfva9ws7p5ef77dketg4r8ku89tp82mlu0jndeptwypvz5pgydr5r7etuqgeh77ctmjyps8cm88kpsxq3kkzurnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d43kynp4d4z9jjrrvdpkx7rzx434g7zw0f3rse28g9z855640fnhv6t0wdtnv3e32drx5ct4uue4fp"
     },
     {
@@ -1337,7 +1337,7 @@
       "license": "MIT",
       "address": "sha256:09a28da178cca0806f9bcd43d810a6aeaacdfe7faa97be112ad65750cb55b0e6",
       "cid": "QmeiMUrwti7k5YWnLVmUWuNfdJtosDhXPHf1wx3c8HgwDB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-meeting-action-items",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-meeting-action-items",
       "token": "sk1qy9sng5d59uvegyqd7du6s7czzn2a2kdlel649a7zy4dv46sed2mpekuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usl2z6yh2sq90c8spwnkm8w2y6fnqy9xfa935dwxpuwn884a0acmjpeazt0387y270wztzql2n0v687xze7d0mnttkyyedznh62df2s2z3kk2et5d9hxwttpvd6xjmmw945hgetdwvpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kk262d24e8warfxa4n2k2hdex9vm242a65uenyff6x7u6ydpv9qjrxx9mhsvmr8pyxwa6ygg89ez6r"
     },
     {
@@ -1362,7 +1362,7 @@
       "license": "MIT",
       "address": "sha256:6d01eec1421c548ec6d3ebc1126d3c6862e98c37662218e2a04cea0edcd95bd3",
       "cid": "QmNcdseLwcuuVMKKapDyoCU5sQuwnvuSzbnAVFuZQDmzRr",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-nano-pdf",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-nano-pdf",
       "token": "sk1qy9k6q0wc9ppc4ywcmf7hsgjd57xschf3smkvgscu2sye6swmnv4h57uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u352fe8ydwnrcss3pn39qjze2gzqsn6qsvm9n5pgwt6ftnr4x5m9q8yvtnlfnpdqguhwn3sr8fajvdpccznvw6eh55jxk3ryht05rqqqpphxzmn094cxgeszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdfe3kgum9f3mkxat42ex5kjmpwpz8jm6r256hx5t4wah8va2n0f3xus2kge64552yd4a9yus5tatu2"
     },
     {
@@ -1389,7 +1389,7 @@
       "license": "MIT",
       "address": "sha256:16c5d3057585a14b973c8e33d36516c948bb1ead717f1585c8c359ac5cbf25df",
       "cid": "QmdN9B4iur4FSsj5Z5mCg9qwZpnu853oHsSngiGDRyjdkq",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-notion",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-notion",
       "token": "sk1qy93d3wnq46ctg2tju7guv7nv5tvjj9mr6khzlc4shyvxkdvtjljth7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3e8p3a5tp66nq0cap0acmyf20sg8yqlwcdeks3w5kjzerxy53weyx3vx8s3rafslxfa0unhyd85gevklxy7rvaf4tdx2an94lr4hfswqehx7arfdahqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6ezw89prg6t4wg6yv5mndg645dtdgdnnjuthtfcxuafcx5ek7jrn2dhxw628g3f8j6nyddcs27yckh"
     },
     {
@@ -1415,7 +1415,7 @@
       "license": "MIT",
       "address": "sha256:19b528d0ade46cf6c6d701473741fef10245e75ee9a430df931865830bb024ef",
       "cid": "QmPfXK6wnUhcQs1ZpR9vwWTtRE2HBHn6HH2n2b4Pfj1bB6",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-ocr-and-documents",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-ocr-and-documents",
       "token": "sk1qy93ndfg6zk7gm8kcmtsz3ehg8l0zqj9ua0wnfpsm7f3sevrpwczfm7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj6lpru5606lnxqewwufgtd5u6qp979hwx430jx0xt8m3g60vmgztuvq4g36cprr543ewxtngrez30hhng5f25umxg0wec2vjgdtnfqxz9hkxu3dv9hxgttyda3h2mt9de68xq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2svevykdnhde2ksc63wvc45uzj89m8w465w3fy2vjggfyxudjgfqexuvnzx3gxv633vfprvs7y90x"
     },
     {
@@ -1441,7 +1441,7 @@
       "license": "MIT",
       "address": "sha256:0711a9c64f9ba3ff5431484888b1e1e4e2ddf455879907775124caf6036f881b",
       "cid": "QmZXQcC6G4SQXxF8H12YK14xC2pc77ehN1Txhd8EcsvfcF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-pdf",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-pdf",
       "token": "sk1qy9swydfce8ehgll2sc5sjygk8s7fcka732c0xg8wagjfjhkqdhcsx7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us2p3kcudh3kqweexfhs4cfy68jhy5xjceer8eq45et6g0dvq5fkgty9m8776hq9859xxawez3nw7xdy6hxzjrzhrxjtc0kp8w692ygdqdcxgeszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdtfv9zc6rxerng563tpuyvwzgxye9jje3x3uyxvnsvvmnwetgfcc4g7rgvsuy2cmnwenxx3swnrp4n"
     },
     {
@@ -1467,7 +1467,7 @@
       "license": "MIT",
       "address": "sha256:0318e5f4ae7d0dafebb8c9a6945f178d8691ccd1bcaa93fac21d33651d5e09a3",
       "cid": "QmPpEjwTVcdEojPqEUsEga3RfdvcYtaWseyfH8sL6jLHYF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-powerpoint",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-powerpoint",
       "token": "sk1qy9sxx897jh86rd0awuvnf55tutcmp53engme25nltpp6vm9r40qng7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usqs9cvldxk3nqnryk6qdgcamj88vlv0a2r48wjksrt8c5uwkg43q5cxx9tdtrvypg5vssnduxv5l9505dr0fmr0rje956fs2szr2jgzpfcx7am9wfcx76twwspzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4quz9dfm4g4nrv3zk76jsw9z42u69vasnx5nxv3mxxkt5v9thxeteveyrsu6vxe4ycjzegc3f7xdr"
     },
     {
@@ -1492,7 +1492,7 @@
       "license": "MIT",
       "address": "sha256:73f8a47ac525325a734b6a5bdc9361fccf26c33d67472f0cc7c7fa93925b9d46",
       "cid": "QmVP42jp8Xdp4Mn6QBd9x54fa6vtmYG3Z4hy2PhFSkPZEr",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-product-price-monitor",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-product-price-monitor",
       "token": "sk1qy9h879y0tzj2vj6wd9k5k7ujdslenexcv7kw3e0pnru075njfde63kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj0470pxclkncjp8jx5v6vl80addc2qdu0c75xxvxstazt4ypnnc7zy8e0x83c63t3mfu3gg4c55hzfdmmumtr4cn6fqcrm7v4r0cmc9z4c8ymmyw43hgttswf5kxefdd4hku6t5daeqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64jsxsex5upctpj8qdzddcm9zsny89ur2drxvym8vardt9rnxk35dpuny5rggefkk5z6g4eqqvxgdj"
     },
     {
@@ -1517,7 +1517,7 @@
       "license": "MIT",
       "address": "sha256:6c6ee63780b2827aa7adbe454bb21a02ae72e103254150d8a8dfa250efbb2d4f",
       "cid": "Qmch3JuSTcLcU7ExHBysBD6vNPhFkrBHgTaHyrg84Fi2SC",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-teams-meeting-pipeline",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-teams-meeting-pipeline",
       "token": "sk1qy9kcmhxx7qt9qn657kmu32tkgdq9tnjuypj2s2smz5dlgjsa7aj6n7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj2zvjyqxsuqyuy4mj3wk5vxhxermang2n4l0w8eugt6xne4jq30l92wp75ug2sv6yusw2xckvn4paa63n5rruvue4m7avw662es7asdze6x2ctdwvkk6et9w35kueedwp5hqetvd9hx2q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtrdqe55a2n2335cc64xazhsjzz09e5y3pkwe89q6zxddeyyjr823s5s7tjvuurg3nfxff5x3rreva"
     },
     {
@@ -1542,7 +1542,7 @@
       "license": "MIT",
       "address": "sha256:20ad1e7361dffcf357ab4402f4465d49e98d1a89b34a1d801228b4809af64fd4",
       "cid": "QmPMSTBSETHPfVbzx8KwnG2YZV5FcZ6iYXY3vZhxQqbski",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-weekly-review-planning",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-weekly-review-planning",
       "token": "sk1qy9jptg7wdsall8n2745gqh5gew5n6vdr2ymxjsasqfz3dyqntmyl4xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un3hjjpxl5r84ajk2yed3v2nzsucsvp7n7q474n3zwaevjptju3tytkaqajlzlvz0zqdun8kgy4f4gvx2v5uhxx3pnlwp3vy6pj3r7qrzemk2ettd3uj6un9we5k2aedwpkxzmnwd9hxwq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2sf4f4gsjng42ys5rx2e3857pcfdmku3ejt9d9vd2xvddrv62etpvnxaj6dpu9zutzwd4kjnn7a8l"
     },
     {
@@ -1568,7 +1568,7 @@
       "license": "MIT",
       "address": "sha256:54aece8244c004ae0c3d6e21f8efb7d267339066453c149141e7b0f599f0f45f",
       "cid": "QmVZWJqJKRouWJG5sWYqt54qnoJnXcgsZPKNVGJRpgwNyf",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-xlsx",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-xlsx",
       "token": "sk1qy94ftkwsfzvqp9wps7kug0ca7mayeenjpny20q5j9q70v84n8c0gh7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uszphvfkuejz44mzt6grh7rt8ztran2sec3e20rp2j3s2wlcrrndncttxj30zr6pqlk6wu54rwghx0ahctzlewj3tdc5lzsmn9y9wygpq3uxcumcqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4t95462w99yk5n0w4t553e4wdt4jut5x568zmn0ffh9scm8wdd9qj6w2er555nsvam5u7txzdv7cj"
     },
     {
@@ -1594,7 +1594,7 @@
       "license": "MIT",
       "address": "sha256:a222a053f5882df62034f996a54ad0162e9a28eb369ed43241c6e10c93a7f7f2",
       "cid": "QmR4yoSboTw7o1K5RgmLrWnSGPRPoYAKCXuUWzgqURaC1e",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-arxiv",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-arxiv",
       "token": "sk1qy96yg4q206cst0kyq60n949ftgpvt569r4nd8k5xfqudcgvjwnl0ukuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us00f3shlea0zmfw543yg0ssx9h3khf858887nagmap2gaksks7rtcn6fk8etzgz3kt26ehaj4ul0yeh29wguquxxvej3t2m7yw6uaqwq4shy7rfwcpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4ydredafkym65wumk7v2tx4fxwm2vwftku5682pf9qm6eg995xkr424th5em324fxzse3v5zh7uwy"
     },
     {
@@ -1618,7 +1618,7 @@
       "license": "MIT",
       "address": "sha256:02509397a240835690d195e6f57dbdde3736ba78d316b105c025644752ebb613",
       "cid": "QmdAh9ZridohQCzbeDYrYdsQCCW7EKhrVREokan2kKRhnQ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-blogwatcher",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-blogwatcher",
       "token": "sk1qy9sy5ynj73ypq6kjrgeteh40k7audekhfudx943qhqz2ez82t4mvy7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unw56hhh4kwqfvc94j8ztcsuaaltw3aj3v9uhptx9z4gkh868qsk0v0yg4unwrw5wy2dn5d0fzxlq8gw4wf3h2v37acmmd8yak7tvdcqpd3xcmm8washgcmgv4eqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6ezpdqu45unfv3hks52r0f3x23zewfvkgu63gdp4wd69fd58y4jjg4hkkctwxf45k5ngdegs8w9ngn"
     },
     {
@@ -1642,7 +1642,7 @@
       "license": "MIT",
       "address": "sha256:564b57621f9d0cb8db536380d7d5ee610b1f8b392c7b6b33a9e69b83b3ff5966",
       "cid": "QmNdX8ymBbMwGweHtuctzuYCqrVpEXt6briLeicyFzgrVq",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-competitor-news-monitor",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-competitor-news-monitor",
       "token": "sk1qy94vj6hvg0e6r9cmdfk8qxh6hhxzzcl3vujc7mtxw57dxurk0l4jekuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj4yygnv6j8nfm80wakwaf7wurkythqauaugp9f6qegjunq36q9vxhsxmg3kzasah8mu9r4kn582azqcnfjctr55lvesl9a3vg6tfygpza3k7mtsv46xjar0wgkkuethwvkk6mmwd96x7uszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdfej9swred4pxynthgamk2jr5w43hg7n4t9phzujkwpz4sapkvfexjnr9d93hj3n6vae9vugy7h9pr"
     },
     {
@@ -1668,7 +1668,7 @@
       "license": "MIT",
       "address": "sha256:bd3c8137b1df3e77ccf4fa0ad21515e3779668d39db084caf080b6d1cbc24754",
       "cid": "QmaRnLj9BCty8u2sFuwDo8vn6HRX6xoxwctPsoDv5VYnh5",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-grounded-citations",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-grounded-citations",
       "token": "sk1qy9m60ypx7ca70nhen605zkjz527xaukdrfemvyyetcgpdk3e0pyw4xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3ydrjel4a55w0h5ck6tvu7gmjsdp9stxq74nce27fffle0muxuyppm44sv5yefrrx0k9cgqj32fjn55rlhc3mczg9f6jc5ew2f4dfqvzfnhymm4dejx2epdvd5hgct5d9hkuuczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv9fxunr289pyxare8p6nyu6xw4m5gmecwehrvjzjtqm8smmcwa3hg5rndaz8vd2kt9hxsdgzcv9tz"
     },
     {
@@ -1694,7 +1694,7 @@
       "license": "MIT",
       "address": "sha256:0c3620b90c09f91b6d98956753dcb9179a78828f28f2084d8bc1938d4781ccef",
       "cid": "QmNeZ7AhihizkTAEc7ZS6fXzEEGdk69FprxF6L1vEU16h1",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-llm-wiki",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-llm-wiki",
       "token": "sk1qy9scd3qhyxqn7gmdkvf2e6nmju30xncs28j3usgfk9uryudg7quem7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujw23r25hj7p8k5fphact9l08v3gs5nny4q5njrr8llzgsrznajvltad85t627mruwzfgrzvpxe8lep73jcxlnwytlhp2alfv6zfldsrppkxcmfdwa5kk6gzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdfej45d6pdp5ks6t6dd2yz3trxad9xdnxtpay2328v34nvw2xwpe8s33kfschv324xymxsvgy2fnd8"
     },
     {
@@ -1727,7 +1727,7 @@
       "license": "MIT",
       "address": "sha256:87ac3a012050f749739241f7399f5356432af49cb65d416cb4aa98cfb7aa1757",
       "cid": "QmPXgxT35CjDAiBCfAbjQ5uZrvpa1cpQdhtXMbSvbMYxYg",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-research-paper-writing",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-research-paper-writing",
       "token": "sk1qy9c0tp6qys9pa6fwwfyraeenaf4vse27jwtvh2pdj624xx0k74pw47uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304una8l0lvvcy5wkyg2xmfgmp74kcgxejj3hts5ga857kvv2u4vusz6mytsdwvcc0jx5rxvrap054an280n0skjaldkam6qvpfacu9cncfzeex2um9v9exx6pdwpshqetj94mhy6t5d9hxwq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2stpnhs4pnx4pk53zpd9pyxejpvf49zdt4tfe8vurpx93hq5tydp69sntz2dmxyn2e0pvkwpxhzdt"
     },
     {
@@ -1752,7 +1752,7 @@
       "license": "MIT",
       "address": "sha256:558cc59bd5d44887f6676d3f52f8ad734e646be3d7cb0d8c172e5ef76ff76007",
       "cid": "Qma2yrRy4hrhJRfo2C4FP5JQaWeSmzomT8fNDEWf7fED9V",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/smart-home/smart-home-openhue",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/smart-home/smart-home-openhue",
       "token": "sk1qy94trx9n02agjy87enk606jlzkhxnnyd03a0jcd3stjuhhhdlmkqp7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us0ykas0ytzezvuq6h3hatd2hry99ydmzenc9tpwgwq90d278s80et0rxngy6mxhwzqxyp457wukrnh7eddd9fk5jjqf07vuz2p7dxswqahhqetwdp6k2q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtpxfuhy5nex358y6z22fnx7vjrx3r9qd2229s4we2nd4ax7m258pnyu3z92anrwej9gsu4vqsexv5"
     },
     {
@@ -1776,7 +1776,7 @@
       "license": "MIT",
       "address": "sha256:9f1f1f9bd64e9c4568e4f1f61206f9369e5874985732db2547aaef14f80a3603",
       "cid": "QmNiW3owcf2wTXFv3vdKo6LkLxEfAHX18Gbhqkf1UcDrTz",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/social-media/social-media-xurl",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/social-media/social-media-xurl",
       "token": "sk1qy9e78cln0tya8z9drj0rasjqmund8jcwjv9wvkmy4r64mc5lq9rvq7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un9gu7stylflu4dq7tm2gp5hlk02a80uhs0kw7y9qnsjvctu0m5zuej0staj3wmfxcecc6raq682q04mquk7y3dkv3dn8cgvndxszkqpq3u82unvqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d48xj4endamkxe3jwa29s3nkxdmxgjm0xexxknrcg4nyzjzcxyuywcngw94kvv24vdz8y4r6jgq9e9"
     },
     {
@@ -1801,7 +1801,7 @@
       "license": "MIT",
       "address": "sha256:574964df92d6b5227390b744bea97fb77431167b147cc5cd36404c6e35dcaeb4",
       "cid": "Qmc7ssAoWkDiakN9nWgQ6cUqVeZ5zTMUSAA4kHafgPNf5d",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-dogfood",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-dogfood",
       "token": "sk1qy94wjtym7fdddfzwwgtw39749lmwap3zea3glx9e5myqnrwxhw2adxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un4t4063q52asm6903643cnxg7qzc8xy8xc74tkmt06j57jjkj0hcp0kh3xnjjxu782na4q503gam5cyczzpwu7fpnnrwkh6jpzrhwggqajx7emxdahkgq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtrxaehxst02a45g6tpdd8rjmjhvagnvc64w9tx2k340f2y642ng9qng66gv9nxw5zwvc6kgal4mwg"
     },
     {
@@ -1826,7 +1826,7 @@
       "license": "MIT",
       "address": "sha256:661c1007249146343a2beb25f103a890521730fbf5303e3c265f99cae47cabe6",
       "cid": "QmXhEWyC68Np3sEpgRmb7KD2T1GmrBLveKYrB1rGDqFxao",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-hermes-agent-skill-authoring",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-hermes-agent-skill-authoring",
       "token": "sk1qy9kv8qsqujfz3358g47kf03qw5fq5shxral2vp78sn9lxw2u372hekuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uss0d46ulqkkftj6rdcex84yz6pf58th8us4gh7rup3jh49edza4muxsj950e87gvpv9kc6kcwr2s2apenjrce6e40ujdym8rz0k9fcwr35x2undv4ej6ct8v4h8gttndd5kcmpdv96hg6r0wf5kueczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdtp5y24megvmrsnnsxde52ur82fkkyd6tgse9gv28d4eyynrkv494jujzx9eyw3r3geuxzmc0x47um"
     },
     {
@@ -1852,7 +1852,7 @@
       "license": "MIT",
       "address": "sha256:889c298433e1244f328ccc597899d561d94643038129b1ae3c034a6ddea40192",
       "cid": "QmXGCHiBcQykGmprHATTjcuKTGyY3j4SifvteTPifMpWQJ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-inspecting-hermes-desktop-dom",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-inspecting-hermes-desktop-dom",
       "token": "sk1qy9c38pfsse7zfz0x2xvcktcn82krk2xgvpcz2d34c7qxjndm6jqrykuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3pde73g8mj9nfav5jruw8dlgyljw4gg659smd8q202cgaght9a9wxdtf85c5g28zxu0aq6xqjtuvzkxm4d4zusp2fc3juf5yf09m6cdr45kuumsv43hg6twvukksetjd4jhxttyv4ekkar0wqkkgmmdqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4vyws6gd9pxx5teddrk6urjfpq4g4r2vd65k4z809vnx6352d5kvan5v429q6txf4c9w522x0mhpc"
     },
     {
@@ -1878,7 +1878,7 @@
       "license": "MIT",
       "address": "sha256:55de67a6980dab76bdcbd3156f7fee23a9fb564ffb2bd0007ada24abda97d131",
       "cid": "QmRrTuXhJe9Yr5EP1zASXBWG7DakRLD47dK8fuRb2WgBac",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-node-inspect-debugger",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-node-inspect-debugger",
       "token": "sk1qy94thn856vqm2mkhh9ax9t00lhz820m2e8lk27sqpad5f9tm2tazvwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3z9dray8du5qvp2vq2j5pwcuh903gkd2uwmgf5xvf3hl0m4p2zww2msv72nym0uarxdv3xaavvn2m88vwh99l3xpzpgu2upc0g5ulqgz4hx7er9945kuumsv43hgttyv4382em8v4eqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65nj2364s6z2v5u4ju34g4grz7jp2dvyy468xazxz66jf3zrgdmyfvuxva2jvge9we6zv93s9el6ff"
     },
     {
@@ -1904,7 +1904,7 @@
       "license": "MIT",
       "address": "sha256:4881f904f2d53c918a0dd7ca4f1e7e0a558c2dc781face02bf7aebc7241af360",
       "cid": "QmP2n1wbh5wKav8sG7KuB13qXRhSGeqwTX9QcqDNSvyUkg",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-plan",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-plan",
       "token": "sk1qy953q0eqned20y33gxa0jj0relq54vv9hrcr7kwq2lh4678ysd0xcxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usf20r07lrhg7f42uugz2jj5xw6k7atndwl2lhlr9qaq69c9ezun2pquskyzfjscppfpvm79f80j2affvaf82ww7ntsd0ppyksrwphcwq3cxcctwqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4grym33wa3xsdthfdshvwrngum5ka2zxyehzkzjdpf5wet3wa29sw23vdc5gnjnweu426m8l2r2x0"
     },
     {
@@ -1930,7 +1930,7 @@
       "license": "MIT",
       "address": "sha256:6a2e5cad4dd470f3e6246a5b25d72dbf4802e99c1ecba5718a6dcaa811cb01eb",
       "cid": "QmQmACeCjkePD1orWZLoZKu91mJqa6FisPgBb1P7mhpxRB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-python-debugpy",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-python-debugpy",
       "token": "sk1qy9k5tju44xagu8nucjx5ke96ukm7jqzaxwpaja9wx9xmj4gz89sr67uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usyqwk5q25ug8w3e52v66twfd2jw37mwqe3eclj5f0gk552r4s5nnaay6667vteu5d2khqng8dq5h6z3r8m7vuepag26n23phxp6d6cwpec8jargdahz6er9vf6kwureqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4gk6s2rv4pk56m92pzrzmmj2adycm66fd6njvtdffckzdjxd9e4qe6zvgc4qdmddpc8s5jzk5zs74"
     },
     {
@@ -1956,7 +1956,7 @@
       "license": "MIT",
       "address": "sha256:aa9767d4d685bd54ea08ff4c0fc19f8239d306cb4b2b6360925de59c80e43b5c",
       "cid": "QmSHMgpoqZQeXg3rHic94qX6V51iU8zue2GsmBxK2X3ob3",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-requesting-code-review",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-requesting-code-review",
       "token": "sk1qy9649m86ntgt025agy07nq0cx0cywwnqm95k2mrvzf9mevusrjrkhxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj6klzs3gkewa7p5c7ujlw0djcnfhs9nekc86f9h4s7xxkgqx2e6av4fwmk2w6sntxgpxckmwkk2tau7jz5l4e4ld5xegp9k5dj30lgxzeex2ut4v4ehg6twvukkxmmyv5khyetkd9jhwq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2nfpxkwur0w9d9ze2cvuehyjrfvvungu2cxetr2vtf25u85at9xfrhxm2z0p9nykpnda3rx59qm6a"
     },
     {
@@ -1983,7 +1983,7 @@
       "license": "MIT",
       "address": "sha256:b03e1c947b410b2597371613864f47aeb2a44f4296da9724f58380849912624a",
       "cid": "QmR8RaaERk8Gj4FiV9aVqYm6UuoaRaDvTTj53j3ZHSiW1P",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-simplify-code",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-simplify-code",
       "token": "sk1qy9mq0suj3a5zze9jum3vyuxfar6av4yfapfdk5hyn6c8qyynyfxyjkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usyncmxuz5xr7hvycc9fcthy2g7cy4amyjzw6ejxs92v23yjjnxt4j73mapmu38rhtekv0w5g9qswzqkpzq5mda4wqr3e8jtnwk93cq9p4ekjmtsd35kv7fdvdhkgegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2gu9yctpg4fxkwz8dg6yv62k89s4vu2ed5m92at0v9fxz3rk232x5dfndge45jznd9tnz5qslcear"
     },
     {
@@ -2013,7 +2013,7 @@
       "license": "MIT",
       "address": "sha256:d5310ce9e9537ac502e31c660238414f8170a7cc5e38cebb4459f2fb44146d08",
       "cid": "QmciMspswLjyaLiqRCBX6izWqDCLR6zVXfEWPj6XM98HSQ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-spike",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-spike",
       "token": "sk1qy9a2vgva854x7k9qt33cesz8pq5lqts5lx9uwxwhdz9nuhmgs2x6zxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3csheskq7wlsftl8hqr3mc344xp9kqxefvdv7qwwqqka6f2rxnxhppldjsc4v6geaug69wvynxxw69hmh8yzdj20ywra9y2n4m0qsgvq4ehq6ttv5pzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kkx62dwdc8xa6vdfukznrfw9fyxsjcxe5h54m3g3p5c53k0ft9sej92agx5djcf5unsjzn2yrh9klm"
     },
     {
@@ -2038,7 +2038,7 @@
       "license": "MIT",
       "address": "sha256:b56d4ee18de215e46d8a7fdac4455ac607504d971f6fa823e068cc9dad9e876a",
       "cid": "QmdkuKjP5wX16nAGzVpfPFWoFFs8mzzKkcyFLcAeLfmnUF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-systematic-debugging",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-systematic-debugging",
       "token": "sk1qy9m2m2wuxx7y90ydk98lkkyg4dvvp6sfkt37magy0sx3nya4k0gw6kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujd44gv6re6tzdskmqc7gt9p9new4xx3puh2ae2t6vesa7up7a9cvnsm7lyx5p5ld7rxgkz2hwduse8q0e0tch2luvlfx29gppq3x3ctz3ehjum5v4kkzarfvvkkgetzw4nkw6twvupzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kkg6m4fd49qdthtqcnvmjpgaa9vurx2pr9wm6xgeensmt60f9kkcmegexxxst9f3nx6mj4gcmgevv8"
     },
     {
@@ -2063,7 +2063,7 @@
       "license": "MIT",
       "address": "sha256:6812ce77783e139d31c7deba4ede26d7e38cdeff8664b3c29295508206b40379",
       "cid": "QmdGo2VBVHu6ad6CN4dZDZFF8iWRXLSGi9swpnGKh2UBw4",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-test-driven-development",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-test-driven-development",
       "token": "sk1qy9ksykwwauruyuax8raawjwmcnd0cuvmmlcve9nc2ff25yzq66qx7wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uncpplx8v2rwxzjuq8mcpz2jm0zqgq2jfwany2jqggru9azh9dcp64wpxns3f9zqz3at9zhj9xgnm2mlqna9eq47pdt3xmupknq8uxqyza6x2um594j8y6tkv4hz6er9wejkcmmsd4jkuaqzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv3rk7vjkgftysafkv9jrvs6wx3j953z6gerrs62h2fvyc568dyuhxamsder5k6pj24p8wdq044v5q"
     },
     {
@@ -2089,7 +2089,7 @@
       "license": "MIT",
       "address": "sha256:a24f7bcb2b54d7986544e0a2860cc8acdbd95cd6e10ea73e1dec7c2bb960ab03",
       "cid": "QmXRkxaPabURtfiip95iDJqo7XzWUKxGNXj4oFCtPLQfdB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-antigravity-cli",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-antigravity-cli",
       "token": "sk1qy96ynmmev44f4ucv4zwpg5xpny2ek7etntwzr488cw7clpth9s2kq7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3autn2ty3yl6fc3dkwc87hthsug9rmrz9fld6y9z5wu96qfu956gz0hf9srs23l6flh3vz47tvtchqgdf9nmvm85lkndph52ke788sgpaskuarfvaexzanfw3uj6cmvdypzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4s5nt0ps4qctz24f8genfd9crjdtfg398zmehtpa9w42t0pr5ukr2x3h5vsm52px9zenyggngu95x"
     },
     {
@@ -2114,7 +2114,7 @@
       "license": "MIT",
       "address": "sha256:25f57fb47005caddac35786500e01e96c514778a29ffa8af07e651a0e09f8027",
       "cid": "QmRu2czNqj2EGHdLekuR9NxkHVR9QrucrCow8cv1oxZADr",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-blackbox",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-blackbox",
       "token": "sk1qy9jtatlk3cqtjka4s6hsegquq0fd3g5w79znlag4ur7v5dquz0cqf7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usltvhpqr6gzx47uleyl76c6p92yqvmjwk07cnm6cydat2dtahq9xrem0er9mlvltfkjv4zz0tvs2ud7dshuc9dlaag92yfql9aw4estpp3xcctrdd3x77qzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2f6nycm6feck5vj9gayxgnr9dd64yw2w0p45s4jj89ghyatrwfpk7aecvdmrzmmctfq5gusedsh5x"
     },
     {
@@ -2140,7 +2140,7 @@
       "license": "MIT",
       "address": "sha256:47f1d257fb164945df6ac086423c4cbead830abca425d6c273316fa92ff9c42d",
       "cid": "QmQ8zNMxKCrZ62XG54vhQ6wooiLnPbwuRCstLDCCQH6WZh",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-grok",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-grok",
       "token": "sk1qy950uwj2la3vj29ma4vppjz83xtatvrp272gfwkcfenzmaf9luugtwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3x7eenjrexe7csu2s3jwfhse2hvgwljpnekw6l8938cqtvrj639cg22rpdr7m692m5dn8vhcp2j9hrk83a2nxp0jmdr66eh9p5g2gs0q3nhymmtqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4gns7jwf4uyksmjtgmrykz8x568v6z3xemk7mmff3h9qcnhw4fyxum5f3zyxs63fqm9wkng5t35j8"
     },
     {
@@ -2167,7 +2167,7 @@
       "license": "MIT",
       "address": "sha256:15698311ab6bb192f862587b345b242847c0d0ad548eeb1964763f40da1b63d8",
       "cid": "QmdPPkMsN1vK9vpVeYcUrdREtNkfiY8wgXXACCiTA7uFTY",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-honcho",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-honcho",
       "token": "sk1qy9326vrzx4khvvjlp39s7e5tvjzs37q6zk4frhtr9j8v06qmgdk8kxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3fe6fx4qqm6zcupwqewkgtjzffpp2u40vshu567twzy4fksdrc2pltrsh558ghkcgsq55kvr33nxkesy0dwwhcw3kkdhp67uqdy29cyqe5x7mnrdphsyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6ezs2p456u6wx9mykwtkwptx2ktr24exg5j9w38xkenftyu8we6ctpq5xsmf23qnwa2x23vs8r7pzs"
     },
     {
@@ -2190,7 +2190,7 @@
       "license": "MIT",
       "address": "sha256:b95fd4f51b08ff1225d797fe4854825330eced21e6d70badadf2ee024ddb81ae",
       "cid": "QmTv47BLateaFf8JPXjHmKT79NptD8AbR3tKtfg8XxFQNS",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-openhands",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-openhands",
       "token": "sk1qy9mjh7575ds3lcjyhte0ljg2jp9xv8va5s7d4ct4kkl9mszfhdcrtkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3g9fkq7aqe0fd3knm4jn0fc5wjzym9vykyujnwfhmf02jkeacaaug5m5marzcnjzsr2klg0axd0sm0gs095ehv8hjuv6xzgmqtayngqp9hhqetwdpskuernqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d428vdphgfxxzar9v9rxvwz22pvx5jrdfd2rww2wwp6ygwzpvffrxaztw3nxwwzc0pr9znjn96qp5s"
     },
     {
@@ -2228,7 +2228,7 @@
       "license": "MIT",
       "address": "sha256:00200e31fa14a306126b7b8725b0253813bd4b5bc1673ecbbe2b87ace931d1c9",
       "cid": "QmdatJqdD6LaEMLUDKL1ePgcPo8FkBc9top94f4GFmBxYM",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/blockchain/blockchain-evm",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/blockchain/blockchain-evm",
       "token": "sk1qy9sqgqwx8apfgcxzf4hhpe9kqjnsyaafdduzee7ewlzhpavaycarjwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usrsehk5rtgsyz2y4jzgllyk57nhv7qlkzhwnw5345ragqm5wakzms3vrg76rkskwn5jkgr58a7lhy89mpzdkq03rslhjgc9rpydhkctqdjhvmgzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv3shgjn3v3zrvnrpg4x5c42yfdxrze2sva34qmecge45yceew3hhqwf5vc6yw3ndgfu9jngthxylm"
     },
     {
@@ -2255,7 +2255,7 @@
       "license": "MIT",
       "address": "sha256:a76a75508d602fe5fe62cc1ab3a14440e2a8b1524e42df9a8465dd1956f5e68e",
       "cid": "QmVZWSxrWSfSvt4Efqm5nwMMD3HH4UFjQ8u3kR33hbtyrP",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/blockchain/blockchain-hyperliquid",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/blockchain/blockchain-hyperliquid",
       "token": "sk1qy96w6n42zxkqtl9le3vcx4n59zypc4gk9fyuskln2zxthge2m67drkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unfwtpfx7wpue6l7tjzw55dx8wc5dgeyxzyx0reyk9lr89zs2mg9mmtm0avg2477pzcrslkm3w0qapplnxyzh5rhwm4y00f9rsq799qppd58jur9wfkxjut4d9jqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64j62afhsujh2dn9xan5x3zkvutdx4h8wn2dgse5sjp524rx55fcw5ekk53nxd5xyarewfgql9natc"
     },
     {
@@ -2282,7 +2282,7 @@
       "license": "MIT",
       "address": "sha256:27a6ed7c87d720e9c3ebd5e30c20c289ba2b221b946f980bf57700da12b3eec1",
       "cid": "QmWdv66hYkJXW3qPQrMDti26w7wLahXXJkZjwmtkFRiSiM",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/blockchain/blockchain-solana",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/blockchain/blockchain-solana",
       "token": "sk1qy9j0fhd0jrawg8fc04atccvyrpgnw3tygdegmucp06hwqx6z2e7aswuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujwekzd3t5nqyrdklsg96wvmfngz20gzpcl4hjur626hr078ydys4s5ccau4gx673stq8rxcngyae7hdkz8sfq2qy77cjuu3t83ucpsvqeek7mrpdessyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64mywcmrv6zedd99s4enw9g9zujdg36xjv3kwumhwnrpdpv9sjnttf48wmt5ddr9y62nd9xs73lytz"
     },
     {
@@ -2306,7 +2306,7 @@
       "license": "MIT",
       "address": "sha256:0b891d6b6653c9118a3724f7ace56d95478087df6b231e26ca5677652ab914b3",
       "cid": "QmRHmtrXpzjSZ624xYDqzZuQ119p6MA7Xw7mvoUcqGqKR1",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/communication/communication-one-three-one-rule",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/communication/communication-one-three-one-rule",
       "token": "sk1qy9shzgaddn98jg33gmjfaavu4ke23uqsl0kkgc7ym99vam992u3fv7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3vp5vhmy5n6nka30vhnxxuj0z80tvm2r225chyr8fk64unjzgapatzg0almvxgwjuleqlxxwzym95sej9jrvr96ru8fr5uhvm5ncvcgzfhkuefdw358yet994hkuefdwf6kcegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2fyx6arjtpc856jntgmrydrct9z8z7j6w4gnzvfewqmy6sfhtpmnwmtkda2kxu28w994yvg0wq3el"
     },
     {
@@ -2330,7 +2330,7 @@
       "license": "MIT",
       "address": "sha256:01f531ac56c422ffd65c5df6e75b3cfc052cfb421e90a028e037951692a28cc2",
       "cid": "QmWy9tVAR95X8xVs3fbrBdNq57vGFMixWny3QWjsBCdEbv",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-audiocraft-audio-generation",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-audiocraft-audio-generation",
       "token": "sk1qy9sraf343tvgghl6ew9mah8tv70cpfvldppay9q9rsr09gkj23geskuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3a5ljkswrfl8y88ym00xpvt58sz68udrhl6c5mfqkffhmjxvf6rgs6eugrs86p234tj2hc7c3lxyxhajh2un6nd247tmhp26refzmgwrdsh2erfda3hyctxwskkzatyd9hj6em9dejhyct5d9hkuq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2h0yuhg4jp2gun2kpc0pt8xvmxvfeyyezwwy6nwaj8gexkj7zhdeunx52hdfe5ysmyg438vlxk43r"
     },
     {
@@ -2353,7 +2353,7 @@
       "license": "MIT",
       "address": "sha256:687aa395948194a4f7f054a641fcd0747d6f285a84e71009698ba92603bd1557",
       "cid": "QmQDTWsvWyL8ytHyf7fXt23kT71uDZStZxqLNLK2KhErkq",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-baoyu-article-illustrator",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-baoyu-article-illustrator",
       "token": "sk1qy9ks74rjk2gr99y7lc9ffjplng8glt09pdgfecsp95ch2fxqw73247uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us7cw0693u9as203lnavjfsz4n4gecazpu349rjts8nqrkvfqamsdezvydrat5r6faw8n4fkp2tjwgr76zw88gkjdjsg3xf96seg0zsxr93xzmmew5kkzun5d93kcefdd9kxcatnw3exzar0wgpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4z3z52aehv4mefsu8jazg09nrwejcwserx665xuch23z62d6957r3f38ycjejfd5y2untwyw9rhsm"
     },
     {
@@ -2377,7 +2377,7 @@
       "license": "MIT",
       "address": "sha256:c3422722cd6d17d875363acbc922bfcf0e738ad3b899ca939f9e46726ce2e9b7",
       "cid": "QmbtLKk8nm1s1YbJACE6PV2qHTRnNqVASHhkrLqMX4HvEK",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-baoyu-comic",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-baoyu-comic",
       "token": "sk1qy9uxs38ytxk697cw5mr4j7fy2lu7rnn3tfm3xw2jw0eu3njdn3wnd7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujghm6jqzug8pe9auqalatsw8ydmxud5uspag0nnz5ext7qsm4jyjvk5d5aren2au85h4ly8s5vl6m723n57w38cvgk0xkh8hmgqu5s2pd3xzmmew5kkxmmdd93syfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6cn5f39kkwrwd5chxv2evf9yzs69xeg9vvn3fp29ymjww9tyz56gdp4hynr3f4vrgjrkg49sm8zyvg"
     },
     {
@@ -2404,7 +2404,7 @@
       "license": "MIT",
       "address": "sha256:3291c61e1829391ec53392a26f66091c486a98993d8177f0c6546c0d7dd05f0c",
       "cid": "QmRHur5bNQU6qGREioePoigLmb1nUPybiYYV5GVvJNZAra",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-concept-diagrams",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-concept-diagrams",
       "token": "sk1qy9n9ywxrcvzjwg7c5ee9gn0vcy3cjr2nzvnmqth7rr9gmqd0hg97rxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujxl2qcr2r3ma4ywj4706m540qavluexdajq47d4tvyx2xqqmcsj4zk349ncnyjje47xhcgu8nv6xhp7mxcwtxctq9q9prla922ntgczzp3k7mnrv4c8gttyd9skwunpd4esyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65jgw4er2cjw292nvu282fzkjmm92phkje6vd43rzmj42puky62et9tr236kwe9yukjpwfssgux9c6"
     },
     {
@@ -2429,7 +2429,7 @@
       "license": "MIT",
       "address": "sha256:be40305d74755cf9c34948a2c7678f8e11480543b90347e48c1edf6980d5faeb",
       "cid": "QmSiGzQt64MeRu2fvaKqu1v5Q8aQCiLK2EpikRKUVmePHK",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-creative-ideation",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-creative-ideation",
       "token": "sk1qy9muspst4682h8ecdy53gk8v78cuy2gq4pmjq68ujxpahmfsr2l467uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usm8mt0hqr8gxl2x65hhsqel2y306shc42adxc3ewfazw2wyqxpulrlcp5k8ahvwt3r0qt8jmfsczv222pc0xcncunxsvcksx62luncpz93hyetpw35hvefdd9jx2ct5d9hkuq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2nd9rh55t5xc6y6e2jw5exvanpfdch2vtkx4gnsc23gd55cjejg4cxj66jfd24vmt92pyyk476zsm"
     },
     {
@@ -2457,7 +2457,7 @@
       "license": "MIT",
       "address": "sha256:f4517ae32a32fe4bc8e2b08da45a90394cca71fd936cce68793214abc6c95e39",
       "cid": "QmVxCYW1hfsSZFETwJzeTVVr4BELp5AgvYqzjja4hGCfC7",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-heartmula",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-heartmula",
       "token": "sk1qy9lg5t6uv4r9ljter3tprdyt2grjnx2w87exmxwdpuny99tcmy4uwwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3wtnyl5z2agwcefngrzca3j33nfcfh4nsv92njx2arhq656w8jd36j37ulnu62xlzcuyd0964ugz55su68rdvxkmzz3znuv9gg33gg2p95x2ctjw3kh2mrpqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4t8ss6e2ucksenn2ddyv325wa985e252et8ydzzg4x8qd2pvam9jut6df4xzdrggapkvsehssqw30"
     },
     {
@@ -2483,7 +2483,7 @@
       "license": "Apache-2.0",
       "address": "sha256:7dbe37ee646c213a141bb00f70e881c2f05e1e049ec32293187f9dcb7ab53ecb",
       "cid": "QmY716r59esYHNCu2QJAmooCNcMDYYzTwhA6ar3P7BEQB6",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-hyperframes",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-hyperframes",
       "token": "sk1qy9hm03haejxcgf6zsdmqrmsazqu9uz7rczfasezjvv8l8wt026naj7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us9jzh8kzfawkhzr3g84e0xcn20dv8fh7gaqvyafcazn3vuxaew4yfwzf5lqhzy3q2n62texv3elx5ktc5hv3acd6y2034z9y6tc9dq8pd58jur9wfn8yctdv4esyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6kfhxym8ydfev4e4jjzwgd6ny522g9kk7m6rfe3563zet9a9gamggymxzu3n2qm5y323ggmqsp3d4u"
     },
     {
@@ -2508,7 +2508,7 @@
       "license": "MIT",
       "address": "sha256:90e615f6a561730107eec93f47ded58f413791a7411164f4634b73232d294c08",
       "cid": "QmZ9kFBhfqTbw8vEdwsxo9cCiKSe6mFDa3SLf5hPQwCUWR",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-kanban-video-orchestrator",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-kanban-video-orchestrator",
       "token": "sk1qy9epes476jkzucpqlhvj068mm2c7sfhjxn5zyty7335kuer9555czxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usq4c7kw2wywvmdz8l5ak84cdjtzg8px0hg39dwjtuvp6mvr9wyx9yylr2kqvehz0frluzpretqcgqwxdlh3lctmwg5pv52t6tkrt3c0r94kzmnzv9hz6anfv3jk7tt0wf3ksetnw3exzar0wgpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k45wttgepxsen32338wwrkg4j8wumcduukxsmffdfk2dndgezxzv6nf3nr26zs29m5x42h2g2ua2z3"
     },
     {
@@ -2532,7 +2532,7 @@
       "license": "MIT",
       "address": "sha256:0ebb95fc9be783bf27d6c0a7466be21a9051c5e8a1cc6e1c9948135ee2313e9a",
       "cid": "QmY613yqMsQxh3sLjEFSy4nLia2DgeJS9nEcVPMjeRdf6n",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-meme-generation",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-meme-generation",
       "token": "sk1qy9sawu4ljd70qalyltvpf6xd03p4yz3ch52rnrwrjv5sy67ugcnaxkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj0ptk9n9hg30h5cshgsk970gmgqx5u97pk0tf0v7dcaunfmvw27lvdjm9lmtagx6ufq6g0nhm9ztz4l0cnylmjyukcnrw2ju0hpxpsppakk2mt994nk2mn9wfshg6t0dcpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4jd33xduhzntn29uxsvmnf34y23jn0y6xunrfvyeygem9fffnjmj9vdt9qnt2v4fxge3kdc0vw7uh"
     },
     {
@@ -2561,7 +2561,7 @@
       "license": "MIT",
       "address": "sha256:b7b9a93a7ec31e5c921d28a96f39519daf391d2bae45a51f498c46ac10a6136a",
       "cid": "QmZP9NPm7XnrJfmBHk7GTbSMa9y4CWArLPReYpfXZcEc3J",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-pixel-art",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-pixel-art",
       "token": "sk1qy9m0wdf8flvx8jujgwj32t089gemteer546u3d9raycc34vzznpx6kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujp5c3q6jk90tjgea7ky7gqa7l65azkuawx87pj4spnvm09vk7m3y0ea674a0w4cpqgtfcrnkj42vnk9the9fckt4vv7w04z70m6zwcxp9cxj7r9dskkzun5qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4d9qw2w2pknwkrwwf9xvm2zfp4nw365vff56cfe0y6yx46pwfx9q5n9t9cxvkz6vdzkxv62wjpd5p"
     },
     {
@@ -2585,7 +2585,7 @@
       "license": "MIT",
       "address": "sha256:c6a80ca19a579643ffae12bf4cdd29058c2570ce83efaa851d106841da706ff4",
       "cid": "QmNPAUmk3GUuJsR33Kin8xhtczeVgCBKgmW3ZdFQjbskjK",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-social-media-content-calendar",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-social-media-content-calendar",
       "token": "sk1qy9ud2qv5xd909jrl7hp906vm55strp9wr8g8ma2s5w3q6zpmfcxlaxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3xgja6m45zugcztp76r5knel6rays3eqgr0krt3rtzsmqa7tuz04pnh7c7rrsyttf35hzupp9hq5la6wrnghla6vq7hr8m2pwt4tmc2r4ek7cmfv9kz6mt9v35kzttrdah8getwwskkxctvv4hxgctjqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d489qs24d44nx364w498x53nxd9kjm3c0p58gcm6v4txws6zfdnk64entfjyv5t2vfekk6jtzgt0d6"
     },
     {
@@ -2610,7 +2610,7 @@
       "license": "MIT",
       "address": "sha256:6bb87f3c5dd50f28254fdafc5b09fd1d935fc2499782521563fab630d661f3b5",
       "cid": "QmSUbk4peS8Hx9X6iyTANysnqdNmZkneaMZziAR7ZJ1VZ8",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-tldraw-offline",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-tldraw-offline",
       "token": "sk1qy9khwrl83wa2regy48a4lzmp873my6lcfye0qjjz43l4d3s6esl8dwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us0egkkfsyejazdnnryau7x4847cqaln4quam3yz9rnjk26gjq2c57cfg3c3mwu9hdpyfttq0h3cpvf4cpz5lhtv470xzg6sdlnw4tsype6xcerjv9mj6mmxvekxjmn9qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4f42cntx3cx25ecfpurjkpkd9u4gs2w09ekuutyfek456mwv4s56kn6d9q4yd66fgc4vk3c8xa6tn"
     },
     {
@@ -2639,7 +2639,7 @@
       "license": "MIT",
       "address": "sha256:40404c2888fdbbb2ee0eaee97ac730b1381a9de46feadcdd4c91a39108ba8dae",
       "cid": "QmNTXuWAUK2tUbavX4UmK39CDa4jVjLhakhUrt6KHn935G",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/creative/creative-unreal-mcp",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/creative/creative-unreal-mcp",
       "token": "sk1qy95qszv9zy0mwajac82a6t6cuctzwq6nhjxl6kum4xfrgu3pzagmtkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujfu8jx55xzfv7jj3tlrruxhenn0ekmenhg7lmf00ssmdkmrh0z4rnlcpedtmag73cpjpd6gyxycsswz8grcdwlgvqdpdf2n20nsydgwpf6kuun9v9kz6mtrwqpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k5u4zcw4t5z42txf692cnpwevrg4tdfvenjs6yvy6x54n2f35xz6mg24e8gdjtfphrjve4gund5npf"
     },
     {
@@ -2665,7 +2665,7 @@
       "license": "MIT",
       "address": "sha256:38b97f05b619b05b2ae9900ce8787c742c065cc80273be4dc95b91e91921627f",
       "cid": "QmVAvQWB85shr414pUKo7LtJi4zcnHTH7oGmZo3cEapP4H",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/data-science/data-science-jupyter-notebook",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/data-science/data-science-jupyter-notebook",
       "token": "sk1qy9n3wtlqkmpnvzm9t5eqr8g0p78gtqxtnyqyua7fhy4hy0fryskyl7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3a3h4snmutulw0rqhdkpjjy7ccee92c6gxq06wjl3vsgjzkd68fg79sparc3slrltsct4h8200jcaxfy9g4h2sn52gcl95flzxcauqpzp482urew3jhyttwda6x2cn0da4syfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64jpweg4ws3cx4eksu35xy68q42tdum5caz2dy685cmwfp2ysdm0gak45menvdzkzuzsx3yqpgxphf"
     },
     {
@@ -2692,7 +2692,7 @@
       "license": "MIT",
       "address": "sha256:e6c440d74e4a5e91785edaee4049509306edf086b17233193b02eb86da45b7ea",
       "cid": "QmXHr9srTseLYDDw65LqzmWJFihaBAZJDAjwyg6HufCAYY",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-actual-setup",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-actual-setup",
       "token": "sk1qy97d3zq6a8y5h530p0d4mjqf9gfxphd7zrtzu3nryas96uxmfzm06kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usha35vgcyn2mrf6t82cnpz53ym7tgzjcmf8uu9c047n4vh8v834m03zlfs860kvjcn65k4f2z0ytcnjfpckqfu8gp83xav3epe3r2cqp3skxar4v9kz6um9w36hqq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2cfperjumj23ek2nzeg3z8wd34f3ch5m2hffrxj6rpgfq45jjyg948w7t8xey82ejrg9v4j5cy0t0"
     },
     {
@@ -2721,7 +2721,7 @@
       "license": "MIT",
       "address": "sha256:6c1e8c8d04ae64d4fde57422389f716ba4ef5e844e64fc9996d0a0faa1ac7e98",
       "cid": "QmRRPzyY7Gf7G4XbzRrQWkTRt6TVgiteB2Yu8qu5bNUfiB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-docker-management",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-docker-management",
       "token": "sk1qy9kc85v35z2uex5lhjhgg3cnackhf80t6zyue8unxtdpg865xk8axxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unet9yy8s4wjhvw6kq7z44e9lnrtlkzy4y5rh8dfstmys4ntlymxwdepckw7csv76pyaqune45myw94d9ehhlfkwhl97yzsmuw5sxgsrz9jx7cmtv4ez6mtpdeskwetdv4h8gq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2j2fg8572exarkvd68x3vxy7jjwfg4w6652f6rv4zkva5hge2zxfvh2wr3w56kynj4ve55y7p5tvm"
     },
     {
@@ -2744,7 +2744,7 @@
       "license": "MIT",
       "address": "sha256:08c2b7f1223cbfde7a90fa9342e2add6a983d063b1a9260414f7363a8e414d66",
       "cid": "Qmc7ADnCQ3qfu8m3VwTZaydv4RkaJWDVdu5esntE7EVvu1",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-hermes-s6-container-supervision",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-hermes-s6-container-supervision",
       "token": "sk1qy9s3s4h7y3re07702g04y6zu2kad2vr6p3mr2fxqs20wd363eq56ekuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unh2gaw4lxw47dk9cgdj3ng9e3d3qwdjnjl7lqf3lrwalpgnc87ppu82n7hujs072em8hlwfld6qc9xwp78f3j8gpqh0age6wj9mhtqdra5x2undv4ej6uek943k7mn5v95kuetj94eh2ur9wfmxjumfdahqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6cehg9zxus63xdckvafcd5e4va65tfshjerkx3fxkc222az9ver4x4jhxmn5g5m524nkw5csf2k0mz"
     },
     {
@@ -2773,7 +2773,7 @@
       "license": "MIT",
       "address": "sha256:be1d6956b21ff460849770b9ea98fe69599273ba331bdc2a5358b4c88ed86231",
       "cid": "QmbkCJUHkHFCwnGLuivB3Yc1BZsyMyxxjD6yteCJGk7XYA",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-inference-sh-cli",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-inference-sh-cli",
       "token": "sk1qy9mu8tf26eplarqsjthpw02nrlxjkvjwwarxx7u9ff43dxg3mvxyvwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujujqe58l3plpjqpsxjvyrvsc3dyftpuj3equj9ch06wccna5sp9gr7dd67urt74kpf0wf0js63shttjwmpxcxaftyjtl35qauufacs8zp5kuen9wfjkucm994eksttrd35syfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6cntgd992jrtfpryxamwgax826tkgge4jce3gfd8x72d09u8s6jyxeuhge2rffrkkd6ct9qs77h46v"
     },
     {
@@ -2799,7 +2799,7 @@
       "license": "MIT",
       "address": "sha256:86ea3cf4fdf8e645e7d6ba1a6d1c1f660c296bb21b6e0473e64df26779476b75",
       "cid": "QmNx7pLhTykx4rtDBnVvpDm9axQdjPV8pzQnzFiCaQMbKu",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-pinggy-tunnel",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-pinggy-tunnel",
       "token": "sk1qy9cd63u7n7l3ej9ultt5xndrs0kvrpfdwepkmsyw0nymun809rkkawuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj6e4ek7f2q0pdx26ktataw2ypv545ppvs7dpch0nhty04jpdm3hateem3r9kd63788zxc7hyqa7nuffeyfj2eqq0ezpkax9xwvd8hswp4cxjmn8vauj6ar4dehx2mqzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdfeurwuzvdp28j6mcx3e8g3zzdet8vuzyd5ukz7z3v349q43cwpa9zmn6ge55xc23f43ykagp09m07"
     },
     {
@@ -2825,7 +2825,7 @@
       "license": "MIT",
       "address": "sha256:be22be83172e5e491dfeb8a92ab35d8a21c466030e0f39a2444c5887c7104754",
       "cid": "QmWPJ2phudK4zZ5uMjYZkA4zjVRVEkG31kftwXaKC3dhyS",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/devops/devops-watchers",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/devops/devops-watchers",
       "token": "sk1qy9mug47svtjuhjfrhlt32f2kdwc5gwyvcpsuree5fzycky8cugyw4xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ungcay3fa8xkypdvxgsmfzyeual5gjeekajh39ytc0364plm02ahsl62mx5f3kjgtdxtl2shm8nwgk7mww6yc96ccc4ddvvt2gcglugdppmkzarrdpjhyuczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2agy5vnsdp6kgje50fdr2a2ddfv4566px3ax54jj2ezkk3enx94kvarhtps5ksenv358j5c36suaj"
     },
     {
@@ -2852,7 +2852,7 @@
       "license": "MIT",
       "address": "sha256:2f1c7b5ba8205dfff907b4eb30f4ad6a1f68e54d055257990efe04c44c80d0bb",
       "cid": "Qmc2ccCq8tJuuchf24mx9WbSDrME2j1oCFgomLP6EegYuF",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/dogfood/dogfood-adversarial-ux-test",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/dogfood/dogfood-adversarial-ux-test",
       "token": "sk1qy9j78rmtw5zqh0llyrmf6es7jkk58mgu4xs25jhny80upxyfjqdpw7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3h7eq2dxq6rzmf5jv0wed7dj9rjzg9ghvm9t6szd80s7hcl2a9hp69q2qjpw3nehrwzp6frese5hx2xf6sw4dcjdf3vcvplfy4az8cfzdskgan9wfekzunfv9kz6atc946x2um5qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d43nycmrgdcnsaz2w46kx6rxxg6x67pe2a39x3rjf4zny633dap5vem0d4x9qdj9v4n4ja2xvjywtp"
     },
     {
@@ -2876,7 +2876,7 @@
       "license": "MIT",
       "address": "sha256:22a4c86499609661084cc07e03695a22e871aced881dead6a421d95975ec235f",
       "cid": "QmS1Yu1WMQRBWsHoUzGaHpcwKhAQN327q3NvCwvJmXYPFC",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/email/email-agentmail",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/email/email-agentmail",
       "token": "sk1qy9j9fxgvjvkp9npppxvqlsrd9dz96r34nkcs80266jzrk2ewhkzxh7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3jev76726dym62vly945m4sq795mezv5h63r4ephg0pk8aqmsmd6ta5hpvl9psvegx4mgnghafehqjcl3a8g99m8cld946wuem77psyp9skwetww3kkz6tvqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4fnzkt4x9t5652jgfthxjr024aywc2gwp3hwjmgg9g5uvejxacnxnnkgdmhvjndtpv4q3jryhwzn5"
     },
     {
@@ -2904,7 +2904,7 @@
       "license": "Apache-2.0",
       "address": "sha256:d743594e3a8e15dfa83c55791812e21e214b3759a6582f699cedebead338c8e0",
       "cid": "QmR64Mpf837ezNuBJUaQMbEU9qED1jPhbhNSKeZcuCUGF3",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-3-statement-model",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-3-statement-model",
       "token": "sk1qy9aws6efcagu9wl4q7927gczt3pug2txav6vkp0dxwwm6l26vuv3cxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usenzugaf2th3kf3afveelglddm9u6h8d9ahruzh5tg4ysuz3t4ty6zmq4r45hc37ta8h6r4wcy2xv0833gpgev4c7ecnkh4ghgmtccwzyej6um5v96x2mt9de6z6mt0v3jkcq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2jxc6y6urx8qenwet6fe65yjj4v9g56cj925uhz32yx949q6rzdp89xjm9tf3h2s64garrxljkwv5"
     },
     {
@@ -2931,7 +2931,7 @@
       "license": "Apache-2.0",
       "address": "sha256:8eafbf17b6205504e5cd3c9e61d4cc642e235dbe5ca7f28eb1915842de76caa6",
       "cid": "QmQBvR14GNwa9wyPwHJqMBnwjTwiGBrnwb3Yuqfhjwpz5u",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-comps-analysis",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-comps-analysis",
       "token": "sk1qy9catalz7mzq4gyuhxne8np6nxxgt3rtkl9eflj36cezkzzmemv4fkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unqyrwk4feslu58a5hfugpljvtdmv7qrurm3sxesyvxnw5u0fcrlfs4wnyfwpyjzphgl80xaw0pgjt4jvrxtygxfuj583xepdguq97gvpe3k7mtswvkkzmnpd3uhx6tnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4g5yajjxy6ywnnhvyuhw72swayy5u2dgfh8w6j5wa55wsnjdemkyv6ew4ckv6r2wac85dt42nwjae"
     },
     {
@@ -2958,7 +2958,7 @@
       "license": "Apache-2.0",
       "address": "sha256:18f6972d92828de66226d574255ae1e9337917ffbe600f0bebc5cb7c0204224b",
       "cid": "QmW7wGeijgWL9pfLPHiuZJaJvF4Avrz6hDV5BJirudCUS7",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-dcf-model",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-dcf-model",
       "token": "sk1qy933a5h9kfg9r0xvgnd2ap9tts7jvmezllmucq0p04utjmuqgzzyj7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3gmlsur3u76sg0lh0sg4hkwj4w3a7wyzzpcl4ryyznpe85zqa4v02qvnjqzua3z4lt6yp9e2ll3e4g4sgz2ayltmtfe4cll9flpwsc0p9jxxe3dd4hkgetvqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4tnwa68v45k5e6hfsuhqejv2pyxja26ffs55ajxx3qhvun6xe5yg434gf9xjun4v3p425ehrr5c8x"
     },
     {
@@ -2983,7 +2983,7 @@
       "license": "Apache-2.0",
       "address": "sha256:1a4975657d895d00aed553eeb7d732cf3fd984d014cbfd4aa6e629b11720e71b",
       "cid": "QmUUm27wEuyoSbPRfgGGasBA6aBE8gUZuKDLxYUcQTej5s",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-excel-author",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-excel-author",
       "token": "sk1qy935jt4v47cjhgq4m248m4h6uev707esngpfjlaf2nwv2d3zuswwx7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3mzqez0tks02jjwmvyh2nhcukf55pn4h084xz5l36askflp0tkf7dzv6jhuvg6ys4mnft7lk8zee396yvv62pmr3664pvz5vpzmc2qxp3jhscm9dskkzat5dphhyq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2424knydmhg46hjm6nvfg9yen8garkzu6zgymxzsj98pn42kn4fdzyc7ze2434z4r9dg6hx4ehq3a"
     },
     {
@@ -3010,7 +3010,7 @@
       "license": "Apache-2.0",
       "address": "sha256:d7793984e5c2df897bae54500c222fee6b82af50d5d4f96cd68358e046975bfb",
       "cid": "Qmd8GsvkTnJDgW8nKDTY7mqK74YZAhwH8TKhm8yw7zKNFM",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-lbo-model",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-lbo-model",
       "token": "sk1qy9aw7fesnju9huf0wh9g5qvygh7u6uz4agdt48edntgxk8qg6t4h77uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u35uxfp7tt2jqdv0hz05zavtmehgpv34mvssuasuq3as8gmk4skjkajashq8gugx6q8ukcl09rz5uvkxu9an9yzmkg2st9lau2c295syp9kxymedd4hkgetvqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4jrs3mnwe44gmj2g3n4wwrwfdz9gkfhd4c5kde5t9dyz6rhfqu9gjmgd5u8jaeh0f95u3jdqt55tm"
     },
     {
@@ -3038,7 +3038,7 @@
       "license": "Apache-2.0",
       "address": "sha256:207de60552a18fa34f2e6fe994818a4792e7c83c47c8812b380f9f6acf2c6d9f",
       "cid": "QmdHWcjBCtggWzEdKMbYM6fWYKKtnVj76DsrftDsHkt6od",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-merger-model",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-merger-model",
       "token": "sk1qy9jql0xq4f2rrarfuhxl6v5sx9y0yh8eq7y0jyp9vuql8m2eukxm87uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujd46r9gwccn83rdkj52rpmvmm7dnyj3snxwaxxzfsmtkfq02670v0gvvxh2csexs6fggylmzazqc08f0f49742xgv3lscneqm7cqhqyp3kk2un8v4ez6mt0v3jkcq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtyfptkx6jzgd6xwe6h0fzkgj6dvfv56dnx2av5kjm5detx5dekg3ehyen5g3e5s6m5xehkgn08wy6"
     },
     {
@@ -3062,7 +3062,7 @@
       "license": "MIT",
       "address": "sha256:1b8edc57a26ca696facd14f55067f0bf16713a5de12e927bc5e0a33bcb335926",
       "cid": "QmYC1cPUu89YEiXE22jJ1ZmH4mhyvGG7G57Gx2zKmbGM9c",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-polymarket",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-polymarket",
       "token": "sk1qy93hrku273xef5kltx3fa2svlct79n38fw7zt5j00z7pgemeve4jfkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ussqay0myldg2ult5kcq2c8cz6vy32aegkpmk46hfwjawndkt2l9xeyq0ac0qcu0sv90e2n3dg4tpuwe8kzv7ksgnu28kv8gtmnlu0gfpfcx7mred4shy6m9wspzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4jse3vdg92afc89v5262cg5ery6j2x9dx6jp5d458jaj8gum5wdfhgaury7jtd43ywnfevvz4yue4"
     },
     {
@@ -3087,7 +3087,7 @@
       "license": "Apache-2.0",
       "address": "sha256:aa18606219386b4dec5db75aa9e7f058eeb69fe59a99176765241105f2be0369",
       "cid": "QmRjW5pQqn8AFjpjsidN8o7ywst4UzaqGLBwZQXgX4bsxn",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-pptx-author",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-pptx-author",
       "token": "sk1qy965xrqvgvns66da3wmwk4fulc93m4knlje4xghvajjgyg972lqx6wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u39f5jcmfckzw927mqp3plp2tp47sjagzjpchyu7jn8x5wcvl3w3zdne6705aj6pkgyds273mza028370992h0cm2r7rqwpqdu72hqsfpdc8qarc94sh2argdaeqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65n22u6hq5t3dcuyz3n2wp48x6tyfcux7dmewaehgdz40fshz36vgfm4552cvavrgcnn0phqk5n8cv"
     },
     {
@@ -3112,7 +3112,7 @@
       "license": "MIT",
       "address": "sha256:89daaeb89cfc798ba0e5e8735e5b1c0ef15d47b21241bc54aca5e7309ae58080",
       "cid": "QmZxZtxGgQX3ruTWnUHgAkNDn8SRLrStb5SmSUk19Hdc8v",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/finance/finance-stocks",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/finance/finance-stocks",
       "token": "sk1qy9cnk4whzw0c7vt5rj7su67tvwqau2ag7epysdu2jk2teesntjcpqxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un9a56jcr6nrscclxy0jctmhuzqzql4rp3pzmhww5zg7rleqc3m933622jgustqnfue7jtsv23ecwypuzhf6apcrsw4s9ph387qul4qyqeehgmmrddesyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6knctf68s3m829vrxun423tku42gvaqkknjydcu9x5jvwffhgc342dk4x4ttxyu5serr8pmquq0lkt"
     },
     {
@@ -3137,7 +3137,7 @@
       "license": "MIT",
       "address": "sha256:2e6653d322633b9b71dd6df8d01d4b9a3c091cc23e9a74ce20821967bde4b9d4",
       "cid": "Qmf5wattpfeZ1aA41pKLqVa3nVbB9FkPbW7jkqKoVC4TKL",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/gaming/gaming-minecraft-modpack-server",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/gaming/gaming-minecraft-modpack-server",
       "token": "sk1qy9juejn6v3xxwumw8wkm7xsr49e50qfrnpraxn5ecsgyxt8hhjtn4xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3yud7l2d22z6j9p5fzrrfudndn20tftka2ykqhk8zqr24ru4nud83y8q63zspdcf85caey7jtdjzwfjtj2eagp7ka64fntznueudjgvrpkkjmn9vdexzen594kk7ersv93kkttnv4e8vetjqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4nr2ampw368qen9tgckzsf5x9cyknr32esnxmjkvfprj3nt2p39wdm2ddc5km6kgv69gj6vuk3xug"
     },
     {
@@ -3163,7 +3163,7 @@
       "license": "MIT",
       "address": "sha256:22e9e5e24e0eac328fe4c811c9a27ad0c8b146ea84b850c282fb4c7ff02d655f",
       "cid": "Qmc2jW1PP2qz3UdbmbWanVJir3epRDRBf5c7vrtjrySFz5",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/gaming/gaming-pokemon-player",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/gaming/gaming-pokemon-player",
       "token": "sk1qy9j9609uf8qatpj3ljvsywf5fadpj93gm4gfwzsc2p0knrl7qkk2h7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unkyvwvcz537phz4rglqjf7659ppxq9juhuj8v8rx2r4wrdy63x7926alrs27fjpujqgywxfq0fwuhcew30s5luaj6gdstcsclmla9sppecx76m9d4hkuttsd3shjetjqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d43ny6jhx9g9qvn30ge42erzd439wctw2e9xju3nv4c9y3zjgfnr2cehwee8g6nj09f5v734ngxwt2"
     },
     {
@@ -3190,7 +3190,7 @@
       "license": "MIT",
       "address": "sha256:ef5059491c845a8f7b18fb2048d791571a6aa830f4e28888733d70e56518cd6a",
       "cid": "Qma3bekWRSUYq2tqZaGwuXF5DXKkZWpSF6DDNngQoxLGmP",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/health/health-fitness-nutrition",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/health/health-fitness-nutrition",
       "token": "sk1qy9775zefywggk500vv0kgzg67g4wxn24qc0fc5g3pen6u89v5vv66kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3x7384f66nreutt8nddvgknknvfwhanhvkrn0805tvdv28dt88m67cczawhdk03emvh2qf34ulzd3tr6h56pl0r98h3h2g3tvahnpgfz9nxjarwv4ehxttww468y6t5d9hkuq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtpxd3x266h2ff42kt3xf68zknpgamh2kzxx4z9sjmttfthq56xxezygnnwvagk77zvgak4qdg93rj"
     },
     {
@@ -3218,7 +3218,7 @@
       "license": "MIT",
       "address": "sha256:271ba9f94acfc55b4bc6462b43df60bd15962dcc79f317934305f6e30751905d",
       "cid": "QmNTDjtyHUvduQYiiCAMw5WyVVigXyUN2px9VSTEBEdikb",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/health/health-neuroskill-bci",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/health/health-neuroskill-bci",
       "token": "sk1qy9jwxafl99vl32mf0ryv26rmast69vk9hx8nuchjdpstahrqageqhwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujl06e88jw7akeevklc2hff6clmqjwfyvvanjngemkvakgrljv6fcjta60hxymd06tz9rse8maqd0y52kr4qgrh2fqa9he6pk8deu8sfpehx2atjdaekk6tvdskkycmfqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d489g3r2w3u5s4tkv364zktfd9p5znthx4thj4jkd9n4s724fce8q7pe2ef4g32zg4jxj6mzjus799"
     },
     {
@@ -3245,7 +3245,7 @@
       "license": "MIT",
       "address": "sha256:0db793be0c968a404fba097a0db83e5e425f33a17ea784832a404b33b2bf32d3",
       "cid": "QmST9YPLykUp6KMhfo4cJu8Fh3xPkhMKm3GbuM5HZMYxpV",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mcp/mcp-fastmcp",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mcp/mcp-fastmcp",
       "token": "sk1qy9smdunhcxfdzjqf7aqj7sdhql9usjlxwshafuysv4yqjenk2ln957uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unuv5u0pnzvrkfnyq9d72hhkdfw5xl7tpts2zjvqes2l2m9jerahvtdsnualfk5vc6tseth7hw7dr2y5tqphw66hs8renvrhfte6c4cpqanxzum5d43hqq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2n2su4j5zv09442upkfdxksen0x3355afcge5rx7zsdd5y6jmdxdrkya2dx4y95n2e0pc9vj3slty"
     },
     {
@@ -3268,7 +3268,7 @@
       "license": "MIT",
       "address": "sha256:236c2848d40e4dab66cdc2a94c367fe09b91f111001c2679a5c6e181a80a828d",
       "cid": "QmQ8q9Bwo7BojFBU1Z1hk6e9f7S8z7s3oe1iY39jPTdR2d",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mcp/mcp-mcp-oauth-remote-gateway",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mcp/mcp-mcp-oauth-remote-gateway",
       "token": "sk1qy9jxmpgfr2qundtvmxu922vxel7pxu37ygsq8px0xjudcvp4q9g9rwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uje3xwssfw56wzdlma55z9j975ed3laqcescd7kgyev8pd5pqha8eqrgesz3j509d92fj7yf9n0mk4gpfezhuxjcrqawmtl4g6hfe8c8rpkkxupddash2arg94ex2mt0w3jj6empw3jhwcteqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4gnsufegfmk7d6zda4yvsj4x9drz6rtxejnje3h2vu85dmnxdhk2vtftyenj6js23j9yvnyeaktj8"
     },
     {
@@ -3293,7 +3293,7 @@
       "license": "MIT",
       "address": "sha256:fb422fdd2b5c7645764d2e362ccbbde553f448e1699f025ad79a19c3bee382ca",
       "cid": "QmUHKGaKWNGNdVx3XKm3npMxyhHWsH8xA2BZVaDnBjTtA3",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mcp/mcp-mcporter",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mcp/mcp-mcporter",
       "token": "sk1qy9lks30m544caj9wexjud3vew7725l5frskn8czttte5xwrhm3c9jkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u33tncjhyq8rvz2ud6cdqs8rlzhqt0k83tgwvznalagr00s76ft42v6cuxk6e7vccchkh50xf8uapuk4ejy7aeltf9upk9uuqq8vjxgfppkkxur0wf6x2uszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td24yyk3mpfdt5u36wv3t8sv6cfdknxmnsf4u8j6zg2ae5swrcgyeyykjkv9zxusn2236yzvchprure"
     },
     {
@@ -3319,7 +3319,7 @@
       "license": "MIT",
       "address": "sha256:2445c418cc59db00ded106108ae78b09dfc6036d7702bbe9e2cfbca1329a2547",
       "cid": "Qme6RV6hQ9eGyTpbn8CjZBLFKau7JxfTE1QXTuZNR6qQFT",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/migration/migration-openclaw-migration",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/migration/migration-openclaw-migration",
       "token": "sk1qy9jg3wyrrx9nkcqmmgsvyy2u79snh7xqdkhwq4ma83vl09px2dz237uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usapppgz8t5q9n668wl3jl997s6pgelvfns94yyhm08zrzh3qchczlqmxzmxwq8s8j8ekapjvjynhkyteqywd8n4czslfmwn8rj95mqzzfhhqetwvdkxzaedd45kwunpw35k7mszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv5m9y43kdpgnje280928qcnw8ppk5kjzf3rykct4xa98sej5g5c4zkz5w4dyu53kw9g5v4q262v2q"
     },
     {
@@ -3349,7 +3349,7 @@
       "license": "MIT",
       "address": "sha256:96aa1a01ea583d9094b0a1be4ee60c240d1d14a9e1531fc5f5d2ac76e385200f",
       "cid": "QmU17k7RhH4UHYLnoEPJWSuGn9UFVF2GeK8wXAQQaQjSsB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-accelerate",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-accelerate",
       "token": "sk1qy9ed2s6q849s0vsjjc2r0jwucxzgrgazj57z5clch6a9trkuwzjqr7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ussfxgl3xsdp2j0d594p2gm4yjxuvgp5y9zlx0y8fysff54q4crhmgjk2pp8m3qnjeyx26prh5wg89mjencwgf7rux48l9jqef6vjus9pfskxcm9d3jhyct5v5pzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k42vfhdvm4y6zgx325sk2vdeh525z22afh23mw8925v4jxxfrk2jecwavyz523v9gk55mnggg3q8qj"
     },
     {
@@ -3378,7 +3378,7 @@
       "license": "MIT",
       "address": "sha256:c371b15684bd30d5cd639b2bac16705833107f4e98ad253fd213599a23540e22",
       "cid": "QmUGRABgmQKn7sNrF23SJA4HTNPs8x39ePcHPVRVLUotat",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-chroma",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-chroma",
       "token": "sk1qy9uxud326zt6vx4e43ek2avzec9svcs0a8f3tf98lfpxkv6yd2qugkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u39t3kljhl4wxmxangx05hp44yl6pxau4cdvsukta3rnhkzqf4adxzugr3t3y4xg9m83wn3p2ywz0nvrxm2ccrssxr3u47f53rpy93cxqe3ksun0d4ssyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64282fq5yemd299kudmnfeeyvv3n2d9yzdzg2389quec0qenje2svdy9q4jj2ex92mm5v96qlhufhg"
     },
     {
@@ -3407,7 +3407,7 @@
       "license": "MIT",
       "address": "sha256:3a74931ba6dbce81485706518a105831679c3be56452f0d1e666401ff39dbbb6",
       "cid": "QmfH123DcLyRAfhgKfoJMrgTf27amxT9fgh1pRqBaevqiA",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-clip",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-clip",
       "token": "sk1qy9n5aynrwndhn5pfptsv5v2zpvrzeuu80jkg5hs68nxvsql7wwmhdkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304useddvz688p87ha5ja4jwk378jj3vpzgvpse8npnzmg2dqg0klvvtrj22sw782nwhsjm5q7hgth7t9v7f0fmzvdjmsu79hhy2737tzcrq33kc6tsqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4nysvfjxdzxxnre2fqkv6r8fdnx7jjdwfn4ge3jxask67z589nxw6p3wpf8zsnpv4m8z62pxfj7kq"
     },
     {
@@ -3437,7 +3437,7 @@
       "license": "MIT",
       "address": "sha256:fd2b366afa0ac9b0892bf65b943ba0d8a15f6bbb637ac462b14cb4dea58ee396",
       "cid": "QmP4cdoNdmR1CVQTngwFbhsn1R14Wg2Ame5r7dGrzDhAfc",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-faiss",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-faiss",
       "token": "sk1qy9l62ekdtaq4jds3y4lvku58wsd3g2ldwakx7kyv2c5edx75k8w89kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unwj4g8uprfe35jz55hxxvch65cm00g0u39dctfwumvuxm6ang3v9dxfwfhr3ta4z6a69darymqptrfuhuyagvq749ju9pzxdgwmjccqq4nxz6tnwvpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4qdrrv3h5uerd2gc5x4j323hxwa6xvf58xm332gcng4m8xfqk6ef4wgmkg3mj0fzxsstxvvv7hj6l"
     },
     {
@@ -3467,7 +3467,7 @@
       "license": "MIT",
       "address": "sha256:7c87845235d4cf0a42ffbf3b328b4c97c72c0599a446658a4a51c71b6b89bda1",
       "cid": "Qmea1P8H3WToMXVhRkLtA32hiFnp5ksjbVBhS5yiCLBhYn",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-flash-attention",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-flash-attention",
       "token": "sk1qy9hepuy2g6afnc2gtlm7wej3dxf03evqkv6g3n93f99r3cmdwymmgwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us402qe5x5rvhu6tawlz8pj58clyye7h9d43ygt60xng86w7rtlj3xgwsvhpr8ty8qmvcxp34wwpdd9m4r5r0966888hdqpt4c85m5sfpanxcctndqkkzar5v4h8g6t0dcpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kk2cf32quysv6h23h56kzkdpfxknr5gyeny6rfgeh8qdttwd4xy4jzdpfn27tfgdxyy6zedcd9g0ze"
     },
     {
@@ -3496,7 +3496,7 @@
       "license": "MIT",
       "address": "sha256:3d85aa6c56eb15010af59bd8bc68c8322f218d499e8cb04b6dfe86f510309e87",
       "cid": "Qmf3qyDQABEo3Wgf6y58R5NxfZi6hFWqLgGeSquawENZF2",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-guidance",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-guidance",
       "token": "sk1qy9nmpd2d3twk9gppt6ehk9udryrytep34year9sfdklaph4zqcfap7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unxc5uqw4su9v2x90yuyh57lt82mt9lxfduww4vwlheapalvwdshyfhhyd5p9zl60fefrun3gkcny0mcuwpcftq68mc3rz8jh90antg9ppnh26tyv9hxxegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdvcehz72y29q5y3t0xdtkwe3k0y6ns534feuxvknfxe5yv4m3f3n5we2nw96kza69fedyvvs30gas3"
     },
     {
@@ -3526,7 +3526,7 @@
       "license": "MIT",
       "address": "sha256:3036f867fb06f92edca72618994aaa95515f259a1a9663d9888243a6047db7df",
       "cid": "QmTD9K9PvZJvMDbJn8WEcb6d9qtKn95d27nLYVeiyyQgm9",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-huggingface-tokenizers",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-huggingface-tokenizers",
       "token": "sk1qy9nqdhcvlasd7fwmjnjvxyef24f252lykdp49nrmxygysaxq37m0h7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304une56fnxn4atmdj7hg69f0cjdqeduhf4suu72cr3tzz5es23dcdufpm64d477a8cz4z25jsae69xjmuh9uddpuz7lshhna3738z25vgqze582em8d9hxwenpvdjj6ar0ddjku6t6v4e8xq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm25gsu5kw2swedy5ajdg33y5m3c2azkxc3kvsuhzaztdcun2epjxahyck2kv45hj723vaknjg2v46x"
     },
     {
@@ -3556,7 +3556,7 @@
       "license": "MIT",
       "address": "sha256:dca5297a240b4c7e4ca0903abd7a5dc724792f3c4da744ba8bda6bd96097b4b8",
       "cid": "QmcavdEArQXGjWMo92d9epWSCfwoHk4UtLoFRnfvF5ThSK",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-outlines",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-outlines",
       "token": "sk1qy9aefff0gjqknr7fjsfqw4a0fwuwfre9u7ymf6yh29a567evztmfwxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usvgdu09c4v25s8m7uk7rgt9p63vlxujqh2ejdmwlnqkva38ezsxn7gz6qv7yf5fuzw353luw8t662f5umg9d2vxplweqzcxmq3xf0cypphh2arvd9hx2uczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdvdshvez9g9e9zkz8dft56meexfjrjets2af5xenhdayxkdz4w3xx73jjden8v3342359xjcepedp5"
     },
     {
@@ -3587,7 +3587,7 @@
       "license": "MIT",
       "address": "sha256:9c250ed047bc34cd1e2ca5d6b7a203a8036217687d9128fd7777d7ef1ba61bdf",
       "cid": "QmVoxYzCWq6kwt3uvkgupaH2tf2nXNAQFcDDc8Zs8DF5YQ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-instructor",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-instructor",
       "token": "sk1qy9ecfgw6prmcdxdrck2t44h5gp6sqmzza58myfgl4mh04l0rwnphh7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3cjvuf7yf8cvqypds566duaxpamc8z9l55d3pm9n9ddss6xh9qnjwr3yq2hztuuvxtkxs0jrqmgce42yxtuc5y9e50mlhkhrj74mwg8pf5kuum5wf6kxar0wgpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4vmmct9ayx4m3xe4hwapnw4mxkem4wps5svn5vcexukzwg9g5vc6yg33nsknn8pzyvd2e2y2rry7a"
     },
     {
@@ -3612,7 +3612,7 @@
       "license": "MIT",
       "address": "sha256:5d0e3c77dfe2c4a0249dbabe9c2fa9b3a504fb0e11b2fa702a648d5e567d2457",
       "cid": "QmX4bN7Yn8AjGSjnmVdmWUPstNF7zwsGf3YakCRuGoxsXG",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-lambda-labs",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-lambda-labs",
       "token": "sk1qy946r3uwl07939qyjwm405u975m8fgylv8prvh6wq4xfr272e7jg47uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj3rg4axaed56rz2mt992fnswvd2xg3jr7zny9r6pa4djpm0urwxx974x2zkldwxlqhelcjammhhg2z8v0n95987n4cwkn4jywf0h5gwpdkxzmtzv3sj6mrpvfesyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6kp5vf8rwktw8pqk536ndfhx64nyd4t425rnw38yvdm6wae5we3nt9skks6jw4rk77rntprs2h6yr5"
     },
     {
@@ -3642,7 +3642,7 @@
       "license": "MIT",
       "address": "sha256:09b10597b76a5a347d413a7da0b0a9797b3e9caf009abf0343425f62e625ac6f",
       "cid": "QmTLxApBBw6G9atcUeKXD9EpXQoR6WxXkRT5Mm7UPfCegN",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-llava",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-llava",
       "token": "sk1qy9snvg9j7mk5k3504qn5ldqkz5hj7e7njhspx4lqdp5yhmzucj6cm7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usfmn640zs5flfdtgthhljswn0myn3v03d4ek7h4zzejrxvzksr9vztd2uv57cgrgtj9e40ek4z7nw5yyl3utev8pv0mq0pt93mxkngyq4kxcctkvypzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4gnrcg9cyysnhxernjct5vd2k2j6cgsu52uzc29h4ydjh0pvxk5j5x4xk6d642pnyxet8fc053wlm"
     },
     {
@@ -3668,7 +3668,7 @@
       "license": "MIT",
       "address": "sha256:466c00d5dcf153ff9d144d449e1da53f6ef3a2945203003f99b7b0e1b7369648",
       "cid": "QmYDAeDZoEFXtm3cnkzjBJX3EGaZrd2GjuDC5SPHXpdy1r",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-modal",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-modal",
       "token": "sk1qy95vmqq6hw0z5lln52y63y7rkjn7mhn5229yqcq87vm0v8pkumfvjxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3yr977743e0x9t48dhu230xk8xneyffdyl6gjktsj38r4uq7fvqkysuhgm8nwypv0hntuq0dhswucsz52vtuvpn5vn79c7lekt6n7g0q4kk7erpdspzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4j3zpv4z95m69gev8gmfnvdhxk7n2gf99sv69gas45unyxfrk5a2ygv64x5zgtpcxg7f3wg8xy28d"
     },
     {
@@ -3693,7 +3693,7 @@
       "license": "MIT",
       "address": "sha256:b298ce13a5832c5a33d9d44d033840f608bc82dfc6585a3918769b5df9252543",
       "cid": "QmPSHJE4uMPHK4LQCamtiHcH36jX5Bczud61E3CL5s2shB",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-segment-anything-model",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-segment-anything-model",
       "token": "sk1qy9m9xxwzwjcxtz6x0vagngr8pq0vz9ust0uvkz68yv8dx6alyjj2s7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304undxxux4920s5vm7mzz8tjkyk8x5jypdjxvp87qj468p8qg9kpaags296hmq0ulpexe7cqw0yjnzm287tyv75s7f3n4fesvxqzgmang2zeek2emdv4h8gttpdeuhg6rfdenj6mt0v3jkcq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2s2dyy53f5w4x4qjztx3x9zsmpd46xjjrrfqenv6jcx4pxx7n4vsmrz3fngdxr2uejwd5yylej2fk"
     },
     {
@@ -3723,7 +3723,7 @@
       "license": "MIT",
       "address": "sha256:57e650b0ba3a2cb502ade70093a21fe3ff5114bbdf74f26b62d4948cf1c95923",
       "cid": "QmaUogUYLXrgcMiPAxSmGowzDxeR5xmNHLGKzwH8Jia3x1",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-nemo-curator",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-nemo-curator",
       "token": "sk1qy940ejskzar5t94q2k7wqyn5g078l63zjaa7a8jdd3df9yv78y4jg7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us9wg7fjdz768gtf8namtp8yp7gucnyhs6t84ahq6zgajnznh20zq2crq0nzqs7qgv79mwe9nqjmjqdrf0vfvvzv3q9lrjtk8kymqagxp3hx2mt0943h2unpw3hhyq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtp24hkw42ef3v8yemrf454qstc2dk5wmmh0fz8se2jx4ux6njgf3r5k7nhfquy56tpxdurzxqr6xd"
     },
     {
@@ -3751,7 +3751,7 @@
       "license": "MIT",
       "address": "sha256:90e08ef0346bda54fd7fe1f6c431f76939bc27902250dc3a73a6e77dfbf8388e",
       "cid": "QmStzFDzrhCkfphW7wKDMbLVS7iNJTkcHtCxWrDad7vx6Y",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-obliteratus",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-obliteratus",
       "token": "sk1qy9epcyw7q6xhkj5l4l7rakyx8mkjwduy7gzy5xu8fe6demal0ur3rkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u305r5a5qmffk8xe9qs256rcwluvuvsc9x3rfqfukatsnw9ajdfyfcs8ul7dhlgq50xgx4t2k5m6a53cv5rt09e3jlwlatzaurk7pcsxpdhkymrfw3jhyct5w4esyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk65m50fryg7njdppkkensdptnwa6tg3xkynzk2vmkjnj2234kxjr5gdu9wujyv9jrwancxevspa6dm6"
     },
     {
@@ -3780,7 +3780,7 @@
       "license": "MIT",
       "address": "sha256:38030dc57a549ccfee385459dcf24d9258beb59091e5a96d5c7580835cedf64b",
       "cid": "QmPQCXyuGMaKmBzYRfm64mHbFBs12gSW499hqbVAoE3ZtA",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-peft",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-peft",
       "token": "sk1qy9nsqcdc4a9f8x0acu9gkwu7fxeyk97kkgfredfd4w8tqyrtnklvj7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unlwnkhvs2c4qm6t9ktnsaqzqjtmhd9na8jd65yhhpnlp3nht3w8ldtr5tcgumds2qqrdkv9dxykdf7wfj3cqrytn8kdkglae398rpsdq3cx2en5qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4g9zs6c0965wntpfdk5y7je2fnx6d35d4yxy3jzwvcnye6n2u6rjwtgw939vst0g5e45azpana7ux"
     },
     {
@@ -3810,7 +3810,7 @@
       "license": "MIT",
       "address": "sha256:7f2b53afab57b93b6d1097ffa0e2d36ac2182d1b20238f641ca6f45ed52ecb78",
       "cid": "QmeEmYRNLKwXUWPpDBubun4nMEcMX7gNCbgBPRW7K3Y39h",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-pinecone",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-pinecone",
       "token": "sk1qy9h726n47440wfmd5gf0laqutfk4ssc95djqgu0vsw2daz765hvk7xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usevfld5crpkfdxn9x3ya4d0um8u6kmmz60hy4mj3cn3y0l3e0nudha5mtfmaq8tt4kgst35u6333lmk7gheez0sxkpvrezuyg8yfvsyppcxjmn9vdhkuegzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv4zk6k2jfexyka6c24t4quzygf6kyatwx3hy63trf4vrwe6wgd3xwsjs2ftnwjentyenj6qe3ketd"
     },
     {
@@ -3838,7 +3838,7 @@
       "license": "MIT",
       "address": "sha256:a79b29212bf06f96b85a903b0db0960be2648ae2ae567fe05647323615edc563",
       "cid": "QmY6NkMDTUjiRgRM5hwjDQGEhA7jeCDFARVRALCakZCcmN",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-pytorch-fsdp",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-pytorch-fsdp",
       "token": "sk1qy960xefyy4lqmukhpdfqwcdkztqhcny3t32u4nluptywv3kzhku2c7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujqfwcl5k3mm2ekrmancjqfrd5j64ce5rre4uart0mns0nakfdmtx5yg0lqz4tdwudddq3df7jkxjxjqq8q6nkq7r2lqfl4vf3ddxlqxp3c8jar0wf3ksttxwdj8qq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2exe8xkn2y232k562jvafy6dtgwa4yg528g45yzdm2v4p5g3jp2ft9ys2vgdskkkjrvdk5ukd7c54"
     },
     {
@@ -3868,7 +3868,7 @@
       "license": "MIT",
       "address": "sha256:05c057682efd92305072c681dbf4a31ff3575ca84a31ead6b2b23732db455533",
       "cid": "QmXcUQvCWEpxniKpHq52GStu3Svgaywk9c1N4RoqDYc8ZQ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-pytorch-lightning",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-pytorch-lightning",
       "token": "sk1qy9stszhdqh0my3s2pevdqwm7j33lu6htj5y5v0266etydejmdz42v7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujg837k2w7h4v8q99xq8592emjudg7qs0lxhze774e59kypjz2ntehl8vhwrrrk4jvl3wwg8gu5jwvl7e3m9n47lynswqz6c708mecspz9c8jar0wf3ksttvd9nksarwd9hxwq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2cvd24zajr2azhq7rwd99hqjr3x5eyw5m5w5e4xan8v9uhw6eevvc5udzjdac5gktr8pd9zhr22gd"
     },
     {
@@ -3897,7 +3897,7 @@
       "license": "MIT",
       "address": "sha256:fdbd79ee4813b76ed618d7946034cec4f33feb56dd6604fefe435469cad24d2c",
       "cid": "Qmb9pM3vAQvfqVMxuEpSv93DcZ9ztiL4AzoNE9CsyqtTAW",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-qdrant",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-qdrant",
       "token": "sk1qy9lm0teaeyp8dmw6cvd09rqxn8vfueladtd6esylmlyx4rfetfy6txuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usf0t3llkkltkanzmxlqhnxaa6emgn2n5ja06km230eyepmzwafys4lc6npwajf29het4k9pcy6mr9l5j8zlxxt43dn97ctmxzrpdggvqeckgunpde6qyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6c3ewpxnxajp29mxvu2kf4u823ts2dmrjv6yvddrj7n5d9xrgst6da8y2w2rwduhzaz5g9tsslyd2g"
     },
     {
@@ -3927,7 +3927,7 @@
       "license": "MIT",
       "address": "sha256:af1b8770cc94ccb0b3b34b98d527402fec4b306eb2207237d9ee9d25a7bc0390",
       "cid": "QmY4hmNjxoGS4LL9ogPEe16MZJoEvLcgnkB1UhWv5XPL27",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-dspy",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-dspy",
       "token": "sk1qy967xu8wrxffn9skwe5hxx4yaqzlmztxphtygrjxlv7a8f9577q8yxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3wf4r3xjq7q3a6lkp5y0htdf9h7tc6sq59whtw4c6f3elypn49r0zp0kzltptuqkcyd6tvtflvxm7rrcc3aspdhrg80sd69yqsmw6qyq3j8xureqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4vng6rdfe48sm682v6ycnpedan4q3t9xymy6kj2dazhvnrrvahxks332459wa34tpgycv3hqd8pfz"
     },
     {
@@ -3952,7 +3952,7 @@
       "license": "MIT",
       "address": "sha256:bf884ea9a0ee82bf43ea49b879e5107bdb79b04c6ec2fd39f36201671ea05a37",
       "cid": "QmcAnX99ZSJzhUGXhe8mhjL3uj4eAHhjG2YhU2PJwkhCK6",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-saelens",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-saelens",
       "token": "sk1qy9mlzzw4xswaq4lg04ynwreu5g8hkmekpxxasha88ekyqt8r6s95d7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uskndy636kffcslj4q63m5rg7n9f08d5a2el5c39wu7qxmqwvuptmz4f2ehznmg68vkfefw56ew82mxgsw4cqx4l0cm67k8cdxnnplgwqaekzetvv4h8xq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtrg9h9swfetff557ng24r4s6r98pkks6jvxd6k5dr9g9yxs6j8xfvks4fj2p98w6mggd9nvn07rty"
     },
     {
@@ -3980,7 +3980,7 @@
       "license": "MIT",
       "address": "sha256:31f2e8652c3fa86b0eb1a41e7b765693922c1baf102b2ae9b80347a9e79555cb",
       "cid": "QmUq2TnrPuMzQnNSL5a5niFBBTNNy8wYNcy2Wa8kTnzxZ3",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-simpo",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-simpo",
       "token": "sk1qy9nruhgv5krl2rtp6c6g8nmwetf8y3vrwh3q2e2axuqx3afu724tj7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usmfv9dpv8v7tn94ncqg5tvq3w96zx5pnxvcugufwap993rxqg94xxea33jpmlhehc43jdz8nxsptzs2wr57z6m9cdl5ujvhnjjh5zgvq4ekjmtsdupzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k42ufj23h8y5r4f4a9zmjw2dxr2cf4de55vsjz238yu7fcwav5ucmexftkzwrt23h857z6xv90n3qe"
     },
     {
@@ -4005,7 +4005,7 @@
       "license": "MIT",
       "address": "sha256:9cc6b1a183f9cc78825273c934837616149d248c976efe7906f8bd81131cf715",
       "cid": "QmW4R845krVyEybBsLm9caveV7pMi8vgSEFKK5YoJGuGQz",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-slime",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-slime",
       "token": "sk1qy9ee3435xplnnrcsff88jf5sdmpv9yayjxfwmh70yr030vpzvw0w9wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujdn60qa6f76e2afrc4yedh6gpfg5xhdqv4rhlfhut7mgxevwstd7e50usyprx7tgvf56rjpne4ydrld0m020tk7h06xz4lrsjdjsas8q4ekc6tdv5pzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4wdzj8q6r26mj2eu527tzgfe5cmfevdshve2kxacy66fcwen4x32xfd9n2kt0ffrh23630guv0gwy"
     },
     {
@@ -4031,7 +4031,7 @@
       "license": "MIT",
       "address": "sha256:ae47d095223d1b6514bdf4c0b1189b3288b06076fad9b3583b460ad280440fcd",
       "cid": "QmWcehReeYCyc2QBQ3CBwRQ62ma8kCcuAsRiA28Eqq5YUH",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-stable-diffusion",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-stable-diffusion",
       "token": "sk1qy96u37sj53r6xm9zj7lfs93rzdn9z9svpm04kdntqa5vzkjspzqlnwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3jh9mqrfwvpusgntq95j499f3ukj8kq6ddug44zxdjl09kx6tz4np54p6rycquqztwfqy4eua9x6zh3hejkctpandahd87985pvqnswzpehgctzd3jj6erfven82umfdahqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk64mrv459yet9t9phjcej29p9zv6rgfm4y5fkxfkkzwrtgd3h2stn2f55zv3cg4chzd2e24yqvhq2dh"
     },
     {
@@ -4061,7 +4061,7 @@
       "license": "MIT",
       "address": "sha256:1b54e4810cf3e694800f6a3ad457317b63804999ceb471c308b878feb40fcb90",
       "cid": "QmdrNBBsxKV87y7P5WGkEUt4huYogyq3rRq6dCjHTCfzVW",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-tensorrt-llm",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-tensorrt-llm",
       "token": "sk1qy93k48ysyx08e55sq8k5wk52uchkcuqfxvuadr3cvyts787ks8uhyxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unruzv449tql4j3w2s3haqnp24vw5egcpulvaaladage59mlyz3dl0v2elt3v0ynkvrt72z9z79ny56mmqxmmz336825x7zc69ekhtsxp36x2mnndae8yapdd3kx6q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtywf8yysnn0p94vwph0ym4qd2hga4524t5x3582kt0vauhzvmj2fcnvezrdfy9gsmx0ft9wd8636v"
     },
     {
@@ -4090,7 +4090,7 @@
       "license": "MIT",
       "address": "sha256:166594496c7f2514287c70f0797defe70c03ee5b5dea82e545d696a8e403db40",
       "cid": "QmNNtmpdyQyPrLA5BLD2qv1Hx9akRUVPr2k1vTuBDsKkwE",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-torchtitan",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-torchtitan",
       "token": "sk1qy93vev5f9k87fg59p78pure0hh7wrqraed4m65zu4zad94guspaksxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujkfycptgcqjealffv0zx7x5jzsnmwqc4jxlw2v057h7eugnhtjug087vqtfknurka5sde34ngtl2yjh770s6pg7ddc2sfdz63320zsfpf6x7unrdp6xjarpdcpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k5unn5d4cxg72309g8ynzpx4pyc3pjw9mrzjrc89skk5j42eg8yvntx9m9ga2zg3e5k6mhg5fnxa78"
     },
     {
@@ -4122,7 +4122,7 @@
       "license": "MIT",
       "address": "sha256:b975e370fc961c5e00cdc8c7e3686b363c548c15730709111b7f5eae544c675d",
       "cid": "QmW5NQD3qkqumpHGncTxWUt5GLYqkqT81cjq3iMbFqa3ig",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-axolotl",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-axolotl",
       "token": "sk1qy9mja0rwr7fv8z7qrxu33lrdp4nv0z53s2hxpcfzydh7h4w23xxwhwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un73es0zkj5kp6m72a32v4ct4x9nmnyx8p5u3dehzsp5q3n38z78ktjen6eegapzfzpf7vxdm87xanxrxjhqsx4rszyu8rpr30639yqvqashsmmvda6xcq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2hx489z3pnw94hzatdwpyywmnr23u9w4t5x4r5ckt3ddc4gwp3vd48zvmff43yvutpxd5kw3dhdpm"
     },
     {
@@ -4153,7 +4153,7 @@
       "license": "MIT",
       "address": "sha256:b4733f5dbcf7331bc491babaab2cae0711654ff0933f80d1f9b6450f632aeef0",
       "cid": "QmNv99Ge4oqN99pdqbtcTUBeqnzWaE6EQW6oJW9GPfHpFw",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-trl-fine-tuning",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-trl-fine-tuning",
       "token": "sk1qy9mgueltk70wvcmcjgm4w4t9jhqwyt9flcfx0uq68umv3g0vv4wauxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj92yqu48txvd9pu7wuxv4fg6ymhfz3jk4ak8eu3fw8us96v35d32cygtn9k832nxsvnjhcsmgay6je6jd5jfkmdj0k8yyu87lxrmgsppa68ympdve5kuefdw36ku6twvupzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k5ua3e89rk2dr0w98rjwtsv3ckyarr2325yet3dea9wc29xez4z4ekda99ww282pnysuzxwuq66cnk"
     },
     {
@@ -4183,7 +4183,7 @@
       "license": "MIT",
       "address": "sha256:5a1970f5c09fd29b087d7ea9c120ffcc87251f2fe5addf30e16dd3e62e8bb980",
       "cid": "QmdDnTS7GixqpwJkvfJhLKf1cnHEzNno1iSrob827esxir",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-unsloth",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-unsloth",
       "token": "sk1qy945xts7hqfl55mpp7ha2wpyrluepe9ruh7ttwlxrskm5lx969mnqxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj89gvwwxp0r85r5g7gh0uus6hmlygpssrffydy4mgv88rtyrjd249jxwurzw4m7vhqjk32raty4dm68tfn08z7shv6jehlpv6uyv6szqa6kuumvda6xsq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtyg3h9g5ehga5hsutswa9xkanxff5ycjmxx93kujz90f8xume3d9fhymmz8qerwetn0p5hy208s2u"
     },
     {
@@ -4212,7 +4212,7 @@
       "license": "MIT",
       "address": "sha256:8f0c6dc4d9a06dac03c3992fb76aed73c320f2738717fd41696465d6b5dfe0a3",
       "cid": "QmWTj5ngUqZk6rxgzWb1V3P37urQFCimPNERqcDGm2p8Qy",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/mlops/mlops-whisper",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/mlops/mlops-whisper",
       "token": "sk1qy9c7rrdcnv6qmdvq0pejtahdtkh8seq7fecw9lag95kgewkkh07pg7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304une2wpnxpvs805fly9wyyqflrulu9sngzdcwcxn6ae80qdt6ynfg5zdgtwkv7tu7evz7g7yln9m9xdk4qpk750t0lkgsq2n7m68uxjsdqamks6tnwpjhyq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2h234r2mn824c456ekwfuxw7jhvgc4vv6sxvmh2uj3gepkjm2sfez4yutrg3rk6vns8pghj6hpemt"
     },
     {
@@ -4236,7 +4236,7 @@
       "license": "MIT",
       "address": "sha256:6d9398f04f17aa357222758735ef23c73773f56e6b020f3bf6e77e4257b033b0",
       "cid": "QmaZbmuKw3rAvYKTcPvgFP24WkEWDyWHUeeA17rTGeZDyy",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/payments/payments-mpp-agent",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/payments/payments-mpp-agent",
       "token": "sk1qy9kmyuc7p830234wg38tpe4au3uwdmn74hxkqs080mwwljz27cr8vxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujhaye24sy4lylge4ljkyjlkhmzgldml6ctt7hnupzytwt2tea8php4acrrunfz8jy7lvl2yzju2acxx8545zzctpr5vfaltg4x3dksrp9khqupdv9nk2mn5qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4s45cndw49hwvmjg9m9jj65vdg8ve6x2qerg4mtg4t5g72hfp2k2e2pxymhy4z8v4dyg7ter42p43"
     },
     {
@@ -4260,7 +4260,7 @@
       "license": "MIT",
       "address": "sha256:0a3106af104d148db67c0012d4ec8a7b8c0aeee70876fc6de7e6936fd98175ee",
       "cid": "QmSEVqTDd4CkiPxm6SUDH9xeLtMBfWiT7i1RSnjrNUjXSR",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/payments/payments-stripe-link-cli",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/payments/payments-stripe-link-cli",
       "token": "sk1qy9s5vgx4ugy69ydke7qqyk5aj98hrq2amnssahudhn7dym0mxqhtmkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unsl0e6ff4k88k2s4rnaf2uxjwlj7g6zdpfwlzph3clm9yc4wwsgluytazyh0mjcfj5d7ukwpmnqwqgt4hcwtn7g32c9fwshl603xtg2paehgunfwpjj6mrfde4j6cmvdypzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4x32kw92ygep5gd4kj5rcd5m9x42yfquhse2vw3x5yejhd92rw6f32ffku6njfe2k5kzn2guwg3u0"
     },
     {
@@ -4284,7 +4284,7 @@
       "license": "MIT",
       "address": "sha256:d050c08cef06b9b8a079ea90e26b00a9a647c60bc3d6e29bead5e6231663f240",
       "cid": "QmaT8Kb1TuhgBeaKx2baJaeEeePCj7T6TNaZd244u3Bc41",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/payments/payments-stripe-projects",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/payments/payments-stripe-projects",
       "token": "sk1qy9aq5xq3nhsdwdc5pu74y8zdvq2nfj8cc9u84hzn04dte3rze3lysxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unkn8nks2tpwq2ujnhcufsgsw89emuc6ynz9d4pswsz0kz2f63j9tw329dz4qkx2l7wjz7sttjgy4qh5chgvjfhy5u9xmt3lhsy475czpaehgunfwpjj6urjda4x2cm5wvpzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029kkz4pcfd3rz4r4dpn5yetpfdurycnpffsk23t9v4gyx63h2sm9gnnptfjrydp5w5e5yce5xy3flxt6"
     },
     {
@@ -4309,7 +4309,7 @@
       "license": "MIT",
       "address": "sha256:7ac6cdb4cd98735deedbdebbb76acd431d51accd1a32fc9c1b7d18c6fdbfd869",
       "cid": "QmezDywngRmLRhHqEq1Gf14EcHfdsuwN4GTaifF8h1Grww",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-canvas",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-canvas",
       "token": "sk1qy9h43kdknxesu6aamdaawahdtx5x8234nx35vhunsdh6xxxlklas6wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unzs6sl9kthsqf59az8ddwzhs5wf40nz76mq0ztyqn63f5wt40cpkjgvxzcquu2mf3a5679aq4z9vzmy23re79q9h97s24m0puwg0tcdqe3kzmnkv9esyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6et6g3uhwmn82fk5c5ngfpc52uf3ganrzdz9vdyxvernw4m5udz823skjejx8p5rz3mjwams8sd2cz"
     },
     {
@@ -4339,7 +4339,7 @@
       "license": "MIT",
       "address": "sha256:fcc949849bea347c90a9c966e9d77f27284d12ad0e460bb2c9c5fd35c2fc42cd",
       "cid": "QmUuR7td5ZrQjt3AR7mCwc61Db3mFHDdqfpZSyTj1caMnz",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-here-now",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-here-now",
       "token": "sk1qy9lej2fsjd75drujz5ujehf6aljw2zdz2ksu3stktyutlf4ct7y9nwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u34r6tfqyx9dzqwm648p0mszcft5puakxumawxceuswls4c35lheywj3j5mnc3v73uyfm9vdyegu2nrq37cyvykhzx2gnwvz6zu47ecxpp5x2un994hx7aczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2464ydm5vs645uj3df6rxs2jxak5xamrxcc5gc3nd4rys3ryw9n8qkjn092x5vtrv9xku7s5kvpcs"
     },
     {
@@ -4364,7 +4364,7 @@
       "license": "MIT",
       "address": "sha256:f898013ca2c4790f1326a32dadceeb843152d73ccef4f9f40abb0dc6ca76d6ea",
       "cid": "QmQhbCD9ebucUesWehffXYqtRRw8YxJsh5jdLcFgWP3jbm",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-memento-flashcards",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-memento-flashcards",
       "token": "sk1qy9l3xqp8j3vg7g0zvn2xtddem4cgv2j6u7vaa8e7s9tkrwxefmdd6kuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj2p3g8gprysgtqry2pn2zp43d93ymjn06lcla6pypwu43ekgx3v503rha6a6l7a9zsgxrzdtfyww4t4uak75s8u75wzcj3yrqap2gsqzfkk2mt9de6x7ttxd3shx6rrv9exguczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td295xys6y89jkyatr24jhx4m9dpnxvkzew969y5nh8pvhsjnndq6k5ezvvdrxw46sxd4xymg8heh9r"
     },
     {
@@ -4392,7 +4392,7 @@
       "license": "MIT",
       "address": "sha256:e58533314b32682258e078c5621bf1e2a0f3d143bbe7927138060589c6a2ac85",
       "cid": "QmNunHNzcDxmnLEoBJS9PK61JDXtDMWDz3opK9LHbDg1tT",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-shop",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-shop",
       "token": "sk1qy97tpfnx99ny6pztrs833tzr0c79g8n69pmheujwyuqvpvfc632epwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj79fw8lr8q9d7rjnkl80hn3f7pqp4j5e4elgc2h40sv7877mhm9pn8wqjla7nm0x06pla6ezy6zsxs8rvwkfxrat6ydccdzqrdhhaq2q3eksmmsqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4882mjgfeaxx3rcd4hyc3t0gf99xw2sfvmrzjjytp6ygn2hg3arxmmsfvu5cjrzg3nnzaz548zz3f"
     },
     {
@@ -4417,7 +4417,7 @@
       "license": "MIT",
       "address": "sha256:f566b14e6f9df502f5fda017e07145921c2468c7c6915c40b03a6ce29b1ce913",
       "cid": "QmdhrQrUW1TtPpJPiAGX5eRqSkGTPXZh83sx9YxMwatWWg",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-shopify",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-shopify",
       "token": "sk1qy9l2e43fehemagz7h76q9lqw9zey8pydrrudy2ugzcr5m8znvwwjy7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un8fkxkdz999gj2q4ucl96vqj0pyfr4fzft2w3dqc7e3h7t4wzjt02gnqrel8p9ph5a9xx45dlcwc255p8qt57d2s8qsdjeyh5fye8c2qaeksmmsd9n8jq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtydpe9zuj42uc4gazswp99q62pgavr2e2jw9fkk3652pv956pcxdehsw2e0pxhwct52atkw4knqdr"
     },
     {
@@ -4442,7 +4442,7 @@
       "license": "MIT",
       "address": "sha256:630746d8dc85245ed4c2029bd1dd44e1ca639fa2edbeb379ca008d48faa4ea88",
       "cid": "QmSYbzy7taNRozEUzh94ZehnPoos1ftYZBJW9vPDX9Jnjm",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-siyuan",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-siyuan",
       "token": "sk1qy9kxp6xmrwg2fz76npq9x73m4zwrjnrn73wm04n089qpr2gl2jw4zxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usg37vg5mjlsmyawjyqf2ty54nqf2sdc6amgfgx40dm9p4zxkdsch2vyevskwuc7curnuthj8q603zlydk4cpeukragj2h8lc4g5hzq0qeekj7t4v9hqyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk656evfa8jdm5v989ymm6g42h56pex3dx26rw2phk7ue3ve69jkjzfftnjajsg3vrjjnwdfksm8j5c0"
     },
     {
@@ -4472,7 +4472,7 @@
       "license": "MIT",
       "address": "sha256:74c9d73162bee476758e55ebc7f0a31871b1585a681b9e42b920d8a3cec60432",
       "cid": "QmRxS8CqEx3VyTYM7gTbX6QoLkRQf6Xii8MTDPgpQ1cVbN",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/productivity/productivity-telephony",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/productivity/productivity-telephony",
       "token": "sk1qy9hfjwhx93taerkwk89t6787z33sud3tpdxsxu7g2ujpk9remrqgvkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u353h7a038hy8ddsvnwa088rp2u0e0clrzfraca5weayhv0v955emp8ql46c74cea3zvnnc648d38gyk27pst07zcgzu9d3dk7cpajsyp96x2mr9wp5x7mneqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4f8s5ecgdc527pn2eu4gk2dxan4gcjcxegk7nrt2fgkvdjcd95nsn25g3gxwuz3x934vcjwynl22k"
     },
     {
@@ -4497,7 +4497,7 @@
       "license": "MIT",
       "address": "sha256:31c2dd40333d2800e54f8f02506873d9bd3282c27cc8f235f9f6a34da328b95a",
       "cid": "QmSLkVR9L9wQP6s7Sbz5vHoHNusGFW9FZMUeTpP8Q7jRAZ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-bioinformatics",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-bioinformatics",
       "token": "sk1qy9nrskagqen62qqu48c7qjsdpean0fjstp8ej8jxhuldg6d5v5tjkkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujuq0uhtfea67dfkl53ekvx4vdvag4xhr8vtz7rew676xudln63lt3h8pc8y6rae2udn7thejkv7qj24ws0u5t0uurll707srzuj08qgpe3xjmmfdenx7undv96xjcmnqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4f5c66k2gu5cwth29grvueh2d385dtkfph5snn4wdr5v4eegedy64t923c9qwz3xa49ys26ep3wrx"
     },
     {
@@ -4520,7 +4520,7 @@
       "license": "MIT",
       "address": "sha256:8d4d2b40660c927d2279ce7f39bcbb38297d4f14ecbdf5a9ba5500f73b8f8b7d",
       "cid": "QmQaquL75hoo5DabFCVrqcfDuYWgftLE6jybWnjo6rzRLi",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-darwinian-evolver",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-darwinian-evolver",
       "token": "sk1qy9c6nftgpnqeynayfuuuleehjans2tafu2we0044xa92q8h8w8cklwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u35y8995v2v7t5f0u6cp8kyf23upmswxlyg7qq6rheeuvnn7u8g8mddx0gtddq6p7j24pjtdu286lup47dta92r8drny99h54a54k9c9z9jxzunhd9hxjctw94jhvmmvwejhyq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm23v9ch2nphx45x7me4g3sky3jr2ee8zcmxg364j4m8ve6yc3fkdfuky4mwdfhnvun62fxxjtajaqa"
     },
     {
@@ -4544,7 +4544,7 @@
       "license": "MIT",
       "address": "sha256:4165f994e509b4b4abb3680070e8b2cfb5cee09a33e82fde926b1779e777b00b",
       "cid": "QmUBiEixXwQ5nikrLE1d4Vb3eMtCcNiQqw5TpguXZaYMK2",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-domain-intel",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-domain-intel",
       "token": "sk1qy95ze0ejnjsnd954weksqrsazevldwwuzdr86p0m6fxk9meuammqz7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un2ajt6aj9p9mlxhv64fy066avzgdg0egkhzekmsfkwq67r69fpda7wrvp68jduzpq5mrtl3tr85jcplcr8d379qy27lzhh6j5qdh8cyp3jx7mtpd9hz66tww3jkcq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm24gf5526tctpm4zdtwd94hynz9x9jrg4nzxdj56azrvd8xj5t3wu64gur8w4v95c2ef49nytkt8v6"
     },
     {
@@ -4569,7 +4569,7 @@
       "license": "MIT",
       "address": "sha256:a6fd5edbe181320fecb4e649b3f77ba18a4e0416089b118feb8f4e964fc4e97e",
       "cid": "QmfXB8KypPGcU6kUvyqowTCBBPPJ4NV4e6sPww1ZPfCUzj",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-drug-discovery",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-drug-discovery",
       "token": "sk1qy96dl27m0sczvs0aj6wvjdn7aa6rzjwqstq3xc33l4c7n5kflzwjlkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u36de5fr5xuy0z5zyvl9xudfv2zcyjqxt7c46jlgff0prkkvpjm4fp0da5w8djntkww95h4ftl9jnhqgr9pkehesauyyf3ywj5phjyqgpej8yat894jxjumrdamx2uneqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4n9ss3cfduhq5z8vd2nv664weuhzmmh23p5ysjs2p9rgnjkx3jnvu6swamnzkjsvep427n2a4f0wf"
     },
     {
@@ -4594,7 +4594,7 @@
       "license": "MIT",
       "address": "sha256:6cab3a375f41068e70dcd48e787f7cb48bd56835cfa49afbb330b68bc41e3b5a",
       "cid": "QmaiYguDuCaitMSDmAhzFPBYGGD9oMR8i9JuDGC78gtAde",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-duckduckgo-search",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-duckduckgo-search",
       "token": "sk1qy9ke2e6xa05zp5wwrwdfrnc0a7tfz74dq6ulfy6lwenpd5tcs0rkkkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304use5sv6sjnw7d4vd3u90sfhhm95akxlsdg3x5zpcu87qm7q74ehua3wctdm832wfvkysle58tjr6na5yc6t80s7s0yykacp9m22n8rctz9j82cmtv36kx6m8dukhxetpwf3ksq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtpd9vkwa2yw4pkz6t5f4f5gm2pdpayv5zzt9r5w3pedax4ywrf899823z8gvmnsem5g9jx2e32c54"
     },
     {
@@ -4618,7 +4618,7 @@
       "license": "MIT",
       "address": "sha256:44b0459c7dda19b763f73a7cc05625f35188ed1d7cedcbbb614eacca05ff3fbc",
       "cid": "QmWWkWkEP3esqNLDPkKBkth7f5CiVirtdmrCXyfPNmHPJ6",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-gitnexus-explorer",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-gitnexus-explorer",
       "token": "sk1qy95fvz9n37a5xdhv0mn5lxq2cjlx5vga5whemwthds5atx2qhlnl0xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us3sfw094qx8z7tjc2fw6fatl3kpj25pwye7j6t7umfqnppclzu44vjsuv5vkydevr0mmnafcavzjwkhfmgkag4tnh8uxn2ztkqhwkcvz9nkjarwv4u82uedv4u8qmr0wfjhyq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2h2a44w6692qek2um3fexyg5rtfdpxkargxanr2smf2e5hyaryd4eyxkrevegyum2g2p9rveetcmp"
     },
     {
@@ -4648,7 +4648,7 @@
       "license": "MIT",
       "address": "sha256:a6e49a10ed69924cb5e1204deaae8970473e46dca2218d7ae33d8562c072d9e0",
       "cid": "QmfSxpsgofa9DhgodFyXBv8oGMoM4zDx6eD4ppQt1noZwc",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-osint-investigation",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-osint-investigation",
       "token": "sk1qy96dey6zrkknyjvkhsjqn0246yhq3e7gmw2ygvd0t3nmptzcpedncxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujpl8dnrfj26p3xvldn7k0xtyga37arf9ku0rny2edcnm5wrkglgjz04c9j6d3ffv9flsd5u67d55kn4a0h80jynyl2sxf3928ggs9crzdhhx6twwskkjmnkv4ehg6t8v96xjmmwqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4n9x7rswdnk7enp89zxsem0v3r8jkzzwcux736ddaxng7jy0qmx23p5wpc9zap3deh45amrd6rj89"
     },
     {
@@ -4674,7 +4674,7 @@
       "license": "MIT",
       "address": "sha256:14f9d66f700ad73faec945e0320677e8a05d5adc13994719412507533bd2269c",
       "cid": "QmdXqDtDmAHFzxyeSYDshJg42Guc1ZavimTNs5etDFLWfH",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-parallel-cli",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-parallel-cli",
       "token": "sk1qy93f7wkdacq44el4my5tcpjqem73gzattwp8x28r9qj2p6n80fzd8xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u30ly07769577lcmlwjpxl85jtpedwhjjcdjld89q3k3tj2z5k55rnk0vkat3snhh0e0wkpww2fdvqrhg2ltq2yhk69n6403vuk753qrp3cxzunpd3kx2mpdvdkxjq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtytpc5gazyd4q5s3n60puk256eg3eksjn8xseywatrx9dxzanfd42yuue4v46yg3jv2anysd7l92q"
     },
     {
@@ -4701,7 +4701,7 @@
       "license": "MIT",
       "address": "sha256:5b466d7a42ae80007b9f6dfc460f488fca5945256d6f6e7957a51556736b24e7",
       "cid": "QmYP85UpogKsqf2pwcuhMDJeRB4j98XW92bMGs9ssqCXgw",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-pinecone-research",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-pinecone-research",
       "token": "sk1qy94k3nd0fp2aqqq0w0kmlzxpaygljjeg5jk6mmw09t6292kwd4jfe7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujdlcu59yk90pk7atfckwyd836w0t783rw40l9p54g5ydh6zrc687wyzuedw7nug53vt8m9zkqdwyszxjtgk6lku852s9faqsv0qdegyz9cxjmn9vdhkuefdwfjhxetpwf3ksq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2e2qur24tsdan5kum3vce8qamrw45y63z2v4fyydr28yu9s4eexf3y63mn89ehxu2rtpnhwdj9656"
     },
     {
@@ -4726,7 +4726,7 @@
       "license": "MIT",
       "address": "sha256:d7a21c5afc64bf48f8b1c9503c0dfb20263c473b5b19239a51ce38487cfc83ee",
       "cid": "QmYQDHQJpsPYEJgZBHHHtXoiS1yvBGjvrBEwtTv6iR2QhW",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-qmd",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-qmd",
       "token": "sk1qy9a0gsutt7xf06glzcuj5puphajqf3ugua4kxfrnfguuwzg0n7g8mkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us7x625d0dh8ywe7tjmmxvqvy9m5cwqq0qf5kygc2nv499uqm0slkswyqh7nfw32cja6rmp5xs3fplthwrrallg4vmhv3nn7na2uslsyqdck6eqzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdt9g5gjz3ffc8x5zeg49xwkjzfpyysazcda54xvtewepyw6nkwfpy2am523mrv62jxfgks4cscg0g6"
     },
     {
@@ -4752,7 +4752,7 @@
       "license": "MIT",
       "address": "sha256:ec5fa55e3a3893a5caacd315f1fa291bedf28ab02e49233519818b293b0ee794",
       "cid": "QmWHhD4p4KkbmQtrUEUmmQXcsSvwHM4xUkcFJ9iGkstY3o",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-scrapling",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-scrapling",
       "token": "sk1qy97cha9tcar3ya9e2kdx903lg53hm0j32czujfrx5vcrzef8v8w09xuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un0uw6fpy4hyfqkxp0qfu3jf5jn6m5kelja79vrydqn2ay2e5qylzq6wt2ncwgxjtux5twpwcwuz0p5gqx3zl00nnc30dx37twd2ltsvp9ekxunpwpkxjmn8qgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4t5s6zyx3crgjmtvfk4zarj24z42mtd29vxxu6nwem5snf50p2kkc6xfgukj3mtwd69jvm042c5a4"
     },
     {
@@ -4777,7 +4777,7 @@
       "license": "MIT",
       "address": "sha256:7ed857ef7633086ae1935e0ae2cc15a82674fe44f328cb479e23fdf662e1f089",
       "cid": "QmfNHVj6PbENJWk8goJxWQmZNf1pNgH64SFHCp1SL9MHRY",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/research/research-searxng-search",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/research/research-searxng-search",
       "token": "sk1qy9hakzhaamrxzr2uxf4uzhzes26sfn5lez0x2xtg70z8l0kvtslpzwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujjpr2dpyy5sc6c6hmh4v7t7rm4fl2m5grz3hypl8cmnejrsmjqdfzgletp0x6sqlgpqhy9e3vu4tqss88kcgvwr07qwx7vtq37pcus9peek2ctj0phxwttnv4shycmgqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4nyujzkdgm9qcj9fe99w6ecvah557zh29k45nnxx9cyue6gxc69x3jggdcrz56v89x5s5je9578rh"
     },
     {
@@ -4802,7 +4802,7 @@
       "license": "MIT",
       "address": "sha256:0b4bd2edba3fff008044e4774086f283f0a5dcaa6e14883e6edeed09f8df4f51",
       "cid": "QmTaAzgerSiT3VUoQyxY5iVzcLXB21fSPigvYpbhMWqqbV",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-1password",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-1password",
       "token": "sk1qy9skj7jakarllcqspzwga6qsmeg8u99mj4xu9yg8ehdamgflr0575wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304un74ly6tfj39waxphaha6yc2fyhmgzaaszdmqf0pw5jmn4jjwgjsm8lm5mkn3mjc29dfur7ajfkfg976jqls77jcqwtda9x7tqrpe3s0pychqctnwdmk7unyqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d42xzst6vajhy5mf2se4v4t029uhskf4d9t85c6vtppryvtx2dgxjemkt9cxy6zd2achzcjkw82rkk"
     },
     {
@@ -4831,7 +4831,7 @@
       "license": "MIT",
       "address": "sha256:7ffdfba46def7d9d46947691fa444af5f8d7bd533b7c9686267cb0460f79d40e",
       "cid": "QmdtdngiCztiuVJEbBCFTmbHmtBbSosB3aMv9Rnr2Lp1Lp",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-godmode",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-godmode",
       "token": "sk1qy9hll0m53k77lvag628dy06g390t7xhh4fnklykscn8evzxpauagrkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3jatmcq9fa3ujdr3zfpgxl9cgz99ujkx4l6kzds83x6nu0n5cf0k8wangncyvmwh40vav5uu9d27q05xlce6hn22f92g9zkhzpmdrgrqank7erddajx2q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtyw3jxuemfgda8g6t42e9y2cjzgdr9gmtzfpkhgsnz2dhhxs3nv9xhvw2jdeerynrsx9x8ql2u2zc"
     },
     {
@@ -4855,7 +4855,7 @@
       "license": "MIT",
       "address": "sha256:79ff22a269d55c476371fc7f0cd0a2bc99d3ff08c46416eef3d1c7378ec06575",
       "cid": "Qme76BUHE44FAeMGoxN32VhG4gUaguyZfJ95TieoSCiQKr",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-oss-forensics",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-oss-forensics",
       "token": "sk1qy9hnlez5f5a2hz8vdclclcv6z3texwnluyvgeqkamear3eh3mqx2awuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usr6gzt6wy8geww8flgmwqshwc5kgqpshrm0jrdttcn8yxtyg4yurkgyjw8fz07kgh96sw5zqcmmy6vrmne3vzpd5wmpmupjj5g2lscfp4hhxuedvehhyetwwd5kxuczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75tdv5mnvsj4fpzngdzxg9j563m00p8rxvjkdprnge64v9nh2726ve9rjd25d9jk756rd9g5kus6q38ew"
     },
     {
@@ -4880,7 +4880,7 @@
       "license": "MIT",
       "address": "sha256:0bbaf0388a033d80506ecd502a73595b792ee37bf3178af4d6255c933f7a7167",
       "cid": "QmUhGpuhPFmFfKv5JQ3zaMJ8GyUEyJ4wAsiHXZzk3JV3DG",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-sherlock",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-sherlock",
       "token": "sk1qy9shwhs8z9qx0vq2phv65p2wdv4k7fwudalx9u27ntz2hyn8aa8ze7uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujnstjvtnj5p6twhchtlmcjst772ffggwa4eqwec4sch2q08rrl5uakmh049pxtte5wpfh64pxdr4wgygka5n99pax9pjmeq3c7zm2c0ppeksetjd3hkx6czya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td245ywur4dpgyvm2xve9hvd222yeh5c2dfguyw724g4u55drhg9ekjjzctfaxkv622ce5g3cmmmdkk"
     },
     {
@@ -4907,7 +4907,7 @@
       "license": "MIT",
       "address": "sha256:6cccea61b72c1b33ad1d9e259ea20b1e609d717488611892000eed799f75e5d1",
       "cid": "QmPxqrpSnmRFMScqkyxbAKw6eg458Ykp2gdiWhm7DD1yJJ",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-unbroker",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-unbroker",
       "token": "sk1qy9ken82vxmjcxen45weufv75g93ucyaw96gscgcjgqqamtena67t5wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304unm872gcf5xnwpqehr6u7lk7e5ht6mcrg5nx5sdhse5x4xpucv0rpxa9slf2pwectl3hn3v8tl22aedjhnyurfmt3q22aufh06pxjlsppp6kucnjda4k2uszya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2pu8zuns2dhx65jxf4fkxutt09uxys2twumx2ee5x5u9j6msxfnkg62hdpknw3zyx9u55js0s34dk"
     },
     {
@@ -4930,7 +4930,7 @@
       "license": "MIT",
       "address": "sha256:9e28971fb5c0f414eee3217f69c966fc982a251c39ae2d81e62824f4bd8faa00",
       "cid": "QmYoGbWZzfSvSCFtQRLgHedqHn2SJiMr2YYwNbjGcg7NdX",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/security/security-web-pentest",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/security/security-web-pentest",
       "token": "sk1qy9eu2yhr76upaq5am3jzlmfe9n0exp2y5wrnt3ds8nzsf85hk865qxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj7qmsvgswzkckjnk2epa84pnfv2qlj8vxv62026pcl0c59hgr74d9v94ua4tphcjns0rllhpuzzj0wk9hx9m9nyg8ujrwyhkgwfm2cgpdmk2c3dwpjkuar9wd6qyfmgw368que69uhhx6mfd3k8stt4daez6er9d4hjuuen9enxjmr9vfshxefwvdhk6dtfwpn8xw309agk6kt0ga39wkn6vefhv56rge69z5jvvayx2er3fphry562d9xhyvjet9m5ucn2ga3kwd6wv3vqvj9get"
     },
     {
@@ -4957,7 +4957,7 @@
       "license": "MIT",
       "address": "sha256:19ee162b863e391ad75eefe59ee969a4df08237f4da3aa9879ace1783a007fad",
       "cid": "QmQxzrBTEb7eNDsKaGLWEobuMQkx2gMtpDRcey3wcvZ6ve",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-ast-grep",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-ast-grep",
       "token": "sk1qy93nmsk9wrruwg66a0wlev7a956fhcgydl5mga2npu6ectc8gq8ltwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304usgggukfevuk0ak2zp56vqah4u4c6fh2jcy44excljw8w00625d2duqxnm084kjnf3wcdhxzfcs4s5aw9x3upuqspg6pkzvg6d4dtccvppshxapdvaex2uqzya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td29u85ujz23zkydm9fez8xjmpgax9w3t0vf6565tt0qexwnt5wpz9ycm90yehwcmktgm8veggwp8pe"
     },
     {
@@ -4983,7 +4983,7 @@
       "license": "MIT",
       "address": "sha256:596b40ac6a7110000abc88fdfa971b68b688a37d4f69390dccbb06ab9ac9b09f",
       "cid": "Qmeg9XY23ZoUjGXUUYg8a2LByaBFmvEszM4o3vQtuG2XCD",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-code-wiki",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-code-wiki",
       "token": "sk1qy94j66q4348zyqqp27g3l06judk3d5g5d7576fephxtkp4tntymp87uatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj76x58nx6efc5jn0maw3gu6mpgmtmqv3ye7xzveajm5lnvxkhgwfmnpcamtmpek8fa7tywuczs8puhyxgx04qzckwqnahgcs8h2dmcqp93k7er994mkj6mfqgnksar5wpen5te0wd4kjmrv0qkh2mmj94jx2mt09eenxtnxd9kx2cnpwdjjucm0d56kjurxwvaz7t63d4jkww2ctyerxkn0244ywkz424vkwwrpxfxyy7tpgfrx6aj9wday6dr0xdm9zar4gue9ss6yf97nx5"
     },
     {
@@ -5011,7 +5011,7 @@
       "license": "MIT",
       "address": "sha256:a4260bdee3e9c56323cbab40e3c22d6cfa06aa1b697f29516f160aaa73c38805",
       "cid": "QmPUVWEf3BHqdKnCY7SWJweGTkLs4asZSeqqqZtmShNjdG",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-rest-graphql-debug",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-rest-graphql-debug",
       "token": "sk1qy96gfstmm37n3try096ks8rcgkke7sx4gdkjlef29h3vz42w0pcspwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us4ckzth4nnpqew7shhx8vuywkm323hgtrwru9pkj2vwcdguaup3q7x7h86pmtvf98j8hz4ptw8vyrzankxthj3jahzmhyh8yeayphs2zfex2um594nhyctsdpckcttyv4382eczya58garswvaz7tmndd5kcmrc946k7u3dv3jk6mewwvejuenfd3jkyctnv5hxxmmdx45hqenn8ghj75td2p24v469vce5yjr3v39kus6exaf4wjnhv4r4g66vwv6xzu662djhzut3tf6x65mgfe4xg3c3qlhfp"
     },
     {
@@ -5036,7 +5036,7 @@
       "license": "MIT",
       "address": "sha256:f1a21db25237678f4227f4f92b31b0a41ecb3adce6a53c2fcf91dca1298f3d3d",
       "cid": "QmTVx3xyiZybmTcjFbtKEacLr9X15YhbozQLY9J7tvPgWC",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/software-development/software-development-subagent-driven-development",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/software-development/software-development-subagent-driven-development",
       "token": "sk1qy9lrgsakffrweu0ggnlf7ftxxc2g8kt8twwdffu9l8erh9p9x8n60wuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304uj9axu5kw9ql0wccs50gdpkvlr4plyxm6rvkz0n57usuj0c4k3qa24e6aqx85yf0u7v49t6jmzv5z2283x74240s4thq8t4tactl84qqrdeh2cnpvajkuapdv3exjan9dckkgetkv4kx7urdv4h8gq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm252eurx7red9d8jcnd233k53nzw3952ctrf3erjkp3x4vkscn00fg5ckfefgmhgajsvat5xwdu3w6"
     },
     {
@@ -5064,7 +5064,7 @@
       "license": "MIT",
       "address": "sha256:b3dca36ef2ee539ee55c7976d7bfc777bd2276f1e264905435e93a3515652349",
       "cid": "QmfDKRt7S3WtbXp5WvTi9WaFghYp9PjnrmLoaM9QeRnvfk",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/web-development/web-development-cloudflare-temporary-deploy",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/web-development/web-development-cloudflare-temporary-deploy",
       "token": "sk1qy9m8h9rdmewu5u7u4w8jakhhlrh00fzwmc7yeys2s67jw34z4jjxjwuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304ujt69mxcpwtdgf8tysmq8dnrfkq7lxj5zpupvsvcyglfykneksuksxrvdanwsv50ee62tmzay4g7yc5m3ez5rq8gg0eyzdh5rvrmx5syrd3kcmm4v3nxcctjv5khgetdwphhyctj0ykkgetsd3hhjq38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zmtxg394yaph2ve4warztpcr24mk235nj4mpgenkskts89gx5mnjd4xx7c2d89gk25nwwenxkkpllh0"
     },
     {
@@ -5093,7 +5093,7 @@
       "license": "MIT",
       "address": "sha256:d1bc38e5b594772b279c14b4fe17b81797d08780684513b550e821ea88f5aae0",
       "cid": "QmQdsiWHXx26CXvDFnu726EQshqPRUmDotCqVymHE6GRKj",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/web-development/web-development-page-agent",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/web-development/web-development-page-agent",
       "token": "sk1qy9ar0pcuk6egaety7wpfd87z7up097ss7qxs3gnk4gwsg023r664cxuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304us4as4u6akeullcjmh5cml5s676quadhazpz6khhw64dzcss8eul5j9faj4tsz7v6t6ns7vkcvkumdckwlmf84az082kmk0cjasu93g8pfcxzem994skwetwwspzw6r5w3c8xw309aekk6tvd3uz6at0wgkkgetdduh8xvewve5kcetzv9ek2tnrdakn26tsveen5te029k4zernd9t5skrcxgmyxkrkg3rxuafhxgmy25tndpc4q5j4d4zx7azrw9t8jm2gg5myw5jtdgz7904f"
     },
     {
@@ -5121,7 +5121,7 @@
       "license": "MIT",
       "address": "sha256:aaea6cd48cb55f9b657e000b548d3b38fbf8259094fcc0179c84248e7958701a",
       "cid": "QmNiewAqM5ttDMxtooXHSnwbhpnrEuzvmw3sr6uadmd4X6",
-      "docs": "/mcp-skills-integrity/docs/user-guide/skills/bundled/general/general-yuanbao",
+      "docs": "/skillseal/docs/user-guide/skills/bundled/general/general-yuanbao",
       "token": "sk1qy9646nv6jxt2humv4lqqz6535an37lcykgfflxqz7wggfyw09v8qxkuatex55h57j9v6h0q7kxrqsqfcaytt9qncd9j2um4dqyep304u3g97l50d6antsurxrkzkg7yx2sg6f6jcwqfnlntayzvdrya3n5s9ua49377l9s802nm7x53vrpr5vjc5uwtsh2rz2777uhxg0a747c8qauh2ctwvfsk7q38dp68gurn8ghj7umtd9kxc7pdw4hhyttyv4kk7tnnxvhxv6tvv43xzum99e3k7mf4d9cxvue69uh4zm2wd9jhwst3f56hgazyf4u8gmm0tpy9xmnhvf58qmnjg46h5andwuehxu3kw4skgmtyx3vrv22ervs"
     }
   ]

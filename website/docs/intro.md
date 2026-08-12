@@ -16,7 +16,7 @@ it checks on arrival, so a changed skill is a different address it was never
 approved to use.
 
 - [Bundled skills](./user-guide/skills/bundled/index.md) — the catalogue, one page per skill
-- [Skills Hub](pathname:///mcp-skills-integrity/hub/) — search and browse the same catalogue
+- [Skills Hub](pathname:///skillseal/hub/) — search and browse the same catalogue
 
 ## How an agent uses one
 

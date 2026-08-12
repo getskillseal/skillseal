@@ -18,7 +18,7 @@ const ROOT = process.argv[2] || "skills-samples";
 
 // Docs live on the same platform the upstream hub uses (Docusaurus), at the
 // same route shape: /docs/user-guide/skills/bundled/{category}/{category}-{name}
-const DOCS_BASE = process.env.HUB_DOCS_BASE || "/mcp-skills-integrity";
+const DOCS_BASE = process.env.HUB_DOCS_BASE || "/skillseal";
 
 function frontmatter(dir) {
   const md = readFileSync(join(dir, "SKILL.md"), "utf8");
