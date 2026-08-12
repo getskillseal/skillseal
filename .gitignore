@@ -10,3 +10,4 @@ trust-store/minio.pid
 skill-lock/.work/
 pins/
 *.log
+hub/catalog.json

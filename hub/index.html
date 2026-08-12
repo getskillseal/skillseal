@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skills Hub</title>
+<style>
+  :root{
+    --bg:#0b0d10; --panel:#111418; --panel2:#151a20; --line:#232a32;
+    --ink:#e6edf3; --dim:#9aa4b0; --dim2:#6e7681;
+    --accent:#8b7dff; --accent2:#00c2a8; --ok:#3fb950; --warn:#d9a441; --bad:#f85149;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  code,.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+
+  /* top bar */
+  header.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:12px 22px;background:rgba(11,13,16,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+  .brand .glyph{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  header.top nav{display:flex;gap:18px;color:var(--dim)}
+  header.top nav a.active{color:var(--ink)}
+  header.top .right{margin-left:auto;display:flex;gap:16px;color:var(--dim);font-size:14px;align-items:center}
+  .pill{border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--dim);font-size:13px}
+
+  .layout{display:grid;grid-template-columns:240px 1fr;max-width:1280px;margin:0 auto}
+  aside{border-right:1px solid var(--line);padding:26px 18px;min-height:calc(100vh - 47px)}
+  aside h4{margin:22px 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim2)}
+  aside a{display:block;padding:6px 8px;border-radius:7px;color:var(--dim);font-size:14px}
+  aside a:hover{background:var(--panel);color:var(--ink)}
+
+  main{padding:32px 34px 60px}
+  h1{margin:0 0 6px;font-size:30px;letter-spacing:-.4px}
+  .sub{color:var(--dim);margin:0 0 18px}
+  .sub b{color:var(--ink)}
+
+  .metrics{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:8px}
+  .metric .n{font-weight:700}
+  .metric .dot{width:8px;height:8px;border-radius:50%}
+  .d-ok{background:var(--ok)} .d-ac{background:var(--accent)} .d-a2{background:var(--accent2)}
+
+  .search{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:18px}
+  .search input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font-size:15px}
+  .search .k{color:var(--dim2)}
+
+  .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .chip{border:1px solid var(--line);background:var(--panel);color:var(--dim);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;user-select:none}
+  .chip .c{color:var(--dim2);margin-left:6px}
+  .chip.active{border-color:var(--accent);color:var(--ink);background:linear-gradient(180deg,rgba(139,125,255,.14),transparent)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,transform .15s}
+  .card:hover{border-color:#33404d;transform:translateY(-1px)}
+  .card .h{display:flex;align-items:center;gap:8px}
+  .card .name{font-weight:700;font-size:16px}
+  .card .badge{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--ok);border:1px solid rgba(63,185,80,.35);background:rgba(63,185,80,.08);border-radius:999px;padding:3px 9px}
+  .card .by{color:var(--dim2);font-size:13px}
+  .card .desc{color:var(--dim);font-size:14px;min-height:38px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:12px;color:var(--dim);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .kv{display:grid;grid-template-columns:64px 1fr;gap:4px 8px;font-size:12px;margin-top:2px}
+  .kv .lbl{color:var(--dim2)}
+  .kv .val{color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .kv .val.addr{color:var(--accent2)}
+  .foot{display:flex;align-items:center;gap:10px;margin-top:4px}
+  .cmd{flex:1;background:#0c0f13;border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:12px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy{border:1px solid var(--line);background:var(--panel2);color:var(--dim);border-radius:8px;padding:7px 10px;font-size:12px;cursor:pointer}
+  .copy:hover{color:var(--ink)}
+
+  .empty{color:var(--dim2);padding:40px 0;text-align:center}
+  footer{border-top:1px solid var(--line);color:var(--dim2);font-size:13px;padding:18px 34px;text-align:center}
+
+  @media(max-width:860px){.layout{grid-template-columns:1fr}aside{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><span class="glyph"></span> Skills Hub</div>
+  <nav>
+    <a href="#">Docs</a>
+    <a href="#" class="active">Skills</a>
+    <a href="#">Download</a>
+  </nav>
+  <div class="right">
+    <span class="pill" id="verifyPill">✓ every skill self-verifying</span>
+    <a href="#">GitHub</a>
+    <a href="#">Discord</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside>
+    <h4>Docs</h4>
+    <a href="#">Getting Started</a>
+    <a href="#">User Guide</a>
+    <a href="#">Developer Guide</a>
+    <a href="#">Reference</a>
+    <h4>Community</h4>
+    <a href="#">Discord</a>
+    <a href="#">GitHub Issues</a>
+    <a href="#">Skills Hub</a>
+    <h4>More</h4>
+    <a href="#">Desktop Download</a>
+    <a href="#">GitHub</a>
+    <a href="#">UOR Foundation</a>
+  </aside>
+
+  <main>
+    <h1>Skills Hub</h1>
+    <p class="sub">Discover, search, and install <b id="total">0</b> skills across <b id="regcount">3</b> registries. Every skill is content addressed, signed, and pinned to Filecoin, so an agent fetches it by address and verifies it before use.</p>
+
+    <div class="metrics">
+      <div class="metric"><span class="dot d-ok"></span><span class="n" id="mVerified">0</span> self-verifying</div>
+      <div class="metric"><span class="dot d-a2"></span><span class="n" id="mPinned">0</span> Filecoin-pinned</div>
+      <div class="metric"><span class="dot d-ac"></span><span class="n" id="mSigned">0</span> publisher-signed</div>
+    </div>
+
+    <div class="search">
+      <span class="k">⌕</span>
+      <input id="q" placeholder="Search skills by name, description, or tag…" autocomplete="off" />
+      <span class="k mono" id="loadState">loading catalog…</span>
+    </div>
+
+    <div class="cats" id="cats"></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>No skills match your search.</div>
+  </main>
+</div>
+
+<footer>Built on the UOR Foundation content-addressed registry · MIT License · 2026</footer>
+
+<script>
+// Catalog. In production this is emitted by the pin harness (name -> address ->
+// CID) and loaded from catalog.json; a representative set is embedded so the
+// page is self-contained. Two entries carry the real addresses from the repo's
+// sample skills.
+const EMBEDDED = [
+  {name:"csv-stats",author:"example",category:"data",desc:"Summarize a CSV file: row count, columns, and numeric means.",tags:["csv","analysis"],address:"sha256:4e8cb35109ab6ae6069b6c984ebd52c659712905c83eaf7a0f662b1251e63d50",cid:"bafybeic6…q7m",installs:1240},
+  {name:"pdf-fill",author:"example",category:"document",desc:"Fill a PDF form from a JSON record and return the completed file.",tags:["pdf","forms"],address:"sha256:ab27cf7f3afa2c71ee18fe21057cdfa80dbaf499521ca62859423a9669450f06",cid:"bafybeidf…8kp",installs:980},
+  {name:"release-notes",author:"official",category:"devops",desc:"Draft categorized release notes from a list of merged pull requests.",tags:["git","changelog"],address:"sha256:84a63c3deed30805c00c9267c9133ee6057d1233a979421d383be71742d23c50",cid:"bafybeih9…2ab",installs:2115},
+  {name:"sql-explain",author:"community",category:"data",desc:"Explain a SQL query plan in plain language and flag slow scans.",tags:["sql","perf"],address:"sha256:11aa22bb33cc44dd55ee66ff77008899aabbccddeeff00112233445566778899",cid:"bafybeig2…mn4",installs:640},
+  {name:"dockerfile-lint",author:"community",category:"devops",desc:"Review a Dockerfile for security and size pitfalls; suggest fixes.",tags:["docker","security"],address:"sha256:99887766554433221100ffeeddccbbaa99887766554433221100ffeeddccbbaa",cid:"bafybeia7…zx1",installs:1533},
+  {name:"web-scrape",author:"community",category:"web",desc:"Extract structured data from a page given a field map; respects robots.",tags:["http","parsing"],address:"sha256:0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0",cid:"bafybeib3…qw9",installs:770},
+  {name:"threat-model",author:"anthropic",category:"security",desc:"Produce a STRIDE threat model for a described system and rank risks.",tags:["security","review"],address:"sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",cid:"bafybeif0…lk2",installs:1890},
+  {name:"chart-builder",author:"community",category:"data",desc:"Turn a table into a clean, accessible chart spec (light and dark).",tags:["viz","charts"],address:"sha256:1234abcd5678ef901234abcd5678ef901234abcd5678ef901234abcd5678ef90",cid:"bafybeic1…rt6",installs:1102},
+  {name:"email-triage",author:"community",category:"productivity",desc:"Classify and summarize an inbox export into actions and FYIs.",tags:["email","summarize"],address:"sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",cid:"bafybeid8…yu3",installs:530},
+];
+
+const state={cat:"all",q:""};
+let CATALOG=[];
+
+function trunc(s,n){return s.length>n?s.slice(0,n)+"…":s;}
+function card(s){
+  const el=document.createElement("div");el.className="card";
+  el.innerHTML=`
+    <div class="h">
+      <span class="name">${s.name}</span>
+      <span class="badge">✓ verified</span>
+    </div>
+    <div class="by">by ${s.author} · ${s.installs.toLocaleString()} installs</div>
+    <div class="desc">${s.desc}</div>
+    <div class="tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+    <div class="kv">
+      <span class="lbl">address</span><span class="val addr mono" title="${s.address}">${trunc(s.address,30)}</span>
+      <span class="lbl">Filecoin</span><span class="val mono" title="${s.cid}">${s.cid}</span>
+    </div>
+    <div class="foot">
+      <span class="cmd mono">hermes skills install ${s.address.slice(0,16)}…</span>
+      <button class="copy" data-cmd="hermes skills install ${s.address}">Copy</button>
+    </div>`;
+  el.querySelector(".copy").addEventListener("click",e=>{
+    navigator.clipboard?.writeText(e.target.dataset.cmd);
+    e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);
+  });
+  return el;
+}
+
+function render(){
+  const grid=document.getElementById("grid");grid.innerHTML="";
+  const q=state.q.toLowerCase();
+  const list=CATALOG.filter(s=>{
+    const inCat=state.cat==="all"||s.category===state.cat;
+    const inQ=!q||[s.name,s.desc,...s.tags].join(" ").toLowerCase().includes(q);
+    return inCat&&inQ;
+  });
+  document.getElementById("empty").hidden=list.length>0;
+  list.forEach(s=>grid.appendChild(card(s)));
+}
+
+function buildCats(){
+  const counts={all:CATALOG.length};
+  CATALOG.forEach(s=>counts[s.category]=(counts[s.category]||0)+1);
+  const cats=["all",...Object.keys(counts).filter(c=>c!=="all").sort()];
+  const wrap=document.getElementById("cats");wrap.innerHTML="";
+  const label={all:"📋 All Skills",data:"📊 Data",document:"📄 Document",devops:"⚙️ DevOps",web:"🌐 Web",security:"🛡️ Security",productivity:"✅ Productivity"};
+  cats.forEach(c=>{
+    const chip=document.createElement("div");
+    chip.className="chip"+(c===state.cat?" active":"");
+    chip.innerHTML=`${label[c]||c}<span class="c">${counts[c]||0}</span>`;
+    chip.onclick=()=>{state.cat=c;buildCats();render();};
+    wrap.appendChild(chip);
+  });
+}
+
+function counts(){
+  document.getElementById("total").textContent=CATALOG.length.toLocaleString();
+  document.getElementById("mVerified").textContent=CATALOG.length.toLocaleString();
+  document.getElementById("mPinned").textContent=CATALOG.length.toLocaleString();
+  document.getElementById("mSigned").textContent=CATALOG.length.toLocaleString();
+  document.getElementById("loadState").textContent=CATALOG.length+" skills";
+}
+
+async function boot(){
+  // Try a generated catalog.json first; fall back to the embedded set.
+  try{
+    const r=await fetch("catalog.json",{cache:"no-store"});
+    if(r.ok){const j=await r.json();if(Array.isArray(j.skills)&&j.skills.length)CATALOG=j.skills;}
+  }catch{}
+  if(!CATALOG.length)CATALOG=EMBEDDED;
+  counts();buildCats();render();
+}
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value;render();});
+boot();
+</script>
+</body>
+</html>

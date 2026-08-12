@@ -120,6 +120,12 @@ Two explorations extend the same content-addressed model beyond the demo:
   ```bash
   ./agent-demo.sh
   ```
+- **A Skills Hub you can browse.** [`hub/index.html`](hub/index.html) is a skills catalogue in the familiar hub layout (search, category chips, cards), with one difference that matters: every card carries the skill's **content address** and its **Filecoin CID**, and is marked verified because an agent can prove it before use. `node hub/build-catalog.mjs` regenerates the catalogue with real addresses from encoded skills.
+
+  ```bash
+  node hub/build-catalog.mjs        # real addresses -> hub/catalog.json
+  python3 -m http.server -d hub 8899
+  ```
 
 ## Honest limitations
 
@@ -147,6 +153,7 @@ Two explorations extend the same content-addressed model beyond the demo:
 | `agent/skill-agent.mjs` | An agent that fetches, verifies, and runs a skill from storage. |
 | `agent/skill-mcp.mjs` | The same verify-then-run path as an MCP `use_skill` tool. |
 | `agent-demo.sh` | The agent demo: fetch a skill from storage, verify, use, refuse tamper. |
+| `hub/` | A Skills Hub browser: search, categories, and per skill address + CID. |
 | `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
 | `docs/design/` | Design notes: encoding skill trees, and the storage substrate. |
 | `client/` | The scripted acts and the naive agent stand-in. |
