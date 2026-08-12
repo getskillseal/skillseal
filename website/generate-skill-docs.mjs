@@ -94,7 +94,19 @@ ${body}
 `;
 }
 
+// The hub page has one source of truth, hub/index.html. Copy it into the site
+// on every build so a fresh clone serves it at /hub/ without a manual step.
+function copyHub() {
+  const src = join(REPO_ROOT, "hub", "index.html");
+  if (!existsSync(src)) return;
+  const dest = join(HERE, "static", "hub");
+  mkdirSync(dest, { recursive: true });
+  writeFileSync(join(dest, "index.html"), readFileSync(src));
+  console.log("copied hub/index.html -> website/static/hub/index.html");
+}
+
 function main() {
+  copyHub();
   rmSync(OUT, { recursive: true, force: true });
   const skills = findSkills(SKILLS_ROOT);
   const cats = new Set();
