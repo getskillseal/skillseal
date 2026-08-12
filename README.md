@@ -61,7 +61,7 @@ cd mcp-skills-integrity
 ./demo.sh
 ```
 
-Requirements: **Node 20+** and a **Rust toolchain** (`cargo`) to build the trust store from source on first run, or **Docker** if you'd rather not install Rust (a self contained image is built for you). Linux or macOS: the content addressed store needs a POSIX filesystem.
+Requirements: **Node 20+** and a **Rust toolchain** (`cargo`) to build the trust store from source on first run, or **Docker** if you'd rather not install Rust (a self contained image is built for you). The optional storage and agent demos also use **Docker or a local MinIO**, and `python3` for the sample skill's script. Linux or macOS: the content addressed store needs a POSIX filesystem.
 
 Clean up with `./demo.sh clean`.
 
@@ -115,6 +115,11 @@ Two explorations extend the same content-addressed model beyond the demo:
   node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill
   ```
 - **Self-verifying skills on Filecoin storage.** Because addresses are the proof, the storage layer is untrusted and swappable. Filecoin now has S3-compatible front doors — [Akave O3](https://docs.akave.xyz/) (Filecoin's S3 layer) and [Filebase](https://filebase.com/) (IPFS + Filecoin) — so the *same* client stores a skill on Filecoin by changing only the endpoint and credentials. **Act 5 makes this executable** ([`lib/s3.mjs`](lib/s3.mjs) + [`client/run-s3.mjs`](client/run-s3.mjs)): a skill's blobs are stored, re-verified by address, carry a Filecoin/IPFS CID as provenance, and a corrupted object is rejected on read. Design: [docs/design/storage-substrate.md](docs/design/storage-substrate.md).
+- **An actual agent uses a skill from distributed storage.** `./agent-demo.sh` runs an agent that carries only a skill's content address and the publisher's key, fetches the skill **directly from the object store with no registry running**, verifies provenance (publisher signature) and integrity (every file hashes to its address), then **executes it** and returns a real result — refusing a tampered copy before running it. `agent/skill-mcp.mjs` exposes the same verify-then-run path as an MCP tool, so Claude Code, goose, or any MCP agent can use a distributed, self-verifying skill safely. Design: [docs/design/agent-uses-skill.md](docs/design/agent-uses-skill.md).
+
+  ```bash
+  ./agent-demo.sh
+  ```
 
 ## Honest limitations
 
@@ -138,6 +143,10 @@ Two explorations extend the same content-addressed model beyond the demo:
 | `lib/s3.mjs` | Dependency-free S3 client (SigV4) for any S3-compatible endpoint. |
 | `client/run-s3.mjs` | Act 5: serve a skill from S3 and re-verify by address. |
 | `scripts/s3-store.sh` | Start/stop a MinIO object store (Docker or local binary). |
+| `agent/publish-skill.mjs` | Store a skill on distributed storage and attest it (ed25519). |
+| `agent/skill-agent.mjs` | An agent that fetches, verifies, and runs a skill from storage. |
+| `agent/skill-mcp.mjs` | The same verify-then-run path as an MCP `use_skill` tool. |
+| `agent-demo.sh` | The agent demo: fetch a skill from storage, verify, use, refuse tamper. |
 | `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
 | `docs/design/` | Design notes: encoding skill trees, and the storage substrate. |
 | `client/` | The scripted acts and the naive agent stand-in. |

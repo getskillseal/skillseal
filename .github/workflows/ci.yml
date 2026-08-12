@@ -35,6 +35,9 @@ jobs:
       - name: Run the full demo
         run: ./demo.sh
 
+      - name: Run the agent demo (fetch + verify + use a skill from storage)
+        run: ./agent-demo.sh
+
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@v4
