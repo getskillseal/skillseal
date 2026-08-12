@@ -56,12 +56,13 @@
     background:radial-gradient(ellipse at center,rgba(29,155,240,.12),transparent 60%)}
   /* split background, OpenClaw style: the network lives in the top half and
      fades into clean black behind the headline and buttons */
-  #bg{position:absolute;top:0;left:0;width:100%;height:52%;z-index:0;pointer-events:none;opacity:.6;
-    -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 78%);
-    mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 78%)}
+  /* height is set at runtime to end at the mascot's base; this is a fallback */
+  #bg{position:absolute;top:0;left:0;width:100%;height:44%;z-index:0;pointer-events:none;opacity:.6;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
   header.hero>*{position:relative;z-index:2}
   header.hero>#bg{z-index:0}
-  .mascot{margin:0;font-size:clamp(3rem,8vh,5rem);line-height:1;filter:drop-shadow(0 8px 30px rgba(29,155,240,.35))}
+  .mascot{margin:0;font-size:clamp(3.7rem,10vh,6.4rem);line-height:1;filter:drop-shadow(0 10px 36px rgba(29,155,240,.4))}
   .eyebrow{margin:0;font-size:clamp(.7rem,1.6vh,.82rem);font-weight:600;letter-spacing:.24em;
     text-transform:uppercase;color:var(--seal);font-family:"JetBrains Mono",monospace}
   h1{margin:0;font-size:clamp(2.1rem,6.2vw,4.4rem);font-weight:800;letter-spacing:-.045em;line-height:1.02}
@@ -132,9 +133,10 @@
   .catbtn .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
   .catbtn.on .c{color:var(--gold)}
 
-  .mainhead{display:flex;align-items:center;margin-bottom:1.15rem}
+  .mainhead{margin-bottom:1.4rem}
+  .mrow{display:flex;align-items:center;margin-bottom:1rem}
+  .mainhead .search{max-width:none;margin:0}
   .mtitle{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
-  .dock-sub{font-size:.85rem;font-weight:400;color:var(--faint);letter-spacing:0}
   .countbadge{font-size:.82rem;font-weight:500;color:var(--dim);background:var(--panel);
     border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem}
   .sortwrap{margin-left:auto;position:relative}
@@ -266,7 +268,7 @@
   <canvas id="bg" aria-hidden="true"></canvas>
   <div class="hero-main">
   <div class="mascot">🦭</div>
-  <p class="eyebrow">Open source · Decentralized · Self-verifying</p>
+  <p class="eyebrow">Open source · Decentralized · Self verifying</p>
   <h1>Skills you can <em>trust</em>.</h1>
   <p class="lead">Fetches a skill, checks every byte, and installs it in seconds.
     From one line you paste into Claude, Cursor, goose, or any agent you already use.</p>
@@ -287,14 +289,14 @@
     <div class="qs-box">
       <div class="qs-tabs">
         <span class="qs-label">INSTALL</span>
-        <button class="qs-tab on" data-tab="one">One-liner</button>
+        <button class="qs-tab on" data-tab="one">One line</button>
         <button class="qs-tab" data-tab="npm">npm</button>
         <button class="qs-tab" data-tab="mcp">In a chat</button>
         <span class="qs-spacer"></span>
         <span class="qs-badge">🦭 no account needed</span>
       </div>
       <div class="qs-body">
-        <p class="qs-note" id="qsNote"># Any agent. Self-verified skills. Your seal of approval. 🦭</p>
+        <p class="qs-note" id="qsNote"># Any agent. Self verified skills. Your seal of approval. 🦭</p>
         <div class="qs-cmd">
           <span class="qs-dollar">$</span>
           <code id="qsCode">npx skillseal add sk1qy9c607fvn6ngfp9cvcyulx6q…</code>
@@ -307,14 +309,6 @@
   </div>
 </section>
 
-<div class="band">
-  <div class="search">
-    <span class="ico">⌕</span>
-    <input id="q" placeholder='Search skills... (press "/" to focus)' autocomplete="off" />
-    <button class="clear" id="clear" hidden>✕</button>
-  </div>
-</div>
-
 <div class="layout" id="skills">
   <nav class="side">
     <div class="label">Categories</div>
@@ -322,14 +316,21 @@
   </nav>
   <main>
     <div class="mainhead">
-      <div class="mtitle">Sealed Skills <span class="countbadge mono" id="skillCount">0</span> <span class="dock-sub">🦭 verified, and hauled out where any agent can grab them</span></div>
-      <div class="sortwrap">
-        <button class="sortbtn" id="sortBtn">Most used <span class="chev">▾</span></button>
-        <div class="sortmenu" id="sortMenu" hidden>
-          <button data-sort="used">Most used</button>
-          <button data-sort="az">A–Z</button>
-          <button data-sort="cat">By category</button>
+      <div class="mrow">
+        <div class="mtitle">Sealed Skills <span class="countbadge mono" id="skillCount">0</span></div>
+        <div class="sortwrap">
+          <button class="sortbtn" id="sortBtn">Most used <span class="chev">▾</span></button>
+          <div class="sortmenu" id="sortMenu" hidden>
+            <button data-sort="used">Most used</button>
+            <button data-sort="az">A to Z</button>
+            <button data-sort="cat">By category</button>
+          </div>
         </div>
+      </div>
+      <div class="search">
+        <span class="ico">⌕</span>
+        <input id="q" placeholder='Search skills... (press "/" to focus)' autocomplete="off" />
+        <button class="clear" id="clear" hidden>✕</button>
       </div>
     </div>
     <div class="grid" id="grid"></div>
@@ -349,6 +350,13 @@
   const ease=reduce?1:0.12;
   let W,H,DPR,cells=[],cols,cw,ch,maxN;
   function build(){
+    // the field ends at the base of the mascot, so no integers sit behind
+    // the eyebrow, headline or search below it
+    const heroEl=canvas.parentElement, mascot=document.querySelector(".mascot");
+    if(heroEl&&mascot){
+      const hb=heroEl.getBoundingClientRect(), mb=mascot.getBoundingClientRect();
+      canvas.style.height=Math.max(90,Math.round(mb.bottom-hb.top+6))+"px";
+    }
     DPR=Math.min(devicePixelRatio||1,2);
     const r=canvas.getBoundingClientRect(); W=r.width; H=r.height;
     canvas.width=W*DPR; canvas.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
@@ -397,7 +405,7 @@
     }
     if(!reduce) requestAnimationFrame(frame);
   }
-  addEventListener("resize",build); build();
+  addEventListener("resize",build); addEventListener("load",build); build();
   if(reduce){ let g=0; while(!done&&g++<5000) stepSieve(); }
   requestAnimationFrame(frame);
 })();
@@ -626,7 +634,7 @@ sortMenu.querySelectorAll("button").forEach(b=>b.onclick=()=>{
 
 // Quick start tabs. Each one is a real, working way to install the same skill.
 const QS={
-  one:{note:"# Any agent. Self-verified skills. Your seal of approval. 🦭",
+  one:{note:"# Any agent. Self verified skills. Your seal of approval. 🦭",
        cmd:(t)=>`npx skillseal add ${t}`,
        foot:"Nothing to install first. The line carries the skill's fingerprint, its publisher's key and their signature."},
   npm:{note:"# Prefer it on your PATH? Install it once.",

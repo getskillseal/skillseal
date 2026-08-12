@@ -1,25 +1,42 @@
 <p align="center">
-  <img src="docs/cover.svg" alt="SkillSeal — skills you can prove. One line, any agent." width="820">
+  <img src="docs/cover.svg" alt="SkillSeal — skills you can trust. One line, any agent." width="820">
 </p>
 
 <h1 align="center">SkillSeal 🦭</h1>
-<p align="center"><b>Skills you can prove. Paste one line, in any agent.</b></p>
+<p align="center"><b>Install agent skills you can trust. One line. Any agent.</b></p>
 
 <p align="center">
-  It fetches the skill from anywhere, checks every byte against the publisher's
-  signature before anything is written, and installs it where your agent already
-  looks. No account, no registry, nothing to trust.
+  <img src="https://img.shields.io/badge/license-MIT-1d9bf0" alt="MIT license">
+  <img src="https://img.shields.io/badge/node-20%2B-1d9bf0" alt="Node 20 plus">
+  <img src="https://img.shields.io/badge/skills%20sealed-193-1d9bf0" alt="193 skills sealed">
+  <img src="https://img.shields.io/badge/storage-decentralized-1d9bf0" alt="Decentralized storage">
 </p>
 
----
+<p align="center">
+  A skill is instructions your agent loads straight into its context. SkillSeal
+  turns one into a single line that proves what it is: the fingerprint of the
+  contents, the publisher's key, and their signature. Paste the line and it
+  checks every byte before anything is written, then installs where your agent
+  already looks. No account. No registry to trust.
+</p>
 
-## Quick start
+<p align="center">
+  <a href="https://getskillseal.github.io/skillseal/hub/">Website</a> ·
+  <a href="https://getskillseal.github.io/skillseal/hub/seal.html">Seal a skill</a> ·
+  <a href="https://getskillseal.github.io/skillseal/docs/">Docs</a> ·
+  <a href="#how-it-fits-together">How it fits together</a> ·
+  <a href="#see-it-defend-an-attack">See it defend an attack</a>
+</p>
+
+## Install
 
 ```bash
 npx skillseal add sk1qyxcff3u8hhdxzq9cqxfye7fzvlwvptazge6j72zr5urhe…
 ```
 
-That line is not a lookup. It carries the skill's fingerprint, its publisher's key, and their signature, so the install checks itself:
+That is the whole thing. The line is not a lookup. It carries the skill's
+fingerprint, its publisher's key, and their signature, so the install checks
+itself before it touches disk:
 
 ```
 ✓ token checksum is valid          caught offline, before any download
@@ -30,62 +47,71 @@ That line is not a lookup. It carries the skill's fingerprint, its publisher's k
   installed csv-stats → Claude Code / Claude Desktop
 ```
 
-Alter one byte anywhere in the source and the install refuses, leaving nothing on disk. Mistype one character in the token and it is rejected without a network call. Because the fingerprint decides what is acceptable, the file can come from any bucket, gateway or mirror — none of them have to be trusted.
+Alter one byte anywhere in the source and the install refuses, leaving nothing
+on disk. Mistype one character in the line and it is rejected with no network
+call. Because the fingerprint decides what is acceptable, the bytes can come
+from any bucket, gateway, or mirror, and none of them have to be trusted.
 
-It installs as a plain [Agent Skills](https://agentskills.io/home) folder into whichever agents are on the machine, so Claude Code, Hermes, goose, Cursor, Codex, OpenCode, OpenHands, Letta, Amp, Gemini CLI and Copilot all read it with no plugin and no integration. Existing name-based installs keep working. Details: [docs/design/install-tokens.md](docs/design/install-tokens.md).
+Prefer a global install:
 
 ```bash
-skillseal where                                  # agents found here
-skillseal inspect sk1…                           # read a token, offline
-skillseal publish ./my-skill --upload            # print the line others paste
+npm install -g skillseal
+skillseal add sk1…
 ```
 
-Browse a hub of skills, each with its own install line, in [`hub/index.html`](hub/index.html). The tool lives in [`skillseal/`](skillseal/); how the token works is in [docs/design/install-tokens.md](docs/design/install-tokens.md).
+## Quick start
 
-## The problem
-
-Agents load a server's **tool descriptions**, and a skill's **`SKILL.md`**, directly into model context, and they fetch them **by name** every time. That text is mutable: whoever can update the server or the file changes what the agent does, after you approved it. This is the documented [MCP tool poisoning attack](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), and it applies just as cleanly to [Agent Skills](https://agentskills.io/home). Model Context Protocol is now a [Linux Foundation and AAIF project](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) at ecosystem scale, so this is the supply chain gap sitting under three [AAIF working groups](https://aaif.io/): Security and Privacy, Identity and Trust, and Observability and Traceability.
-
-## The solution
-
-> A verifying gateway pins each approved server's tool manifest, and each approved skill's `SKILL.md`, to its content address. Any drift is blocked and diffed before it reaches model context, and the fleet's trusted state is one signed, auditable root.
-
-Approval stops being a name and becomes a hash. A changed tool description is, by definition, a **different address the agent never approved**, so a change is rejected outright, not merely flagged after the fact.
-
-The content address and signed audit root are backed by the **secure, content-addressable [kappa registry](https://github.com/UOR-Foundation/kappa-registry) from The UOR Foundation**: an OCI style registry that verifies every blob against its own hash on write and signs a deterministic root over the namespace. It gives the guarantee a durable, standards-aligned home instead of an ad hoc key value store.
-
-## What you'll see: `./demo.sh`, four acts
-
-| Act | What runs | Result |
-| --- | --- | --- |
-| **1. The attack, unprotected** | A real MCP client connects directly to a vendor server. The vendor ships an update: same name, same endpoint, altered description. | The agent reads the altered text and leaks a planted secret into a tool call. **No signal.** |
-| **2. The same attack, through the gateway** | Identical attack, connection routed through the verifying gateway. | Change caught, **diff printed**, altered description never enters context. Nothing leaks. |
-| **3. Signed, verifiable fleet state** | Fetch the **ed25519 signed namespace root** and verify it against the **pinned** store key; present a foreign key to prove the check is real. | One request proves exactly which tool and skill versions the fleet trusts. |
-| **4. Skills are the new MCP** | Approve a skill, then an attacker rewrites its `SKILL.md`. | Same content addressed guarantee: the altered skill is refused at activation, with a diff. |
-| **5. Self-verifying skills on Filecoin storage** *(optional)* | Store a whole skill's blobs in S3-compatible Filecoin storage ([Akave](https://docs.akave.xyz/) or [Filebase](https://filebase.com/); MinIO stand-in by default), fetch them back by address, then corrupt one object in the bucket. | Every object re-verifies (and carries a Filecoin/IPFS CID when the provider returns one); the corrupted one is rejected on read. The store is untrusted; the skill is self-verifying because the address is the proof. |
-
-Each act writes machine checkable proof to `./evidence/` so a skeptic can validate without trusting the terminal. Act 5 runs against a local MinIO stand-in when Docker (or a local MinIO) is available, and against real Filecoin storage by setting a few environment variables (see [`.env.filecoin.example`](.env.filecoin.example)); it is skipped when no object store is reachable.
-
-## Drops into the agents you already use
-
-![Works with Claude Code, Claude Desktop, goose, Cursor, GitHub Copilot, VS Code, Gemini CLI, OpenClaw, and Hermes.](docs/interop.svg)
-
-The gateway speaks plain MCP over stdio, and `skill-lock` is a one line pre-activation check, so this drops into any MCP or Skills capable agent without code changes. Point the agent's MCP config at the gateway instead of the server; wrap skill activation with `skill-lock verify`. Copy paste configs for Claude Code, Claude Desktop, goose, Cursor, OpenClaw, Hermes, VS Code, GitHub Copilot, and Gemini CLI are in **[docs/compatibility.md](docs/compatibility.md)**.
-
-```jsonc
-// e.g. Claude Desktop or Claude Code mcpServers entry, wrapping any server:
-{
-  "mcpServers": {
-    "weather": {
-      "command": "node",
-      "args": ["gateway/gateway.mjs", "--pin", "weather.v1", "--",
-               "node", "vendor/weather-server.mjs"]
-    }
-  }
-}
+```bash
+skillseal where                        # the agents found on this machine
+skillseal add sk1…                     # verify a line, then install it
+skillseal inspect sk1…                 # read a line, fully offline
+skillseal publish ./my-skill --upload  # print the line other people paste
 ```
 
-## Quickstart
+SkillSeal installs as a plain [Agent Skills](https://agentskills.io/home)
+folder, so Claude Code, Claude Desktop, goose, Cursor, Codex, OpenCode,
+OpenHands, Letta, Amp, Gemini CLI, and Copilot all read it with no plugin and no
+integration. Browse a hub of sealed skills, each with its own line, at the
+[website](https://getskillseal.github.io/skillseal/hub/) or in
+[`hub/index.html`](hub/index.html).
+
+## How it fits together
+
+Three ideas carry the whole guarantee.
+
+* **The line is the proof.** It packs the contents fingerprint, the publisher
+  key, and an ed25519 signature into one paste. Verification happens on your
+  machine, so approval is a hash rather than a name, and a changed skill is a
+  different line you never approved.
+* **Storage is untrusted and swappable.** The bytes live wherever is cheap: an
+  S3 compatible bucket, an IPFS gateway, a plain mirror. Filecoin front doors
+  like [Akave O3](https://docs.akave.xyz/) and [Filebase](https://filebase.com/)
+  work by changing only the endpoint. The address is the proof, so a corrupted
+  object is caught on read no matter where it came from.
+* **The root of trust is content addressed.** Fingerprints and the signed audit
+  root are backed by the [kappa registry](https://github.com/UOR-Foundation/kappa-registry)
+  from the UOR Foundation, a registry that verifies every blob against its own
+  hash on write and signs a deterministic root over the namespace.
+
+```
+   you  ──paste a line──▶  skillseal  ──fetch by address──▶  any store
+                              │
+                              │  checks the fingerprint, key, and signature
+                              │  before a single byte is written
+                              ▼
+                    a plain Agent Skills folder your agent already reads
+```
+
+## Security
+
+Approval is bound to content, not to a mutable name, so the class of attack
+where a skill or a tool is swapped after you approved it becomes a different
+address that is refused outright. The same guarantee covers an MCP server's tool
+descriptions through a verifying gateway, and the three attacks that broke an
+earlier naive design run on every build and must all stay defended. Full notes:
+[docs/design/install-tokens.md](docs/design/install-tokens.md).
+
+## See it defend an attack
 
 ```bash
 git clone https://github.com/getskillseal/skillseal
@@ -93,123 +119,52 @@ cd skillseal
 ./demo.sh
 ```
 
-Requirements: **Node 20+** and a **Rust toolchain** (`cargo`) to build the trust store from source on first run, or **Docker** if you'd rather not install Rust (a self contained image is built for you). The optional storage and agent demos also use **Docker or a local MinIO**, and `python3` for the sample skill's script. Linux or macOS: the content addressed store needs a POSIX filesystem.
+The demo runs a real MCP client against a real server, ships a poisoned update,
+and shows the agent leak a planted secret with no protection, then blocks the
+identical attack through the gateway with a printed diff. It goes on to verify a
+signed fleet root, refuse a rewritten `SKILL.md`, and, when a bucket is
+reachable, store a skill on decentralized storage and reject a corrupted object
+on read. Every act writes machine checkable proof to `./evidence/`, so a skeptic
+can validate without trusting the terminal.
 
-Clean up with `./demo.sh clean`.
+Requirements: **Node 20 or newer**, and a **Rust toolchain** or **Docker** to
+build the trust store on first run. Clean up with `./demo.sh clean`.
 
-## How it works
+## Documentation
 
-```
-   agent  <==MCP==>  verifying gateway  <==MCP==>  vendor MCP server
-                          |
-                          |   root of trust (this disk): approved manifest
-                          +-- ./pins/  <-- the check reads THIS, not the store
-                          |
-                          +-- content addressed store (audit + distribution)
-                              (verify on write blobs + ed25519 signed root)
-```
-
-The gateway is a normal MCP server to the agent and a normal MCP client to the upstream server, the same position as any [MCP gateway](https://aaif.io/projects/). Three properties make the guarantee hold rather than merely appear to:
-
-1. **The root of trust is local.** On approval the full manifest is written to `./pins/` on the verifier's own disk. Enforcement compares the upstream against *that local record*, never against a value fetched back from the shared store. So an attacker who can write to the store cannot change what "approved" means.
-2. **The whole read surface is pinned, not just descriptions.** The manifest covers everything an MCP server can place into a model's context: server `instructions`, and for every tool, prompt, and resource its name, title, description, schema, and annotations. A change in any of them is a new address.
-3. **The audit key is pinned.** The store's ed25519 key is captured out of band at first approval; the signed root is later verified against that pinned key, so a substituted or attacker run store is rejected, not trusted on sight.
-
-On every connection the gateway re-derives the address and compares to the local approval:
-
-- **match**: forward the upstream unchanged (tools, prompts, and resources);
-- **change**: refuse, print a unified diff of exactly what changed, and hand the agent nothing but a `pin_verification_failed` notice.
-
-The store is [`UOR-Foundation/kappa-registry`](https://github.com/UOR-Foundation/kappa-registry), an OCI style `/v2/` registry used off the shelf for audit and distribution: it **verifies content on write** (a blob whose bytes don't match its address is rejected with `DIGEST_INVALID`) and signs a deterministic **namespace root** over every pin. `skill-lock` applies the identical local approve and verify flow to `SKILL.md` files.
-
-### Adversarial gate
-
-The three attacks that broke an earlier, naive design (overwriting the store pin, injecting outside the tool description, and forging the signed root with an attacker key) now run on every build in [`client/adversarial.mjs`](client/adversarial.mjs) and must all stay **defended**. A regression flips one and fails CI.
-
-## Alignment with AAIF
-
-| AAIF working group or roadmap item | What this demo shows |
+| I want to | Start here |
 | --- | --- |
-| [Security and Privacy](https://aaif.io/): security by design, adversarial testing | The tool poisoning attack is reproduced, then blocked by construction. |
-| [Identity and Trust](https://aaif.io/): delegation you can rely on | Approval is bound to content, not a mutable name. |
-| [Observability and Traceability](https://aaif.io/): audit capabilities | A signed namespace root is a one request, verifiable audit of fleet state. |
-| [MCP 2026 roadmap](https://modelcontextprotocol.io/development/roadmap): enterprise audit trails, Server Cards | The pinned manifest *is* a signed Server Card; the signed root *is* the audit trail. |
-| [Agent Skills](https://agentskills.io/home): portable, cross product skills | The same guarantee extends to `SKILL.md`, unchanged. |
+| Understand the install line | [docs/design/install-tokens.md](docs/design/install-tokens.md) |
+| Wire it into my agent | [docs/compatibility.md](docs/compatibility.md) |
+| Encode a whole skill directory | [docs/design/encoding-hermes-skills.md](docs/design/encoding-hermes-skills.md) |
+| Store skills on Filecoin | [docs/design/storage-substrate.md](docs/design/storage-substrate.md) |
+| Let an agent fetch and run one | [docs/design/agent-uses-skill.md](docs/design/agent-uses-skill.md) |
+| Pin and sign a whole catalogue | [docs/design/pinning-a-catalogue.md](docs/design/pinning-a-catalogue.md) |
 
-## Design notes: whole skill trees and a decentralized substrate
+## Development
 
-Two explorations extend the same content-addressed model beyond the demo:
+```bash
+git clone https://github.com/getskillseal/skillseal
+cd skillseal
+npm install
+./demo.sh                 # the four acts, with proof in ./evidence/
+node hub/build-catalog.mjs   # rebuild the hub from encoded skills
+cd website && npm start      # the docs site, generated from every SKILL.md
+```
 
-- **Encoding whole agent-skill directories.** A [Hermes](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) skill is a directory (`SKILL.md` plus `scripts/`, `references/`, `assets/`), and its ecosystem trusts skills by comparing hashes against an unauthenticated origin, with no signing. [`skill-tree/skill-tree.mjs`](skill-tree/skill-tree.mjs) content-addresses the whole tree into a Merkle manifest whose address is the skill's identity, catches a change in *any* file, and gains a signed provenance from the registry root. Details: [docs/design/encoding-hermes-skills.md](docs/design/encoding-hermes-skills.md).
+The CLI lives in [`skillseal/`](skillseal/) as a self contained package. The
+website and hub are static, and ship to GitHub Pages on every push to `main`.
 
-  ```bash
-  node skill-tree/skill-tree.mjs encode skills-samples/document/pdf-fill
-  node skill-tree/skill-tree.mjs verify skills-samples/document/pdf-fill
-  ```
-- **Self-verifying skills on Filecoin storage.** Because addresses are the proof, the storage layer is untrusted and swappable. Filecoin now has S3-compatible front doors — [Akave O3](https://docs.akave.xyz/) (Filecoin's S3 layer) and [Filebase](https://filebase.com/) (IPFS + Filecoin) — so the *same* client stores a skill on Filecoin by changing only the endpoint and credentials. **Act 5 makes this executable** ([`lib/s3.mjs`](lib/s3.mjs) + [`client/run-s3.mjs`](client/run-s3.mjs)): a skill's blobs are stored, re-verified by address, carry a Filecoin/IPFS CID as provenance, and a corrupted object is rejected on read. Design: [docs/design/storage-substrate.md](docs/design/storage-substrate.md).
-- **An actual agent uses a skill from distributed storage.** `./agent-demo.sh` runs an agent that carries only a skill's content address and the publisher's key, fetches the skill **directly from the object store with no registry running**, verifies provenance (publisher signature) and integrity (every file hashes to its address), then **executes it** and returns a real result — refusing a tampered copy before running it. `agent/skill-mcp.mjs` exposes the same verify-then-run path as an MCP tool, so Claude Code, goose, or any MCP agent can use a distributed, self-verifying skill safely. Design: [docs/design/agent-uses-skill.md](docs/design/agent-uses-skill.md).
+## Built on
 
-  ```bash
-  ./agent-demo.sh
-  ```
-- **A Skills Hub you can browse.** [`hub/index.html`](hub/index.html) is a skills catalogue in the familiar hub layout (search, category chips, expandable cards), with one difference that matters: every card carries the skill's **content address** and its **Filecoin CID**, and shows a verified seal because an agent can prove it before use. `node hub/build-catalog.mjs` regenerates the catalogue with real addresses from encoded skills.
-
-  ```bash
-  node hub/build-catalog.mjs        # real addresses -> hub/catalog.json
-  python3 -m http.server -d hub 8899
-  ```
-- **A whole catalogue, pinned and signed.** [`harness/pin-hub.mjs`](harness/pin-hub.mjs) encodes every skill in a catalogue and folds the manifests into one **signed registry root**. Measured against the real upstream corpus: **193 skills** (79 built-in, 114 optional), 987 files, 27 categories, **1,173 objects published in 32 seconds**, deduplicated by content address. A subscriber then holds just two facts — the root address and the publisher key — and [`harness/verify-hub.mjs`](harness/verify-hub.mjs) verifies the lot, refusing if any object is altered. Details: [docs/design/pinning-a-catalogue.md](docs/design/pinning-a-catalogue.md).
-
-  ```bash
-  node harness/pin-hub.mjs --root <repo>/skills:builtin --root <repo>/optional-skills:official --publish
-  node harness/verify-hub.mjs --sample 6
-  ```
-- **Running it on real Filecoin.** [`filecoin-demo.sh`](filecoin-demo.sh) publishes a skill to Filecoin-backed storage, fetches it back by address, verifies and runs it, then corrupts an object to show the agent refuse. Add credentials for [Akave O3](https://console.akave.com/) or [Filebase](https://console.filebase.com/) to `.env.filecoin` and run it; the code path is the one already exercised in CI.
-- **Documentation on the same platform the ecosystem already uses.** [`website/`](website/) is a Docusaurus 3 site, matching the upstream skills docs route for route: `/docs/user-guide/skills/bundled/{category}/{category}-{name}`. `generate-skill-docs.mjs` turns every `SKILL.md` into a page carrying that skill's address and per file table, computed at generation time so the docs and the bytes an agent fetches cannot drift apart.
-
-  ```bash
-  cd website && npm install && npm start   # generates skill pages, then serves
-  ```
-
-## Honest limitations
-
-- The guarantee protects the **read surface** an agent loads: tool and prompt and resource text, schemas, annotations, and server instructions. A server that behaves maliciously *at call time without changing any of that* is a separate problem (runtime behavior, not supply chain).
-- The store's key is pinned **trust on first use**: the first approval records it. If the very first approval already talks to an impostor store, that impostor is what gets pinned. Distributing the expected key ahead of time closes this; it is out of scope for the demo.
-- The store's authorization is permissive, but it is no longer load bearing: enforcement trusts the local `./pins/` record, so store write access does not grant an attacker control over approvals (see the adversarial gate). The store still holds blobs and the audit root.
-- Single node store; horizontal deployment and external identity are out of scope for the demo.
-- The "agent" in Acts 1 and 2 is a deliberately naive, model free stand-in that follows instructions found in tool descriptions, exactly the behavior that makes the attack real, so the demo is deterministic and safe to run in CI.
-
-## Repository map
-
-| Path | Responsibility |
-| --- | --- |
-| `gateway/gateway.mjs` | The verifying MCP gateway (approve and enforce). |
-| `lib/pins.mjs` | The local root of trust: approved manifests and the pinned store key. |
-| `lib/manifest.mjs` | Capture the full server read surface as a stable, hashable manifest. |
-| `lib/store.mjs` | Store client: content address, blobs, signed root verification, diff. |
-| `vendor/weather-server.mjs` | A real MCP server; `POISON=1` serves the altered variant. |
-| `skill-lock/skill-lock.mjs` | Pin and verify a single-file Agent Skill by content address. |
-| `skill-tree/skill-tree.mjs` | Content-address a whole skill directory as a Merkle manifest. |
-| `lib/s3.mjs` | Dependency-free S3 client (SigV4) for any S3-compatible endpoint. |
-| `client/run-s3.mjs` | Act 5: serve a skill from S3 and re-verify by address. |
-| `scripts/s3-store.sh` | Start/stop a MinIO object store (Docker or local binary). |
-| `agent/publish-skill.mjs` | Store a skill on distributed storage and attest it (ed25519). |
-| `agent/skill-agent.mjs` | An agent that fetches, verifies, and runs a skill from storage. |
-| `agent/skill-mcp.mjs` | The same verify-then-run path as an MCP `use_skill` tool. |
-| `agent-demo.sh` | The agent demo: fetch a skill from storage, verify, use, refuse tamper. |
-| `hub/` | A Skills Hub browser: search, categories, and per skill address + CID. |
-| `client/adversarial.mjs` | The adversarial regression gate (attacks that must stay defended). |
-| `docs/design/` | Design notes: encoding skill trees, and the storage substrate. |
-| `client/` | The scripted acts and the naive agent stand-in. |
-| `scripts/trust-store.sh` | Start and stop the content addressed trust store. |
-| `docs/compatibility.md` | Copy paste configs for popular agents. |
-
-## Sources
-
-- [AAIF](https://aaif.io/), [AAIF projects](https://aaif.io/projects/), [Linux Foundation announcement](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)
-- [MCP security best practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices), [MCP roadmap](https://modelcontextprotocol.io/development/roadmap), [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
-- [Invariant Labs: MCP Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
-- [Agent Skills](https://agentskills.io/home), [goose](https://github.com/block/goose), [UOR-Foundation/kappa-registry](https://github.com/UOR-Foundation/kappa-registry)
+The content address and signed audit root come from the
+[kappa registry](https://github.com/UOR-Foundation/kappa-registry) by the UOR
+Foundation. The design lines up with three
+[Agentic AI Foundation](https://aaif.io/) working groups: Security and Privacy,
+Identity and Trust, and Observability and Traceability. Thanks to
+[Agent Skills](https://agentskills.io/home) and
+[goose](https://github.com/block/goose) for the folder format this reads and
+writes.
 
 ## License
 
