@@ -176,6 +176,21 @@
   .spill svg{width:12px;height:12px}
   .spill.verified{color:var(--seal);border-color:rgba(29,155,240,.4);background:rgba(29,155,240,.08)}
   .spill.src{color:var(--ink)}
+  /* live verification chip — earned in the visitor's own browser, not stamped */
+  .spill.vchip{cursor:default}
+  .spill.ok{color:var(--seal);border-color:rgba(29,155,240,.4);background:rgba(29,155,240,.08)}
+  .spill.warnc{color:#f0c674;border-color:rgba(240,198,116,.4);background:rgba(240,198,116,.08)}
+  .spill.bad{color:#ff8a80;border-color:rgba(255,138,128,.45);background:rgba(255,138,128,.1)}
+  .spill.unsealed{color:var(--faint)}
+  .vspin{width:9px;height:9px;border:1.6px solid var(--line-2);border-top-color:var(--seal);
+    border-radius:50%;animation:vsp .7s linear infinite;flex:0 0 auto}
+  @keyframes vsp{to{transform:rotate(360deg)}}
+  .vrow{display:flex;align-items:center;gap:.7rem;margin-top:.6rem;flex-wrap:wrap}
+  .vbytes{background:none;border:1px solid var(--line-2);border-radius:8px;color:var(--dim);
+    font-size:.78rem;padding:.3rem .7rem;cursor:pointer}
+  .vbytes:hover{border-color:var(--seal);color:var(--seal)}
+  .vbytes-out{font-size:.78rem}
+  .lbl.warn{color:#f0c674}
 
   .card .top{display:flex;align-items:center;gap:.5rem}
   .card .cico{font-size:1.05rem;opacity:.95}
@@ -557,7 +572,9 @@ function render(){
     const platPills=(s.platforms||[]).slice(0,3).map(p=>`<span class="spill">${PLATFORM[String(p).toLowerCase()]||p}</span>`).join("");
     el.innerHTML=`${facet(s.name)}
       <div class="statusrow">
-        <span class="spill verified">${seal(12)} Sealed</span>
+        ${s.token
+          ? `<span class="spill vchip" data-token="${encodeURIComponent(s.token)}"><span class="vspin"></span>verifying…</span>`
+          : `<span class="spill unsealed" title="No sealed install line — installs via an unverified path">Unsealed</span>`}
         ${platPills}
       </div>
       <div class="top"><span class="cico">${cardIcon(s.category)}</span><span class="name">${s.name}</span></div>
@@ -580,7 +597,9 @@ function render(){
           <dt>Filecoin</dt><dd class="mono">${s.cid?`<a class="addr" href="./ipfs.html?cid=${encodeURIComponent(s.cid)}" target="_blank" rel="noopener" title="Resolve ${s.cid} across IPFS gateways">${s.cid}</a>`:"—"}</dd>
         </dl>
         <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillseal add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
-        ${s.token ? `<div class="lbl" style="margin-top:.5rem">One line. Works in any agent. Checks itself before it installs.</div>` : ""}
+        ${s.token
+          ? `<div class="vrow"><button class="vbytes" data-token="${encodeURIComponent(s.token)}">Verify every byte</button><span class="vbytes-out lbl"></span></div>`
+          : `<div class="lbl warn" style="margin-top:.5rem">⚠ Unverified install path — this is not a sealed skill.</div>`}
         ${s.docs?`<a class="docs" href="${s.docs}" target="_blank" rel="noopener">View full documentation →</a>`:""}
       </div>`;
     el.querySelector(".copy").onclick=e=>{
@@ -689,6 +708,101 @@ document.getElementById("qsCopy").onclick=(e)=>{
     if(r.ok){const j=await r.json();if(j.skills?.length)CATALOG=j.skills.map(s=>({...s,source:s.source||s.author||"community"}));}}catch{}
   if(!CATALOG.length)CATALOG=EMBEDDED;
   chrome();render();paintQS();
+})();
+</script>
+
+<script>
+// ── live verification: every card proves itself in the visitor's own browser,
+//    so the badge is earned, not stamped. Cheap tier (checksum + signature) runs
+//    lazily as cards scroll in; a full byte tier fetches and hashes on demand.
+(function(){
+  const CHARSET="qpzry9x8gf2tvdw0s3jn54khce6mua7l", BECH32M=0x2bc830a3;
+  const polymod=v=>{const G=[0x3b6a57b2,0x26508e6d,0x1ea119fa,0x3d4233dd,0x2a1462b3];let c=1;
+    for(const x of v){const t=c>>25;c=((c&0x1ffffff)<<5)^x;for(let i=0;i<5;i++)if((t>>i)&1)c^=G[i];}return c>>>0;};
+  const hrpExpand=h=>{const o=[];for(const ch of h)o.push(ch.charCodeAt(0)>>5);o.push(0);for(const ch of h)o.push(ch.charCodeAt(0)&31);return o;};
+  const convert=(data,from,to,pad)=>{let acc=0,bits=0;const out=[],max=(1<<to)-1;
+    for(const val of data){acc=(acc<<from)|val;bits+=from;while(bits>=to){bits-=to;out.push((acc>>bits)&max);}}
+    if(pad&&bits>0)out.push((acc<<(to-bits))&max);return out;};
+  function bech32Decode(str){const s=str.trim().toLowerCase();const pos=s.lastIndexOf("1");
+    if(pos<1||pos+7>s.length)throw new Error("malformed line");const hrp=s.slice(0,pos),data=[];
+    for(const ch of s.slice(pos+1)){const d=CHARSET.indexOf(ch);if(d===-1)throw new Error("bad character");data.push(d);}
+    if(polymod([...hrpExpand(hrp),...data])!==BECH32M)throw new Error("checksum failed");
+    return {hrp,bytes:Uint8Array.from(convert(data.slice(0,-6),5,8,false))};}
+  const hex=u8=>[...u8].map(b=>b.toString(16).padStart(2,"0")).join("");
+  const hexToU8=h=>{const o=new Uint8Array(h.length/2);for(let i=0;i<o.length;i++)o[i]=parseInt(h.substr(i*2,2),16);return o;};
+  function readToken(str){const {hrp,bytes}=bech32Decode(str.replace(/^skill:\/\//,""));
+    if(hrp!=="sk")throw new Error("not a skill line");let o=0;const take=n=>{const b=bytes.slice(o,o+n);o+=n;return b;};
+    const version=take(1)[0];
+    if(version===2){const flags=take(1)[0];const out={version:2,manifestAddress:"sha256:"+hex(take(32))};if(flags&1)out.hint=hex(take(4));return out;}
+    if(version!==1)throw new Error("unsupported version "+version);const flags=take(1)[0];
+    const out={version:1,fingerprint:"sha256:"+hex(take(32)),publisherKey:hex(take(32)),signature:null,name:null,locations:[],inline:null};
+    if(flags&8)out.signature=hex(take(64));
+    if(flags&1){const n=take(1)[0];out.name=new TextDecoder().decode(take(n));}
+    if(flags&2){const c=take(1)[0];for(let i=0;i<c;i++){const l=take(1)[0];out.locations.push(new TextDecoder().decode(take(l)));}}
+    if(flags&4){const lb=take(2);out.inline=take((lb[0]<<8)|lb[1]);}
+    return out;}
+  const enc=new TextEncoder();
+  const sha256hex=async u8=>hex(new Uint8Array(await crypto.subtle.digest("SHA-256",u8)));
+  async function anchorOf(pubHex){const key=hexToU8(pubHex),tag=enc.encode("ed25519");
+    const buf=new Uint8Array(tag.length+key.length);buf.set(tag,0);buf.set(key,tag.length);return "anchor:"+await sha256hex(buf);}
+  async function verifySig(t){ if(!t.signature)return null;
+    try{const pub=await crypto.subtle.importKey("raw",hexToU8(t.publisherKey),{name:"Ed25519"},false,["verify"]);
+      return await crypto.subtle.verify({name:"Ed25519"},pub,hexToU8(t.signature),enc.encode(t.fingerprint));}
+    catch(e){return "unsupported";}}
+
+  async function verifyChip(el){
+    if(el.dataset.done)return; el.dataset.done="1";
+    let t; try{ t=readToken(decodeURIComponent(el.dataset.token||"")); }
+    catch(e){ el.className="spill vchip bad"; el.textContent="✗ "+e.message; return; }
+    if(t.version===2){ el.className="spill vchip ok"; el.textContent="✓ Sealed";
+      el.title="Pointer: checksum valid in your browser. The signature is checked on install."; return; }
+    const anchor=await anchorOf(t.publisherKey), valid=await verifySig(t);
+    if(valid===true){ el.className="spill vchip ok"; el.textContent="✓ Sealed";
+      el.title="Signature verified in your browser · trust: config (self asserted key) · "+anchor; }
+    else if(valid==="unsupported"){ el.className="spill vchip ok"; el.textContent="✓ Sealed";
+      el.title="Signed (this browser can't recheck ed25519; the CLI does) · "+anchor; }
+    else if(valid===false){ el.className="spill vchip bad"; el.textContent="✗ tampered";
+      el.title="Signature does NOT match these bytes — do not install."; }
+    else { el.className="spill vchip warnc"; el.textContent="unsigned"; el.title="No publisher signature on this line."; }
+  }
+
+  const io=new IntersectionObserver(es=>{ for(const e of es) if(e.isIntersecting){ verifyChip(e.target); io.unobserve(e.target); } },{rootMargin:"140px"});
+  const scan=()=>{
+    for(const el of document.querySelectorAll(".vchip:not([data-obs])")){ el.dataset.obs="1"; io.observe(el); }
+    // wire the byte-tier button directly (the .detail stops click propagation)
+    for(const b of document.querySelectorAll(".vbytes:not([data-w])")){ b.dataset.w="1"; b.onclick=e=>{ e.stopPropagation(); verifyBytes(b); }; }
+  };
+  const grid=document.getElementById("grid");
+  if(grid){ new MutationObserver(()=>{ scan(); idle(); }).observe(grid,{childList:true}); scan(); }
+  // Fallback so chips always settle even where IntersectionObserver is idle
+  // (e.g. an offscreen/background tab): verify pending chips a few at a time,
+  // yielding between batches so the page never blocks. Scales to any size.
+  function idle(){ const p=[...document.querySelectorAll(".vchip:not([data-done])")].slice(0,8);
+    if(!p.length)return; Promise.all(p.map(verifyChip)).then(()=>setTimeout(idle,40)); }
+  idle();
+
+  // full byte tier: fetch every file through public gateways and hash it. Best
+  // effort — if the network blocks gateways, it says so and points at the CLI.
+  const GATEWAYS=["https://dweb.link/ipfs","https://w3s.link/ipfs","https://ipfs.io/ipfs"];
+  async function fetchByAddr(address,cids){ const want=address.replace(/^sha256:/,"");
+    for(const cid of cids) for(const g of GATEWAYS){ try{
+      const ctrl=new AbortController(), to=setTimeout(()=>ctrl.abort(),6000);
+      const r=await fetch(`${g}/${cid}`,{signal:ctrl.signal}); clearTimeout(to);
+      if(r.ok){ const b=new Uint8Array(await r.arrayBuffer()); if(await sha256hex(b)===want) return b; } }catch(_){}} return null; }
+  async function verifyBytes(btn){
+    const out=btn.parentElement.querySelector(".vbytes-out");
+    let t; try{ t=readToken(decodeURIComponent(btn.dataset.token||"")); }catch(e){ out.textContent="malformed token"; return; }
+    btn.disabled=true; out.textContent="fetching and hashing every file…";
+    if(t.version!==1||!t.locations.length){ out.textContent="this shape needs the CLI to fetch"; btn.disabled=false; return; }
+    const cids=t.locations.filter(l=>l.startsWith("ipfs://")).map(l=>l.slice(7));
+    const list=await fetchByAddr(t.fingerprint,cids);
+    if(!list){ out.textContent="couldn't reach a gateway from here — the CLI can, over your network"; btn.disabled=false; return; }
+    let files; try{ files=JSON.parse(new TextDecoder().decode(list)).files; }catch(_){ out.textContent="bad file list"; btn.disabled=false; return; }
+    let okc=0;
+    for(const f of files){ const b=await fetchByAddr(f.address, f.cid?[f.cid,...cids]:cids);
+      if(b){ okc++; } else { out.innerHTML='<span style="color:#ff8a80">✗ '+f.path+' unreachable or altered</span>'; btn.disabled=false; return; } }
+    out.innerHTML='<span style="color:var(--seal)">✓ all '+okc+' files match their hashes, byte for byte</span>'; btn.disabled=false;
+  }
 })();
 </script>
 </body>
