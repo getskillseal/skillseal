@@ -593,7 +593,7 @@ function render(){
           <dt>Author</dt><dd>${s.author||"community"}</dd>
           <dt>Version</dt><dd>${s.version||"1.0.0"}</dd>
           <dt>License</dt><dd>${s.license||"MIT"}</dd>
-          <dt>&kappa;</dt><dd class="mono">${s.token?`<a class="addr" href="./seal.html?token=${encodeURIComponent(s.token)}#verify" title="Verify this address">${cut(s.address,34)}</a>`:`<span title="${s.address}">${cut(s.address,34)}</span>`}</dd>
+          <dt>UOR</dt><dd class="mono">${s.token?`<a class="addr" href="./seal.html?token=${encodeURIComponent(s.token)}#verify" title="Verify this address">${cut(s.address,34)}</a>`:`<span title="${s.address}">${cut(s.address,34)}</span>`}</dd>
           <dt>Filecoin</dt><dd class="mono">${s.cid?`<a class="addr" href="./ipfs.html?cid=${encodeURIComponent(s.cid)}" target="_blank" rel="noopener" title="Resolve ${s.cid} across IPFS gateways">${s.cid}</a>`:"—"}</dd>
         </dl>
         <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillseal add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
@@ -680,7 +680,7 @@ const QS={
        foot:"Then <code>skillseal add sk1…</code> anywhere. <code>skillseal where</code> shows which agents it found."},
   mcp:{note:"# Paste a token straight into a chat instead.",
        cmd:(t)=>`use_skill ${t}`,
-       foot:"Point your agent at <code>agent/skill-mcp.mjs</code> and it can install a token itself, reporting what it checked."},
+       foot:"Point your agent at <code>demo/agent/skill-mcp.mjs</code> and it can install a token itself, reporting what it checked."},
 };
 let qsTab="one";
 function paintQS(){
