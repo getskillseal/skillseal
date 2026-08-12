@@ -54,4 +54,35 @@ server.registerTool(
   },
 );
 
+// Pasting a token into a chat should work as well as pasting it into a shell.
+server.registerTool(
+  "install_skill",
+  {
+    description:
+      "Install an agent skill from a one-line token (starts with sk1). Checks the " +
+      "token, the publisher's signature and every file before writing anything, then " +
+      "installs it as a normal skill folder for the agents on this machine. Refuses " +
+      "and writes nothing if any check fails.",
+    inputSchema: {
+      token: z.string().describe("the install token, starting with sk1"),
+      to: z.string().optional().describe("install into this folder instead of the detected agents"),
+    },
+  },
+  async ({ token, to }) => {
+    const { install } = await import("../skillx/install.mjs");
+    try {
+      const r = await install(token, { to });
+      const where = r.installed.map((t) => `  ${t.label}: ${t.dest}`).join("\n");
+      return {
+        content: [{
+          type: "text",
+          text: [`Installed "${r.name}".`, ...r.steps.map((s) => `  - ${s}`), "", where].join("\n"),
+        }],
+      };
+    } catch (e) {
+      return { isError: true, content: [{ type: "text", text: `Refused: ${e.message}. Nothing was written.` }] };
+    }
+  },
+);
+
 await server.connect(new StdioServerTransport());

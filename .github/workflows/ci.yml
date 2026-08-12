@@ -38,6 +38,20 @@ jobs:
       - name: Run the agent demo (fetch + verify + use a skill from storage)
         run: ./agent-demo.sh
 
+      - name: Token layer (offline checks)
+        run: |
+          set -euo pipefail
+          node -e "
+            const {createToken,readToken}=await import(\"./skillx/token.mjs\");
+            const t=createToken({fingerprint:\"sha256:\"+\"ab\".repeat(32),publisherKey:\"cd\".repeat(32),signature:\"ef\".repeat(64),name:\"demo\",locations:[\"https://x.io/b\"]});
+            if(readToken(t).name!==\"demo\") throw new Error(\"round trip failed\");
+            if(readToken(\"skill://\"+t).name!==\"demo\") throw new Error(\"uri form failed\");
+            let caught=false; try{ readToken(t.slice(0,-1)+\"q\"); }catch{ caught=true; }
+            if(!caught) throw new Error(\"a damaged token was accepted\");
+            console.log(\"token round trip, uri form, and damage rejection all pass\");
+          " --input-type=module
+          node skillx/cli.mjs where > /dev/null && echo "agent detection runs"
+
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@v4

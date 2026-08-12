@@ -22,6 +22,7 @@ import { createPrivateKey, createPublicKey, sign as edSign } from "node:crypto";
 import { contentAddress, canonicalJson, NAMESPACE } from "../lib/store.mjs";
 import { buildTree } from "../lib/skilltree.mjs";
 import { savePin } from "../lib/pins.mjs";
+import { createToken } from "../skillx/token.mjs";
 
 const OUT = "harness/out";
 
@@ -147,6 +148,21 @@ async function main() {
   const rootAddress = contentAddress(rootBytes);
 
   const { privateKey, publicHex } = publisherKeys();
+
+  // Give every catalogue entry a one-line install token, so the hub hands out
+  // something that proves itself rather than a name to be looked up.
+  const where = process.env.HUB_LOCATION ? [process.env.HUB_LOCATION] : [];
+  for (let i = 0; i < catalog.length; i++) {
+    const fp = catalog[i].address;
+    catalog[i].token = createToken({
+      fingerprint: fp,
+      publisherKey: publicHex,
+      signature: edSign(null, Buffer.from(fp), privateKey).toString("hex"),
+      name: catalog[i].name,
+      locations: where,
+    });
+  }
+
   const signed = {
     registryRoot: rootAddress,
     count: entries.length,

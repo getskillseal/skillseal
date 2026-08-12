@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "A verifying gateway that pins what an agent reads — MCP tool descriptions and Agent Skills — to a content address, so silent tampering becomes unexpressible.",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "act1": "node client/run-act1.mjs",
     "act2": "node client/run-act2.mjs",
@@ -15,5 +17,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.12.1",
     "zod": "3.25.76"
+  },
+  "bin": {
+    "skillx": "skillx/cli.mjs"
   }
 }

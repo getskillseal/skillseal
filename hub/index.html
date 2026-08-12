@@ -308,12 +308,14 @@ function render(){
           <dt>&kappa;</dt><dd class="mono" title="${s.address}">${cut(s.address,34)}</dd>
           <dt>Filecoin</dt><dd class="mono" title="${s.cid}">${s.cid}</dd>
         </dl>
-        <div class="cmdrow"><span class="cmd mono">hermes skills install ${s.name}</span><button class="copy">Copy</button></div>
+        <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillx add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
+        ${s.token ? `<div class="lbl" style="margin-top:.5rem">One line. Works in any agent. Checks itself before it installs.</div>` : ""}
         ${s.docs?`<a class="docs" href="${s.docs}" target="_blank" rel="noopener">View full documentation →</a>`:""}
       </div>`;
     el.querySelector(".copy").onclick=e=>{
       e.stopPropagation();
-      navigator.clipboard?.writeText(`hermes skills install ${s.address}`);
+      // Copy the whole line, so pasting it anywhere installs the verified skill.
+      navigator.clipboard?.writeText(s.token?`npx skillx add ${s.token}`:`hermes skills install ${s.name}`);
       e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);
     };
     el.querySelector(".seal").onclick=e=>e.stopPropagation();

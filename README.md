@@ -10,6 +10,33 @@ Every line in that picture is reproduced by `./demo.sh` on your machine.
 
 ---
 
+## One line, any agent
+
+```bash
+npx skillx add sk1qyxcff3u8hhdxzq9cqxfye7fzvlwvptazge6j72zr5urhe…
+```
+
+That line is not a lookup. It carries the skill's fingerprint, its publisher's key, and their signature, so the install checks itself:
+
+```
+✓ token checksum is valid          caught offline, before any download
+✓ signed by 5a142b0c2d720f3d…      who published these exact contents
+✓ file list matches the token      the index was not swapped
+✓ all 4 files match their entries  no file was altered
+
+  installed csv-stats → Claude Code / Claude Desktop
+```
+
+Alter one byte anywhere in the source and the install refuses, leaving nothing on disk. Mistype one character in the token and it is rejected without a network call. Because the fingerprint decides what is acceptable, the file can come from any bucket, gateway or mirror — none of them have to be trusted.
+
+It installs as a plain [Agent Skills](https://agentskills.io/home) folder into whichever agents are on the machine, so Claude Code, Hermes, goose, Cursor, Codex, OpenCode, OpenHands, Letta, Amp, Gemini CLI and Copilot all read it with no plugin and no integration. Existing name-based installs keep working. Details: [docs/design/install-tokens.md](docs/design/install-tokens.md).
+
+```bash
+skillx where                                  # agents found here
+skillx inspect sk1…                           # read a token, offline
+skillx publish ./my-skill --from <bucket-url> # print the line others paste
+```
+
 ## The problem
 
 Agents load a server's **tool descriptions**, and a skill's **`SKILL.md`**, directly into model context, and they fetch them **by name** every time. That text is mutable: whoever can update the server or the file changes what the agent does, after you approved it. This is the documented [MCP tool poisoning attack](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), and it applies just as cleanly to [Agent Skills](https://agentskills.io/home). Model Context Protocol is now a [Linux Foundation and AAIF project](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) at ecosystem scale, so this is the supply chain gap sitting under three [AAIF working groups](https://aaif.io/): Security and Privacy, Identity and Trust, and Observability and Traceability.
