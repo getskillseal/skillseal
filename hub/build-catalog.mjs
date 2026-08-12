@@ -16,8 +16,9 @@ import { buildTree } from "../lib/skilltree.mjs";
 
 const ROOT = process.argv[2] || "skills-samples";
 
-const REPO = process.env.HUB_REPO_URL
-  || "https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
+// Docs live on the same platform the upstream hub uses (Docusaurus), at the
+// same route shape: /docs/user-guide/skills/bundled/{category}/{category}-{name}
+const DOCS_BASE = process.env.HUB_DOCS_BASE || "/mcp-skills-integrity";
 
 function frontmatter(dir) {
   const md = readFileSync(join(dir, "SKILL.md"), "utf8");
@@ -86,8 +87,7 @@ async function main() {
       address: tree.address,
       cid: cid || "(not pinned yet)",
       files: tree.manifest.files.length,
-      // The equivalent of a hub docs page: the skill's own SKILL.md.
-      docs: `${REPO}/${ROOT}/${f.category}/${f.name}/SKILL.md`,
+      docs: `${DOCS_BASE}/docs/user-guide/skills/bundled/${f.category}/${f.category}-${f.name}`,
     });
   }
 

@@ -11,3 +11,8 @@ skill-lock/.work/
 pins/
 *.log
 hub/catalog.json
+website/node_modules/
+website/build/
+website/.docusaurus/
+website/docs/user-guide/skills/bundled/
+website/static/hub/

@@ -210,17 +210,19 @@ const ICON={all:"📋",data:"📊",document:"📄",devops:"⚙️",web:"🌐",se
 const LABEL={all:"All Skills",data:"Data",document:"Document",devops:"DevOps",web:"Web",security:"Security",productivity:"Productivity"};
 const SRCLABEL={all:"All",builtin:"Built-in",official:"Optional",community:"Community"};
 const REPO="https://github.com/humuhumu33/mcp-skills-integrity/blob/main";
+// Generated skill pages, same route shape as the upstream hub docs.
+const DOCS="/mcp-skills-integrity/docs/user-guide/skills/bundled";
 const EMBEDDED=[
  {name:"csv-stats",source:"official",category:"data",desc:"Summarize a CSV file: row count, columns, and numeric means.",
   overview:"Run <code>scripts/stats.py</code> over a CSV and return a JSON summary: row count, column names, and the mean of every numeric column. Standard library only, deterministic output.",
   prereq:{kind:"cmd",value:"python3"},tags:["csv","analysis","data"],platforms:["macOS","Linux"],version:"1.0.0",author:"example",license:"MIT",
   address:"sha256:4e8cb35109ab6ae6069b6c984ebd52c659712905c83eaf7a0f662b1251e63d50",cid:"bafybeic6…q7m",
-  docs:REPO+"/skills-samples/data/csv-stats/SKILL.md"},
+  docs:DOCS+"/data/data-csv-stats"},
  {name:"pdf-fill",source:"official",category:"document",desc:"Fill a PDF form from a JSON record and return the completed file.",
   overview:"Read the field map in <code>references/fields.md</code>, then run <code>scripts/fill.py</code> to write a completed copy. Flatten only when asked; flattened PDFs are no longer editable.",
   prereq:{kind:"cmd",value:"python3"},tags:["pdf","forms","automation"],platforms:["macOS","Linux"],version:"1.0.0",author:"example",license:"MIT",
   address:"sha256:ab27cf7f3afa2c71ee18fe21057cdfa80dbaf499521ca62859423a9669450f06",cid:"bafybeidf…8kp",
-  docs:REPO+"/skills-samples/document/pdf-fill/SKILL.md"},
+  docs:DOCS+"/document/document-pdf-fill"},
  {name:"release-notes",source:"builtin",category:"devops",desc:"Draft categorized release notes from a list of merged pull requests.",
   overview:"Group merged pull requests into Features, Fixes, and Maintenance; write one past-tense bullet per change in user-facing language, breaking changes first.",
   tags:["git","changelog","release"],platforms:["Any"],version:"1.0.1",author:"Hermes Agent",license:"MIT",

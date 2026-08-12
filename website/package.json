@@ -1,0 +1,31 @@
+{
+  "name": "skills-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "docs": "node generate-skill-docs.mjs",
+    "start": "npm run docs && docusaurus start",
+    "build": "npm run docs && docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "clsx": "2.1.1",
+    "prism-react-renderer": "2.4.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "//": "webpack 5.109 tightened ProgressPlugin option validation, which webpackbar 6.0.1 trips. Pin to the last release it agrees with.",
+  "overrides": {
+    "webpack": "5.97.1"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "typescript": "5.6.3"
+  },
+  "engines": { "node": ">=20.0" }
+}

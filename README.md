@@ -120,11 +120,16 @@ Two explorations extend the same content-addressed model beyond the demo:
   ```bash
   ./agent-demo.sh
   ```
-- **A Skills Hub you can browse.** [`hub/index.html`](hub/index.html) is a skills catalogue in the familiar hub layout (search, category chips, cards), with one difference that matters: every card carries the skill's **content address** and its **Filecoin CID**, and is marked verified because an agent can prove it before use. `node hub/build-catalog.mjs` regenerates the catalogue with real addresses from encoded skills.
+- **A Skills Hub you can browse.** [`hub/index.html`](hub/index.html) is a skills catalogue in the familiar hub layout (search, category chips, expandable cards), with one difference that matters: every card carries the skill's **content address** and its **Filecoin CID**, and shows a verified seal because an agent can prove it before use. `node hub/build-catalog.mjs` regenerates the catalogue with real addresses from encoded skills.
 
   ```bash
   node hub/build-catalog.mjs        # real addresses -> hub/catalog.json
   python3 -m http.server -d hub 8899
+  ```
+- **Documentation on the same platform the ecosystem already uses.** [`website/`](website/) is a Docusaurus 3 site, matching the upstream skills docs route for route: `/docs/user-guide/skills/bundled/{category}/{category}-{name}`. `generate-skill-docs.mjs` turns every `SKILL.md` into a page carrying that skill's address and per file table, computed at generation time so the docs and the bytes an agent fetches cannot drift apart.
+
+  ```bash
+  cd website && npm install && npm start   # generates skill pages, then serves
   ```
 
 ## Honest limitations

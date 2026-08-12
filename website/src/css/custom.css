@@ -1,0 +1,32 @@
+/* Same palette as the Skills Hub page: gold on near-black. */
+:root {
+  --ifm-color-primary: #ffd700;
+  --ifm-color-primary-dark: #e6c200;
+  --ifm-color-primary-darker: #d9b800;
+  --ifm-color-primary-darkest: #b39700;
+  --ifm-color-primary-light: #ffdb1a;
+  --ifm-color-primary-lighter: #ffdd26;
+  --ifm-color-primary-lightest: #ffe44d;
+  --ifm-font-family-base: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --ifm-code-font-size: 90%;
+}
+
+[data-theme="dark"] {
+  --ifm-background-color: #07070d;
+  --ifm-background-surface-color: #0c0c16;
+  --ifm-navbar-background-color: #0a0a11;
+  --ifm-footer-background-color: #0a0a11;
+  --ifm-font-color-base: #fafaf6;
+  --ifm-heading-color: #fafaf6;
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.06);
+  --ifm-table-border-color: rgba(255, 255, 255, 0.08);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .navbar { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+[data-theme="dark"] .menu__link--active { color: var(--ifm-color-primary); }
+[data-theme="dark"] table code { color: var(--ifm-color-primary); }
+
+h1, h2, h3 { letter-spacing: -0.02em; }
+article table { display: table; width: 100%; }
