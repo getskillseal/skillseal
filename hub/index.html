@@ -545,7 +545,7 @@ function render(){
     const platPills=(s.platforms||[]).slice(0,3).map(p=>`<span class="spill">${PLATFORM[String(p).toLowerCase()]||p}</span>`).join("");
     el.innerHTML=`${facet(s.name)}
       <div class="statusrow">
-        <span class="spill verified">${seal(12)} Verified</span>
+        <span class="spill verified">${seal(12)} Sealed</span>
         ${platPills}
       </div>
       <div class="top"><span class="cico">${cardIcon(s.category)}</span><span class="name">${s.name}</span></div>
