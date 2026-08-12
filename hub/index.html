@@ -9,15 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --gold:#ffd700;
-    --bg:#07070d;
-    --panel:#0c0c16;
-    --nav:#0a0a11;
-    --ink:#fafaf6;
-    --dim:#9a968e;
-    --line:rgba(255,255,255,.06);
-    --line-gold:rgba(255,215,0,.25);
-    --green:#4ade80; --amber:#fbbf24; --blue:#60a5fa; --purple:#a78bfa;
+    /* near-black premium canvas: restraint is the polish */
+    --bg:#0c0c0e;
+    --panel:#161618;
+    --panel-2:#1c1c1f;
+    --nav:#151517;
+    --ink:#f4f4f5;
+    --dim:#8a8a92;
+    --faint:#5c5c63;
+    --line:rgba(255,255,255,.07);
+    --line-2:rgba(255,255,255,.11);
+    --accent:#eeea86;               /* pale yellow, primary CTA only */
+    --seal:#1d9bf0;                 /* our one saturated accent */
+    --green:#5bd97e;
+    /* aliases so existing rules keep working under the new palette */
+    --gold:var(--accent);
+    --line-gold:rgba(238,234,134,.25);
+    --amber:#eeea86; --blue:#60a5fa; --purple:#a78bfa;
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--ink)}
@@ -113,13 +121,46 @@
   .catbtn .c{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem}
   .catbtn.on .c{color:var(--gold)}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.75rem}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem;animation:cardIn .35s ease both}
-  .card:hover{border-color:var(--line-gold);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+  .mainhead{display:flex;align-items:center;margin-bottom:1.15rem}
+  .mtitle{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:.6rem}
+  .countbadge{font-size:.82rem;font-weight:500;color:var(--dim);background:var(--panel);
+    border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem}
+  .sortwrap{margin-left:auto;position:relative}
+  .sortbtn{background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--ink);
+    font-size:.9rem;padding:.55rem .9rem;display:flex;align-items:center;gap:.5rem}
+  .sortbtn:hover{border-color:var(--line-2)}
+  .sortbtn .chev{color:var(--dim);font-size:.8rem}
+  .sortmenu{position:absolute;right:0;top:calc(100% + 6px);background:var(--panel-2);border:1px solid var(--line-2);
+    border-radius:10px;padding:.3rem;min-width:150px;z-index:20;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .sortmenu button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--dim);
+    font-size:.88rem;padding:.45rem .6rem;border-radius:7px}
+  .sortmenu button:hover{background:var(--panel);color:var(--ink)}
+  .sortmenu button.on{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1rem}
+  .card{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;padding:1.15rem 1.25rem;animation:cardIn .35s ease both}
+  .card:hover{border-color:var(--line-2);background:var(--panel-2)}
   @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  /* faceted shard field, fading in from the right */
+  .card .facet{position:absolute;top:0;right:0;height:100%;width:60%;pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
+  .card>*:not(.facet){position:relative}
+
+  /* status pills, small-caps, outline — the Featherless rhythm */
+  .statusrow{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem}
+  .spill{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;border:1px solid var(--line-2);border-radius:7px;padding:.16rem .45rem;color:var(--dim)}
+  .spill svg{width:12px;height:12px}
+  .spill.verified{color:var(--seal);border-color:rgba(29,155,240,.4);background:rgba(29,155,240,.08)}
+  .spill.src{color:var(--ink)}
+
   .card .top{display:flex;align-items:center;gap:.5rem}
-  .card .name{font-weight:600;font-size:1rem;letter-spacing:-.01em}
-  .card .desc{margin:.5rem 0 .75rem;color:var(--dim);font-size:.9rem;line-height:1.45}
+  .card .cico{font-size:1.05rem;opacity:.95}
+  .card .name{font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
+  .card .desc{margin:.55rem 0 .85rem;color:var(--dim);font-size:.9rem;line-height:1.5}
+  .metarow{display:flex;gap:1.1rem;font-size:.74rem;color:var(--faint)}
+  .metarow span{white-space:nowrap}
 
   /* verified seal: one glance says "provably the bytes you approved".
      The proof itself is one hover away, so the card face stays quiet. */
@@ -249,6 +290,17 @@
     <div id="cats"></div>
   </nav>
   <main>
+    <div class="mainhead">
+      <div class="mtitle">Skills <span class="countbadge mono" id="skillCount">0</span></div>
+      <div class="sortwrap">
+        <button class="sortbtn" id="sortBtn">Most used <span class="chev">▾</span></button>
+        <div class="sortmenu" id="sortMenu" hidden>
+          <button data-sort="used">Most used</button>
+          <button data-sort="az">A–Z</button>
+          <button data-sort="cat">By category</button>
+        </div>
+      </div>
+    </div>
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty" hidden>No skills match your search.</div>
   </main>
@@ -342,9 +394,31 @@ const seal=(size)=>`<svg viewBox="0 0 24 24" width="${size}" height="${size}" ar
   <path d="M7.6 12.3l2.9 2.9 5.9-6.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
-let CATALOG=[],state={cat:"all",src:"all",q:""},timer;
+let CATALOG=[],state={cat:"all",src:"all",q:"",sort:"used"},timer;
 const cut=(s,n)=>s.length>n?s.slice(0,n)+"…":s;
 const num=n=>n.toLocaleString();
+
+// The faceted shard field on each card, seeded by the skill name so no two are
+// quite alike. Drawn here, monochrome, kept faint so it never fights the text.
+function facet(seed){
+  let h=2166136261;for(const ch of seed){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}
+  const rnd=()=>{h^=h<<13;h^=h>>>17;h^=h<<5;return ((h>>>0)/4294967296);};
+  const W=200,H=150,cols=4,rows=3,pts=[];
+  for(let y=0;y<=rows;y++)for(let x=0;x<=cols;x++){
+    const jx=(x===0||x===cols)?0:(rnd()-.5)*22, jy=(y===0||y===rows)?0:(rnd()-.5)*22;
+    pts.push([x/cols*W+jx, y/rows*H+jy]);
+  }
+  const idx=(x,y)=>y*(cols+1)+x;
+  let tris="";
+  for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
+    const a=pts[idx(x,y)],b=pts[idx(x+1,y)],c=pts[idx(x,y+1)],d=pts[idx(x+1,y+1)];
+    const o1=(.02+rnd()*.06).toFixed(3), o2=(.02+rnd()*.06).toFixed(3);
+    tris+=`<polygon points="${a} ${b} ${c}" fill="#fff" fill-opacity="${o1}"/>`;
+    tris+=`<polygon points="${b} ${c} ${d}" fill="#fff" fill-opacity="${o2}"/>`;
+  }
+  return `<svg class="facet" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g stroke="#fff" stroke-opacity=".05" stroke-width=".6">${tris}</g></svg>`;
+}
 
 function render(){
   const q=state.q.toLowerCase();
@@ -352,6 +426,9 @@ function render(){
     (state.cat==="all"||groupOf(s.category)===state.cat)&&
     (state.src==="all"||s.source===state.src)&&
     (!q||(s.name+" "+s.desc).toLowerCase().includes(q)));
+  if(state.sort==="az") list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(state.sort==="cat") list.sort((a,b)=>(a.category+a.name).localeCompare(b.category+b.name));
+  const cnt=document.getElementById("skillCount");if(cnt)cnt.textContent=num(list.length);
   const grid=document.getElementById("grid");grid.innerHTML="";
   document.getElementById("empty").hidden=list.length>0;
   for(const s of list){
@@ -362,15 +439,27 @@ function render(){
     const pre=s.prereq
       ? `<div class="prereq"><div class="lbl">Prerequisites</div>
            <div class="r"><span class="k">${s.prereq.kind||"cmd"}</span><code>${s.prereq.value}</code></div></div>` : "";
-    el.innerHTML=`<div class="top"><span>${cardIcon(s.category)}</span><span class="name">${s.name}</span>
-        <span class="seal" tabindex="0" role="img" aria-label="Verified: contents match the publisher's signature">${seal(17)}
+    const srcPill=SRCLABEL[s.source]||s.source;
+    const platPills=(s.platforms||[]).slice(0,3).map(p=>`<span class="spill">${PLATFORM[String(p).toLowerCase()]||p}</span>`).join("");
+    el.innerHTML=`${facet(s.name)}
+      <div class="statusrow">
+        <span class="spill verified">${seal(12)} Verified</span>
+        <span class="spill src">${srcPill}</span>
+        ${platPills}
+      </div>
+      <div class="top"><span class="cico">${cardIcon(s.category)}</span><span class="name">${s.name}</span>
+        <span class="seal" tabindex="0" role="img" aria-label="Verified: contents match the publisher's signature">${seal(18)}
           <span class="tip">
             <span class="h">${seal(14)} Verified skill</span>
             <span class="p">These exact bytes are what the publisher signed. Your agent rechecks them before it runs.</span>
           </span>
         </span></div>
       <p class="desc">${s.desc}</p>
-      <div class="chips"><span class="chip cat">${catLabel(s.category)}</span>${plats}</div>
+      <div class="metarow mono">
+        <span title="version">v${s.version||"1.0.0"}</span>
+        <span title="category">${catLabel(s.category)}</span>
+        <span title="pinned to Filecoin/IPFS">${s.cid && s.cid.startsWith("Qm") ? "◈ on IPFS" : "◇ local"}</span>
+      </div>
       <div class="detail">
         <div class="lbl">Overview</div>
         <p class="ov">${s.overview||s.desc}</p>
@@ -452,6 +541,18 @@ addEventListener("keydown",e=>{
 });
 
 document.getElementById("heroMeta").insertAdjacentHTML("afterbegin",seal(14));
+
+// Sort menu
+const sortBtn=document.getElementById("sortBtn"),sortMenu=document.getElementById("sortMenu");
+const SORTLABEL={used:"Most used",az:"A–Z",cat:"By category"};
+sortBtn.onclick=(e)=>{e.stopPropagation();sortMenu.hidden=!sortMenu.hidden;};
+document.addEventListener("click",()=>sortMenu.hidden=true);
+sortMenu.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  state.sort=b.dataset.sort;
+  sortBtn.innerHTML=`${SORTLABEL[state.sort]} <span class="chev">▾</span>`;
+  sortMenu.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));
+  sortMenu.hidden=true;render();
+});
 
 // Quick start tabs. Each one is a real, working way to install the same skill.
 const QS={
