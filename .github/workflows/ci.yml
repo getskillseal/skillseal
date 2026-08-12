@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           node -e "
-            const {createToken,readToken}=await import(\"./skillx/token.mjs\");
+            const {createToken,readToken}=await import(\"./skillseal/token.mjs\");
             const t=createToken({fingerprint:\"sha256:\"+\"ab\".repeat(32),publisherKey:\"cd\".repeat(32),signature:\"ef\".repeat(64),name:\"demo\",locations:[\"https://x.io/b\"]});
             if(readToken(t).name!==\"demo\") throw new Error(\"round trip failed\");
             if(readToken(\"skill://\"+t).name!==\"demo\") throw new Error(\"uri form failed\");
@@ -50,7 +50,7 @@ jobs:
             if(!caught) throw new Error(\"a damaged token was accepted\");
             console.log(\"token round trip, uri form, and damage rejection all pass\");
           " --input-type=module
-          node skillx/cli.mjs where > /dev/null && echo "agent detection runs"
+          node skillseal/cli.mjs where > /dev/null && echo "agent detection runs"
 
       - name: Upload evidence
         if: always()

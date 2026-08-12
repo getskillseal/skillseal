@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Skills Hub</title>
+<title>SkillSeal — skills you can prove</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,9 +30,7 @@
   nav.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:1.9rem;
     padding:.85rem 1.6rem;background:var(--nav);border-bottom:1px solid var(--line)}
   .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.05rem}
-  .brand .mark{width:30px;height:30px;border-radius:6px;flex:0 0 30px;
-    background:radial-gradient(circle at 34% 30%,#fff 0 18%,#c9c4b8 19% 34%,#2a2a33 35% 100%);
-    border:1px solid rgba(255,255,255,.18)}
+  .brand .mark{font-size:1.35rem;line-height:1;filter:saturate(1.1)}
   nav.top .links{display:flex;align-items:center;gap:1.6rem;font-size:.98rem;color:#d7d3ca}
   nav.top .links a:hover{color:#fff}
   nav.top .links a.on{color:var(--gold);font-weight:500}
@@ -52,6 +50,36 @@
   .sub b{color:var(--gold);font-weight:700}
   .meta{margin:1.15rem 0 0;font-size:.86rem;color:#6f6b64;display:inline-flex;align-items:center;gap:.4rem}
   .meta svg{vertical-align:middle}
+
+  h1 em{font-style:italic;color:var(--gold)}
+  .lead{max-width:720px;margin:1.2rem auto 0;font-size:1.12rem;line-height:1.6;color:var(--dim)}
+  .cta{display:flex;justify-content:center;gap:.7rem;margin-top:1.7rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:9px;
+    padding:.7rem 1.25rem;font-size:.95rem;font-weight:500;color:var(--ink);background:#11111c}
+  .btn:hover{border-color:rgba(255,255,255,.18)}
+  .btn.primary{background:var(--gold);border-color:var(--gold);color:#14120a;font-weight:700}
+  .btn.primary:hover{background:#ffdf33}
+  .btn b{color:inherit}
+
+  /* ── quick start ─────────────────────────────────────────── */
+  .qs{padding:.5rem 1.5rem 2.6rem}
+  .qs-inner{max-width:940px;margin:0 auto}
+  .qs-h{font-family:"JetBrains Mono",monospace;font-size:.82rem;letter-spacing:.2em;color:var(--gold);margin:0 0 .8rem}
+  .qs-box{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0a0a12}
+  .qs-tabs{display:flex;align-items:center;gap:1.3rem;padding:.85rem 1.2rem;border-bottom:1px solid var(--line)}
+  .qs-label{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.14em;color:#8a867e}
+  .qs-tab{background:none;border:0;border-bottom:2px solid transparent;padding:.25rem .1rem;color:#c8c4bc;font-size:.92rem}
+  .qs-tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+  .qs-spacer{flex:1}
+  .qs-badge{font-size:.78rem;color:#8a867e;border:1px solid var(--line);border-radius:20px;padding:.25rem .7rem}
+  .qs-body{padding:1.4rem 1.4rem 1.5rem}
+  .qs-note{margin:0 0 1rem;font-family:"JetBrains Mono",monospace;font-size:.88rem;font-style:italic;color:#6f6b64}
+  .qs-cmd{display:flex;align-items:center;gap:.7rem}
+  .qs-dollar{color:var(--gold);font-family:"JetBrains Mono",monospace;font-weight:700}
+  .qs-cmd code{flex:1;font-family:"JetBrains Mono",monospace;font-size:1rem;color:#e8edf4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qs-copy{background:none;border:0;color:#6f6b64;font-size:1.1rem;padding:.2rem .4rem}
+  .qs-copy:hover{color:var(--gold)}
+  .qs-foot{max-width:780px;margin:1rem auto 0;text-align:center;font-size:.92rem;color:var(--dim);line-height:1.6}
 
   .stats{display:flex;justify-content:center;gap:3.1rem;margin-top:1.9rem;flex-wrap:wrap}
   .stat .n{font-size:1.75rem;font-weight:700;letter-spacing:-.02em;line-height:1;font-family:"JetBrains Mono",monospace}
@@ -157,11 +185,11 @@
 <body>
 
 <nav class="top">
-  <a class="brand" href="#"><span class="mark"></span>Hermes Agent</a>
+  <a class="brand" href="#"><span class="mark">🦭</span>SkillSeal</a>
   <div class="links">
-    <a href="#">Docs</a>
-    <a href="#" class="on">Skills</a>
-    <a class="ext" href="#">Download</a>
+    <a href="#skills" class="on">Skills</a>
+    <a href="#quickstart">Quick start</a>
+    <a class="ext" href="/mcp-skills-integrity/docs">Docs</a>
   </div>
   <div class="right">
     <a class="ext" href="https://github.com/humuhumu33/mcp-skills-integrity">GitHub</a>
@@ -169,17 +197,42 @@
 </nav>
 
 <header class="hero">
-  <p class="eyebrow">Hermes Agent</p>
-  <h1>Skills Hub</h1>
-  <p class="sub">Discover, search, and install from <b id="total">0</b> skills across <span id="regs">0</span> registries</p>
-  <p class="meta" id="heroMeta">Every skill verified before it runs</p>
-  <div class="stats">
-    <div class="stat"><div class="n" style="color:var(--green)" id="sBuiltin">0</div><div class="l">Built-in</div></div>
-    <div class="stat"><div class="n" style="color:var(--amber)" id="sOptional">0</div><div class="l">Optional</div></div>
-    <div class="stat"><div class="n" style="color:var(--blue)" id="sCommunity">0</div><div class="l">Community</div></div>
-    <div class="stat"><div class="n" style="color:var(--purple)" id="sCats">0</div><div class="l">Categories</div></div>
+  <h1>Skills you can <em>prove</em>.</h1>
+  <p class="lead">Paste one line. It fetches the skill from anywhere, checks every byte
+    against the publisher's signature, and installs it where your agent already looks.
+    No account, no registry, nothing to trust.</p>
+  <div class="cta">
+    <a class="btn primary" href="#quickstart">Get started</a>
+    <a class="btn" href="#skills">Browse <b id="total">0</b> skills</a>
   </div>
+  <p class="meta" id="heroMeta">Works with Claude, Hermes, goose, Cursor, Copilot and any agent that reads a skill folder</p>
 </header>
+
+<section class="qs" id="quickstart">
+  <div class="qs-inner">
+    <p class="qs-h">QUICK START</p>
+    <div class="qs-box">
+      <div class="qs-tabs">
+        <span class="qs-label">INSTALL</span>
+        <button class="qs-tab on" data-tab="one">One-liner</button>
+        <button class="qs-tab" data-tab="npm">npm</button>
+        <button class="qs-tab" data-tab="mcp">In a chat</button>
+        <span class="qs-spacer"></span>
+        <span class="qs-badge">🦭 no account needed</span>
+      </div>
+      <div class="qs-body">
+        <p class="qs-note" id="qsNote"># Works in any agent. Checks itself. You're welcome. 🦭</p>
+        <div class="qs-cmd">
+          <span class="qs-dollar">$</span>
+          <code id="qsCode">npx skillseal add sk1qy9c607fvn6ngfp9cvcyulx6q…</code>
+          <button class="qs-copy" id="qsCopy" title="Copy">⧉</button>
+        </div>
+      </div>
+    </div>
+    <p class="qs-foot" id="qsFoot">Every skill below carries its own line. Copy one and it installs verified,
+      from a bucket or a public gateway, into whichever agents you have.</p>
+  </div>
+</section>
 
 <div class="band">
   <div class="search">
@@ -190,7 +243,7 @@
   <div class="pills" id="pills"></div>
 </div>
 
-<div class="layout">
+<div class="layout" id="skills">
   <nav class="side">
     <div class="label">Categories</div>
     <div id="cats"></div>
@@ -330,14 +383,14 @@ function render(){
           <dt>&kappa;</dt><dd class="mono" title="${s.address}">${cut(s.address,34)}</dd>
           <dt>Filecoin</dt><dd class="mono" title="${s.cid}">${s.cid}</dd>
         </dl>
-        <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillx add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
+        <div class="cmdrow"><span class="cmd mono">${s.token ? `npx skillseal add ${cut(s.token, 30)}` : `hermes skills install ${s.name}`}</span><button class="copy">Copy</button></div>
         ${s.token ? `<div class="lbl" style="margin-top:.5rem">One line. Works in any agent. Checks itself before it installs.</div>` : ""}
         ${s.docs?`<a class="docs" href="${s.docs}" target="_blank" rel="noopener">View full documentation →</a>`:""}
       </div>`;
     el.querySelector(".copy").onclick=e=>{
       e.stopPropagation();
       // Copy the whole line, so pasting it anywhere installs the verified skill.
-      navigator.clipboard?.writeText(s.token?`npx skillx add ${s.token}`:`hermes skills install ${s.name}`);
+      navigator.clipboard?.writeText(s.token?`npx skillseal add ${s.token}`:`hermes skills install ${s.name}`);
       e.target.textContent="Copied";setTimeout(()=>e.target.textContent="Copy",1200);
     };
     el.querySelector(".seal").onclick=e=>e.stopPropagation();
@@ -355,11 +408,6 @@ function chrome(){
   const byCat={},bySrc={};
   CATALOG.forEach(s=>{byCat[s.category]=(byCat[s.category]||0)+1;bySrc[s.source]=(bySrc[s.source]||0)+1;});
   document.getElementById("total").textContent=num(CATALOG.length);
-  document.getElementById("regs").textContent=Object.keys(bySrc).length;
-  document.getElementById("sBuiltin").textContent=num(bySrc.builtin||0);
-  document.getElementById("sOptional").textContent=num(bySrc.official||0);
-  document.getElementById("sCommunity").textContent=num(bySrc.community||0);
-  document.getElementById("sCats").textContent=num(Object.keys(byCat).length);
 
   const pills=document.getElementById("pills");pills.innerHTML="";
   const ORDER=["builtin","official"]; // All, Built-in, Optional, then registries
@@ -405,11 +453,43 @@ addEventListener("keydown",e=>{
 
 document.getElementById("heroMeta").insertAdjacentHTML("afterbegin",seal(14));
 
+// Quick start tabs. Each one is a real, working way to install the same skill.
+const QS={
+  one:{note:"# Works in any agent. Checks itself. You're welcome. 🦭",
+       cmd:(t)=>`npx skillseal add ${t}`,
+       foot:"Nothing to install first. The line carries the skill's fingerprint, its publisher's key and their signature."},
+  npm:{note:"# Prefer it on your PATH? Install it once.",
+       cmd:()=>"npm i -g skillseal",
+       foot:"Then <code>skillseal add sk1…</code> anywhere. <code>skillseal where</code> shows which agents it found."},
+  mcp:{note:"# Paste a token straight into a chat instead.",
+       cmd:(t)=>`use_skill ${t}`,
+       foot:"Point your agent at <code>agent/skill-mcp.mjs</code> and it can install a token itself, reporting what it checked."},
+};
+let qsTab="one";
+function paintQS(){
+  const t=(CATALOG.find(s=>s.token)||{}).token||"sk1qy9c607fvn6ngfp9cvcyulx6q…";
+  const short=t.length>46?t.slice(0,46)+"…":t;
+  const q=QS[qsTab];
+  document.getElementById("qsNote").textContent=q.note;
+  document.getElementById("qsCode").textContent=q.cmd(short);
+  document.getElementById("qsCode").dataset.full=q.cmd(t);
+  document.getElementById("qsFoot").innerHTML=q.foot;
+}
+document.querySelectorAll(".qs-tab").forEach(b=>b.onclick=()=>{
+  qsTab=b.dataset.tab;
+  document.querySelectorAll(".qs-tab").forEach(x=>x.classList.toggle("on",x===b));
+  paintQS();
+});
+document.getElementById("qsCopy").onclick=(e)=>{
+  navigator.clipboard?.writeText(document.getElementById("qsCode").dataset.full||"");
+  e.target.textContent="✓";setTimeout(()=>e.target.textContent="⧉",1200);
+};
+
 (async()=>{
   try{const r=await fetch("catalog.json",{cache:"no-store"});
     if(r.ok){const j=await r.json();if(j.skills?.length)CATALOG=j.skills.map(s=>({...s,source:s.source||s.author||"community"}));}}catch{}
   if(!CATALOG.length)CATALOG=EMBEDDED;
-  chrome();render();
+  chrome();render();paintQS();
 })();
 </script>
 </body>

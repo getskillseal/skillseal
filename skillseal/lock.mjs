@@ -1,7 +1,7 @@
 // skills.lock — the skills a project depends on, pinned.
 //
 // A line per skill: its name and the exact token it was installed from. Commit
-// it and the whole team, and CI, install the same bytes. `skillx verify` reads
+// it and the whole team, and CI, install the same bytes. `skillseal verify` reads
 // it back and fails if anything on disk no longer matches.
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
@@ -9,7 +9,7 @@ import { join, relative, sep } from "node:path";
 import { readToken } from "./token.mjs";
 import { fingerprintOf } from "./fetch.mjs";
 
-export const LOCKFILE = process.env.SKILLX_LOCKFILE || "skills.lock";
+export const LOCKFILE = process.env.SKILLSEAL_LOCKFILE || "skills.lock";
 
 export function readLock(file = LOCKFILE) {
   if (!existsSync(file)) return { version: 1, skills: {} };

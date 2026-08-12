@@ -12,7 +12,7 @@ whoever controls that name, and it says nothing about the bytes you receive.
 This is the same install, as a token:
 
 ```
-npx skillx add sk1qyx…
+npx skillseal add sk1qyx…
 ```
 
 The token carries the proof with it, so the registry becomes optional and the
@@ -81,8 +81,8 @@ support is a line in a table rather than an integration, and progressive
 disclosure keeps working untouched.
 
 ```bash
-skillx where     # which agents are on this machine
-skillx add sk1…  # install for the ones found
+skillseal where     # which agents are on this machine
+skillseal add sk1…  # install for the ones found
 ```
 
 Nothing existing breaks: name-based installs keep working, and the token is
@@ -96,7 +96,7 @@ can accept a pasted token directly and report what it verified — or refuse.
 ## Publishing
 
 ```bash
-skillx publish ./my-skill --from https://s3.filebase.com/my-bucket
+skillseal publish ./my-skill --from https://s3.filebase.com/my-bucket
 ```
 
 This prints the fingerprint, the publisher key, and the ready-to-paste line.

@@ -1,10 +1,13 @@
 #!/usr/bin/env node
-// skillx — install an agent skill from a token that proves what it is.
+// skillseal 🦭 — install an agent skill from a token that proves what it is.
 //
-//   skillx add sk1…            fetch, check, and install for the agents you have
-//   skillx inspect sk1…        read the token without touching the network
-//   skillx publish <dir>       turn a skill folder into a token
-//   skillx where               show which agents were found on this machine
+// Two kinds of seal, one idea: a wax seal shows a letter was not opened and
+// who sent it. This does the same for a skill.
+//
+//   skillseal add sk1…            fetch, check, and install for the agents you have
+//   skillseal inspect sk1…        read the token without touching the network
+//   skillseal publish <dir>       turn a skill folder into a token
+//   skillseal where               show which agents were found on this machine
 //
 // The token carries the skill's fingerprint, its publisher's key, and their
 // signature, so nothing along the way has to be trusted.
@@ -31,9 +34,9 @@ const has = (args, name) => args.includes(name);
 // ── add ──────────────────────────────────────────────────────────────────
 async function cmdAdd(args) {
   const token = args.find((a) => a.startsWith("sk1") || a.startsWith("skill://"));
-  if (!token) { console.error("usage: skillx add sk1…"); process.exit(2); }
+  if (!token) { console.error("usage: skillseal add sk1…"); process.exit(2); }
 
-  console.log(`\n${c.b}Installing a skill${c.off}\n`);
+  console.log(`\n${c.b}🦭 Installing a skill${c.off}\n`);
   let result;
   try {
     result = await install(token, {
@@ -67,7 +70,7 @@ async function cmdAdd(args) {
 // ── inspect ──────────────────────────────────────────────────────────────
 function cmdInspect(args) {
   const tokenStr = args.find((a) => a.startsWith("sk1") || a.startsWith("skill://"));
-  if (!tokenStr) { console.error("usage: skillx inspect sk1…"); process.exit(2); }
+  if (!tokenStr) { console.error("usage: skillseal inspect sk1…"); process.exit(2); }
   let t;
   try { t = readToken(tokenStr); }
   catch (e) { console.error(`  ${c.r}✗${c.off} ${e.message}`); process.exit(1); }
@@ -106,7 +109,7 @@ function keysFromSeed(seedText) {
 async function cmdPublish(args) {
   const dir = args.find((a) => !a.startsWith("-") && a !== "publish");
   if (!dir || !existsSync(join(dir, "SKILL.md"))) {
-    console.error("usage: skillx publish <skill-dir> [--from <url>] [--upload] [--inline]");
+    console.error("usage: skillseal publish <skill-dir> [--from <url>] [--upload] [--inline]");
     process.exit(2);
   }
   const files = walk(dir).map((f) => {
@@ -117,17 +120,17 @@ async function cmdPublish(args) {
   const name = flag(args, "--name", nameFromMd || basename(dir));
 
   const inlineOnly = has(args, "--inline") && files.length === 1;
-  const { privateKey, publicHex } = keysFromSeed(process.env.PUBLISHER_SEED || "skillx-demo-publisher-seed");
+  const { privateKey, publicHex } = keysFromSeed(process.env.PUBLISHER_SEED || "skillseal-demo-publisher-seed");
 
   // With --upload, put every file in the configured store first and note the
   // IPFS address it comes back with. Those go into the file list, so anyone can
   // later fetch the same bytes through any public gateway.
   const extraLocations = [];
   if (has(args, "--upload")) {
-    const s3 = await import("../lib/s3.mjs");
+    const store = await import("./store.mjs");
     for (const f of files) {
-      await s3.s3Put(f.address, f.bytes);
-      f.cid = await s3.s3Cid(f.address).catch(() => null);
+      await store.put(f.address, f.bytes);
+      f.cid = await store.ipfsAddress(f.address).catch(() => null);
     }
     const withCid = files.filter((f) => f.cid).length;
     info(`uploaded ${files.length} file(s)${withCid ? `, ${withCid} with an IPFS address` : ""}`);
@@ -148,9 +151,9 @@ async function cmdPublish(args) {
     fingerprint = fingerprintOf(listBytes);
 
     if (has(args, "--upload")) {
-      const s3 = await import("../lib/s3.mjs");
-      await s3.s3Put(fingerprint, listBytes);
-      const listCid = await s3.s3Cid(fingerprint).catch(() => null);
+      const store = await import("./store.mjs");
+      await store.put(fingerprint, listBytes);
+      const listCid = await store.ipfsAddress(fingerprint).catch(() => null);
       if (listCid) {
         extraLocations.push(`ipfs://${listCid}`);
         info(`file list on IPFS: ${listCid}`);
@@ -174,7 +177,7 @@ async function cmdPublish(args) {
   info(`fingerprint  ${fingerprint}`);
   info(`publisher    ${publicHex}`);
   console.log(`\n${c.b}Anyone can install it with:${c.off}\n`);
-  console.log(`  npx skillx add ${token}\n`);
+  console.log(`  npx skillseal add ${token}\n`);
   console.log(`${c.dim}link form:${c.off} ${toUri(token)}\n`);
 }
 
@@ -186,7 +189,7 @@ function cmdVerify() {
   nothing pinned in ${LOCKFILE}
 `); return; }
   console.log(`
-${c.b}Checking ${names.length} pinned skill(s)${c.off}
+${c.b}🦭 Checking ${names.length} pinned skill(s)${c.off}
 `);
   let bad = 0;
   for (const name of names) {
@@ -204,7 +207,7 @@ ${c.b}Checking ${names.length} pinned skill(s)${c.off}
 
 // ── where ────────────────────────────────────────────────────────────────
 function cmdWhere() {
-  console.log(`\n${c.b}Agents on this machine${c.off}\n`);
+  console.log(`\n${c.b}🦭 Agents on this machine${c.off}\n`);
   for (const a of detect()) {
     console.log(`  ${a.present ? c.g + "found  " + c.off : c.dim + "absent " + c.off} ${a.label.padEnd(30)} ${c.dim}${a.dir}${c.off}`);
   }
@@ -223,13 +226,13 @@ const run = {
 
 if (!run) {
   console.log(`
-${c.b}skillx${c.off} — install an agent skill from a token that proves what it is
+${c.b}🦭 skillseal${c.off} — install an agent skill from a token that proves what it is
 
-  ${c.b}skillx add${c.off} sk1…          fetch, check, and install it
-  ${c.b}skillx inspect${c.off} sk1…      read the token, offline
-  ${c.b}skillx publish${c.off} <dir>     turn a skill folder into a token
-  ${c.b}skillx verify${c.off}            re-check every skill in skills.lock
-  ${c.b}skillx where${c.off}             show the agents found here
+  ${c.b}skillseal add${c.off} sk1…          fetch, check, and install it
+  ${c.b}skillseal inspect${c.off} sk1…      read the token, offline
+  ${c.b}skillseal publish${c.off} <dir>     turn a skill folder into a token
+  ${c.b}skillseal verify${c.off}            re-check every skill in skills.lock
+  ${c.b}skillseal where${c.off}             show the agents found here
 
 Options: --agent <id>  --all  --from <url>  --to <dir>  --name <n>  --force  --accept-new-key
 `);

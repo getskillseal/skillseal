@@ -94,7 +94,7 @@ export async function install(tokenString, opts = {}) {
   const name = opts.name || token.name || token.fingerprint.slice(7, 19);
 
   // Build the folder somewhere temporary, then move it into place in one step.
-  const staging = mkdtempSync(join(tmpdir(), "skillx-"));
+  const staging = mkdtempSync(join(tmpdir(), "skillseal-"));
   const built = join(staging, name);
   mkdirSync(built, { recursive: true });
   for (const f of files) {

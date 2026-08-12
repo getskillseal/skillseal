@@ -1,19 +1,22 @@
-# mcp-skills-integrity
+<p align="center">
+  <img src="docs/cover.svg" alt="SkillSeal — skills you can prove. One line, any agent." width="820">
+</p>
 
-**Approve what an agent reads by content, not by name.**
+<h1 align="center">SkillSeal 🦭</h1>
+<p align="center"><b>Skills you can prove. Paste one line, in any agent.</b></p>
 
-Integrity verification for MCP tool descriptions and Agent Skills, so a changed tool or skill is caught before it reaches model context.
-
-![Without content verification an altered tool description reaches the agent and leaks a planted secret; with it, the same change is blocked before it reaches context.](docs/hero.svg)
-
-Every line in that picture is reproduced by `./demo.sh` on your machine.
+<p align="center">
+  It fetches the skill from anywhere, checks every byte against the publisher's
+  signature before anything is written, and installs it where your agent already
+  looks. No account, no registry, nothing to trust.
+</p>
 
 ---
 
-## One line, any agent
+## Quick start
 
 ```bash
-npx skillx add sk1qyxcff3u8hhdxzq9cqxfye7fzvlwvptazge6j72zr5urhe…
+npx skillseal add sk1qyxcff3u8hhdxzq9cqxfye7fzvlwvptazge6j72zr5urhe…
 ```
 
 That line is not a lookup. It carries the skill's fingerprint, its publisher's key, and their signature, so the install checks itself:
@@ -32,10 +35,12 @@ Alter one byte anywhere in the source and the install refuses, leaving nothing o
 It installs as a plain [Agent Skills](https://agentskills.io/home) folder into whichever agents are on the machine, so Claude Code, Hermes, goose, Cursor, Codex, OpenCode, OpenHands, Letta, Amp, Gemini CLI and Copilot all read it with no plugin and no integration. Existing name-based installs keep working. Details: [docs/design/install-tokens.md](docs/design/install-tokens.md).
 
 ```bash
-skillx where                                  # agents found here
-skillx inspect sk1…                           # read a token, offline
-skillx publish ./my-skill --from <bucket-url> # print the line others paste
+skillseal where                                  # agents found here
+skillseal inspect sk1…                           # read a token, offline
+skillseal publish ./my-skill --upload            # print the line others paste
 ```
+
+Browse a hub of skills, each with its own install line, in [`hub/index.html`](hub/index.html). The tool lives in [`skillseal/`](skillseal/); how the token works is in [docs/design/install-tokens.md](docs/design/install-tokens.md).
 
 ## The problem
 

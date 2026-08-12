@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, dirname } from "node:path";
 
-const FILE = process.env.SKILLX_PUBLISHERS || join(homedir(), ".skillx", "publishers.json");
+const FILE = process.env.SKILLSEAL_PUBLISHERS || join(homedir(), ".skillseal", "publishers.json");
 
 function load() {
   if (!existsSync(FILE)) return {};

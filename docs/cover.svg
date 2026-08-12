@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" font-family="'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0f1c"/><stop offset="1" stop-color="#07070d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="24%" cy="40%" r="46%">
+      <stop offset="0" stop-color="#1d9bf0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#1d9bf0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="380" rx="16" fill="url(#bg)"/>
+  <rect width="1000" height="380" rx="16" fill="url(#glow)"/>
+
+  <!-- mascot -->
+  <circle cx="182" cy="176" r="96" fill="#0e1526" stroke="rgba(255,255,255,.08)"/>
+  <text x="182" y="212" text-anchor="middle" font-size="112">🦭</text>
+  <!-- the verified seal badge on the mascot -->
+  <g transform="translate(246,236)">
+    <circle cx="0" cy="0" r="26" fill="#1d9bf0" stroke="#0d1526" stroke-width="4"/>
+    <path d="M-11 1 l7.5 7.5 L14 -9" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="352" y="150" fill="#f2f5f9" font-size="62" font-weight="800" letter-spacing="-1.8">SkillSeal</text>
+  <text x="354" y="192" fill="#9fb0c6" font-size="21">Skills you can prove. One line, any agent.</text>
+
+  <!-- paste line -->
+  <rect x="354" y="220" width="600" height="52" rx="10" fill="#0a0f1c" stroke="rgba(255,255,255,.09)"/>
+  <text x="378" y="252" font-family="'SFMono-Regular',Consolas,monospace" font-size="17">
+    <tspan fill="#5eb4f7">npx skillseal add</tspan><tspan fill="#e8edf4"> sk1qy9c607fvn6ngfp9cv…</tspan>
+  </text>
+
+  <!-- three promises -->
+  <g font-size="15" fill="#9fb0c6">
+    <text x="354" y="312">🦭  Every byte checked before it lands</text>
+    <text x="660" y="312">🌐  Fetched from anywhere, trusted from nowhere</text>
+    <text x="354" y="344">📦  Installs as a plain skill folder every agent reads</text>
+  </g>
+</svg>

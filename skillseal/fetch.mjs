@@ -12,7 +12,7 @@ export const fingerprintOf = (bytes) => "sha256:" + createHash("sha256").update(
 // Public gateways used to turn an ipfs:// location into ordinary URLs. They
 // need no account and are safe to use here because nothing they return is
 // believed without being hashed first.
-export const GATEWAYS = (process.env.SKILLX_GATEWAYS ||
+export const GATEWAYS = (process.env.SKILLSEAL_GATEWAYS ||
   "https://ipfs.io/ipfs,https://dweb.link/ipfs,https://ipfs.filebase.io/ipfs,https://cloudflare-ipfs.com/ipfs"
 ).split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
 

@@ -69,7 +69,7 @@ server.registerTool(
     },
   },
   async ({ token, to }) => {
-    const { install } = await import("../skillx/install.mjs");
+    const { install } = await import("../skillseal/install.mjs");
     try {
       const r = await install(token, { to });
       const where = r.installed.map((t) => `  ${t.label}: ${t.dest}`).join("\n");
