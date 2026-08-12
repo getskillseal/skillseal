@@ -48,15 +48,16 @@
   nav.top .right{margin-left:auto;display:flex;align-items:center;gap:1.5rem;font-size:.98rem;color:#d7d3ca}
   .ext:after{content:"↗";font-size:.72em;margin-left:.28em;opacity:.65;vertical-align:super}
 
-  /* ── hero (centered) ─────────────────────────────────────── */
-  header.hero{position:relative;text-align:center;padding:3.6rem 1.5rem 2.6rem;overflow:hidden}
-  header.hero:before{content:"";position:absolute;inset:-40% 0 auto 50%;transform:translateX(-50%);
-    width:900px;height:520px;border-radius:50%;pointer-events:none;
-    background:radial-gradient(ellipse at center,rgba(29,155,240,.12),transparent 62%)}
+  /* ── hero (centered, mascot up top — OpenClaw rhythm) ─────── */
+  header.hero{position:relative;text-align:center;padding:3rem 1.5rem 2.8rem;overflow:hidden}
+  header.hero:before{content:"";position:absolute;inset:-30% 0 auto 50%;transform:translateX(-50%);
+    width:1000px;height:560px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(29,155,240,.14),transparent 60%)}
   header.hero>*{position:relative}
-  .eyebrow{margin:0 0 .85rem;font-size:.78rem;font-weight:500;letter-spacing:.34em;
-    text-transform:uppercase;color:var(--gold);font-family:"JetBrains Mono",monospace}
-  h1{margin:0;font-size:clamp(2rem,5.6vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1.04}
+  .mascot{font-size:5rem;line-height:1;filter:drop-shadow(0 8px 30px rgba(29,155,240,.35))}
+  .eyebrow{margin:1rem 0 1.4rem;font-size:.82rem;font-weight:600;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--seal);font-family:"JetBrains Mono",monospace}
+  h1{margin:0;font-size:clamp(2.4rem,6.4vw,4.2rem);font-weight:800;letter-spacing:-.045em;line-height:1.02}
   .sub{margin:1.1rem 0 0;font-size:1.12rem;color:var(--dim)}
   .sub b{color:var(--gold);font-weight:700}
   .meta{margin:1.15rem 0 0;font-size:.86rem;color:#6f6b64;display:inline-flex;align-items:center;gap:.4rem}
@@ -233,8 +234,8 @@
   <a class="brand" href="#"><span class="mark">🦭</span>SkillSeal</a>
   <div class="links">
     <a href="#skills" class="on">Skills</a>
-    <a href="#quickstart">Quick start</a>
     <a href="./seal.html">Seal a skill</a>
+    <a href="#quickstart">Quick start</a>
     <a class="ext" href="/mcp-skills-integrity/docs">Docs</a>
   </div>
   <div class="right">
@@ -243,9 +244,11 @@
 </nav>
 
 <header class="hero">
+  <div class="mascot">🦭</div>
+  <p class="eyebrow">Open source · Decentralized · Self-verifying</p>
   <h1>Skills you can <em>trust</em>.</h1>
   <p class="lead">Paste one line. It fetches the skill from anywhere, checks every byte
-    against the publisher's signature, and installs it where your agent already looks.
+    against the publisher's seal, and installs it where your agent already looks.<br>
     No account, no registry, nothing to trust.</p>
   <div class="cta">
     <a class="btn primary" href="./seal.html">Seal a skill now</a>
