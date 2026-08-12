@@ -99,7 +99,7 @@ ${body}
 function copyHub() {
   const dest = join(HERE, "static", "hub");
   mkdirSync(dest, { recursive: true });
-  for (const page of ["index.html", "seal.html", "ipfs.html", "catalog.json"]) {
+  for (const page of ["index.html", "seal.html", "ipfs.html", "skill.html", "catalog.json"]) {
     const src = join(REPO_ROOT, "web", "hub", page);
     if (!existsSync(src)) continue;
     writeFileSync(join(dest, page), readFileSync(src));
