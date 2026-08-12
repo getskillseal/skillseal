@@ -50,7 +50,8 @@
   h1{margin:0;font-size:clamp(2rem,5.6vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1.04}
   .sub{margin:1.1rem 0 0;font-size:1.12rem;color:var(--dim)}
   .sub b{color:var(--gold);font-weight:700}
-  .meta{margin:1.15rem 0 0;font-size:.86rem;color:#6f6b64}
+  .meta{margin:1.15rem 0 0;font-size:.86rem;color:#6f6b64;display:inline-flex;align-items:center;gap:.4rem}
+  .meta svg{vertical-align:middle}
 
   .stats{display:flex;justify-content:center;gap:3.1rem;margin-top:1.9rem;flex-wrap:wrap}
   .stat .n{font-size:1.75rem;font-weight:700;letter-spacing:-.02em;line-height:1;font-family:"JetBrains Mono",monospace}
@@ -93,10 +94,26 @@
   .card .src{margin-left:auto;font-size:.72rem;color:var(--gold);background:rgba(255,215,0,.08);
     border:1px solid var(--line-gold);border-radius:20px;padding:.15rem .55rem}
   .card .desc{margin:.5rem 0 .75rem;color:var(--dim);font-size:.9rem;line-height:1.45}
-  .kv{display:flex;gap:.5rem;font-size:.72rem;color:var(--dim);border-top:1px solid var(--line);padding-top:.55rem}
-  .kv .k{color:rgba(255,215,0,.55);flex:0 0 auto}
-  .kv .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .cmdrow{display:flex;gap:.4rem;margin-top:.6rem}
+
+  /* verified seal: one glance says "provably the bytes you approved".
+     The proof itself is one hover away, so the card face stays quiet. */
+  .seal{position:relative;display:inline-flex;flex:0 0 auto;line-height:0;cursor:help}
+  .seal svg{width:16px;height:16px;display:block}
+  .seal .tip{position:absolute;left:50%;top:calc(100% + 9px);transform:translateX(-50%) translateY(-3px);
+    width:298px;background:#12121c;border:1px solid rgba(255,255,255,.1);border-radius:9px;
+    padding:.7rem .8rem;box-shadow:0 12px 34px rgba(0,0,0,.62);
+    opacity:0;visibility:hidden;transition:opacity .14s ease,transform .14s ease;z-index:40;text-align:left;line-height:1.5}
+  .seal:hover .tip,.seal:focus-visible .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .seal .tip:before{content:"";position:absolute;left:50%;top:-5px;width:9px;height:9px;transform:translateX(-50%) rotate(45deg);
+    background:#12121c;border-left:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.1)}
+  .tip .h{display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.15rem}
+  .tip .h svg{width:14px;height:14px}
+  .tip .p{display:block;font-size:.76rem;color:var(--dim);margin:0 0 .55rem}
+  .tip .row{display:flex;gap:.45rem;font-size:.68rem;margin-top:.2rem}
+  .tip .row .k{color:rgba(255,215,0,.6);flex:0 0 26px}
+  .tip .row .v{color:#b9b5ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  .cmdrow{display:flex;gap:.4rem;margin-top:.75rem}
   .cmd{flex:1;background:#08080f;border:1px solid var(--line);border-radius:6px;padding:.45rem .55rem;
     font-size:.72rem;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .copy{background:none;border:1px solid var(--line);border-radius:6px;color:var(--dim);font-size:.72rem;padding:.45rem .6rem}
@@ -129,7 +146,7 @@
   <p class="eyebrow">Hermes Agent</p>
   <h1>Skills Hub</h1>
   <p class="sub">Discover, search, and install from <b id="total">0</b> skills across <span id="regs">0</span> registries</p>
-  <p class="meta">Every skill content addressed and signed &middot; verified before it runs</p>
+  <p class="meta" id="heroMeta">Every skill verified before it runs</p>
   <div class="stats">
     <div class="stat"><div class="n" style="color:var(--green)" id="sBuiltin">0</div><div class="l">Built-in</div></div>
     <div class="stat"><div class="n" style="color:var(--amber)" id="sOptional">0</div><div class="l">Optional</div></div>
@@ -173,6 +190,14 @@ const EMBEDDED=[
  {name:"chart-builder",source:"community",category:"data",desc:"Turn a table into a clean, accessible chart spec, light and dark.",address:"sha256:1234abcd5678ef901234abcd5678ef901234abcd5678ef901234abcd5678ef90",cid:"bafybeic1…rt6"},
  {name:"email-triage",source:"community",category:"productivity",desc:"Classify and summarize an inbox export into actions and FYIs.",address:"sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",cid:"bafybeid8…yu3"},
 ];
+// Scalloped seal, drawn here rather than borrowed: 12 bumps from alternating
+// radii, rounded joins, and a white check. Blue reads as "verified" instantly.
+const SEAL_PTS="12,1 14.41,3.02 17.5,2.47 18.58,5.42 21.53,6.5 20.98,9.59 23,12 20.98,14.41 21.53,17.5 18.58,18.58 17.5,21.53 14.41,20.98 12,23 9.59,20.98 6.5,21.53 5.42,18.58 2.47,17.5 3.02,14.41 1,12 3.02,9.59 2.47,6.5 5.42,5.42 6.5,2.47 9.59,3.02";
+const seal=(size)=>`<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true">
+  <polygon points="${SEAL_PTS}" fill="#1d9bf0" stroke="#1d9bf0" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M7.6 12.3l2.9 2.9 5.9-6.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 let CATALOG=[],state={cat:"all",src:"all",q:""},timer;
 const cut=(s,n)=>s.length>n?s.slice(0,n)+"…":s;
 const num=n=>n.toLocaleString();
@@ -187,10 +212,17 @@ function render(){
   document.getElementById("empty").hidden=list.length>0;
   for(const s of list){
     const el=document.createElement("article");el.className="card";
-    el.innerHTML=`<div class="top"><span>${ICON[s.category]||"📦"}</span><span class="name">${s.name}</span><span class="src">${SRCLABEL[s.source]||s.source}</span></div>
+    el.innerHTML=`<div class="top"><span>${ICON[s.category]||"📦"}</span><span class="name">${s.name}</span>
+        <span class="seal" tabindex="0" role="img" aria-label="Verified: content address and publisher signature checked">${seal(16)}
+          <span class="tip">
+            <span class="h">${seal(14)} Verified skill</span>
+            <span class="p">These exact bytes are what the publisher signed. Your agent rechecks them before it runs.</span>
+            <span class="row mono"><span class="k">&kappa;</span><span class="v">${cut(s.address,30)}</span></span>
+            <span class="row mono"><span class="k">cid</span><span class="v">${s.cid}</span></span>
+          </span>
+        </span>
+        <span class="src">${SRCLABEL[s.source]||s.source}</span></div>
       <p class="desc">${s.desc}</p>
-      <div class="kv mono"><span class="k">κ</span><span class="v" title="${s.address}">${cut(s.address,34)}</span></div>
-      <div class="kv mono"><span class="k">cid</span><span class="v" title="${s.cid}">${s.cid}</span></div>
       <div class="cmdrow"><span class="cmd mono">hermes skills install ${cut(s.address,22)}</span><button class="copy">Copy</button></div>`;
     el.querySelector(".copy").onclick=e=>{
       navigator.clipboard?.writeText(`hermes skills install ${s.address}`);
@@ -246,6 +278,8 @@ addEventListener("keydown",e=>{
   if(e.key==="/"&&document.activeElement!==qEl){e.preventDefault();qEl.focus();}
   if(e.key==="Escape")qEl.blur();
 });
+
+document.getElementById("heroMeta").insertAdjacentHTML("afterbegin",seal(14));
 
 (async()=>{
   try{const r=await fetch("catalog.json",{cache:"no-store"});
