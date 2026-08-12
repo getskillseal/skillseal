@@ -20,7 +20,7 @@ bash scripts/s3-store.sh start
 export S3_ENDPOINT="${S3_ENDPOINT:-http://127.0.0.1:9000}"
 mkdir -p evidence
 
-SKILL="../examples/data/csv-stats"
+SKILL="../skills-ref/data/csv-stats"
 
 hr; echo "PUBLISH -- store the skill on distributed storage, attest it"; hr
 CARD=$(node agent/publish-skill.mjs "$SKILL")

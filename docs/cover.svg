@@ -36,7 +36,7 @@
   <text x="432" y="166" fill="#f5f5f7" font-size="92" font-weight="800" letter-spacing="-2.6">SkillSeal</text>
 
   <!-- accent line -->
-  <text x="436" y="214" fill="#1d9bf0" font-size="21" font-weight="700" letter-spacing="4">SEAL OF APPROVAL</text>
+  <text x="436" y="218" fill="#1d9bf0" font-size="33" font-weight="700" letter-spacing="4">YOUR SEAL OF APPROVAL</text>
 
   <!-- subtitle -->
   <text x="436" y="254" fill="#8a8a92" font-size="24">Agent skills you can trust. One line, any agent.</text>

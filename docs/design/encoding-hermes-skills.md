@@ -11,7 +11,7 @@ category/skill-name/
   SKILL.md            required: YAML frontmatter + markdown
   scripts/            optional: executable code
   references/         optional: docs the agent reads on demand
-  templates/ examples/ assets/
+  templates/ skills-ref/ assets/
 ```
 
 The frontmatter carries `name`, `description`, `version`, `platforms`, `author`, and `metadata.hermes.*` (tags, category, `requires_toolsets`, `fallback_for_toolsets`, `config`).
@@ -65,9 +65,9 @@ Four steps, all standard registry operations:
 ## Try it
 
 ```bash
-node demo/skill-tree/skill-tree.mjs encode examples/document/pdf-fill
-node demo/skill-tree/skill-tree.mjs verify examples/document/pdf-fill   # all files match
+node demo/skill-tree/skill-tree.mjs encode skills-ref/document/pdf-fill
+node demo/skill-tree/skill-tree.mjs verify skills-ref/document/pdf-fill   # all files match
 # edit any file under the skill, then:
-node demo/skill-tree/skill-tree.mjs verify examples/document/pdf-fill   # names the changed file, refuses
-node demo/skill-tree/skill-tree.mjs audit  examples/document/pdf-fill   # re-fetch from the store and re-verify
+node demo/skill-tree/skill-tree.mjs verify skills-ref/document/pdf-fill   # names the changed file, refuses
+node demo/skill-tree/skill-tree.mjs audit  skills-ref/document/pdf-fill   # re-fetch from the store and re-verify
 ```

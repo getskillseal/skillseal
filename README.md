@@ -161,7 +161,7 @@ web pages and docs site are static, and ship to GitHub Pages on every push to
 
 ```
 skillseal/   the CLI and library — the product (npm: skillseal)
-examples/    sample skills, each a folder with a SKILL.md
+skills-ref/    sample skills, each a folder with a SKILL.md
 web/
   hub/       the Sealed Skills browser (static)
   site/      the docs site (static)

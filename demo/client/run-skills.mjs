@@ -26,7 +26,7 @@ function main() {
   // Stage a working copy of the clean skill.
   rmSync("skill-lock/.work", { recursive: true, force: true });
   mkdirSync("skill-lock/.work", { recursive: true });
-  cpSync("../examples/release-notes", WORK, { recursive: true });
+  cpSync("../skills-ref/release-notes", WORK, { recursive: true });
 
   console.log("\n--- Approve the clean skill (pin its SKILL.md) ---");
   const approved = runLock("approve", WORK);

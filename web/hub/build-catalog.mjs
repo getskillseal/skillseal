@@ -16,7 +16,7 @@ import { fileURLToPath } from "node:url";
 import { buildTree } from "../../demo/lib/skilltree.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = process.argv[2] || join(HERE, "..", "..", "examples");
+const ROOT = process.argv[2] || join(HERE, "..", "..", "skills-ref");
 
 // Docs live on the same platform the upstream hub uses (Docusaurus), at the
 // same route shape: /docs/user-guide/skills/bundled/{category}/{category}-{name}

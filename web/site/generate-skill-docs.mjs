@@ -15,7 +15,7 @@ import { buildTree } from "../../demo/lib/skilltree.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(HERE, "..", "..");
-const SKILLS_ROOT = process.env.SKILLS_ROOT || join(REPO_ROOT, "examples");
+const SKILLS_ROOT = process.env.SKILLS_ROOT || join(REPO_ROOT, "skills-ref");
 const OUT = join(HERE, "docs", "user-guide", "skills", "bundled");
 
 const fm = (md, k) => (new RegExp(`^\\s*${k}:\\s*(.+)$`, "m").exec(md)?.[1] || "").trim();

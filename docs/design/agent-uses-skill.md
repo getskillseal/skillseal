@@ -50,7 +50,7 @@ The agent code does not change; point it at a Filecoin-backed S3 endpoint:
 
 ```bash
 set -a; . ./demo/.env.filecoin.example; set +a     # fill in Akave or Filebase creds
-node demo/agent/publish-skill.mjs examples/data/csv-stats   # prints a skill card
+node demo/agent/publish-skill.mjs skills-ref/data/csv-stats   # prints a skill card
 node demo/agent/skill-agent.mjs --address <sha256:...> --key <publisherKey>
 ```
 

@@ -17,7 +17,7 @@ import { contentAddress } from "../lib/store.mjs";
 import { buildTree } from "../lib/skilltree.mjs";
 import { s3Put, s3Get, s3Head, s3Cid, s3PutRaw, keyForAddress, s3Config } from "../lib/s3.mjs";
 
-const SKILL = process.argv[2] || "../examples/document/pdf-fill";
+const SKILL = process.argv[2] || "../skills-ref/document/pdf-fill";
 
 async function main() {
   const cfg = s3Config();

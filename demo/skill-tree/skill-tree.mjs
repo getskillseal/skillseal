@@ -3,7 +3,7 @@
 // A Hermes skill is not a single file. It is a directory tree:
 //   category/skill-name/
 //     SKILL.md            (required)
-//     scripts/ references/ templates/ examples/ assets/   (optional)
+//     scripts/ references/ templates/ skills-ref/ assets/   (optional)
 //
 // Hermes tracks skills by comparing local file hashes to an "origin hash"
 // recorded at last sync, and gates installs with policy scanning. There is no

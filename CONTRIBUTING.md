@@ -6,7 +6,7 @@ Thanks for helping make agent skills something you can trust.
 
 ```
 skillseal/   the CLI and library (npm: skillseal)
-examples/    sample skills, each a folder with a SKILL.md
+skills-ref/    sample skills, each a folder with a SKILL.md
 web/hub/     the Sealed Skills browser (static)
 web/site/    the docs site (static)
 docs/        design notes and assets
