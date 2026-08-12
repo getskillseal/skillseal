@@ -126,6 +126,13 @@ Two explorations extend the same content-addressed model beyond the demo:
   node hub/build-catalog.mjs        # real addresses -> hub/catalog.json
   python3 -m http.server -d hub 8899
   ```
+- **A whole catalogue, pinned and signed.** [`harness/pin-hub.mjs`](harness/pin-hub.mjs) encodes every skill in a catalogue and folds the manifests into one **signed registry root**. Measured against the real upstream corpus: **193 skills** (79 built-in, 114 optional), 987 files, 27 categories, **1,173 objects published in 32 seconds**, deduplicated by content address. A subscriber then holds just two facts — the root address and the publisher key — and [`harness/verify-hub.mjs`](harness/verify-hub.mjs) verifies the lot, refusing if any object is altered. Details: [docs/design/pinning-a-catalogue.md](docs/design/pinning-a-catalogue.md).
+
+  ```bash
+  node harness/pin-hub.mjs --root <repo>/skills:builtin --root <repo>/optional-skills:official --publish
+  node harness/verify-hub.mjs --sample 6
+  ```
+- **Running it on real Filecoin.** [`filecoin-demo.sh`](filecoin-demo.sh) publishes a skill to Filecoin-backed storage, fetches it back by address, verifies and runs it, then corrupts an object to show the agent refuse. Add credentials for [Akave O3](https://console.akave.com/) or [Filebase](https://console.filebase.com/) to `.env.filecoin` and run it; the code path is the one already exercised in CI.
 - **Documentation on the same platform the ecosystem already uses.** [`website/`](website/) is a Docusaurus 3 site, matching the upstream skills docs route for route: `/docs/user-guide/skills/bundled/{category}/{category}-{name}`. `generate-skill-docs.mjs` turns every `SKILL.md` into a page carrying that skill's address and per file table, computed at generation time so the docs and the bytes an agent fetches cannot drift apart.
 
   ```bash

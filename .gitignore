@@ -16,3 +16,4 @@ website/build/
 website/.docusaurus/
 website/docs/user-guide/skills/bundled/
 website/static/hub/
+harness/out/
