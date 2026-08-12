@@ -110,6 +110,7 @@ async function main() {
     files += tree.manifest.files.length;
     bytes += tree.manifest.files.reduce((n, f) => n + f.size, 0);
 
+    let listCid = null;
     if (s3) {
       for (const f of tree.files) {
         if (seen.has(f.address)) continue;      // content addressing dedups for free
@@ -118,6 +119,9 @@ async function main() {
         objects++;
       }
       if (!seen.has(tree.address)) { seen.add(tree.address); await s3.s3Put(tree.address, tree.bytes); objects++; }
+      // The address the store gives back, so the skill can also be fetched
+      // through any public gateway.
+      listCid = await s3.s3Cid(tree.address).catch(() => null);
     }
 
     savePin(NAMESPACE, `skill.${s.category}.${s.name}`, {
@@ -136,7 +140,8 @@ async function main() {
       author: fm(md, "author") || "community",
       license: fm(md, "license") || "MIT",
       address: tree.address,
-      cid: "(not pinned yet)",
+      cid: listCid || "(not pinned yet)",
+      ipfs: listCid,
       docs: `/mcp-skills-integrity/docs/user-guide/skills/bundled/${s.category}/${s.category}-${s.name}`,
     });
   }
@@ -151,16 +156,18 @@ async function main() {
 
   // Give every catalogue entry a one-line install token, so the hub hands out
   // something that proves itself rather than a name to be looked up.
-  const where = process.env.HUB_LOCATION ? [process.env.HUB_LOCATION] : [];
+  const base = process.env.HUB_LOCATION ? [process.env.HUB_LOCATION] : [];
   for (let i = 0; i < catalog.length; i++) {
     const fp = catalog[i].address;
+    const gateway = catalog[i].ipfs ? ["ipfs://" + catalog[i].ipfs] : [];
     catalog[i].token = createToken({
       fingerprint: fp,
       publisherKey: publicHex,
       signature: edSign(null, Buffer.from(fp), privateKey).toString("hex"),
       name: catalog[i].name,
-      locations: where,
+      locations: [...base, ...gateway],
     });
+    delete catalog[i].ipfs;
   }
 
   const signed = {
