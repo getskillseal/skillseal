@@ -17,8 +17,8 @@ import { join, relative, sep, basename } from "node:path";
 import { sign as edSign } from "node:crypto";
 import { install } from "./install.mjs";
 import { readToken, createToken, createPointer, toUri } from "./token.mjs";
-import { buildManifest, publisherHint } from "./manifest.mjs";
-import { fingerprintOf } from "./fetch.mjs";
+import { buildManifest, publisherHint, resolveManifest } from "./manifest.mjs";
+import { fingerprintOf, urlsFor } from "./fetch.mjs";
 import { detect } from "./agents.mjs";
 import { allPublishers } from "./publishers.mjs";
 import { anchorOf, keysFromSeed, isDemoIdentity, DEMO_SEED } from "./identity.mjs";
@@ -246,6 +246,62 @@ ${c.b}🦭 Checking ${names.length} pinned skill(s)${c.off}
 }
 
 // ── where ────────────────────────────────────────────────────────────────
+// ── sources ────────────────────────────────────────────────────────────────
+// The swarm, from the terminal: every place this skill can be fetched from, and
+// which ones answer with the right bytes right now. Like a torrent's peer list,
+// but every "peer" is checked against the content hash, so a green tick is proof.
+const DEFAULT_STORES = (process.env.SKILLSEAL_STORES || "https://getskillseal.github.io/skillseal/hub")
+  .split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
+const hostOf = (u) => { try { return new URL(u).host; } catch { return u; } };
+
+async function ping(url, want) {
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 8000);
+  const t0 = Date.now();
+  try {
+    const r = await fetch(url, { signal: ctl.signal });
+    if (!r.ok) return { ok: false };
+    const b = Buffer.from(await r.arrayBuffer());
+    return { ok: fingerprintOf(b) === want, ms: Date.now() - t0 };
+  } catch { return { ok: false }; }
+  finally { clearTimeout(timer); }
+}
+
+async function reportArtifact(label, address, locations) {
+  const urls = [...new Set(locations.flatMap((loc) => urlsFor(loc, address)))];
+  console.log(`\n  ${c.b}${label}${c.off}  ${c.dim}${address}${c.off}`);
+  if (!urls.length) { console.log(`    ${c.dim}no sources listed${c.off}`); return; }
+  const results = await Promise.all(urls.map(async (u) => ({ u, ...await ping(u, address) })));
+  let up = 0;
+  for (const { u, ok: good, ms } of results) {
+    if (good) { up++; console.log(`    ${c.g}✓${c.off} ${hostOf(u).padEnd(28)} ${c.dim}${ms}ms${c.off}`); }
+    else console.log(`    ${c.dim}·  ${hostOf(u).padEnd(28)} no answer${c.off}`);
+  }
+  console.log(`    ${up ? c.g : c.y}served by ${up}/${urls.length} independent source(s)${c.off}`);
+}
+
+async function cmdSources(args) {
+  const tokenStr = args.find((a) => a.startsWith("sk1") || a.startsWith("skill://"));
+  if (!tokenStr) { console.error("usage: skillseal sources sk1…"); process.exit(2); }
+  let t; try { t = readToken(tokenStr); } catch (e) { console.error(`  ${c.r}✗${c.off} ${e.message}`); process.exit(1); }
+  const stores = [...(flag(args, "--from") ? [flag(args, "--from")] : []), ...DEFAULT_STORES];
+
+  console.log(`\n${c.b}🦭 Sources for this skill${c.off}`);
+  console.log(`  ${c.dim}The name is the content hash. Any host with the bytes can serve it; each${c.off}`);
+  console.log(`  ${c.dim}answer is rehashed against that name, so no source has to be trusted.${c.off}`);
+
+  if (t.version === 2) {
+    await reportArtifact("manifest", t.manifestAddress, stores);
+    const resolved = await resolveManifest(t.manifestAddress, stores).catch(() => null);
+    if (resolved) for (const f of resolved.files) {
+      await reportArtifact(f.path, f.address, [...(f.cid ? [`ipfs://${f.cid}`] : []), ...resolved.locations, ...stores]);
+    } else console.log(`\n  ${c.y}could not resolve the manifest to list its files (try --from <store>)${c.off}`);
+  } else {
+    await reportArtifact("file list", t.fingerprint, [...t.locations, ...stores]);
+    console.log(`\n  ${c.dim}v1 token — per-file sources appear once the list is fetched on install.${c.off}`);
+  }
+  console.log(`\n  ${c.dim}Remove any one source and the rest still resolve. That is the point.${c.off}\n`);
+}
+
 function cmdWhere() {
   console.log(`\n${c.b}🦭 Agents on this machine${c.off}\n`);
   for (const a of detect()) {
@@ -261,6 +317,7 @@ const run = {
   inspect: () => cmdInspect(args),
   publish: () => cmdPublish(args),
   verify: () => cmdVerify(),
+  sources: () => cmdSources(args),
   where: () => cmdWhere(),
 }[cmd];
 
@@ -272,6 +329,7 @@ ${c.b}🦭 skillseal${c.off} — install an agent skill from a token that proves
   ${c.b}skillseal inspect${c.off} sk1…      read the token, offline
   ${c.b}skillseal publish${c.off} <dir>     turn a skill folder into a token
   ${c.b}skillseal verify${c.off}            re-check every skill in skills.lock
+  ${c.b}skillseal sources${c.off} sk1…      list every place it can be fetched from, live
   ${c.b}skillseal where${c.off}             show the agents found here
 
 A token comes in two shapes, same guarantee: a short v2 pointer (~60 chars,

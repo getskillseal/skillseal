@@ -41,6 +41,11 @@ h2 { margin-top: 2.4rem; }
 [data-theme="dark"] .menu__link--active { color: var(--ifm-color-primary); }
 [data-theme="dark"] .menu__link:hover { color: #fff; }
 .navbar__title, .navbar__brand { font-weight: 700; letter-spacing: -0.02em; }
+.navbar__logo { height: 1.5rem; }
+.navbar__logo img { height: 100%; width: auto; }
+/* GitHub nav item: icon + label on one line, matching the homepage */
+.nav-gh { display: inline-flex; align-items: center; gap: .4rem; }
+.nav-gh svg { opacity: .85; }
 
 /* code + tokens: mono, restrained */
 [data-theme="dark"] code {

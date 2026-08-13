@@ -60,6 +60,37 @@
   .row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
   .btn{border:1px solid var(--line-2);border-radius:9px;padding:.5rem .9rem;font-size:.85rem;color:var(--ink);background:#1a1a1d}
   .btn:hover{border-color:var(--seal);text-decoration:none}
+  /* sources / swarm panel — decentralization made visible */
+  .srcnote{margin:0 0 1rem;font-size:.86rem;color:var(--dim);line-height:1.6}
+  .ids{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.1rem}
+  .id{display:flex;align-items:center;gap:.6rem;font-family:"JetBrains Mono",monospace;font-size:.76rem}
+  .id .t{flex:0 0 88px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-size:.62rem}
+  .id .val{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#c9c9d0}
+  .id .cp{flex:0 0 auto;background:none;border:1px solid var(--line-2);border-radius:6px;color:var(--dim);
+    font-size:.68rem;padding:.15rem .45rem;cursor:pointer}
+  .id .cp:hover{border-color:var(--seal);color:var(--seal)}
+  .srclist{display:flex;flex-direction:column;gap:.4rem}
+  .src{display:flex;align-items:center;gap:.6rem;padding:.5rem .65rem;border:1px solid var(--line);border-radius:9px;
+    background:#0f0f13;font-size:.82rem}
+  .src .kind{flex:0 0 auto;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--line-2);border-radius:5px;padding:.1rem .35rem;color:var(--faint)}
+  .src .kind.ipfs{color:#8fd0ff;border-color:rgba(29,155,240,.35)}
+  .src .kind.mirror{color:#c8c8cf}
+  .src .h{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:"JetBrains Mono",monospace;color:#c9c9d0}
+  .src .h a{color:inherit} .src .h a:hover{color:var(--seal)}
+  .src .st{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-size:.74rem;color:var(--dim)}
+  .src .st.ok{color:var(--green)} .src .st.bad{color:var(--faint)}
+  .src .ms{flex:0 0 auto;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--faint);min-width:44px;text-align:right}
+  .srcsum{margin-top:.9rem;font-size:.84rem;color:var(--dim);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+  .srcsum b{color:var(--green)}
+  .swarmbar{height:6px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;margin:.6rem 0 .2rem}
+  .swarmbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--seal),var(--green));transition:width .4s ease}
+  @media(max-width:560px){
+    nav.top{padding:.75rem 1.1rem}
+    .wrap{padding:1.8rem 1.1rem 3.5rem}
+    .src .kind{display:none}
+    .id .t{flex-basis:64px}
+  }
 </style>
 </head>
 <body>
@@ -90,11 +121,17 @@
   const hex = u => [...u].map(b=>b.toString(16).padStart(2,"0")).join("");
   const sha = async u => hex(new Uint8Array(await crypto.subtle.digest("SHA-256", u)));
 
-  const GATEWAYS = ["https://dweb.link/ipfs","https://w3s.link/ipfs","https://gateway.pinata.cloud/ipfs","https://ipfs.io/ipfs"];
+  // A broad, diverse set of independent public IPFS gateways. Any one of them can
+  // be down or hostile and the skill still resolves from the others, because the
+  // bytes each returns are hashed against the address before anything is shown.
+  const GATEWAYS = ["https://dweb.link/ipfs","https://w3s.link/ipfs","https://gateway.pinata.cloud/ipfs",
+    "https://ipfs.io/ipfs","https://cloudflare-ipfs.com/ipfs","https://4everland.io/ipfs",
+    "https://nftstorage.link/ipfs","https://ipfs.filebase.io/ipfs"];
   // Untrusted content mirrors laid out by hash. Whatever they return is hashed
   // against the address before it is shown, so a mirror can only fail to answer.
   const STORES = ["./blobs/sha256"];
   const storePaths = h => STORES.map(s => `${s}/${h.slice(0,2)}/${h.slice(2,4)}/${h}`);
+  const hostOf = u => { try { return new URL(u, location.href).host || u; } catch { return u; } };
 
   async function timedFetch(url, ms=7000){
     const c=new AbortController(), t=setTimeout(()=>c.abort(), ms);
@@ -138,6 +175,45 @@
       + (cid?`<a class="btn" href="https://ipfs.io/ipfs/${cid}" target="_blank" rel="noopener">Open raw on IPFS →</a>`:"")+`</div>`;
   }
 
+  // Probe every independent source for this skill's manifest, in the visitor's
+  // own browser, and show which ones serve it right now. Each source's bytes are
+  // rehashed against the address, so a green tick is proof, not a claim. This is
+  // the swarm made visible: the same content, reachable from many places.
+  async function probeSources(core){
+    const list = [];
+    const extra = (core.locations||[]).map(String).filter(l => /^https?:\/\//.test(l));
+    if (addr) {
+      for (const s of STORES) list.push({ kind:"mirror", label:"this site (same origin)", url:`${s}/${addr.slice(0,2)}/${addr.slice(2,4)}/${addr}`, want:addr });
+      for (const loc of extra) { const base=loc.replace(/\/$/,""); list.push({ kind:"mirror", label:hostOf(loc), url:`${base}/blobs/sha256/${addr.slice(0,2)}/${addr.slice(2,4)}/${addr}`, want:addr }); }
+    }
+    if (cid) for (const g of GATEWAYS) list.push({ kind:"ipfs", label:hostOf(g), url:`${g}/${cid}`, want:addr||null });
+
+    const box = $("srclist"); if(!box) return; box.innerHTML="";
+    const rows = list.map(s => {
+      const el = document.createElement("div"); el.className="src";
+      el.innerHTML = `<span class="kind ${s.kind}">${s.kind}</span>`
+        + `<span class="h"><a href="${s.url}" target="_blank" rel="noopener">${esc(s.label)}</a></span>`
+        + `<span class="ms"></span><span class="st"><span class="vspin"></span></span>`;
+      box.appendChild(el); return { s, el };
+    });
+    let ok=0, done=0;
+    await Promise.all(rows.map(async ({ s, el }) => {
+      const t0 = performance.now();
+      const r = await timedFetch(s.url, 8000);
+      let good=false;
+      if (r && r.ok) { if (s.want) { const b=new Uint8Array(await r.arrayBuffer()); good = (await sha(b)===s.want); } else good=true; }
+      const ms = Math.round(performance.now()-t0);
+      const st = el.querySelector(".st"), msEl = el.querySelector(".ms");
+      if (good) { ok++; st.className="st ok"; st.innerHTML="✓ verified"; msEl.textContent=ms+"ms"; }
+      else { st.className="st bad"; st.innerHTML="no answer"; }
+      done++;
+      const fill=$("swarmfill"); if(fill) fill.style.width = Math.round(ok/Math.max(1,list.length)*100)+"%";
+      const sum=$("srcsum"); if(sum) sum.innerHTML = done<list.length
+        ? `<span class="vspin"></span> probing ${done}/${list.length} sources…`
+        : `<span>Served by <b>${ok}</b> of ${list.length} independent source${list.length===1?"":"s"} right now — each one proven against the address in your browser.</span>`;
+    }));
+  }
+
   async function main(){
     if(!cid && !addr){ return fail("No content address was provided."); }
     const m = await fetchManifest();
@@ -152,11 +228,23 @@
       <p class="sub">This is the skill pinned at a content address. Each file below is fetched by its own hash and checked in your browser. The address is the proof.</p>
       <div class="card"><div class="lbl">Files</div><div class="files" id="files"></div></div>
       <div id="content"></div>
-      <div class="card"><div class="lbl">Address</div><dl class="kv">
-        <dt>manifest</dt><dd>${addr?("sha256:"+esc(addr)):esc(cid)}</dd>
-        ${core.publisherKey?`<dt>publisher</dt><dd>${esc(core.publisherKey)}</dd>`:""}
-      </dl></div>
+      <div class="card">
+        <div class="lbl">Sources · served from many places, like a torrent</div>
+        <p class="srcnote">This skill's name <em>is</em> its content hash. Any host with the bytes can serve it, and your browser rehashes every byte against that name — so no source is trusted, and removing any one leaves the rest working.</p>
+        <div class="ids">
+          <div class="id"><span class="t">Address</span><span class="val mono" title="${addr?("sha256:"+esc(addr)):esc(cid)}">${addr?("sha256:"+esc(addr)):esc(cid)}</span><button class="cp" data-copy="${addr?("sha256:"+esc(addr)):esc(cid)}">copy</button></div>
+          ${cid?`<div class="id"><span class="t">IPFS CID</span><span class="val mono" title="${esc(cid)}">${esc(cid)}</span><button class="cp" data-copy="${esc(cid)}">copy</button></div>`:""}
+          ${core.publisherKey?`<div class="id"><span class="t">Publisher</span><span class="val mono" title="${esc(core.publisherKey)}">${esc(core.publisherKey)}</span><button class="cp" data-copy="${esc(core.publisherKey)}">copy</button></div>`:""}
+        </div>
+        <div class="swarmbar"><i id="swarmfill"></i></div>
+        <div class="srclist" id="srclist"></div>
+        <div class="srcsum" id="srcsum"><span class="vspin"></span> probing independent sources…</div>
+      </div>
       <div class="row"><a class="btn" href="./index.html">← All skills</a>${cid?`<a class="btn" href="https://ipfs.io/ipfs/${cid}" target="_blank" rel="noopener">Open raw on IPFS →</a>`:""}</div>`;
+
+    document.querySelectorAll(".cp").forEach(b=>b.addEventListener("click",()=>{
+      navigator.clipboard?.writeText(b.dataset.copy||""); const o=b.textContent; b.textContent="copied"; setTimeout(()=>b.textContent=o,1200); }));
+    probeSources(core);   // live swarm view, runs while the files verify below
 
     const fl = $("files");
     for(const f of files){

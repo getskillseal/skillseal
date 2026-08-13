@@ -12,8 +12,14 @@ export const fingerprintOf = (bytes) => "sha256:" + createHash("sha256").update(
 // Public gateways used to turn an ipfs:// location into ordinary URLs. They
 // need no account and are safe to use here because nothing they return is
 // believed without being hashed first.
+// A broad, diverse set of independent public gateways. The more unrelated
+// sources, the harder the content is to take offline — and every one is checked
+// against the fingerprint, so breadth costs no trust. Add your own with
+// SKILLSEAL_GATEWAYS (comma separated).
 export const GATEWAYS = (process.env.SKILLSEAL_GATEWAYS ||
-  "https://ipfs.io/ipfs,https://dweb.link/ipfs,https://ipfs.filebase.io/ipfs,https://cloudflare-ipfs.com/ipfs"
+  ["https://ipfs.io/ipfs", "https://dweb.link/ipfs", "https://w3s.link/ipfs",
+   "https://gateway.pinata.cloud/ipfs", "https://ipfs.filebase.io/ipfs",
+   "https://cloudflare-ipfs.com/ipfs", "https://4everland.io/ipfs", "https://nftstorage.link/ipfs"].join(",")
 ).split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
 
 // A location is one of:

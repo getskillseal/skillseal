@@ -48,6 +48,11 @@
   nav.top .links a:hover{color:#fff}
   nav.top .links a.on{color:var(--seal);font-weight:600}
   nav.top .links svg{width:15px;height:15px;opacity:.85}
+  /* mobile menu button — hidden on desktop, revealed under 900px */
+  .navtoggle{display:none;margin-left:auto;align-items:center;justify-content:center;
+    background:none;border:1px solid var(--line-2);border-radius:9px;padding:.42rem .5rem;color:var(--ink)}
+  .navtoggle:hover{border-color:rgba(255,255,255,.28)}
+  .navtoggle svg{width:20px;height:20px;display:block}
 
   /* ── hero: fills the viewport on any device, content centered ── */
   header.hero{position:relative;min-height:calc(100svh - 48px);min-height:calc(100dvh - 48px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.2vh 1.25rem 1.8rem;overflow:hidden}
@@ -257,10 +262,43 @@
   .docs:hover{background:rgba(29,155,240,.16);color:#8ccbfa}
 
   @media(max-width:900px){
-    nav.top{gap:1rem;padding:.75rem 1rem}
-    nav.top .links,nav.top .right{gap:1rem;font-size:.9rem}
-    .layout{grid-template-columns:1fr;padding:1.25rem}
+    nav.top{padding:.7rem 1.1rem}
+    .navtoggle{display:inline-flex}
+    nav.top .links{display:none}
+    nav.top.open .links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+      align-items:stretch;gap:0;background:var(--nav);border-bottom:1px solid var(--line);
+      padding:.4rem 1.1rem .8rem;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+    nav.top.open .links a{width:100%;padding:.78rem .2rem;font-size:1rem;border-bottom:1px solid var(--line)}
+    nav.top.open .links a:last-child{border-bottom:0}
+    nav.top .links svg{width:17px;height:17px}
+
+    header.hero{min-height:auto;padding:2rem 1.1rem 2.6rem}
+    .hero-main{gap:1.1rem}
+    .lead{font-size:1.02rem}
+    .cta{width:100%;flex-direction:column;align-items:stretch;margin-top:.4rem}
+    .cta .btn{justify-content:center;padding:.82rem 1.1rem;font-size:.9rem}
+    .works-label{margin-top:.5rem}
+
+    .qs{padding:2.2rem 1.1rem 1.8rem}
+    .qs-tabs{flex-wrap:wrap;gap:.5rem 1rem;padding:.8rem 1rem}
+    .qs-spacer{display:none}
+    .qs-body{padding:1.1rem}
+    .qs-cmd code{min-width:0;font-size:.9rem}
+    .qs-foot{font-size:.88rem}
+
+    .layout{grid-template-columns:1fr;gap:1.4rem;padding:1.6rem 1.1rem 3rem}
+    .grid{grid-template-columns:1fr}
+    .card{padding:1.05rem 1.1rem}
+    .mrow{gap:.7rem}
+    .mtitle{font-size:1.3rem;flex:1 1 auto}
+    .mrow .search{flex:1 1 100%;order:3}
     .stats{gap:1.8rem}
+  }
+  @media(max-width:560px){
+    .qs-label,.qs-badge{display:none}
+    h1{font-size:2rem}
+    .brand{font-size:1.02rem}
+    .qs-h{margin-bottom:.6rem}
   }
 
   /* ── logo marquee (works-with row) ─────────────────────────── */
@@ -282,6 +320,7 @@
 
 <nav class="top">
   <a class="brand" href="#"><span class="mark">🦭</span>SkillSeal</a>
+  <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   <div class="links">
     <a href="#skills" class="on">Agent Skills</a>
     <a href="./seal.html">Seal a skill</a>
@@ -290,6 +329,13 @@
     <a href="https://github.com/getskillseal/skillseal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>GitHub</a>
   </div>
 </nav>
+<script>
+(function(){var n=document.querySelector('nav.top'),t=document.getElementById('navToggle');
+  if(!n||!t)return;
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});
+  n.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');});});
+})();
+</script>
 
 <header class="hero">
   <canvas id="bg" aria-hidden="true"></canvas>
